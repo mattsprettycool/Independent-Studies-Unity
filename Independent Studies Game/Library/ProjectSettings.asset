@@ -590,9 +590,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: c385e4d0-b4d0-4fae-80d9-0df7a6e17f0f
+  cloudProjectId: 4bbc6a51-85f3-484a-849f-0c874218b409
   projectName: Independent Studies Game
-  organizationId: unity_dwpv3dttxifrjw
+  organizationId: jaitheboss1-gmail-com
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
