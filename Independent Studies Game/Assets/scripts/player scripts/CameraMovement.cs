@@ -9,11 +9,16 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     float sensitivity;
 
+    float newrotX;
+    float newrotY;
+
     // Use this for initialization
     void Start () {
         sensitivity = 5.0f;
         ShowCursor = false;
-	    if (ShowCursor == false)
+        newrotX=0;
+        newrotY=0;
+        if (ShowCursor == false)
         {
             Cursor.visible = false;
         }
@@ -24,11 +29,11 @@ public class CameraMovement : MonoBehaviour {
 	void Update () {
         if (Input.mousePresent)
         {
-            float newrotX = Input.GetAxis("Mouse X") * sensitivity;
-            float newrotY = Input.GetAxis("Mouse Y") * sensitivity;
-            transform.Rotate(0, newrotX, 0);
-            capcam.transform.Rotate(-1*newrotY, 0, 0);
-            gameObject.transform.Rotate(0, newrotX, 0);
+            newrotX += Input.GetAxis("Mouse X") * sensitivity;
+            newrotY = Mathf.Min(90, Mathf.Max(-90, newrotY + Input.GetAxis("Mouse Y") * sensitivity));
+            capcam.transform.rotation = Quaternion.Euler(-1*newrotY, newrotX , 0);
+            gameObject.transform.rotation = Quaternion.Euler(0, capcam.transform.rotation.y, 0);
         }
+        if(Input.GetKey(KeyCode.Escape)) Cursor.visible = true;
     }
 }
