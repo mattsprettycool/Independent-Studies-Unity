@@ -78,6 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\player attack\ItemBar.cs" />
+    <Compile Include="Assets\scripts\player attack\spells\fireball.cs" />
     <Compile Include="Assets\scripts\player scripts\CameraMovement.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerMovement.cs" />
   </ItemGroup>
