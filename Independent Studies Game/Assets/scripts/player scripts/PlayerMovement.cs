@@ -18,25 +18,37 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)&&jumpTest)
         {
-            rb.AddForce(new Vector3(speed, 0, 0));
+            rb.AddRelativeForce(new Vector3(speed, 0, 0));
+        }else if (Input.GetKey(KeyCode.W))
+        {
+            rb.AddRelativeForce(new Vector3(speed/2, 0, 0));
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && jumpTest)
         {
-            rb.AddForce(new Vector3(0, 0, speed));
+            rb.AddRelativeForce(new Vector3(0, 0, speed));
+        }else if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, speed/2));
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && jumpTest)
         {
-            rb.AddForce(new Vector3(-speed, 0, 0));
+            rb.AddRelativeForce(new Vector3(-speed, 0, 0));
+        }else if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddRelativeForce(new Vector3(-speed/2, 0, 0));
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && jumpTest)
         {
-            rb.AddForce(new Vector3(0, 0, -speed));
+            rb.AddRelativeForce(new Vector3(0, 0, -speed));
+        }else if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, -speed/2));
         }
         if (Input.GetKeyDown(KeyCode.Space)&&jumpTest)
         {
-            rb.AddForce(new Vector3(0, 300, 0));
+            rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
         }
     }

@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Jai Saka
 public class CameraMovement : MonoBehaviour {
 
     public GameObject capcam;
     bool ShowCursor;
+    [SerializeField]
     float sensitivity;
 
     // Use this for initialization
     void Start () {
-        sensitivity = 1.5f;
+        sensitivity = 5.0f;
         ShowCursor = false;
 	    if (ShowCursor == false)
         {
@@ -27,6 +28,7 @@ public class CameraMovement : MonoBehaviour {
             float newrotY = Input.GetAxis("Mouse Y") * sensitivity;
             transform.Rotate(0, newrotX, 0);
             capcam.transform.Rotate(-1*newrotY, 0, 0);
+            gameObject.transform.Rotate(0, newrotX, 0);
         }
     }
 }
