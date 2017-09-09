@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//by Jai Saka
+//by Jai Saka and Matt Braden
 public class CameraMovement : MonoBehaviour {
 
     public GameObject capcam;

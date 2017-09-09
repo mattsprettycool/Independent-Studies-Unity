@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//By Matt Braden
+//by Matt Braden
 public class PlayerMovement : MonoBehaviour {
     Rigidbody rb;
     public float speed;
