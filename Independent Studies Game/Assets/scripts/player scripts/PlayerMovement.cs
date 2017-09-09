@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     [SerializeField]
     bool jumpTest;
+    public GameObject cameraLoc;
     // Use this for initialization
     void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
         }
+        Camera.main.transform.position = cameraLoc.transform.position;
     }
     void OnCollisionEnter(Collision col)
     {
