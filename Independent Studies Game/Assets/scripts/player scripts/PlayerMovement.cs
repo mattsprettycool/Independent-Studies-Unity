@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = 15;
-        maxVelocity = 15;
+        speed = 20;
+        maxVelocity = 20;
         maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
 
