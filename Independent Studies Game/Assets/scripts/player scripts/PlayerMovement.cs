@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Added this vvv
         if (rb.velocity.sqrMagnitude > maxVelSquared)
