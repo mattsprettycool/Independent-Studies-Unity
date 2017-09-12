@@ -30,8 +30,11 @@ public class CameraMovement : MonoBehaviour {
         if (Input.mousePresent)
         {
             newrotX += Input.GetAxis("Mouse X") * sensitivity;
+
             newrotY = Mathf.Min(90, Mathf.Max(-90, newrotY + Input.GetAxis("Mouse Y") * sensitivity));
+
             capcam.transform.rotation = Quaternion.Euler(-1*newrotY, newrotX , 0);
+
             gameObject.transform.rotation = Quaternion.Euler(0, newrotX-90, 0);
         }
         if(Input.GetKey(KeyCode.Escape)) Cursor.visible = true;

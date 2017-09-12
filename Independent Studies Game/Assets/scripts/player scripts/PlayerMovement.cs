@@ -7,18 +7,29 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     [SerializeField]
     bool jumpTest;
+    float maxVelocity;
+    float maxVelSquared;
     public GameObject cameraLoc;
+    bool keyTest;
     // Use this for initialization
     void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
         speed = 15;
+        maxVelocity = 15;
+        maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        //Added this vvv
+        if (rb.velocity.sqrMagnitude > maxVelSquared)
+        {
+            rb.velocity = rb.velocity.normalized * maxVelocity;
+        }
+
         if (Input.GetKey(KeyCode.W)&&jumpTest)
         {
             rb.AddRelativeForce(new Vector3(speed, 0, 0));
