@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\enemy scripts\EnemyAttack.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\scripts\player attack\attackLibrary.cs" />
     <Compile Include="Assets\scripts\player attack\ItemBar.cs" />
     <Compile Include="Assets\scripts\player attack\spells\fireball.cs" />
     <Compile Include="Assets\scripts\player attack\weapons\SwordMovement.cs" />

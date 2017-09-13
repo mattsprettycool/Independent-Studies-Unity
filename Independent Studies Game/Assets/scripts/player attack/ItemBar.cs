@@ -13,14 +13,23 @@ public class ItemBar : MonoBehaviour {
     public GameObject attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8;
     //the actual array of attacks we will be using
     GameObject[] attacks = new GameObject[9];
+    [SerializeField]
+    public int pointer;
+    int currentPoint;
+    bool justStarted;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
+        pointer = 0;
+        currentPoint = 0;
+        justStarted = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
         updateAttacks();
+        changeAttacks();
+        setAttacks();
     }
     //updates the attacks to account for any changes
     void updateAttacks()
@@ -34,5 +43,40 @@ public class ItemBar : MonoBehaviour {
         attacks[6] = attack6;
         attacks[7] = attack7;
         attacks[8] = attack8;
+    }
+    void changeAttacks()
+    {
+        if (Input.GetKey(KeyCode.Alpha1)) pointer = 0;
+        if (Input.GetKey(KeyCode.Alpha2)) pointer = 1;
+        if (Input.GetKey(KeyCode.Alpha3)) pointer = 2;
+        if (Input.GetKey(KeyCode.Alpha4)) pointer = 3;
+        if (Input.GetKey(KeyCode.Alpha5)) pointer = 4;
+        if (Input.GetKey(KeyCode.Alpha6)) pointer = 5;
+        if (Input.GetKey(KeyCode.Alpha7)) pointer = 6;
+        if (Input.GetKey(KeyCode.Alpha8)) pointer = 7;
+        if (Input.GetKey(KeyCode.Alpha9)) pointer = 8;
+        //if (Input.mouseScrollDelta > 0) pointer = Mathf.Min(0, Mathf.Max(8, pointer++));
+    }
+    void setAttacks()
+    {
+        GameObject[] attacks = GameObject.FindGameObjectsWithTag("attacks");
+        if (justStarted)
+        {
+            foreach(GameObject obj in attacks) Destroy(obj);
+            var attackInst = Instantiate(attack0);
+            attackInst.transform.parent = gameObject.transform;
+            attackInst.transform.localPosition = new Vector3(1.27f, -.7f, .889f);
+            attackInst.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if(pointer == 0 && currentPoint != 0 && !justStarted)
+        {
+            foreach (GameObject obj in attacks) Destroy(obj);
+            Instantiate(attack0);
+        }
+        if (pointer == 1 && currentPoint != 1 && !justStarted)
+        {
+            foreach (GameObject obj in attacks) Destroy(obj);
+            Instantiate(attack1);
+        }
     }
 }
