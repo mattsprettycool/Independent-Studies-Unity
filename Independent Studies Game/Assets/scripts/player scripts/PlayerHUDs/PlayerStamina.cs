@@ -6,13 +6,11 @@ using UnityEngine.UI;
 public class PlayerStamina : MonoBehaviour {
 	public float startStamina;
 	public float currStamina;
-	public float timeBetweenHeal;
 	public Slider staminaSlider;
 	// Use this for initialization
 	void Start () {
 		startStamina = 100;
 		currStamina = startStamina;
-		timeBetweenHeal = 2;
 	}
 	
 	// Update is called once per frame
@@ -20,7 +18,8 @@ public class PlayerStamina : MonoBehaviour {
 	{
 		staminaSlider.value = currStamina;
 
-		if (currStamina < startStamina) {
+		if (currStamina < startStamina)
+        {
 			currStamina += .05f;
 		}
 	}

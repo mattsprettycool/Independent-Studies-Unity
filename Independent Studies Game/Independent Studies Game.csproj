@@ -87,6 +87,7 @@
     <Compile Include="Assets\scripts\player attack\weapons\SwordMovement.cs" />
     <Compile Include="Assets\scripts\player scripts\CameraMovement.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerHealth.cs" />
+    <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerMana.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerStamina.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerMovement.cs" />
   </ItemGroup>
