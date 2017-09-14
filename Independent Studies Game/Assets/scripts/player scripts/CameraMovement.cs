@@ -18,11 +18,13 @@ public class CameraMovement : MonoBehaviour {
         ShowCursor = false;
         newrotX=0;
         newrotY=0;
-        if (ShowCursor == false)
+        /*
+		if (ShowCursor == false)
         {
             Cursor.visible = false;
         }
         Cursor.lockState = CursorLockMode.Locked;
+        */
 	}
 	
 	// Update is called once per frame

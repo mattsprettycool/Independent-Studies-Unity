@@ -5,10 +5,10 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour {
 
     bool slashing;
-
+	PlayerStamina playerStamina;
 	// Use this for initialization
 	void Start () {
-		
+		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
 	}
 	
 	// Update is called once per frame
@@ -16,6 +16,7 @@ public class SwordMovement : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0) && !slashing)
         {
+			playerStamina.currStamina -= 10;
             slashing = true;
             StartCoroutine(SlashAndWait(.5f));
             slashing = false;
