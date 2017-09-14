@@ -65,18 +65,35 @@ public class ItemBar : MonoBehaviour {
             foreach(GameObject obj in attacks) Destroy(obj);
             var attackInst = Instantiate(attack0);
             attackInst.transform.parent = gameObject.transform;
+            //this position is specific to the sword
             attackInst.transform.localPosition = new Vector3(1.27f, -.7f, .889f);
-            attackInst.transform.rotation = Quaternion.Euler(0, 0, 0);
+            attackInst.transform.rotation = gameObject.transform.rotation;
+            //this rotation is specific to the sword
+            attackInst.transform.localRotation = Quaternion.Euler(0, 90, 0);
+            currentPoint = 0;
+            justStarted = false;
         }
         if(pointer == 0 && currentPoint != 0 && !justStarted)
         {
             foreach (GameObject obj in attacks) Destroy(obj);
-            Instantiate(attack0);
+            var attackInst = Instantiate(attack0);
+            attackInst.transform.parent = gameObject.transform;
+            //this position is specific to the sword
+            attackInst.transform.localPosition = new Vector3(1.27f, -.7f, .889f);
+            attackInst.transform.rotation = gameObject.transform.rotation;
+            //this rotation is specific to the sword
+            attackInst.transform.localRotation = Quaternion.Euler(0, 90, 0);
+            currentPoint = 0;
         }
         if (pointer == 1 && currentPoint != 1 && !justStarted)
         {
             foreach (GameObject obj in attacks) Destroy(obj);
-            Instantiate(attack1);
+            var attackInst = Instantiate(attack1);
+            attackInst.transform.parent = gameObject.transform;
+            attackInst.transform.localPosition = new Vector3(0f, 0f, 0f);
+            attackInst.transform.rotation = gameObject.transform.rotation;
+            attackInst.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            currentPoint = 1;
         }
     }
 }
