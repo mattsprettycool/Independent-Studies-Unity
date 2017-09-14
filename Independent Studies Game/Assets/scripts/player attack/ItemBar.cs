@@ -95,5 +95,15 @@ public class ItemBar : MonoBehaviour {
             attackInst.transform.localRotation = Quaternion.Euler(0, 0, 0);
             currentPoint = 1;
         }
+        if (pointer == 2 && currentPoint != 2 && !justStarted)
+        {
+            foreach (GameObject obj in attacks) Destroy(obj);
+            var attackInst = Instantiate(attack2);
+            attackInst.transform.parent = gameObject.transform;
+            attackInst.transform.localPosition = new Vector3(0.8870001f, -0.597f, 0.3480001f);
+            attackInst.transform.rotation = gameObject.transform.rotation;
+            attackInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
+            currentPoint = 2;
+        }
     }
 }

@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack0: {fileID: 1627921405145144, guid: 0f31d861771356a4683c546e36e874d3, type: 2}
   attack1: {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215, type: 2}
-  attack2: {fileID: 0}
+  attack2: {fileID: 1899666569156304, guid: 6be3c9d151de92341814f66d4f87d900, type: 2}
   attack3: {fileID: 0}
   attack4: {fileID: 0}
   attack5: {fileID: 0}
