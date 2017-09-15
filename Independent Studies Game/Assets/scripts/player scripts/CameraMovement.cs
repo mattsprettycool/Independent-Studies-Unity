@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     public GameObject capcam;
-    bool ShowCursor;
     [SerializeField]
     float sensitivity;
 
@@ -15,18 +14,17 @@ public class CameraMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         sensitivity = 5.0f;
-        ShowCursor = false;
         newrotX=0;
         newrotY=0;
-		/*if (ShowCursor == false)
-        {
-            Cursor.visible = false;
-        }
-        Cursor.lockState = CursorLockMode.Locked;*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+        }
         if (Input.mousePresent)
         {
             newrotX += Input.GetAxis("Mouse X") * sensitivity;
