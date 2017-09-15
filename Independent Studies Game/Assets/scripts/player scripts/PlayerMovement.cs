@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	PlayerStamina playerStamina;
     bool keyTest;
     public spellPickup sp;
+    public HealthPickup hp;
     [SerializeField]
     public bool doCommunicate;
     [SerializeField]

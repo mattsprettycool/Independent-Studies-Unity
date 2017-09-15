@@ -22,7 +22,7 @@ public class CameraMovement : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.C))
         {
-                Cursor.visible = false;
+                //Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
         }
         if (Input.mousePresent)

@@ -24,7 +24,6 @@ public class fireball : MonoBehaviour {
             attackInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
             attackInst.transform.localPosition = new Vector3(0f, 0f, .75f);
             attackInst.transform.SetParent(null);
-
         }
 	}
 }
