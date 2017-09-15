@@ -14,4 +14,11 @@ public class spellPickup : MonoBehaviour {
 	void Update () {
         gameObject.transform.LookAt(Camera.main.transform);
 	}
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

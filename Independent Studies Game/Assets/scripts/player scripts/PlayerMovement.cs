@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject cameraLoc;
 	PlayerStamina playerStamina;
     bool keyTest;
+    public spellPickup sp;
+    [SerializeField]
+    public bool doCommunicate;
+    [SerializeField]
+    public GameObject recentPickUp;
     // Use this for initialization
     void Start () {
 		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
@@ -20,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         maxVelocity = 20;
         maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
+        doCommunicate = false;
 
     }
 
@@ -62,7 +68,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest&&playerStamina.currStamina >= 10)
         {
-			playerStamina.currStamina -= 10;
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
         }
@@ -71,5 +76,19 @@ public class PlayerMovement : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         if(col.collider.tag == "Floor") jumpTest = true;
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "loot")
+        {
+            sp = other.gameObject.GetComponent(typeof(spellPickup)) as spellPickup;
+            doCommunicate = true;
+            recentPickUp = sp.prefabToCopy;
+        }
+    }
+    public void setCommToFalse()
+    {
+        doCommunicate = false;
     }
 }

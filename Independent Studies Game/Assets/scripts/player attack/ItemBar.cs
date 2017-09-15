@@ -18,6 +18,8 @@ public class ItemBar : MonoBehaviour {
     int currentPoint;
     bool justStarted;
     String debugger;
+    PlayerMovement pM;
+    bool updateNeeded;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -25,6 +27,8 @@ public class ItemBar : MonoBehaviour {
         currentPoint = 0;
         justStarted = true;
         debugger = "";
+        updateNeeded = false;
+        pM = GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
     }
 	
 	// Update is called once per frame
@@ -32,6 +36,12 @@ public class ItemBar : MonoBehaviour {
         updateAttacks();
         changeAttacks();
         setAttacks();
+        if (pM.doCommunicate)
+        {
+            attack8 = pM.recentPickUp;
+            pM.setCommToFalse();
+            updateNeeded = true;
+        }
     }
     //updates the attacks to account for any changes
     void updateAttacks()
@@ -154,14 +164,16 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib0.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib0.rotX, lib0.rotY, lib0.rotZ);
-            }catch (Exception e)
+                if (updateNeeded) updateNeeded = false;
+            }
+            catch (Exception e)
             {
                 debugger += "\n" + e;
             }
             currentPoint = 0;
             justStarted = false;
         }
-        if(pointer == 0 && currentPoint != 0 && !justStarted)
+        if((pointer == 0 && currentPoint != 0 && !justStarted)|| (currentPoint == 0 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -171,6 +183,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib0.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib0.rotX, lib0.rotY, lib0.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -178,7 +191,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 0;
         }
-        if (pointer == 1 && currentPoint != 1 && !justStarted)
+        if ((pointer == 1 && currentPoint != 1 && !justStarted)|| (currentPoint == 1 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -188,6 +201,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib1.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib1.rotX, lib1.rotY, lib1.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -195,7 +209,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 1;
         }
-        if (pointer == 2 && currentPoint != 2 && !justStarted)
+        if ((pointer == 2 && currentPoint != 2 && !justStarted)|| (currentPoint == 2 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -205,6 +219,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib2.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib2.rotX, lib2.rotY, lib2.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -212,7 +227,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 2;
         }
-        if (pointer == 3 && currentPoint != 3 && !justStarted)
+        if ((pointer == 3 && currentPoint != 3 && !justStarted)|| (currentPoint == 3 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -222,6 +237,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib3.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib3.rotX, lib3.rotY, lib3.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -229,7 +245,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 3;
         }
-        if (pointer == 4 && currentPoint != 4 && !justStarted)
+        if ((pointer == 4 && currentPoint != 4 && !justStarted)|| (currentPoint == 4 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -239,6 +255,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib4.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib4.rotX, lib4.rotY, lib4.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -246,7 +263,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 4;
         }
-        if (pointer == 5 && currentPoint != 5 && !justStarted)
+        if ((pointer == 5 && currentPoint != 5 && !justStarted)|| (currentPoint == 5 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -256,6 +273,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib5.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib5.rotX, lib5.rotY, lib5.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -263,7 +281,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 5;
         }
-        if (pointer == 6 && currentPoint != 6 && !justStarted)
+        if ((pointer == 6 && currentPoint != 6 && !justStarted)|| (currentPoint == 6 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -273,6 +291,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib6.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib6.rotX, lib6.rotY, lib6.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -280,7 +299,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 6;
         }
-        if (pointer == 7 && currentPoint != 7 && !justStarted)
+        if ((pointer == 7 && currentPoint != 7 && !justStarted)|| (currentPoint == 7 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -290,6 +309,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib7.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib7.rotX, lib7.rotY, lib7.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
@@ -297,7 +317,7 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 7;
         }
-        if (pointer == 8 && currentPoint != 8 && !justStarted)
+        if ((pointer == 8 && currentPoint != 8 && !justStarted)||(currentPoint == 8 && updateNeeded))
         {
             foreach (GameObject obj in attacks) Destroy(obj);
             try
@@ -307,6 +327,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib8.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib8.rotX, lib8.rotY, lib8.rotZ);
+                if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
             {
