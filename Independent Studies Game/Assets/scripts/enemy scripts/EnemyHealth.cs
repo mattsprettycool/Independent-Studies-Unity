@@ -10,12 +10,14 @@ public class EnemyHealth : MonoBehaviour {
     public int currHealth;
     float timer;
     NavMeshAgent agent;
+    public EnemySpawn enemySpawn;
     string debug;
 	// Use this for initialization
 	void Start () {
         startHealth = 100;
         currHealth = startHealth;
-        agent = GetComponent<NavMeshAgent>();
+        enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
+        agent = this.gameObject.GetComponent<NavMeshAgent>();
         debug = "";
 	}
 	
@@ -23,19 +25,13 @@ public class EnemyHealth : MonoBehaviour {
 	void FixedUpdate () {
         if (currHealth <= 0)
         {
-            agent.speed = 0;
-            timer += Time.deltaTime;
-
-            if (timer >= 2.5f)
-            {
-                GameObject.Destroy(this.gameObject);
-            }
-
+            enemySpawn.enemiesKilled++;
+            GameObject.Destroy(this.gameObject);
         }
 	}
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "projectiles")
         {

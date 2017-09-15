@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Matt Braden
 public class firebolt : MonoBehaviour {
     float timer;
     float timeBeforeDeletion;
@@ -26,5 +26,13 @@ public class firebolt : MonoBehaviour {
     void FixedUpdate()
     {
         timer += Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player" && other.tag != "attacks")
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 }

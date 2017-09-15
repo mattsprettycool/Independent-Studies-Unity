@@ -57,10 +57,11 @@ GameObject:
   - component: {fileID: 135607845468456110}
   - component: {fileID: 23304140969779006}
   - component: {fileID: 114728478942901004}
+  - component: {fileID: 114452212675776170}
   - component: {fileID: 54761477286465144}
   m_Layer: 0
   m_Name: firebolt 1
-  m_TagString: Untagged
+  m_TagString: projectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,6 +258,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114452212675776170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184682058447336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6971447d38a94234b908886f93e7d1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgPerHit: 10
 --- !u!114 &114728478942901004
 MonoBehaviour:
   m_ObjectHideFlags: 1

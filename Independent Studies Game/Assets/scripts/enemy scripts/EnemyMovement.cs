@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour {
 	NavMeshAgent agent;
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		agent = GetComponent<NavMeshAgent> ();
 	}
 	

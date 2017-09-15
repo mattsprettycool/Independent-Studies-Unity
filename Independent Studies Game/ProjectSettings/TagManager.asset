@@ -11,6 +11,7 @@ TagManager:
   - loot
   - statPickups
   - projectiles
+  - enemymanager
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Jai Saka
 public class Bolt : MonoBehaviour {
     [SerializeField]
     float timer;
@@ -28,5 +28,13 @@ public class Bolt : MonoBehaviour {
     void FixedUpdate()
     {
         timer += Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player" && other.tag != "attacks")
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 }

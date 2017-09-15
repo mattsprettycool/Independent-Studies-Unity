@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,7 +106,7 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 681, y: 492}
+  m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 49
@@ -130,7 +130,7 @@ MonoBehaviour:
     y: 0
     width: 1495
     height: 948
-  m_MinSize: {x: 404, y: 492}
+  m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 50
@@ -154,8 +154,8 @@ MonoBehaviour:
     y: 0
     width: 1495
     height: 568
-  m_MinSize: {x: 404, y: 221}
-  m_MaxSize: {x: 8004, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
   controlID: 51
 --- !u!114 &8
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 346
     height: 568
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -395,9 +395,9 @@ MonoBehaviour:
     height: 547
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1e72ffff
-    m_LastClickedID: -36322
-    m_ExpandedIDs: cafaffff00000000c6270000f827000018280000262800003c280000
+    m_SelectedIDs: d876fcff
+    m_LastClickedID: -231720
+    m_ExpandedIDs: 9e49fcff12faffff00000000ca2700001628000048280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -452,9 +452,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.748051, y: 3.831029, z: -4.6332717}
+    m_Target: {x: 16.545273, y: 6.520376, z: 7.12876}
     speed: 2
-    m_Value: {x: -9.748051, y: 3.831029, z: -4.6332717}
+    m_Value: {x: 16.545273, y: 6.520376, z: 7.12876}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -477,13 +477,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.068622835, y: -0.9313667, z: 0.25508556, w: -0.25055623}
+    m_Target: {x: 0.120087616, y: -0.8791413, z: 0.30587876, w: 0.34514883}
     speed: 2
-    m_Value: {x: -0.068622835, y: -0.9313667, z: 0.25508556, w: -0.25055623}
+    m_Value: {x: 0.12008762, y: -0.87914133, z: 0.3058788, w: 0.34514886}
   m_Size:
-    m_Target: 0.060161352
+    m_Target: 13.361106
     speed: 2
-    m_Value: 0.060161352
+    m_Value: 13.361106
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -628,20 +628,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/prefabs/attacks/spells
+    - Assets/prefabs/enemies
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/prefabs/attacks/spells
+  - Assets/prefabs/enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\JaidevBhatnagar\Documents\Independent-Studies-Unity\Independent
     Studies Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 30}
-    m_SelectedIDs: 1e270000
-    m_LastClickedID: 10014
-    m_ExpandedIDs: 000000001027000014270000182700001c2700002e27000030270000382700003c27000000ca9a3bffffff7f
+    m_SelectedIDs: 8a370000
+    m_LastClickedID: 14218
+    m_ExpandedIDs: 000000007c27000080270000862700008a2700009e270000a0270000a8270000ac27000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -669,7 +669,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001027000014270000182700001c2700002e27000030270000382700003c270000
+    m_ExpandedIDs: 000000007c27000080270000862700008a2700009e270000a0270000a8270000ac270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,7 +697,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: d42100003ed6ffff5c23000086b8ffffda5efbff6e2200006222000044260000
+    m_ExpandedInstanceIDs: d42100003ed6ffff5c23000086b8ffffda5efbff6e2200006222000044260000ae270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
