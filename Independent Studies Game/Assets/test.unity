@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1750,7 +1750,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 110
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1943,7 +1943,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 110
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack0: {fileID: 1627921405145144, guid: 0f31d861771356a4683c546e36e874d3, type: 2}
   attack1: {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215, type: 2}
-  attack2: {fileID: 0}
+  attack2: {fileID: 1899666569156304, guid: 6be3c9d151de92341814f66d4f87d900, type: 2}
   attack3: {fileID: 0}
   attack4: {fileID: 0}
   attack5: {fileID: 0}

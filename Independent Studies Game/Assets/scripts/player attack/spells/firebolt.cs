@@ -9,7 +9,7 @@ public class firebolt : MonoBehaviour {
     // Use this for initialization
     void Start () {
         timer = 0;
-        timeBeforeDeletion = 10;
+        timeBeforeDeletion = 5.5f;
         rb = gameObject.GetComponent<Rigidbody>();
         rb.AddRelativeForce(new Vector3(500f, 0f, 0f));
     }

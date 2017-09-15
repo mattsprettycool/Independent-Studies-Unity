@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class attackLibrary : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    public Vector3 pos;
+    [SerializeField]
+    public float rotX, rotY, rotZ;
 }
