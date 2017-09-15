@@ -178,6 +178,7 @@ public class ItemBar : MonoBehaviour {
         if (pointer == 2 && currentPoint != 2 && !justStarted)
         {
             foreach (GameObject obj in attacks) Destroy(obj);
+<<<<<<< HEAD
             try
             {
                 var attackInst = Instantiate(attack2);
@@ -294,5 +295,14 @@ public class ItemBar : MonoBehaviour {
             }
             currentPoint = 8;
         }
+=======
+            var attackInst = Instantiate(attack2);
+            attackInst.transform.parent = gameObject.transform;
+            attackInst.transform.localPosition = new Vector3(0.8870001f, -0.597f, 0.3480001f);
+            attackInst.transform.rotation = gameObject.transform.rotation;
+            attackInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
+            currentPoint = 2;
+        }
+>>>>>>> 4e1db12653ae7d3a01b5a9359612fd3a5b7356bd
     }
 }
