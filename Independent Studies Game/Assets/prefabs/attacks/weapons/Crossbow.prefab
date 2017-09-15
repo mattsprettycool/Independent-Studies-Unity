@@ -22,10 +22,7 @@ GameObject:
   - component: {fileID: 33969937710653442}
   - component: {fileID: 65038065093179284}
   - component: {fileID: 23999641289307758}
-<<<<<<< HEAD
   - component: {fileID: 114506365617934800}
-=======
->>>>>>> 4e1db12653ae7d3a01b5a9359612fd3a5b7356bd
   m_Layer: 5
   m_Name: Crossbow
   m_TagString: attacks
@@ -53,11 +50,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1899666569156304}
   m_Enabled: 1
-<<<<<<< HEAD
   m_CastShadows: 0
-=======
-  m_CastShadows: 1
->>>>>>> 4e1db12653ae7d3a01b5a9359612fd3a5b7356bd
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -101,7 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!114 &114506365617934800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,5 +109,3 @@ MonoBehaviour:
   rotX: 0
   rotY: 90
   rotZ: 0
-=======
->>>>>>> 4e1db12653ae7d3a01b5a9359612fd3a5b7356bd
