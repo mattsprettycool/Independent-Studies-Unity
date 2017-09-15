@@ -8,6 +8,7 @@ TagManager:
   - attacks
   - noCollision
   - spell
+  - loot
   layers:
   - Default
   - TransparentFX
