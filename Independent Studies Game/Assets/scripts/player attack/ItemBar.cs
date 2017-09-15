@@ -43,6 +43,7 @@ public class ItemBar : MonoBehaviour {
         }
         catch (Exception e)
         {
+            //if an exception is made, it skips the code and adds to the error string
             debugger += "\n"+e;
         }
         try
@@ -127,8 +128,10 @@ public class ItemBar : MonoBehaviour {
         GameObject[] attacks = GameObject.FindGameObjectsWithTag("attacks");
         if (justStarted)
         {
+            //destroys all objects with the attack tag, which is found above ^
             foreach(GameObject obj in attacks) Destroy(obj);
             try{
+                //creates a variable of the prefab, and then uses attacklibrary variables in them to set the positions
                 var attackInst = Instantiate(attack0);
                 attackInst.transform.parent = gameObject.transform;
                 attackInst.transform.localPosition = lib0.pos;
