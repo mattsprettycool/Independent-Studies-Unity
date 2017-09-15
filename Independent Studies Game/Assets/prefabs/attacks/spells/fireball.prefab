@@ -67,4 +67,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6629dc68d0dd8e24db72a226437ab060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firebolt: {fileID: 1076120822261410, guid: 0033805b8d2fb334281c0445d8513a02, type: 2}
+  firebolt: {fileID: 1184682058447336, guid: 0033805b8d2fb334281c0445d8513a02, type: 2}
