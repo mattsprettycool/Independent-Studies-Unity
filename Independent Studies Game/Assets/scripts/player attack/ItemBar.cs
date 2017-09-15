@@ -121,7 +121,24 @@ public class ItemBar : MonoBehaviour {
         if (Input.GetKey(KeyCode.Alpha7)) pointer = 6;
         if (Input.GetKey(KeyCode.Alpha8)) pointer = 7;
         if (Input.GetKey(KeyCode.Alpha9)) pointer = 8;
-        //if (Input.mouseScrollDelta > 0) pointer = Mathf.Min(0, Mathf.Max(8, pointer++));
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (pointer < 8)
+            {
+                pointer++;
+            }
+            else
+                pointer = 0;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (pointer > 0)
+            {
+                pointer--;
+            }
+            else
+                pointer = 8;
+        }
     }
     void setAttacks()
     {
