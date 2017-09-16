@@ -7,7 +7,7 @@ public class spellPickup : MonoBehaviour {
     public GameObject prefabToCopy;
 	// Use this for initialization
 	void Start () {
-		
+        gameObject.GetComponent<SpriteRenderer>().sprite = prefabToCopy.GetComponent<attackLibrary>().icon;
 	}
 	
 	// Update is called once per frame
