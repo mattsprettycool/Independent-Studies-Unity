@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+
 //by Matt Braden
 /*
  * In order to make an interchangable bar of weapons and spells, this file will allow for the swapping out of
@@ -36,12 +38,26 @@ public class ItemBar : MonoBehaviour {
         updateAttacks();
         changeAttacks();
         setAttacks();
+        setHotbarSelect();
         if (pM.doCommunicate)
         {
             attack8 = pM.recentPickUp;
             pM.setCommToFalse();
             updateNeeded = true;
         }
+    }
+    void setHotbarSelect()
+    {
+        GameObject hotSel = GameObject.FindGameObjectWithTag("slotManager");
+        if (pointer == 0) hotSel.transform.position = GameObject.FindGameObjectWithTag("h0").transform.position;
+        if (pointer == 1) hotSel.transform.position = GameObject.FindGameObjectWithTag("h1").transform.position;
+        if (pointer == 2) hotSel.transform.position = GameObject.FindGameObjectWithTag("h2").transform.position;
+        if (pointer == 3) hotSel.transform.position = GameObject.FindGameObjectWithTag("h3").transform.position;
+        if (pointer == 4) hotSel.transform.position = GameObject.FindGameObjectWithTag("h4").transform.position;
+        if (pointer == 5) hotSel.transform.position = GameObject.FindGameObjectWithTag("h5").transform.position;
+        if (pointer == 6) hotSel.transform.position = GameObject.FindGameObjectWithTag("h6").transform.position;
+        if (pointer == 7) hotSel.transform.position = GameObject.FindGameObjectWithTag("h7").transform.position;
+        if (pointer == 8) hotSel.transform.position = GameObject.FindGameObjectWithTag("h8").transform.position;
     }
     //updates the attacks to account for any changes
     void updateAttacks()
@@ -50,74 +66,93 @@ public class ItemBar : MonoBehaviour {
         try
         {
             lib0 = attack0.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().overrideSprite = lib0.icon;
+
         }
         catch (Exception e)
         {
             //if an exception is made, it skips the code and adds to the error string
             debugger += "\n"+e;
+            GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib1 = attack1.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().overrideSprite = lib1.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib2 = attack2.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().overrideSprite = lib2.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().overrideSprite = null;
         }
         try {
             lib3 = attack3.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().overrideSprite = lib3.icon;
         }
         catch(Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib4 = attack4.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().overrideSprite = lib4.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib5 = attack5.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().overrideSprite = lib5.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib6 = attack6.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().overrideSprite = lib6.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib7 = attack7.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().overrideSprite = lib7.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().overrideSprite = null;
         }
         try
         {
             lib8 = attack8.GetComponent(typeof(attackLibrary)) as attackLibrary;
+            GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().overrideSprite = lib8.icon;
         }
         catch (Exception e)
         {
             debugger += "\n" + e;
+            GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().overrideSprite = null;
         }
     }
     void changeAttacks()
@@ -131,7 +166,7 @@ public class ItemBar : MonoBehaviour {
         if (Input.GetKey(KeyCode.Alpha7)) pointer = 6;
         if (Input.GetKey(KeyCode.Alpha8)) pointer = 7;
         if (Input.GetKey(KeyCode.Alpha9)) pointer = 8;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (pointer < 8)
             {
@@ -140,7 +175,7 @@ public class ItemBar : MonoBehaviour {
             else
                 pointer = 0;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (pointer > 0)
             {

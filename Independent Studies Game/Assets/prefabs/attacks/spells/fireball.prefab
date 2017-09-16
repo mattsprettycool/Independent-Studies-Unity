@@ -56,6 +56,7 @@ MonoBehaviour:
   rotX: 0
   rotY: 0
   rotZ: 0
+  icon: {fileID: 21300000, guid: e8cda2b1dc4a7b543bad42b868db0e57, type: 3}
 --- !u!114 &114405885655159496
 MonoBehaviour:
   m_ObjectHideFlags: 1

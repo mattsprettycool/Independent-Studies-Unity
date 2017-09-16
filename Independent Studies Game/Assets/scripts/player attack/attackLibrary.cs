@@ -7,4 +7,6 @@ public class attackLibrary : MonoBehaviour {
     public Vector3 pos;
     [SerializeField]
     public float rotX, rotY, rotZ;
+    [SerializeField]
+    public Sprite icon;
 }

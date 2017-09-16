@@ -121,3 +121,4 @@ MonoBehaviour:
   rotX: 0
   rotY: 90
   rotZ: 0
+  icon: {fileID: 21300000, guid: f304b632d971c1143a4bc9724373a2cc, type: 3}
