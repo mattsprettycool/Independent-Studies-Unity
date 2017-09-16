@@ -14,9 +14,10 @@ public class fireball : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 10)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 25)
         {
-            playerMana.currMana -= 10;
+            playerMana.currMana -= 25;
+            playerMana.refreshCooldown = true;
             var attackInst = Instantiate(firebolt);
             attackInst.transform.parent = gameObject.transform;
             attackInst.transform.localPosition = new Vector3(0f, 0f, 0f);
@@ -25,5 +26,5 @@ public class fireball : MonoBehaviour {
             attackInst.transform.localPosition = new Vector3(0f, 0f, .75f);
             attackInst.transform.SetParent(null);
         }
-	}
+    }
 }
