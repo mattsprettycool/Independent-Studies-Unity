@@ -65,8 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237af7912c941f4439f2fbc0807466a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToCopy: {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215,
-    type: 2}
+  prefabToCopy: {fileID: 0}
 --- !u!212 &212939610513076872
 SpriteRenderer:
   m_ObjectHideFlags: 1
