@@ -93,9 +93,12 @@
     <Compile Include="Assets\scripts\player attack\weapons\CrossbowMovement.cs" />
     <Compile Include="Assets\scripts\player attack\weapons\SwordMovement.cs" />
     <Compile Include="Assets\scripts\player scripts\CameraMovement.cs" />
+    <Compile Include="Assets\scripts\player scripts\PlayerHUDs\HealthNumber.cs" />
+    <Compile Include="Assets\scripts\player scripts\PlayerHUDs\ManaNumber.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerHealth.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerMana.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerStamina.cs" />
+    <Compile Include="Assets\scripts\player scripts\PlayerHUDs\StaminaNumber.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerMovement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
