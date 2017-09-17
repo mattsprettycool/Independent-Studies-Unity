@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        sensitivity = 5.0f;
+        sensitivity = 4.0f;
         newrotX=0;
         newrotY=0;
 	}
