@@ -15,16 +15,13 @@ public class firebolt : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         
         if (timer >= timeBeforeDeletion)
         {
             GameObject.Destroy(this.gameObject);
         }
-    }
-    void FixedUpdate()
-    {
         timer += Time.deltaTime;
     }
 

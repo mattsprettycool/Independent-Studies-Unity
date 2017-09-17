@@ -11,7 +11,7 @@ public class spellPickup : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         gameObject.transform.LookAt(Camera.main.transform);
 	}
     private void OnTriggerEnter(Collider collision)

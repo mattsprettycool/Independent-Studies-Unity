@@ -13,7 +13,7 @@ public class StaminaNumber : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         int stamina = (int)pStamina.currStamina;
         gameObject.GetComponent<Text>().text = "" + stamina;

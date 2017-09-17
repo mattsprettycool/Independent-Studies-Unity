@@ -14,7 +14,7 @@ public class fireball : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 25)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 25 && Time.timeScale == 1f)
         {
             playerMana.currMana -= 25;
             playerMana.refreshCooldown = true;

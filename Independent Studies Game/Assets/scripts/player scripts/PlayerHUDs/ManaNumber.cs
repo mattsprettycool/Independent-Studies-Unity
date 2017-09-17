@@ -11,7 +11,7 @@ public class ManaNumber : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         int mana = (int) pMana.currMana;
         gameObject.GetComponent<Text>().text = ""+mana;
 	}

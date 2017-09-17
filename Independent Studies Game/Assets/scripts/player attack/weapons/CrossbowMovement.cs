@@ -14,7 +14,7 @@ public class CrossbowMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted)
+        if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f)
         {
             timer = 0;
             justStarted = false;
@@ -27,8 +27,7 @@ public class CrossbowMovement : MonoBehaviour {
             instAttk.transform.SetParent(null);
         }
     }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
     }

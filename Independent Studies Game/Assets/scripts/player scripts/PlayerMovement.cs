@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.AddRelativeForce(new Vector3(0, 0, -speed/2));
         }
-		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest&&playerStamina.currStamina >= 10)
+		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest)
         {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;

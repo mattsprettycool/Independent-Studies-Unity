@@ -14,7 +14,7 @@ public class SwordMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetMouseButtonDown(0) && !slashing && playerStamina.currStamina >= 10)
+        if (Input.GetMouseButtonDown(0) && !slashing && playerStamina.currStamina >= 10 && Time.timeScale == 1f)
         {
 			playerStamina.currStamina -= 10;
             slashing = true;

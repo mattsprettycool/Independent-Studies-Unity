@@ -13,7 +13,7 @@ public class HealthNumber : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         int health = (int)pHealth.currHealth;
         gameObject.GetComponent<Text>().text = "" + health;

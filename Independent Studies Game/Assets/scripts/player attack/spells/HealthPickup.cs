@@ -11,7 +11,7 @@ public class HealthPickup : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         gameObject.transform.LookAt(Camera.main.transform);
     }
 
