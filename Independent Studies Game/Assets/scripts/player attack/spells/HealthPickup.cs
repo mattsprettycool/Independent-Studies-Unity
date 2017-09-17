@@ -20,9 +20,13 @@ public class HealthPickup : MonoBehaviour {
         if (other.tag == "Player")
         {
             Destroy(gameObject);
-            if (playerHealth.currHealth <= 90)
+            if (playerHealth.currHealth < 100)
             {
                 playerHealth.currHealth += 10;
+                if (playerHealth.currHealth > 100)
+                {
+                    playerHealth.currHealth = 100;
+                }
             }
         }
     }
