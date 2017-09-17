@@ -10,15 +10,22 @@ public class EnemySpawn : MonoBehaviour {
     public Transform[] spawnPoints;
     int howManyToSpawn;
     int index;
+    float timer;
 	// Use this for initialization
 	void Start () {
         spawnTime = 10;
-        InvokeRepeating("SpawnEnemy", 1, spawnTime);
+        timer = 0;
 	}
 
     void FixedUpdate()
     {
-        spawnTime -= enemiesKilled * .001f;
+        timer += Time.deltaTime;
+        spawnTime -= enemiesKilled * .00001f;
+        if (timer > spawnTime)
+        {
+            SpawnEnemy();
+            timer = 0;
+        }
     }
 
     void SpawnEnemy () {
