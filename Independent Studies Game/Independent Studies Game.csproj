@@ -96,6 +96,7 @@
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\HealthNumber.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\ManaNumber.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\menus\InventoryScreen.cs" />
+    <Compile Include="Assets\scripts\player scripts\PlayerHUDs\menus\slotSelector.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerHealth.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerMana.cs" />
     <Compile Include="Assets\scripts\player scripts\PlayerHUDs\PlayerStamina.cs" />
