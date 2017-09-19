@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
-
 //by Jai Saka
 public class EnemyMovement : MonoBehaviour {
 	public Transform player;

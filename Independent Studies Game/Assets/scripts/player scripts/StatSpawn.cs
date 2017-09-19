@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Jai Saka
 public class StatSpawn : MonoBehaviour {
     public Transform[] spawnPoints;
     public GameObject[] statTypes;

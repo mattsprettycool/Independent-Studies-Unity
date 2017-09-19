@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour {
     public int currHealth;
     public Slider healthSlider;
     bool damageTaken;
+	string debug;
     PlayerMovement playerMovement;
 	// Use this for initialization
 	void Start () {
@@ -31,4 +33,19 @@ public class PlayerHealth : MonoBehaviour {
     {
         currHealth -= dmg;
     }
+
+	private void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.tag == "projectiles")
+		{
+			try
+			{
+				currHealth -= col.gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit;
+			}
+			catch (Exception e)
+			{
+				debug += "\n" + e;
+			}
+		}
+	}
 }

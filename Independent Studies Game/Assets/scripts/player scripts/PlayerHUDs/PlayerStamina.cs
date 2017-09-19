@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//by Jai Saka
 public class PlayerStamina : MonoBehaviour {
 	public float startStamina;
 	public float currStamina;
