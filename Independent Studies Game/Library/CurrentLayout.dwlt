@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 521}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1366
     height: 725
-  m_MinSize: {x: 950, y: 521}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 675
-  m_MinSize: {x: 679, y: 471}
-  m_MaxSize: {x: 14000, y: 14021}
+  m_MinSize: {x: 681, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 10135
+  controlID: 13202
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1089
     height: 675
-  m_MinSize: {x: 404, y: 471}
-  m_MaxSize: {x: 10000, y: 14021}
+  m_MinSize: {x: 404, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10136
+  controlID: 13203
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 10137
+  controlID: 13204
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -368,10 +368,10 @@ MonoBehaviour:
     width: 233
     height: 374
   m_TreeViewState:
-    scrollPos: {x: 0, y: 75}
-    m_SelectedIDs: de95feff
-    m_LastClickedID: -92706
-    m_ExpandedIDs: bc34faffde95feff2cf8ffff00000000c62a0000aa2c0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 6292fcff
+    m_LastClickedID: 0
+    m_ExpandedIDs: c8a3faff14a5fcffb860ffff32f8ffff00000000fa2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -426,9 +426,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.298118, y: 0.24793601, z: -36.73862}
+    m_Target: {x: -13.347875, y: 4.52484, z: -39.436764}
     speed: 2
-    m_Value: {x: -9.298118, y: 0.24793601, z: -36.73862}
+    m_Value: {x: -13.347875, y: 4.52484, z: -39.436764}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -451,9 +451,9 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.005829855, y: 0.9904658, z: -0.13030778, w: 0.04431143}
+    m_Target: {x: 0.19359219, y: 0.48650834, z: -0.111509934, w: 0.84462845}
     speed: 2
-    m_Value: {x: 0.0058298553, y: 0.9904659, z: -0.13030778, w: 0.04431143}
+    m_Value: {x: 0.19359219, y: 0.48650834, z: -0.11150994, w: 0.8446285}
   m_Size:
     m_Target: 4.0416584
     speed: 2
@@ -602,20 +602,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/textures/magic
+    - Assets/prefabs/attacks/spells
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/textures/magic
+  - Assets/prefabs/attacks/spells
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Matt\Documents\GitHub\Independent-Studies-Unity\Independent
     Studies Game
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 162}
-    m_SelectedIDs: f2280000
-    m_LastClickedID: 10482
-    m_ExpandedIDs: 00000000b6280000c0280000ce280000d4280000ea280000ec280000ee280000f4280000f828000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79.899475}
+    m_SelectedIDs: f8280000
+    m_LastClickedID: 10488
+    m_ExpandedIDs: 00000000ce280000d8280000ee280000f62800001229000014290000162900001c2900002029000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -643,7 +643,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b6280000c0280000ce280000d4280000ea280000ec280000ee280000f4280000f828000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000ce280000d8280000ee280000f62800001229000014290000162900001c2900002029000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: d42100003ed6ffff5c23000086b8ffffda5efbff6e2200006222000044260000ae27000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

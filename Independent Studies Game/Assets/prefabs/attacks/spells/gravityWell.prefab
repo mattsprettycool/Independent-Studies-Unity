@@ -68,3 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e1137415f993945a7eed13e96be9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravAOE: {fileID: 1259048277495242, guid: faa6cbe09169c9b419949c533527d8ce, type: 2}
+  fakeGravAOE: {fileID: 1321405459394846, guid: 1241328666d050d41b6b1ed0d83cc3f8,
+    type: 2}

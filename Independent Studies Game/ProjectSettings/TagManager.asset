@@ -57,6 +57,7 @@ TagManager:
   - selector
   - Enemies
   - EnemyProjectiles
+  - gravAoe
   layers:
   - Default
   - TransparentFX

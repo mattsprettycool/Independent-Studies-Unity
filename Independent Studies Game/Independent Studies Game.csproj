@@ -91,6 +91,7 @@
     <Compile Include="Assets\scripts\player attack\spells\firebolt.cs" />
     <Compile Include="Assets\scripts\player attack\spells\GravityWell.cs" />
     <Compile Include="Assets\scripts\player attack\spells\gravWellAOE.cs" />
+    <Compile Include="Assets\scripts\player attack\spells\GravWellAOEEffect.cs" />
     <Compile Include="Assets\scripts\player attack\spells\HealthPickup.cs" />
     <Compile Include="Assets\scripts\player attack\spells\spellPickup.cs" />
     <Compile Include="Assets\scripts\player attack\weapons\Bolt.cs" />
