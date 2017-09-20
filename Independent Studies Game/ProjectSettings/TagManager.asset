@@ -55,6 +55,8 @@ TagManager:
   - slot
   - crosshair
   - selector
+  - Enemies
+  - EnemyProjectiles
   layers:
   - Default
   - TransparentFX

@@ -28,11 +28,11 @@ GameObject:
   - component: {fileID: 135225706383900436}
   - component: {fileID: 114529275637694524}
   - component: {fileID: 114210984573206982}
-  - component: {fileID: 195714474182704440}
   - component: {fileID: 114261515052066338}
+  - component: {fileID: 195714474182704440}
   m_Layer: 0
   m_Name: EnemyMage
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPerAttk: 0
   timeBetweenAttk: 0
-  firebolt: {fileID: 1184682058447336, guid: 0033805b8d2fb334281c0445d8513a02, type: 2}
+  enemyFirebolt: {fileID: 1731523673973280, guid: cc446277af3eb4ff1b2f20df80a7671f,
+    type: 2}
 --- !u!114 &114529275637694524
 MonoBehaviour:
   m_ObjectHideFlags: 1
