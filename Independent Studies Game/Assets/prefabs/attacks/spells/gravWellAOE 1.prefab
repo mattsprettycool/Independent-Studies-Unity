@@ -68,6 +68,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002032562783206}
+  - component: {fileID: 114472606580192004}
   m_Layer: 0
   m_Name: gravWellAOE 1
   m_TagString: Untagged
@@ -343,6 +344,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114472606580192004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259048277495242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40df131a1135f2340a9d10c8f0d20d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ttk: 250
 --- !u!114 &114597788286645684
 MonoBehaviour:
   m_ObjectHideFlags: 1

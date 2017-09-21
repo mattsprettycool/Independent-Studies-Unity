@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GravWellAOEEffect : MonoBehaviour {
 
@@ -17,7 +18,9 @@ public class GravWellAOEEffect : MonoBehaviour {
     {
         if(col.tag == "Enemies")
         {
-            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0,100,0));
+            col.gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
+            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up*10, ForceMode.Impulse);
+            //col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
         }
     }
 }

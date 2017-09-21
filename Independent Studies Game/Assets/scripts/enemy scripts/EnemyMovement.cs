@@ -26,4 +26,11 @@ public class EnemyMovement : MonoBehaviour {
             bugLog += e;
         }
 	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!agent.updatePosition&&collision.collider.tag == "Floor")
+        {
+            agent.updatePosition = true;
+        }
+    }
 }
