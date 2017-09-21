@@ -7,9 +7,7 @@ public class EnemyMageAttack : MonoBehaviour {
 	public int dmgPerAttk;
 	public float timeBetweenAttk;
 	float timer;
-	int inLevel;
 	bool inRange;
-	bool touchingBody;
 	GameObject player;
 	public Transform fireboltSpawn;
 	public GameObject enemyFirebolt;
@@ -19,9 +17,8 @@ public class EnemyMageAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		dmgPerAttk = 5;
-		timeBetweenAttk = .5f;
+		timeBetweenAttk = 1;
 		inRange = false;
-		touchingBody = false;
 	}
 
 	// Update is called once per frame
@@ -30,19 +27,15 @@ public class EnemyMageAttack : MonoBehaviour {
 		timer += Time.deltaTime;
 
 		//if the time on the timer > .5 and player and enemy are colliding, enemy attacks player
-		if (timer >= timeBetweenAttk && inRange && inLevel == 1)
+		if (timer >= timeBetweenAttk && inRange) 
 		{
 			AttackPlayerRanged ();
-		}
-		if (timer >= timeBetweenAttk && inRange && inLevel == 2) {
-			
 		}
 	}
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject == player)
 		{
-			inLevel++;
 			inRange = true;
 		}
 	}
@@ -50,41 +43,18 @@ public class EnemyMageAttack : MonoBehaviour {
 	{
 		if (other.gameObject == player)
 		{
-			inLevel--;
 			inRange = false;
 		} 
-	}
-	void OnCollisionEnter(Collision col)
-	{
-		if (col.gameObject == player)
-		{
-			touchingBody = true;
-		}
-	}
-	void OnCollisionExit(Collision col)
-	{
-		if (col.gameObject == player)
-		{
-			touchingBody = false;
-		} 
-	}
-
-	//resets timer so enemy can attack again and inflicts damage, calling upon the method TakeDamage in PlayerHealth.cs
-	void AttackPlayer()
-	{
-		timer = 0;
-		if (playerHealth.currHealth > 0 && touchingBody)
-		{
-			playerHealth.TakeDamage (dmgPerAttk * 2);
-		}
-		else if (playerHealth.currHealth > 0)
-		{
-			playerHealth.TakeDamage(dmgPerAttk);
-		}
 	}
 	void AttackPlayerRanged ()
 	{
 		timer = 0;
-		Instantiate (enemyFirebolt, fireboltSpawn.position, fireboltSpawn.rotation);
+		var attkInst = Instantiate(enemyFirebolt);
+		attkInst.transform.parent = fireboltSpawn;
+		attkInst.transform.localPosition = fireboltSpawn.position;
+		attkInst.transform.rotation = fireboltSpawn.rotation;
+		attkInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
+		attkInst.transform.localPosition = new Vector3(0f, 0f, .75f);
+		attkInst.transform.SetParent(null);
 	}
 }

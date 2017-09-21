@@ -5,16 +5,21 @@ using UnityEngine;
 public class CrossbowMovement : MonoBehaviour {
     public Bolt bolt;
     float timer;
+	bool justSwitched;
     bool justStarted;
+	ItemBar itmBar;
 	// Use this for initialization
 	void Start () {
+		itmBar = new ItemBar ();
+		justSwitched = itmBar.justSwitched;
         timer = 0;
         justStarted = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f)
+		justSwitched = itmBar.justSwitched;
+        if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;
             justStarted = false;

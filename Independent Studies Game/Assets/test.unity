@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5222,64 +5222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!1001 &1385790010
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -17.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.164
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -23.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261515052066338, guid: ba4f9f33f3a084bc58e385d49d037947,
-        type: 2}
-      propertyPath: enemyFirebolt
-      value: 
-      objectReference: {fileID: 1184682058447336, guid: 0033805b8d2fb334281c0445d8513a02,
-        type: 2}
-    - target: {fileID: 114261515052066338, guid: ba4f9f33f3a084bc58e385d49d037947,
-        type: 2}
-      propertyPath: fireboltSpawn
-      value: 
-      objectReference: {fileID: 1496640269}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1385790011 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4048468670510920, guid: ba4f9f33f3a084bc58e385d49d037947,
-    type: 2}
-  m_PrefabInternal: {fileID: 1385790010}
 --- !u!1 &1399958008
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,34 +5960,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1473784561}
---- !u!1 &1496640268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1496640269}
-  m_Layer: 0
-  m_Name: ProjectileSpawn
-  m_TagString: attacks
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1496640269
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1496640268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.995, y: 0, z: 0}
-  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
-  m_Children: []
-  m_Father: {fileID: 1385790011}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497544975
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,7 +6310,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4264655261161648, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1937210168023398, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_Name
