@@ -37,7 +37,7 @@ public class GravityWell : MonoBehaviour
             {
                 if (hitInfo.collider.tag == "Floor")
                 {
-                    Destroy(GameObject.FindGameObjectWithTag("gravAoe"));
+                    Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
                     var attackInst = Instantiate(fakeGravAOE);
                     attackInst.transform.position = new Vector3(hitInfo.point.x, 1.266f, hitInfo.point.z);
                 }
@@ -45,7 +45,7 @@ public class GravityWell : MonoBehaviour
                 {
                     try
                     {
-                        Destroy(GameObject.FindGameObjectWithTag("gravAoe"));
+                        Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
                     }
                     catch(Exception e)
                     {
@@ -55,7 +55,7 @@ public class GravityWell : MonoBehaviour
             }else
                 try
                 {
-                    Destroy(GameObject.FindGameObjectWithTag("gravAoe"));
+                    Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
                 }
                 catch (Exception e)
                 {
@@ -63,7 +63,7 @@ public class GravityWell : MonoBehaviour
                 }
             if(Input.GetKey(KeyCode.Alpha0)|| Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Alpha4) || Input.GetKey(KeyCode.Alpha5) || Input.GetKey(KeyCode.Alpha6) || Input.GetKey(KeyCode.Alpha7) || Input.GetKey(KeyCode.Alpha8) || Input.GetKey(KeyCode.Alpha9) || Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                Destroy(GameObject.FindGameObjectWithTag("gravAoe"));
+                Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
             }
         }
     }

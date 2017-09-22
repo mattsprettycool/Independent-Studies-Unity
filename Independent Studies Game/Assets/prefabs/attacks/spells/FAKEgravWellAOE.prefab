@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4145188030527366}
   m_Layer: 0
   m_Name: FAKEgravWellAOE
-  m_TagString: gravAoe
+  m_TagString: attackPreview
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

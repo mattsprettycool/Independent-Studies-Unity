@@ -223,6 +223,8 @@ public class ItemBar : MonoBehaviour {
         {
 			justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             try
             {
                 var attackInst = Instantiate(attack0);
@@ -242,6 +244,8 @@ public class ItemBar : MonoBehaviour {
         {
 			justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             try
             {
                 var attackInst = Instantiate(attack1);
@@ -260,6 +264,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 2 && currentPoint != 2 && !justStarted)|| (currentPoint == 2 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -279,6 +285,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 3 && currentPoint != 3 && !justStarted)|| (currentPoint == 3 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -298,6 +306,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 4 && currentPoint != 4 && !justStarted)|| (currentPoint == 4 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -317,6 +327,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 5 && currentPoint != 5 && !justStarted)|| (currentPoint == 5 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -336,6 +348,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 6 && currentPoint != 6 && !justStarted)|| (currentPoint == 6 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -355,6 +369,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 7 && currentPoint != 7 && !justStarted)|| (currentPoint == 7 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {
@@ -374,6 +390,8 @@ public class ItemBar : MonoBehaviour {
         if ((pointer == 8 && currentPoint != 8 && !justStarted)||(currentPoint == 8 && updateNeeded))
         {
 			justSwitched = true;
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
+            foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
             try
             {

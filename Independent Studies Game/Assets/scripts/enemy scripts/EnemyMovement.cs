@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-		agent = GetComponent<NavMeshAgent> ();
+		agent = gameObject.GetComponent<NavMeshAgent> ();
         bugLog = "";
 	}
 	
@@ -25,12 +25,20 @@ public class EnemyMovement : MonoBehaviour {
         {
             bugLog += e;
         }
+        if (!agent.updatePosition) agent.isStopped = true;
 	}
     private void OnCollisionEnter(Collision collision)
     {
-        if (!agent.updatePosition&&collision.collider.tag == "Floor")
+        try
         {
-            agent.updatePosition = true;
+            if (!agent.updatePosition && collision.collider.tag == "Floor")
+            {
+                agent.updatePosition = true;
+                agent.isStopped = false;
+            }
+        }catch(Exception e)
+        {
+            bugLog += e;
         }
     }
 }

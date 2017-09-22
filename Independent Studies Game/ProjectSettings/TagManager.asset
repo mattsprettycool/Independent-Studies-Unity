@@ -58,6 +58,7 @@ TagManager:
   - Enemies
   - EnemyProjectiles
   - gravAoe
+  - attackPreview
   layers:
   - Default
   - TransparentFX
