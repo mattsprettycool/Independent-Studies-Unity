@@ -27,7 +27,7 @@ public class firebolt : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player" && other.tag != "attacks")
+		if (other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn")
         {
             GameObject.Destroy(this.gameObject);
         }

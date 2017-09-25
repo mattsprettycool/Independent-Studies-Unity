@@ -7,18 +7,18 @@ public class CrossbowMovement : MonoBehaviour {
     float timer;
 	bool justSwitched;
     bool justStarted;
-	ItemBar itmBar;
+	GameObject player;
+
 	// Use this for initialization
 	void Start () {
-		itmBar = new ItemBar ();
-		justSwitched = itmBar.justSwitched;
+		player = GameObject.FindGameObjectWithTag ("Player");
         timer = 0;
         justStarted = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		justSwitched = itmBar.justSwitched;
+		justSwitched = player.GetComponent<ItemBar> ().justSwitched;
         if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;

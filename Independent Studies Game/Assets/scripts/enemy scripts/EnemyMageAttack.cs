@@ -9,8 +9,8 @@ public class EnemyMageAttack : MonoBehaviour {
 	float timer;
 	bool inRange;
 	GameObject player;
-	public Transform fireboltSpawn;
 	public GameObject enemyFirebolt;
+	public Transform fireboltSpawn;
 	PlayerHealth playerHealth;
 	// Use this for initialization
 	void Start () {
@@ -49,12 +49,6 @@ public class EnemyMageAttack : MonoBehaviour {
 	void AttackPlayerRanged ()
 	{
 		timer = 0;
-		var attkInst = Instantiate(enemyFirebolt);
-		attkInst.transform.parent = fireboltSpawn;
-		attkInst.transform.localPosition = fireboltSpawn.position;
-		attkInst.transform.rotation = fireboltSpawn.rotation;
-		attkInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
-		attkInst.transform.localPosition = new Vector3(0f, 0f, .75f);
-		attkInst.transform.SetParent(null);
+		var attkInst = Instantiate(enemyFirebolt, transform.position, transform.rotation);
 	}
 }

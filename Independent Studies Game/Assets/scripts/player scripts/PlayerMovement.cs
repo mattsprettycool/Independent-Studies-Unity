@@ -34,12 +34,12 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         //Added this vvv
-        if (rb.velocity.sqrMagnitude > maxVelSquared)
+		if (rb.velocity.sqrMagnitude > maxVelSquared)
         {
             rb.velocity = rb.velocity.normalized * maxVelocity;
         }
-
-        if (Input.GetKey(KeyCode.W)&&jumpTest)
+			
+		if (Input.GetKey(KeyCode.W)&&jumpTest)
         {
             rb.AddRelativeForce(new Vector3(speed, 0, 0));
         }else if (Input.GetKey(KeyCode.W))

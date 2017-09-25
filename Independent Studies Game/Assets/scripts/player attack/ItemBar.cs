@@ -52,8 +52,8 @@ public class ItemBar : MonoBehaviour {
 			switchTimer += Time.deltaTime;
 			if (switchTimer > 5) 
 			{
-				switchTimer = 0;
 				justSwitched = false;
+				switchTimer = 0;
 			}
 		}
     }
