@@ -2036,15 +2036,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b95705aa6659f40b2946c3e330cf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 0
   enemiesKilled: 0
   enemyList:
-  - {fileID: 1299169844102738, guid: 86bbd4b4977e34741b17f20c70cec318, type: 2}
+  - {fileID: 1722195516615706, guid: af6562e6f2a6dc24c8886748d5ab2996, type: 2}
   spawnPoints:
   - {fileID: 1444016953}
   - {fileID: 955126595}
   - {fileID: 1791452880}
   - {fileID: 434713051}
+  timer: 0
 --- !u!4 &441741553
 Transform:
   m_ObjectHideFlags: 0

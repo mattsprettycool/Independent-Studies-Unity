@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 //by Jai Saka
 public class PlayerHealth : MonoBehaviour {
-    public int startHealth;
-    public int currHealth;
+    public float startHealth;
+    public float currHealth;
     public Slider healthSlider;
     bool damageTaken;
 	string debug;
@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     //To be called upon by other methods, don't bother applying it here
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         currHealth -= dmg;
     }

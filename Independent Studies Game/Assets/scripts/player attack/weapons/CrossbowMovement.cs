@@ -18,7 +18,7 @@ public class CrossbowMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		justSwitched = player.GetComponent<ItemBar> ().justSwitched;
+		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
         if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;
