@@ -409,4 +409,8 @@ public class ItemBar : MonoBehaviour {
             currentPoint = 8;
         }
     }
+    public bool IsFull()
+    {
+        return (attack0 != null && attack1 != null && attack2 != null && attack3 != null && attack4 != null && attack5 != null && attack6 != null && attack7 != null && attack8 != null);
+    }
 }

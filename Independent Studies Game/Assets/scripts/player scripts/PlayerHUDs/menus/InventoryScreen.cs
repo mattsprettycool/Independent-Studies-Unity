@@ -24,6 +24,7 @@ public class InventoryScreen : MonoBehaviour {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         errors = "";
         objectsInArray = 0;
+        for (int i = 0; i < 30; i++) itemArray[i] = null;
     }
 	
 	// Update is called once per frame
@@ -73,5 +74,12 @@ public class InventoryScreen : MonoBehaviour {
             {
                 errors += e;
             }
+    }
+    public bool IsFull()
+    {
+        int ammNotNull = 0;
+        for(int i = 0; i < 30; i++) if (itemArray[i] != null) ammNotNull++;
+        if (ammNotNull <= 30) return false;
+        return true;
     }
 }
