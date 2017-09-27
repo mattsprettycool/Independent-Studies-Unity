@@ -25,14 +25,11 @@ public class InventoryScreen : MonoBehaviour {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         errors = "";
         objectsInArray = 0;
-        for (int i = 0; i < 30; i++) itemArray[i] = null;
         iBar = Camera.main.gameObject.GetComponent<ItemBar>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        objectsInArray = 0;
-        for (int i = 0; i < 30; i++) if (itemArray[i] != null) objectsInArray++;
         if (Input.GetKeyDown(KeyCode.Tab)&&toggle)
         {
             Time.timeScale = 0f;
@@ -93,7 +90,7 @@ public class InventoryScreen : MonoBehaviour {
     {
         for(int i = 0; i < 30; i++)
         {
-            if (itemArray[i] != null)
+            if (itemArray[i] == null)
             {
                 itemArray[i] = itemToAdd;
                 i = 30;

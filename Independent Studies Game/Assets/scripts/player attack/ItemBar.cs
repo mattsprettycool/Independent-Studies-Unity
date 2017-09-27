@@ -49,7 +49,7 @@ public class ItemBar : MonoBehaviour {
             pM.setCommToFalse();
             updateNeeded = true;
         }
-        else
+        else if(pM.doCommunicate)
         {
             commWithIscreen = true;
             pM.setCommToFalse();
