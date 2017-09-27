@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2038,7 +2038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesKilled: 0
   enemyList:
-  - {fileID: 1722195516615706, guid: af6562e6f2a6dc24c8886748d5ab2996, type: 2}
+  - {fileID: 1087931098395348, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+  - {fileID: 1974760870154802, guid: ba4f9f33f3a084bc58e385d49d037947, type: 2}
   spawnPoints:
   - {fileID: 1444016953}
   - {fileID: 955126595}
@@ -5222,6 +5223,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!1001 &1382923871
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -36.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406646792892258, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 136387100776456070, guid: 0b5b59dec494a441e9ffa92848001062,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136387100776456070, guid: 0b5b59dec494a441e9ffa92848001062,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65563863008469142, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1399958008
 GameObject:
   m_ObjectHideFlags: 0

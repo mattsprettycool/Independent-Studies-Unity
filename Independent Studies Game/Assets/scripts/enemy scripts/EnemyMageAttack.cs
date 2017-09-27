@@ -34,14 +34,14 @@ public class EnemyMageAttack : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject == player)
+		if (other.gameObject.tag == "Player")
 		{
 			inRange = true;
 		}
 	}
 	void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject == player)
+		if (other.gameObject.tag == "Player")
 		{
 			inRange = false;
 		} 
