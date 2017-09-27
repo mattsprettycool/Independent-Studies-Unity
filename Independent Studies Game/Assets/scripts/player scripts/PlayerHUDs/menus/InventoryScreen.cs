@@ -15,6 +15,7 @@ public class InventoryScreen : MonoBehaviour {
     public GameObject[] itemArray = new GameObject[30];
     //number of non-null objects in the array
     int objectsInArray;
+    ItemBar iBar;
     // Use this for initialization
     void Start () {
         toggle = true;
@@ -25,6 +26,7 @@ public class InventoryScreen : MonoBehaviour {
         errors = "";
         objectsInArray = 0;
         for (int i = 0; i < 30; i++) itemArray[i] = null;
+        iBar = Camera.main.gameObject.GetComponent<ItemBar>();
     }
 	
 	// Update is called once per frame
@@ -48,6 +50,11 @@ public class InventoryScreen : MonoBehaviour {
         }
         else
             hideIcons();
+        if (iBar.commWithIscreen&&!this.IsFull())
+        {
+            AddItem(iBar.pM.recentPickUp);
+            iBar.commWithIscreen = false;
+        }
     }
     void showIcons()
     {
@@ -81,5 +88,16 @@ public class InventoryScreen : MonoBehaviour {
         for(int i = 0; i < 30; i++) if (itemArray[i] != null) ammNotNull++;
         if (ammNotNull <= 30) return false;
         return true;
+    }
+    void AddItem(GameObject itemToAdd)
+    {
+        for(int i = 0; i < 30; i++)
+        {
+            if (itemArray[i] != null)
+            {
+                itemArray[i] = itemToAdd;
+                i = 30;
+            }
+        }
     }
 }

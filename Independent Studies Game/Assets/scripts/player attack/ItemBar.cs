@@ -22,8 +22,9 @@ public class ItemBar : MonoBehaviour {
 	public bool justSwitched;
     bool justStarted;
     String debugger;
-    PlayerMovement pM;
+    public PlayerMovement pM;
     bool updateNeeded;
+    public bool commWithIscreen;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -33,6 +34,7 @@ public class ItemBar : MonoBehaviour {
         debugger = "";
         updateNeeded = false;
         pM = GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
+        commWithIscreen = false;
     }
 	
 	// Update is called once per frame
@@ -41,9 +43,15 @@ public class ItemBar : MonoBehaviour {
         changeAttacks();
         setAttacks();
         setHotbarSelect();
-        if (pM.doCommunicate)
+        if (pM.doCommunicate&&!this.IsFull())
         {
-            attack8 = pM.recentPickUp;
+            this.AddItem(pM.recentPickUp);
+            pM.setCommToFalse();
+            updateNeeded = true;
+        }
+        else
+        {
+            commWithIscreen = true;
             pM.setCommToFalse();
             updateNeeded = true;
         }
@@ -412,5 +420,43 @@ public class ItemBar : MonoBehaviour {
     public bool IsFull()
     {
         return (attack0 != null && attack1 != null && attack2 != null && attack3 != null && attack4 != null && attack5 != null && attack6 != null && attack7 != null && attack8 != null);
+    }
+    void AddItem(GameObject prefabToCopy)
+    {
+        if (attack0 == null)
+        {
+            attack0 = prefabToCopy;
+        }else if (attack1 == null)
+        {
+            attack1 = prefabToCopy;
+        }
+        else if (attack2 == null)
+        {
+            attack2 = prefabToCopy;
+        }
+        else if (attack3 == null)
+        {
+            attack3 = prefabToCopy;
+        }
+        else if (attack4 == null)
+        {
+            attack4 = prefabToCopy;
+        }
+        else if (attack5 == null)
+        {
+            attack5 = prefabToCopy;
+        }
+        else if (attack6 == null)
+        {
+            attack6 = prefabToCopy;
+        }
+        else if (attack7 == null)
+        {
+            attack7 = prefabToCopy;
+        }
+        else if (attack8 == null)
+        {
+            attack8 = prefabToCopy;
+        }
     }
 }
