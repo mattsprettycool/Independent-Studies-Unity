@@ -49,6 +49,6 @@ public class EnemyMageAttack : MonoBehaviour {
 	void AttackPlayerRanged ()
 	{
 		timer = 0;
-		var attkInst = Instantiate(enemyFirebolt, transform.position, transform.rotation);
+		Instantiate(enemyFirebolt, transform.localPosition, transform.rotation);
 	}
 }

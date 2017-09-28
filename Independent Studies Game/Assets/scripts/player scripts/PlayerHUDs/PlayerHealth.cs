@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private void OnCollisionEnter (Collision col)
 	{
-		if (col.gameObject.tag == "EnemyProjectiles")
+		if (col.gameObject.tag == "EnemyProjectiles" || col.gameObject.tag == "enemyweapon")
 		{
 			try
 			{

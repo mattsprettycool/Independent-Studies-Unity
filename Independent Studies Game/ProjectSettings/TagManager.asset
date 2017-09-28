@@ -60,6 +60,7 @@ TagManager:
   - gravAoe
   - attackPreview
   - UI
+  - enemyweapon
   layers:
   - Default
   - TransparentFX
