@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class InventoryScreen : MonoBehaviour {
+public class InventoryScreen : MonoBehaviour
+{
     bool toggle;
     //this string outputs every error in the try catch statements
     String errors;
@@ -17,7 +18,8 @@ public class InventoryScreen : MonoBehaviour {
     int objectsInArray;
     ItemBar iBar;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         toggle = true;
         //this initially hides the inventory screen
         gameObject.GetComponent<Image>().color = new Color(255, 255, 255, 0);
@@ -27,15 +29,17 @@ public class InventoryScreen : MonoBehaviour {
         objectsInArray = 0;
         iBar = Camera.main.gameObject.GetComponent<ItemBar>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Tab)&&toggle)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && toggle)
         {
             Time.timeScale = 0f;
             gameObject.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             toggle = false;
-        }else if (Input.GetKeyDown(KeyCode.Tab) && !toggle)
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && !toggle)
         {
             Time.timeScale = 1f;
             gameObject.GetComponent<Image>().color = new Color(255, 255, 255, 0);
@@ -47,32 +51,32 @@ public class InventoryScreen : MonoBehaviour {
         }
         else
             hideIcons();
-        if (iBar.commWithIscreen&&!this.IsFull())
+        if (iBar.commWithIscreen && !this.IsFull())
         {
             AddItem(iBar.pM.recentPickUp);
             iBar.commWithIscreen = false;
         }
     }
-    void showIcons()
+    public void showIcons()
     {
-        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 255);
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         for (int i = 0; i < 30; i++)
             try
             {
-                GameObject.FindGameObjectWithTag("i"+i).GetComponent<Image>().overrideSprite = itemArray[i].GetComponent<attackLibrary>().icon;
+                GameObject.FindGameObjectWithTag("i" + i).GetComponent<Image>().overrideSprite = itemArray[i].GetComponent<attackLibrary>().icon;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 errors += e;
             }
     }
-    void hideIcons()
+    public void hideIcons()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         for (int i = 0; i < 30; i++)
             try
             {
-                GameObject.FindGameObjectWithTag("i"+i).GetComponent<Image>().overrideSprite = nullImage;
+                GameObject.FindGameObjectWithTag("i" + i).GetComponent<Image>().overrideSprite = nullImage;
             }
             catch (Exception e)
             {
@@ -82,13 +86,13 @@ public class InventoryScreen : MonoBehaviour {
     public bool IsFull()
     {
         int ammNotNull = 0;
-        for(int i = 0; i < 30; i++) if (itemArray[i] != null) ammNotNull++;
+        for (int i = 0; i < 30; i++) if (itemArray[i] != null) ammNotNull++;
         if (ammNotNull <= 30) return false;
         return true;
     }
     void AddItem(GameObject itemToAdd)
     {
-        for(int i = 0; i < 30; i++)
+        for (int i = 0; i < 30; i++)
         {
             if (itemArray[i] == null)
             {
@@ -96,5 +100,40 @@ public class InventoryScreen : MonoBehaviour {
                 i = 30;
             }
         }
+    }
+    public void AddItemAtSpot(GameObject itemToAdd, string spotTag)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            if (spotTag.Equals("i" + i))
+            {
+                itemArray[i] = itemToAdd;
+                showIcons();
+                i = 30;
+            }
+        }
+    }
+    public void RemoveItemAtSpot(string spotTag)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            if (spotTag.Equals("i" + i))
+            {
+                itemArray[i] = null;
+                showIcons();
+                i = 30;
+            }
+        }
+    }
+    public GameObject GetItemAtSpot(string spotTag)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            if (spotTag.Equals("i" + i))
+            {
+                return itemArray[i];
+            }
+        }
+        return null;
     }
 }

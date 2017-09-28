@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     float maxVelocity;
     float maxVelSquared;
     public GameObject cameraLoc;
-	PlayerStamina playerStamina;
+	//PlayerStamina playerStamina;
     bool keyTest;
     public spellPickup sp;
     public HealthPickup hp;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     InventoryScreen iScreen;
     // Use this for initialization
     void Start () {
-		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
+		//playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
         speed = 20;
         maxVelocity = 20;

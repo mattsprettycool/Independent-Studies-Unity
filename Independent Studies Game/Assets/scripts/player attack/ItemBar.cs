@@ -79,7 +79,7 @@ public class ItemBar : MonoBehaviour {
         if (pointer == 8) hotSel.transform.position = GameObject.FindGameObjectWithTag("h8").transform.position;
     }
     //updates the attacks to account for any changes
-    void updateAttacks()
+    public void updateAttacks()
     {
         //IMPORTANT!!!! in order to use try/catch, you need to first import it bby typing "using System" at the top
         try
@@ -458,5 +458,124 @@ public class ItemBar : MonoBehaviour {
         {
             attack8 = prefabToCopy;
         }
+    }
+    public void AddItemAtSpot(GameObject itemToAdd, string spotTag)
+    {
+        if (spotTag.Equals("h0"))
+        {
+            attack0 = itemToAdd;
+        }else if (spotTag.Equals("h1"))
+        {
+            attack1 = itemToAdd;
+        }
+        else if (spotTag.Equals("h2"))
+        {
+            attack2 = itemToAdd;
+        }
+        else if (spotTag.Equals("h3"))
+        {
+            attack3 = itemToAdd;
+        }
+        else if (spotTag.Equals("h4"))
+        {
+            attack4 = itemToAdd;
+        }
+        else if (spotTag.Equals("h5"))
+        {
+            attack5 = itemToAdd;
+        }
+        else if (spotTag.Equals("h6"))
+        {
+            attack6 = itemToAdd;
+        }
+        else if (spotTag.Equals("h7"))
+        {
+            attack7 = itemToAdd;
+        }
+        else if (spotTag.Equals("h8"))
+        {
+            attack8 = itemToAdd;
+        }
+        updateAttacks();
+    }
+    public void RemoveItemAtSpot(string spotTag)
+    {
+        if (spotTag.Equals("h0"))
+        {
+            attack0 = null;
+        }
+        else if (spotTag.Equals("h1"))
+        {
+            attack1 = null;
+        }
+        else if (spotTag.Equals("h2"))
+        {
+            attack2 = null;
+        }
+        else if (spotTag.Equals("h3"))
+        {
+            attack3 = null;
+        }
+        else if (spotTag.Equals("h4"))
+        {
+            attack4 = null;
+        }
+        else if (spotTag.Equals("h5"))
+        {
+            attack5 = null;
+        }
+        else if (spotTag.Equals("h6"))
+        {
+            attack6 = null;
+        }
+        else if (spotTag.Equals("h7"))
+        {
+            attack7 = null;
+        }
+        else if (spotTag.Equals("h8"))
+        {
+            attack8 = null;
+        }
+        updateAttacks();
+    }
+    public GameObject GetItemAtSpot(string spotTag)
+    {
+        if (spotTag.Equals("h0"))
+        {
+            return attack0;
+        }
+        else if (spotTag.Equals("h1"))
+        {
+            return attack1;
+        }
+        else if (spotTag.Equals("h2"))
+        {
+            return attack2;
+        }
+        else if (spotTag.Equals("h3"))
+        {
+            return attack3;
+        }
+        else if (spotTag.Equals("h4"))
+        {
+            return attack4;
+        }
+        else if (spotTag.Equals("h5"))
+        {
+            return attack5;
+        }
+        else if (spotTag.Equals("h6"))
+        {
+            return attack6;
+        }
+        else if (spotTag.Equals("h7"))
+        {
+            return attack7;
+        }
+        else if (spotTag.Equals("h8"))
+        {
+            return attack8;
+        }
+        return null;
     }
 }
