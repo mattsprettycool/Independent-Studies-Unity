@@ -17,19 +17,9 @@ public class EnemyAttack : MonoBehaviour {
 		timeBetweenAttk = 1;
 		inRange = false;
 	}	
-	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Player") {
-			inRange = true;
-		}
-	}
 	void OnTriggerStay(Collider other){
-		if (other.gameObject.tag == "Player" && inRange) {
-			playerHealth.TakeDamage (dmgPerAttk);
-		}
-	}
-	void OnTriggerExit(Collider other){
 		if (other.gameObject.tag == "Player") {
-			inRange = false;
+			playerHealth.TakeDamage (dmgPerAttk);
 		}
 	}
 }
