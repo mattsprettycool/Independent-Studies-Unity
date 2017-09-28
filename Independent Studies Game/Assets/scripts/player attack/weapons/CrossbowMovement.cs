@@ -23,17 +23,28 @@ public class CrossbowMovement : MonoBehaviour {
         {
             timer = 0;
             justStarted = false;
-            var instAttk = Instantiate(bolt);
-            instAttk.transform.parent = gameObject.transform;
-            instAttk.transform.localPosition = new Vector3(0f, 0f, 0f);
-            instAttk.transform.rotation = gameObject.transform.rotation;
-            instAttk.transform.localRotation = Quaternion.Euler(0, 180, 0);
-            instAttk.transform.localPosition = new Vector3(0f, 0f, 0);
-            instAttk.transform.SetParent(null);
+			InstantiateBolt ();
+			var instAttkFromHead = Instantiate(bolt);
+			instAttkFromHead.transform.parent = player.transform;
+			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0f);
+			instAttkFromHead.transform.rotation = player.transform.rotation;
+			instAttkFromHead.transform.localRotation = Quaternion.Euler(0, 180, 0);
+			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0);
+			instAttkFromHead.transform.SetParent(null);
         }
     }
     void FixedUpdate()
     {
         timer += Time.deltaTime;
     }
+
+	private void InstantiateBolt(){
+		var instAttk = Instantiate(bolt);
+		instAttk.transform.parent = gameObject.transform;
+		instAttk.transform.localPosition = new Vector3(0f, 0f, 0f);
+		instAttk.transform.rotation = gameObject.transform.rotation;
+		instAttk.transform.localRotation = Quaternion.Euler(0, 180, 0);
+		instAttk.transform.localPosition = new Vector3(0f, 0f, 0);
+		instAttk.transform.SetParent(null);
+	}
 }
