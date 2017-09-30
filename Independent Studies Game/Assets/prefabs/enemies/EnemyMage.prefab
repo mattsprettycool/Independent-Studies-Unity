@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 114334718439305306}
   - component: {fileID: 114523477578266684}
   - component: {fileID: 195597251785602884}
-  - component: {fileID: 114334160594948958}
   m_Layer: 0
   m_Name: EnemyMage
   m_TagString: Enemies
@@ -132,17 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114334160594948958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1974760870154802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1893caa1000644bee88508fabdccd83c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114334718439305306
 MonoBehaviour:
   m_ObjectHideFlags: 1

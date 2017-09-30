@@ -18,7 +18,7 @@ public class EnemyAttack : MonoBehaviour {
 		inRange = false;
 	}	
 	void OnTriggerStay(Collider other){
-		if (other.gameObject.tag == "Player" && playerHealth.currHealth >= 0) {
+		if (other.gameObject.tag == "Player") {
 			playerHealth.TakeDamage (dmgPerAttk);
 		}
 	}

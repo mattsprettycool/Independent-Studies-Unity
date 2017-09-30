@@ -78,10 +78,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\DestroyObject.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyAttack.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyHealth.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyMageAttack.cs" />
+    <Compile Include="Assets\scripts\enemy scripts\EnemyMageProjectile.cs" />
+    <Compile Include="Assets\scripts\enemy scripts\EnemyMageRadius.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyMovement.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemySpawn.cs" />
     <Compile Include="Assets\scripts\player attack\attackLibrary.cs" />

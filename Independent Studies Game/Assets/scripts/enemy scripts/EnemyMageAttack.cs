@@ -12,6 +12,7 @@ public class EnemyMageAttack : MonoBehaviour {
 	public GameObject enemyFirebolt;
 	public Transform fireboltSpawn;
 	PlayerHealth playerHealth;
+    EnemyMageProjectile emp;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -19,36 +20,25 @@ public class EnemyMageAttack : MonoBehaviour {
 		dmgPerAttk = 5;
 		timeBetweenAttk = 1;
 		inRange = false;
+        emp = gameObject.GetComponentInChildren<EnemyMageProjectile>();
 	}
 
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 
-		timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-		//if the time on the timer > .5 and player and enemy are colliding, enemy attacks player
-		if (timer >= timeBetweenAttk && inRange) 
-		{
-			AttackPlayerRanged ();
-		}
-	}
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			inRange = true;
-		}
-	}
-	void OnTriggerExit(Collider other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			inRange = false;
-		} 
-	}
-	void AttackPlayerRanged ()
-	{
-		timer = 0;
-		Instantiate(enemyFirebolt, transform.localPosition, transform.rotation);
-	}
+        //if the time on the timer > .5 and player and enemy are colliding, enemy attacks player
+        if (timer >= timeBetweenAttk && inRange)
+        {
+            emp.AttackPlayerRanged(enemyFirebolt);
+            timer = 0;
+        }
+    }
+	
+    public void SetInRage(bool valToSet)
+    {
+        inRange = valToSet;
+    }
 }

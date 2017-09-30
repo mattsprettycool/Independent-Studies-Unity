@@ -20,16 +20,16 @@ public class firebolt : MonoBehaviour {
         
         if (timer >= timeBeforeDeletion)
         {
-            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(gameObject);
         }
         timer += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-		if (other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn")
+		if (other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn" && other.tag != "ignoredByFB")
         {
-            GameObject.Destroy(this.gameObject);
+            GameObject.Destroy(gameObject);
         }
     }
 }

@@ -30,12 +30,8 @@ public class EnemyHealth : MonoBehaviour {
         }
 	}
 
-	void TakeDamage(int dmg){
-		currHealth -= dmg;
-	}
 
-
-    /*private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "projectiles")
         {
@@ -48,5 +44,5 @@ public class EnemyHealth : MonoBehaviour {
                 debug += "\n" + e;
             }
         }
-    }*/
+    }
 }

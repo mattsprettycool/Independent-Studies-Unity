@@ -18,17 +18,19 @@ public class CrossbowMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width * .5f, Screen.height * .5f, 0));
 		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
         if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;
             justStarted = false;
 			InstantiateBolt ();
-			if (Physics.Raycast(ray, out hit, 100)){
-				hit.transform.SendMessage ("TakeDamage", bolt.gameObject.GetComponent<ProjectileDamageLibrary> ().dmgPerHit, SendMessageOptions.DontRequireReceiver);
-			}
+			var instAttkFromHead = Instantiate(bolt);
+			instAttkFromHead.transform.parent = player.transform;
+			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0f);
+			instAttkFromHead.transform.rotation = player.transform.rotation;
+			instAttkFromHead.transform.localRotation = Quaternion.Euler(0, 180, 0);
+			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0);
+			instAttkFromHead.transform.SetParent(null);
         }
     }
     void FixedUpdate()
