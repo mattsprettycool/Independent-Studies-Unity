@@ -18,7 +18,7 @@ public class EnemyMageAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		dmgPerAttk = 5;
-		timeBetweenAttk = 1;
+		timeBetweenAttk = 2;
 		inRange = false;
         emp = gameObject.GetComponentInChildren<EnemyMageProjectile>();
 	}

@@ -6,7 +6,7 @@ public class EnemySpawn : MonoBehaviour {
     public float enemiesKilled;
 	public GameObject[] enemyList;
     public Transform[] spawnPoints;
-    int howManyToSpawn;
+    float timeToSpawn;
     int index;
 	int index2;
     [SerializeField]
@@ -19,7 +19,7 @@ public class EnemySpawn : MonoBehaviour {
 
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * (1+(.001f * enemiesKilled));
         if (timer > 25)
         {
             SpawnEnemy();

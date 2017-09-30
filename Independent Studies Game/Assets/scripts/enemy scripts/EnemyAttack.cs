@@ -11,15 +11,32 @@ public class EnemyAttack : MonoBehaviour {
 	PlayerHealth playerHealth;
 	// Use this for initialization
 	void Start () {
+        timer = 0;
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
-		dmgPerAttk = .125f;
-		timeBetweenAttk = 1;
+		dmgPerAttk = 10;
+		timeBetweenAttk = 2.5f;
 		inRange = false;
-	}	
-	void OnTriggerStay(Collider other){
+	}
+    void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+        if (inRange && timer > timeBetweenAttk)
+        {
+            timer = 0;
+            playerHealth.TakeDamage(dmgPerAttk);
+        }
+    }
+    void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player") {
-			playerHealth.TakeDamage (dmgPerAttk);
+            inRange = true;
 		}
 	}
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            inRange = false;
+        }
+    }
 }
