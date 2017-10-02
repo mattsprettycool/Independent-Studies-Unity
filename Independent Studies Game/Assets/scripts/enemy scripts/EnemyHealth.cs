@@ -6,11 +6,13 @@ using UnityEngine.AI;
 //by Jai Saka
 public class EnemyHealth : MonoBehaviour {
     [SerializeField]
-    public int startHealth;
-    public int currHealth;
+    public float startHealth;
+    public float currHealth;
     float timer;
     NavMeshAgent agent;
     public EnemySpawn enemySpawn;
+	public bool bleeding;
+	public float bleedDmg;
     string debug;
 	// Use this for initialization
 	void Start () {
@@ -28,12 +30,15 @@ public class EnemyHealth : MonoBehaviour {
             enemySpawn.enemiesKilled++;
             GameObject.Destroy(this.gameObject);
         }
+		if (bleeding) {
+			currHealth -= bleedDmg;
+		}
 	}
 
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "projectiles")
+		if (collision.gameObject.tag == "projectiles")
         {
             try
             {
@@ -45,4 +50,7 @@ public class EnemyHealth : MonoBehaviour {
             }
         }
     }
+	public void TakeDamage(float dmg){
+		currHealth -= dmg;
+	}
 }
