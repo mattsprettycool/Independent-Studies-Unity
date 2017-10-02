@@ -85,6 +85,7 @@
     <Compile Include="Assets\scripts\enemy scripts\EnemyMageRadius.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemyMovement.cs" />
     <Compile Include="Assets\scripts\enemy scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\scripts\player attack\AttackDamageLibrary.cs" />
     <Compile Include="Assets\scripts\player attack\attackLibrary.cs" />
     <Compile Include="Assets\scripts\player attack\ItemBar.cs" />
     <Compile Include="Assets\scripts\player attack\ProjectileDamageLibrary.cs" />
