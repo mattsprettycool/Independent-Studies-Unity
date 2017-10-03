@@ -62,6 +62,8 @@ TagManager:
   - UI
   - enemyweapon
   - ignoredByFB
+  - c1
+  - c2
   layers:
   - Default
   - TransparentFX

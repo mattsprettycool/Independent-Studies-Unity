@@ -497,6 +497,7 @@ public class ItemBar : MonoBehaviour {
             attack8 = itemToAdd;
         }
         updateAttacks();
+        setAttacks();
     }
     public void RemoveItemAtSpot(string spotTag)
     {
@@ -537,6 +538,7 @@ public class ItemBar : MonoBehaviour {
             attack8 = null;
         }
         updateAttacks();
+        setAttacks();
     }
     public GameObject GetItemAtSpot(string spotTag)
     {

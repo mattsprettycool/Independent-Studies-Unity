@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemSwapper : MonoBehaviour {
     [SerializeField]
@@ -50,6 +51,10 @@ public class ItemSwapper : MonoBehaviour {
                 iScreen.showIcons();
             }
             swap = false;
+            GameObject.FindGameObjectWithTag("c1").GetComponent<Image>().enabled = false;
+            GameObject.FindGameObjectWithTag("c2").GetComponent<Image>().enabled = false;
+            spot1 = "";
+            spot2 = "";
         }
 	}
     public void AddSlot(string sName)
@@ -58,11 +63,16 @@ public class ItemSwapper : MonoBehaviour {
         {
             spot1 = sName;
             stage = true;
-        }else if(stage)
+            GameObject.FindGameObjectWithTag("c1").transform.position = GameObject.FindGameObjectWithTag(sName).transform.position;
+            GameObject.FindGameObjectWithTag("c1").GetComponent<Image>().enabled = true;
+        }
+        else if(stage)
         {
             spot2 = sName;
             swap = true;
             stage = false;
+            GameObject.FindGameObjectWithTag("c2").transform.position = GameObject.FindGameObjectWithTag(sName).transform.position;
+            GameObject.FindGameObjectWithTag("c2").GetComponent<Image>().enabled = true;
         }
         else
         {

@@ -120,6 +120,7 @@ public class InventoryScreen : MonoBehaviour
             if (spotTag.Equals("i" + i))
             {
                 itemArray[i] = null;
+                hideIcons();
                 showIcons();
                 i = 30;
             }
