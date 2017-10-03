@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour {
     public float startHealth;
     public float currHealth;
     float timer;
-    NavMeshAgent agent;
     public EnemySpawn enemySpawn;
 	public bool bleeding;
 	public float bleedDmg;
@@ -19,7 +18,6 @@ public class EnemyHealth : MonoBehaviour {
         startHealth = 100;
         currHealth = startHealth;
         enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
-        agent = this.gameObject.GetComponent<NavMeshAgent>();
         debug = "";
 	}
 	

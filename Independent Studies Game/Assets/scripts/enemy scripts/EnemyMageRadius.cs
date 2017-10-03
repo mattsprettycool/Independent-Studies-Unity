@@ -17,14 +17,14 @@ public class EnemyMageRadius : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            ema.SetInRage(true);
+            ema.SetInRange(true);
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            ema.SetInRage(false);
+            ema.SetInRange(false);
         }
     }
 }
