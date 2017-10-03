@@ -8,13 +8,9 @@ public class slotSelector : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        SendYee();
-        Debug.Log(eventData);
-        throw new System.NotImplementedException();
-    }
-
-    public void SendYee()
-    {
-        Debug.Log("yee");
+        if (Time.timeScale == 0f)
+        {
+            Camera.main.gameObject.GetComponent<ItemSwapper>().AddSlot(gameObject.tag);
+        }
     }
 }
