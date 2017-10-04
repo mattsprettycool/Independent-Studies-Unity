@@ -35,9 +35,7 @@ public class EnemyMageProjectile : MonoBehaviour {
 	{
 		if (other.tag != "Enemies" || other.tag != "ignoredByFB")
 		{
-			if (other.tag != "Player") {
-				GameObject.Destroy (gameObject);
-			} else if (other.tag == "Player") {
+			if (other.tag == "Player") {
 				try {
 					plyHlth.TakeDamage (this.gameObject.GetComponent<ProjectileDamageLibrary> ().dmgPerHit);
 					GameObject.Destroy(gameObject);

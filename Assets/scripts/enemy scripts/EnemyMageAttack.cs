@@ -31,8 +31,7 @@ public class EnemyMageAttack : MonoBehaviour {
 
         if (timer >= timeBetweenAttk && inRange)
         {
-            Debug.Log("Firing");
-            Instantiate(enemyFirebolt, enFireBoltSpawn.position, gameObject.transform.rotation);
+            Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
             timer = 0;
             
         }
