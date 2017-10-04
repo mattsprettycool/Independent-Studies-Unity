@@ -64,6 +64,7 @@ TagManager:
   - ignoredByFB
   - c1
   - c2
+  - enemyProjectileSpawn
   layers:
   - Default
   - TransparentFX

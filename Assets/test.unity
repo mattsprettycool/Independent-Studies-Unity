@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1011,6 +1011,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c33702b6ce314da2a13726ff00f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &223328961 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4424319838761954, guid: 5e8930de821ec194093e79332cc7eaf5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1057608350}
 --- !u!1 &223643146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,6 +5028,11 @@ Prefab:
       value: 
       objectReference: {fileID: 4006583004863718, guid: ad629cdeb7f0947138ac850857cb4bdd,
         type: 2}
+    - target: {fileID: 114216130968564586, guid: 5e8930de821ec194093e79332cc7eaf5,
+        type: 2}
+      propertyPath: enFireBoltSpawn
+      value: 
+      objectReference: {fileID: 1713232209}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e8930de821ec194093e79332cc7eaf5, type: 2}
   m_IsPrefabParent: 0
@@ -8001,6 +8011,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706528323}
+--- !u!1 &1713232208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1713232209}
+  m_Layer: 0
+  m_Name: Projectile Spawn
+  m_TagString: enemyProjectileSpawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1713232209
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713232208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.02, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 223328961}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756472538
 GameObject:
   m_ObjectHideFlags: 0

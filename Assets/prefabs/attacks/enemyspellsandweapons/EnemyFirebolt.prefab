@@ -88,9 +88,9 @@ GameObject:
   - component: {fileID: 4006583004863718}
   - component: {fileID: 33370829212378676}
   - component: {fileID: 135203636162375450}
+  - component: {fileID: 114147551088475248}
   - component: {fileID: 23226534687082106}
   - component: {fileID: 54990719163388136}
-  - component: {fileID: 114147551088475248}
   - component: {fileID: 114659187182969680}
   m_Layer: 0
   m_Name: EnemyFirebolt

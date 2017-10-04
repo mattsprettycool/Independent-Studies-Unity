@@ -33,7 +33,7 @@ public class EnemyMageProjectile : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag != "Enemies")
+		if (other.tag != "Enemies" || other.tag != "ignoredByFB")
 		{
 			if (other.tag != "Player") {
 				GameObject.Destroy (gameObject);
