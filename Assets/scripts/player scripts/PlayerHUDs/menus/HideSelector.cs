@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//by Matt Braden
 public class HideSelector : MonoBehaviour {
     
 	void FixedUpdate () {

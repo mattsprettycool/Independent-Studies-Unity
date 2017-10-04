@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-
+//by Matt Braden
 public class InventoryScreen : MonoBehaviour
 {
     bool toggle;
@@ -33,6 +33,7 @@ public class InventoryScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if you press tab and toggle is true, it pauses the game and opens the inventory
         if (Input.GetKeyDown(KeyCode.Tab) && toggle)
         {
             Time.timeScale = 0f;
@@ -57,6 +58,7 @@ public class InventoryScreen : MonoBehaviour
             iBar.commWithIscreen = false;
         }
     }
+    //shows all the icons in the ui
     public void showIcons()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 255);
@@ -70,6 +72,7 @@ public class InventoryScreen : MonoBehaviour
                 errors += e;
             }
     }
+    //hides all the icons in the ui
     public void hideIcons()
     {
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
@@ -83,6 +86,7 @@ public class InventoryScreen : MonoBehaviour
                 errors += e;
             }
     }
+    //returns true if the inventory is full
     public bool IsFull()
     {
         int ammNotNull = 0;
@@ -90,6 +94,7 @@ public class InventoryScreen : MonoBehaviour
         if (ammNotNull <= 30) return false;
         return true;
     }
+    //adds the item at the first empty slot
     void AddItem(GameObject itemToAdd)
     {
         for (int i = 0; i < 30; i++)
@@ -101,6 +106,7 @@ public class InventoryScreen : MonoBehaviour
             }
         }
     }
+    //Adds the item at the specified slot
     public void AddItemAtSpot(GameObject itemToAdd, string spotTag)
     {
         for (int i = 0; i < 30; i++)
@@ -113,6 +119,7 @@ public class InventoryScreen : MonoBehaviour
             }
         }
     }
+    //Removes the item at the specified slot
     public void RemoveItemAtSpot(string spotTag)
     {
         for (int i = 0; i < 30; i++)
@@ -126,6 +133,7 @@ public class InventoryScreen : MonoBehaviour
             }
         }
     }
+    //gets the item at the specified slot
     public GameObject GetItemAtSpot(string spotTag)
     {
         for (int i = 0; i < 30; i++)

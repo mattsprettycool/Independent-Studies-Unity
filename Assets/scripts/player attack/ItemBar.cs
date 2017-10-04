@@ -14,7 +14,9 @@ using UnityEngine.UI;
 public class ItemBar : MonoBehaviour {
     //all these attacks are changable both in game and in inspector
     public GameObject attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8;
+    //the attack library of each item
     attackLibrary lib0, lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8;
+    //the hotbar slot you are selecting
     [SerializeField]
     public int pointer;
     int currentPoint;
@@ -33,6 +35,7 @@ public class ItemBar : MonoBehaviour {
         justStarted = true;
         debugger = "";
         updateNeeded = false;
+        //gets the playermovement script from the player
         pM = GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
         commWithIscreen = false;
     }
@@ -43,6 +46,7 @@ public class ItemBar : MonoBehaviour {
         changeAttacks();
         setAttacks();
         setHotbarSelect();
+        //tries to add an item to the hotbar
         if (pM.doCommunicate&&!this.IsFull())
         {
             this.AddItem(pM.recentPickUp);
@@ -65,6 +69,9 @@ public class ItemBar : MonoBehaviour {
 			}
 		}
     }
+    /*Author - Matt Braden
+     * sets the hotbar you are selecting based on the pointer value
+     */
     void setHotbarSelect()
     {
         GameObject hotSel = GameObject.FindGameObjectWithTag("slotManager");
@@ -78,10 +85,12 @@ public class ItemBar : MonoBehaviour {
         if (pointer == 7) hotSel.transform.position = GameObject.FindGameObjectWithTag("h7").transform.position;
         if (pointer == 8) hotSel.transform.position = GameObject.FindGameObjectWithTag("h8").transform.position;
     }
-    //updates the attacks to account for any changes
+    /* Author - Matt Braden
+     * updates the attacks to account for any changes
+     */ 
     public void updateAttacks()
     {
-        //IMPORTANT!!!! in order to use try/catch, you need to first import it bby typing "using System" at the top
+        //IMPORTANT!!!! in order to use try/catch, you need to first import it by typing "using System" at the top
         try
         {
             lib0 = attack0.GetComponent(typeof(attackLibrary)) as attackLibrary;
@@ -174,6 +183,9 @@ public class ItemBar : MonoBehaviour {
             GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().overrideSprite = null;
         }
     }
+    /* Author - Matt Braden
+     * changes the pointer val based on pressing numbers and scrolling
+     */ 
     void changeAttacks()
     {
         if (Input.GetKey(KeyCode.Alpha1)) pointer = 0;
@@ -204,6 +216,9 @@ public class ItemBar : MonoBehaviour {
                 pointer = 8;
         }
     }
+    /* Author - Matt Braden
+     * creates new and destroys previous attacks
+     */
     void setAttacks()
     {
         GameObject[] attacks = GameObject.FindGameObjectsWithTag("attacks");
@@ -417,10 +432,18 @@ public class ItemBar : MonoBehaviour {
             currentPoint = 8;
         }
     }
+    /* Author - Matt Braden
+     * tests if the hotbar is full
+     */
     public bool IsFull()
     {
         return (attack0 != null && attack1 != null && attack2 != null && attack3 != null && attack4 != null && attack5 != null && attack6 != null && attack7 != null && attack8 != null);
     }
+    /* Author - Matt Braden
+     * adds an item to the first empty slot in the hotbar
+     * prefabToCopy - GameObject that will be added to a slot
+     * return - true if full, false if otherwise
+     */
     void AddItem(GameObject prefabToCopy)
     {
         if (attack0 == null)
@@ -459,6 +482,11 @@ public class ItemBar : MonoBehaviour {
             attack8 = prefabToCopy;
         }
     }
+    /* Author - Matt Braden
+     * Adds an item to the specified slot
+     * GameObject itemToAdd - item that gets added to the specified slot
+     * string spotTag - a string that has a format of "h#" where # is a number and h specifies "hotbar" , h has a bound from 0-8
+     */
     public void AddItemAtSpot(GameObject itemToAdd, string spotTag)
     {
         if (spotTag.Equals("h0"))
@@ -499,6 +527,10 @@ public class ItemBar : MonoBehaviour {
         updateAttacks();
         setAttacks();
     }
+    /* Author - Matt Braden
+     * removes an item at the specified slot
+     * 
+     */
     public void RemoveItemAtSpot(string spotTag)
     {
         if (spotTag.Equals("h0"))
@@ -540,6 +572,7 @@ public class ItemBar : MonoBehaviour {
         updateAttacks();
         setAttacks();
     }
+    //Gets the item at the specified slot
     public GameObject GetItemAtSpot(string spotTag)
     {
         if (spotTag.Equals("h0"))

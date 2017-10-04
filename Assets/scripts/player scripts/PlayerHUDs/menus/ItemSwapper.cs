@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//by Matt Braden
 public class ItemSwapper : MonoBehaviour {
     [SerializeField]
     public string spot1, spot2;
@@ -57,6 +57,10 @@ public class ItemSwapper : MonoBehaviour {
             spot2 = "";
         }
 	}
+    /* Author - Matt Braden
+     * Adds the specified slot to the list of two items to swap
+     * sName - a string that has a format of "h#" or i#" where # is a number and h specifies "hotbar" and i specifies "item slot", h has a bound from 0-8 and i has a bound from 0-29
+     */
     public void AddSlot(string sName)
     {
         if(!stage)
