@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour {
         {
             try
             {
-                currHealth -= collision.gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit;
+                currHealth -= (collision.gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit - collision.gameObject.GetComponent<ProjectileDamageLibrary>().travelTime);
             }
             catch (Exception e)
             {

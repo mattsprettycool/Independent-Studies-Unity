@@ -4,4 +4,5 @@ using UnityEngine;
 //by Jai Saka
 public class ProjectileDamageLibrary : MonoBehaviour {
     public int dmgPerHit;
+    public float travelTime;
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Jai Saka
 public class BoltSpawner : MonoBehaviour {
 	public Bolt bolt;
 	Camera cammy;
@@ -12,7 +12,6 @@ public class BoltSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cammy = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		timer = 0;
 		justStarted = true;
@@ -21,11 +20,11 @@ public class BoltSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
-		LookAtCenter();
-		if (Input.GetMouseButtonDown(0) && timer > 1f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
+        LookAtCenter();
+        if (Input.GetMouseButtonDown(0) && timer > 1f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
 		{
-			timer = 0;
-			justStarted = false;
+            justStarted = false;
+            timer = 0;
 			InstantiateBolt ();
 		}
 	}
@@ -46,15 +45,10 @@ public class BoltSpawner : MonoBehaviour {
 
 	void LookAtCenter()
 	{
-		float screenPosX = Screen.width / 2;
-		float screenPosY = Screen.height / 2;
 		RaycastHit hit;
-		Ray rayWilliamJohnson = cammy.ScreenPointToRay(new Vector3(screenPosX, screenPosY));
-		if(Physics.Raycast(rayWilliamJohnson, out hit))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000))
 		{
-			Debug.DrawRay (transform.position, hit.point, Color.white);
-			Vector3 vec = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z);
-			transform.LookAt(vec);
+			transform.LookAt(hit.point);
 		}
 	}
 }

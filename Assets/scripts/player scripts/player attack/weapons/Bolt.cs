@@ -13,7 +13,7 @@ public class Bolt : MonoBehaviour {
         timer = 0;
         timeBeforeDeletion = 7f;
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.AddRelativeForce(new Vector3(500f, 0f, 0f));
+        rb.AddRelativeForce(new Vector3(375f, 0f, 0f));
     }
 
     // Update is called once per frame
@@ -25,6 +25,7 @@ public class Bolt : MonoBehaviour {
             GameObject.Destroy(this.gameObject);
         }
         timer += Time.deltaTime;
+        gameObject.GetComponent<ProjectileDamageLibrary>().travelTime += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
