@@ -4,6 +4,7 @@ using UnityEngine;
 //by Jai Saka
 public class CrossbowMovement : MonoBehaviour {
     public Bolt bolt;
+    Camera cammy;
     float timer;
 	bool justSwitched;
     bool justStarted;
@@ -11,6 +12,7 @@ public class CrossbowMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        cammy = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		player = GameObject.FindGameObjectWithTag ("Player");
         timer = 0;
         justStarted = true;
@@ -19,18 +21,12 @@ public class CrossbowMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
+        LookAtCenter();
         if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;
             justStarted = false;
 			InstantiateBolt ();
-			var instAttkFromHead = Instantiate(bolt);
-			instAttkFromHead.transform.parent = player.transform;
-			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0f);
-			instAttkFromHead.transform.rotation = player.transform.rotation;
-			instAttkFromHead.transform.localRotation = Quaternion.Euler(0, 180, 0);
-			instAttkFromHead.transform.localPosition = new Vector3(0f, 0f, 0);
-			instAttkFromHead.transform.SetParent(null);
         }
     }
     void FixedUpdate()
@@ -47,4 +43,17 @@ public class CrossbowMovement : MonoBehaviour {
 		instAttk.transform.localPosition = new Vector3(0f, 0f, 0);
 		instAttk.transform.SetParent(null);
 	}
+
+    void LookAtCenter()
+    {
+        float screenPosX = Screen.width / 2;
+        float screenPosY = Screen.height / 2;
+        RaycastHit hit;
+        Ray rayWilliamJohnson = cammy.ScreenPointToRay(new Vector3(screenPosX, screenPosY));
+        if(Physics.Raycast(rayWilliamJohnson, out hit))
+        {
+            Vector3 vec = new Vector3(hit.transform.position.x + 90, hit.transform.position.y, hit.transform.position.z);
+            transform.LookAt(vec);
+        }
+    }
 }
