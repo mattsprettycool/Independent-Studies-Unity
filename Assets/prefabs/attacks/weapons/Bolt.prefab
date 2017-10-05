@@ -134,4 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6971447d38a94234b908886f93e7d1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgPerHit: 25
+  dmgPerHit: 50

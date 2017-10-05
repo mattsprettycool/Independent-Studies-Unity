@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
 public class CrossbowMovement : MonoBehaviour {
-    public Bolt bolt;
+    /*public Bolt bolt;
     Camera cammy;
     float timer;
 	bool justSwitched;
@@ -22,7 +22,7 @@ public class CrossbowMovement : MonoBehaviour {
 	void Update () {
 		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
         LookAtCenter();
-        if (Input.GetMouseButtonDown(0) && timer > 5f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
+        if (Input.GetMouseButtonDown(0) && timer > 1f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
         {
             timer = 0;
             justStarted = false;
@@ -39,7 +39,7 @@ public class CrossbowMovement : MonoBehaviour {
 		instAttk.transform.parent = gameObject.transform;
 		instAttk.transform.localPosition = new Vector3(0f, 0f, 0f);
 		instAttk.transform.rotation = gameObject.transform.rotation;
-		instAttk.transform.localRotation = Quaternion.Euler(0, 180, 0);
+		instAttk.transform.localRotation = Quaternion.Euler(0, -90, 0);
 		instAttk.transform.localPosition = new Vector3(0f, 0f, 0);
 		instAttk.transform.SetParent(null);
 	}
@@ -52,8 +52,9 @@ public class CrossbowMovement : MonoBehaviour {
         Ray rayWilliamJohnson = cammy.ScreenPointToRay(new Vector3(screenPosX, screenPosY));
         if(Physics.Raycast(rayWilliamJohnson, out hit))
         {
-            Vector3 vec = new Vector3(hit.transform.position.x + 90, hit.transform.position.y, hit.transform.position.z);
+			Debug.DrawRay (transform.position, hit.point, Color.white);
+            Vector3 vec = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z);
             transform.LookAt(vec);
         }
-    }
+    }*/
 }
