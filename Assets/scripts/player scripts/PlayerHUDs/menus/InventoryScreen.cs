@@ -14,8 +14,6 @@ public class InventoryScreen : MonoBehaviour
     //the array of items in the inventory
     [SerializeField]
     public GameObject[] itemArray = new GameObject[30];
-    //number of non-null objects in the array
-    int objectsInArray;
     ItemBar iBar;
     // Use this for initialization
     void Start()
@@ -26,7 +24,6 @@ public class InventoryScreen : MonoBehaviour
         //this makes every single icon clear
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         errors = "";
-        objectsInArray = 0;
         iBar = Camera.main.gameObject.GetComponent<ItemBar>();
     }
 

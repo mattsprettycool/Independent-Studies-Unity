@@ -22,24 +22,26 @@ public class GravityWell : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 100 && Time.timeScale == 1f)
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo))
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward*1000, out hitInfo))
             {
                 playerMana.currMana -= 100;
                 playerMana.refreshCooldown = true;
                 var attackInst = Instantiate(gravAOE);
-                attackInst.transform.position = new Vector3(hitInfo.point.x, 1.266f, hitInfo.point.z);
+                attackInst.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.266f, hitInfo.point.z);
+                attackInst.transform.rotation = hitInfo.transform.rotation;
             }
         }
         else
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo)&&playerMana.currMana >=100)
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward*1000, out hitInfo, 1000, 1<<8)&&playerMana.currMana >=100)
             {
                 if (hitInfo.collider.tag == "Floor")
                 {
                     Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
                     var attackInst = Instantiate(fakeGravAOE);
-                    attackInst.transform.position = new Vector3(hitInfo.point.x, 1.266f, hitInfo.point.z);
+                    attackInst.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.266f, hitInfo.point.z);
+                    attackInst.transform.rotation = hitInfo.transform.rotation;
                 }
                 else
                 {

@@ -14,13 +14,20 @@ public class GravWellAOEEffect : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if(col.tag == "Enemies")
         {
             col.gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
-            col.gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up*10, ForceMode.Impulse);
-            //col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
+            col.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 10, 0);
+        }
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Enemies")
+        {
+            col.gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
+            col.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 10, 0);
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2125,7 +2125,7 @@ GameObject:
   - component: {fileID: 404291927}
   - component: {fileID: 404291926}
   - component: {fileID: 404291925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -2676,7 +2676,7 @@ GameObject:
   - component: {fileID: 564221647}
   - component: {fileID: 564221646}
   - component: {fileID: 564221645}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3066,7 +3066,7 @@ GameObject:
   - component: {fileID: 650460525}
   - component: {fileID: 650460524}
   - component: {fileID: 650460523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3360,7 @@ GameObject:
   - component: {fileID: 693721842}
   - component: {fileID: 693721841}
   - component: {fileID: 693721840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane (1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -3565,7 +3565,7 @@ GameObject:
   - component: {fileID: 712569671}
   - component: {fileID: 712569670}
   - component: {fileID: 712569669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -4669,7 +4669,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1015772425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6715,7 +6715,7 @@ GameObject:
   - component: {fileID: 1464496622}
   - component: {fileID: 1464496621}
   - component: {fileID: 1464496620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (5)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -8006,7 +8006,7 @@ GameObject:
   - component: {fileID: 1756472541}
   - component: {fileID: 1756472540}
   - component: {fileID: 1756472539}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -8778,7 +8778,7 @@ GameObject:
   - component: {fileID: 1878258025}
   - component: {fileID: 1878258024}
   - component: {fileID: 1878258023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
