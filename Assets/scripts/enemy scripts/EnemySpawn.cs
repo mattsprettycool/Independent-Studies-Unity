@@ -15,18 +15,23 @@ public class EnemySpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = 0;
+		timeToSpawn = 20;
         SpawnEnemy();
     }
 
     void FixedUpdate()
     {
-        timer += Time.deltaTime * (1+(.001f * enemiesKilled));
+		timer += Time.deltaTime;
+		timeToSpawn - (.0001f * enemiesKilled);
         numberToSpawn = enemiesKilled * .125f;
         if(numberToSpawn > 4)
         {
             numberToSpawn = 4;
         }
-        if (timer > 15)
+		if (timeToSpawn < 7.5f) {
+			timeToSpawn = 7.5f;
+		}
+		if (timer > timeToSpawn)
         {
             SpawnEnemy();
             timer = 0;
