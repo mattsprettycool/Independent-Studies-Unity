@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour {
     void FixedUpdate()
     {
 		timer += Time.deltaTime;
-		timeToSpawn - (.0001f * enemiesKilled);
+		timeToSpawn -= (.0001f * enemiesKilled);
         numberToSpawn = enemiesKilled * .125f;
         if(numberToSpawn > 4)
         {

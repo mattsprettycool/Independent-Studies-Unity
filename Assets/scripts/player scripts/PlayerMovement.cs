@@ -44,30 +44,46 @@ public class PlayerMovement : MonoBehaviour {
 			
 		if (Input.GetKey(KeyCode.W)&&jumpTest)
         {
+            if(rb.velocity.x < 0)
+                rb.AddRelativeForce(new Vector3(rb.velocity.x*-1, 0, 0));
             rb.AddRelativeForce(new Vector3(speed, 0, 0));
         }else if (Input.GetKey(KeyCode.W))
         {
+            if (rb.velocity.x < 0)
+                rb.AddRelativeForce(new Vector3(rb.velocity.x * -1, 0, 0));
             rb.AddRelativeForce(new Vector3(speed/2, 0, 0));
         }
         if (Input.GetKey(KeyCode.A) && jumpTest)
         {
+            if (rb.velocity.z < 0)
+                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z * -1));
             rb.AddRelativeForce(new Vector3(0, 0, speed));
         }else if (Input.GetKey(KeyCode.A))
         {
+            if (rb.velocity.z < 0)
+                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z * -1));
             rb.AddRelativeForce(new Vector3(0, 0, speed/2));
         }
         if (Input.GetKey(KeyCode.S) && jumpTest)
         {
+            if (rb.velocity.x > 0)
+                rb.AddRelativeForce(new Vector3(rb.velocity.x, 0, 0));
             rb.AddRelativeForce(new Vector3(-speed, 0, 0));
         }else if (Input.GetKey(KeyCode.S))
         {
+            if (rb.velocity.x > 0)
+                rb.AddRelativeForce(new Vector3(rb.velocity.x, 0, 0));
             rb.AddRelativeForce(new Vector3(-speed/2, 0, 0));
         }
         if (Input.GetKey(KeyCode.D) && jumpTest)
         {
+            if (rb.velocity.z > 0)
+                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z));
             rb.AddRelativeForce(new Vector3(0, 0, -speed));
         }else if (Input.GetKey(KeyCode.D))
         {
+            if (rb.velocity.z > 0)
+                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z));
             rb.AddRelativeForce(new Vector3(0, 0, -speed/2));
         }
 		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest)
@@ -80,7 +96,12 @@ public class PlayerMovement : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         if(col.collider.tag == "Floor") jumpTest = true;
-        
+        if (col.collider.tag == "Wall") rb.velocity = Vector3.zero;
+    }
+    void OnCollisionStay(Collision col)
+    {
+        if (col.collider.tag == "Floor") jumpTest = true;
+        if (col.collider.tag == "Wall") rb.velocity = Vector3.zero;
     }
     private void OnTriggerEnter(Collider other)
     {
