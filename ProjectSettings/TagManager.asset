@@ -65,6 +65,7 @@ TagManager:
   - c1
   - c2
   - enemyProjectileSpawn
+  - Wall
   layers:
   - Default
   - TransparentFX

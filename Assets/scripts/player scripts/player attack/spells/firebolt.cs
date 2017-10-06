@@ -27,7 +27,9 @@ public class firebolt : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-		if (other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn" && other.tag != "ignoredByFB")
+        bool ignoreList = other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn" && other.tag != "ignoredByFB";
+        bool destroyList = other.tag == "Enemies" || other.tag == "Floor" || other.tag == "Wall";
+        if (ignoreList&&destroyList)
         {
             GameObject.Destroy(gameObject);
         }
