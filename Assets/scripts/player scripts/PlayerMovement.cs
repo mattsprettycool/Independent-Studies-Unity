@@ -96,12 +96,10 @@ public class PlayerMovement : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         if(col.collider.tag == "Floor") jumpTest = true;
-        if (col.collider.tag == "Wall") rb.velocity = Vector3.zero;
     }
     void OnCollisionStay(Collision col)
     {
         if (col.collider.tag == "Floor") jumpTest = true;
-        if (col.collider.tag == "Wall") rb.velocity = Vector3.zero;
     }
     private void OnTriggerEnter(Collider other)
     {
