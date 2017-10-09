@@ -5,9 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     public GameObject capcam;
-    [SerializeField]
     float sensitivity;
-
     float newrotX;
     float newrotY;
 
@@ -20,7 +18,6 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//StartCoroutine (HeadBobbing ());
         if (Input.GetKeyDown(KeyCode.C))
         {
                 //Cursor.visible = false;
@@ -38,9 +35,4 @@ public class CameraMovement : MonoBehaviour {
         }
         if(Input.GetKey(KeyCode.Escape)) Cursor.visible = true;
     }
-	IEnumerator HeadBobbing (){
-		capcam.transform.Translate (new Vector3 (capcam.transform.position.x, capcam.transform.localPosition.y - .5f, capcam.transform.position.z));
-		yield return new WaitForSeconds (.01f);
-		capcam.transform.Translate (new Vector3 (capcam.transform.position.x, capcam.transform.localPosition.y + .5f, capcam.transform.position.z));
-	}
 }
