@@ -66,6 +66,7 @@ TagManager:
   - c2
   - enemyProjectileSpawn
   - Wall
+  - healthBar
   layers:
   - Default
   - TransparentFX
