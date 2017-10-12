@@ -6,16 +6,17 @@ public class EnemyHealthBar : MonoBehaviour {
     [SerializeField, Range(0.0f, 1.0f)]
     float health = 1;
     float rectWidth = 0;
-    GameObject rectangle;
+    Transform rectangle;
     // Use this for initialization
     void Start()
     {
-        foreach(GameObject obj in gameObject.GetComponentsInChildren<GameObject>())
+        Component[] objArr = gameObject.GetComponentsInChildren<Transform>();
+        foreach (Transform obj in objArr)
         {
             if (obj.tag.Equals("healthBar"))
             {
-                rectWidth = obj.transform.localScale.y;
-                rectangle = obj.gameObject;
+                rectWidth = obj.localScale.x;
+                rectangle = obj;
             }
         }
     }
@@ -23,6 +24,7 @@ public class EnemyHealthBar : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        rectangle.transform.localScale = new Vector3(.9f, rectWidth * health, 1);
+        health = gameObject.GetComponent<EnemyHealth>().GetHealth() / 100.0f;
+        rectangle.localScale = new Vector3(rectWidth * health, rectangle.transform.localScale.y, 1);
     }
 }

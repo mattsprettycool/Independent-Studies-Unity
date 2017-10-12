@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour {
 	public bool bleeding;
 	public float bleedDmg;
     string debug;
+    bool isGoingToDie = false;
 	// Use this for initialization
 	void Start () {
         startHealth = 100;
@@ -26,6 +27,7 @@ public class EnemyHealth : MonoBehaviour {
         if (currHealth <= 0)
         {
             enemySpawn.enemiesKilled++;
+            isGoingToDie = true;
             GameObject.Destroy(this.gameObject);
         }
 		if (bleeding) {
@@ -49,6 +51,17 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 	public void TakeDamage(float dmg){
-		currHealth -= dmg;
+        if (currHealth - dmg <= 0)
+            isGoingToDie = true;
+        currHealth -= dmg;
 	}
+    public float GetHealth()
+    {
+        return currHealth;
+    }
+    public bool IsDead()
+    {
+        if (isGoingToDie) return true;
+        return currHealth <= 0;
+    }
 }
