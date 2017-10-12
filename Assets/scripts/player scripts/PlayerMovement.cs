@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start () {
 		//playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = 20;
+        speed = .5f;
         maxVelocity = 20;
         maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
@@ -41,50 +41,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.velocity = rb.velocity.normalized * maxVelocity;
         }
-			
-		if (Input.GetKey(KeyCode.W)&&jumpTest)
+
+        if (jumpTest)
         {
-            if(rb.velocity.x < 0)
-                rb.AddRelativeForce(new Vector3(rb.velocity.x*-1, 0, 0));
-            rb.AddRelativeForce(new Vector3(speed, 0, 0));
-        }else if (Input.GetKey(KeyCode.W))
-        {
-            if (rb.velocity.x < 0)
-                rb.AddRelativeForce(new Vector3(rb.velocity.x * -1, 0, 0));
-            rb.AddRelativeForce(new Vector3(speed/2, 0, 0));
+            rb.AddRelativeForce(new Vector3(speed * Input.GetAxis("Vertical"), 0, speed * Input.GetAxis("Horizontal") * -1),ForceMode.Impulse);
+            
         }
-        if (Input.GetKey(KeyCode.A) && jumpTest)
+        else
         {
-            if (rb.velocity.z < 0)
-                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z * -1));
-            rb.AddRelativeForce(new Vector3(0, 0, speed));
-        }else if (Input.GetKey(KeyCode.A))
-        {
-            if (rb.velocity.z < 0)
-                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z * -1));
-            rb.AddRelativeForce(new Vector3(0, 0, speed/2));
-        }
-        if (Input.GetKey(KeyCode.S) && jumpTest)
-        {
-            if (rb.velocity.x > 0)
-                rb.AddRelativeForce(new Vector3(rb.velocity.x, 0, 0));
-            rb.AddRelativeForce(new Vector3(-speed, 0, 0));
-        }else if (Input.GetKey(KeyCode.S))
-        {
-            if (rb.velocity.x > 0)
-                rb.AddRelativeForce(new Vector3(rb.velocity.x, 0, 0));
-            rb.AddRelativeForce(new Vector3(-speed/2, 0, 0));
-        }
-        if (Input.GetKey(KeyCode.D) && jumpTest)
-        {
-            if (rb.velocity.z > 0)
-                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z));
-            rb.AddRelativeForce(new Vector3(0, 0, -speed));
-        }else if (Input.GetKey(KeyCode.D))
-        {
-            if (rb.velocity.z > 0)
-                rb.AddRelativeForce(new Vector3(0, 0, rb.velocity.z));
-            rb.AddRelativeForce(new Vector3(0, 0, -speed/2));
+            rb.AddRelativeForce(new Vector3((speed * Input.GetAxis("Vertical"))/2, 0, (speed * Input.GetAxis("Horizontal") * -1)/2));
         }
 		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest)
         {
