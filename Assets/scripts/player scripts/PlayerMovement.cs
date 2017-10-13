@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody rb;
     public float speed;
     [SerializeField]
-    public bool jumpTest;
+    bool jumpTest;
     float maxVelocity;
     float maxVelSquared;
     public GameObject cameraLoc;
