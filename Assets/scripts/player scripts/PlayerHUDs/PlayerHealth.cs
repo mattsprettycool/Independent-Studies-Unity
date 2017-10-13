@@ -24,7 +24,10 @@ public class PlayerHealth : MonoBehaviour {
         //Sets movement speed to 0 once health reaches 0, disabling movement
         if (currHealth == 0)
         {
-            playerMovement.speed = 0;   
+            playerMovement.speed = 0;
+			transform.position = new Vector3 (22, 1.2f, -16);
+			currHealth = startHealth;
+			playerMovement.speed = .5f;
         }
     }
 
