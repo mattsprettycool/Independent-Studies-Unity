@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 //by Matt Braden
@@ -21,9 +22,12 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
+    int yValPointer;
+    List<float> yVals = new List<float>();
     // Use this for initialization
     void Start () {
-		//playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
+        //playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
+        yValPointer = 0;
         rb = gameObject.GetComponent<Rigidbody>();
         speed = .5f;
         maxVelocity = 20;
@@ -37,6 +41,8 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
+        yVals.Add(gameObject.transform.position.y);
+        yValPointer++;
         //Added this vvv
 		if (rb.velocity.sqrMagnitude > maxVelSquared)
         {
@@ -93,6 +99,10 @@ public class PlayerMovement : MonoBehaviour {
     }
     public bool IsInAir()
     {
-        return !isNotInAir;
+        if (yVals[yValPointer] - yVals[yValPointer-1] > 0 && jumpTest)
+        {
+            return !isNotInAir;
+        }
+        return isNotInAir;
     }
 }

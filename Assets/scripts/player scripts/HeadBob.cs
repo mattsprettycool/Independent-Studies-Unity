@@ -26,7 +26,7 @@ public class HeadBob : MonoBehaviour {
 				timer -= Mathf.PI * 2;
 			}
 		}
-		if (sineWaveSlice != 0) {
+		if (sineWaveSlice != 0 && player.GetComponent<PlayerMovement>().IsInAir()) {
 			float translateVal = sineWaveSlice * bobIncrement;
 			float totalAxes = Mathf.Abs (Input.GetAxis("Horizontal")) + Mathf.Abs (Input.GetAxis("Vertical"));
 			totalAxes = Mathf.Clamp (totalAxes, 0, 1);
