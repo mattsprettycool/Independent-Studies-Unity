@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject recentPickUp;
     ItemBar iBar;
     InventoryScreen iScreen;
+    bool isNotInAir = true;
     // Use this for initialization
     void Start () {
 		//playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
@@ -55,12 +56,17 @@ public class PlayerMovement : MonoBehaviour {
         {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
+            isNotInAir = false;
         }
         Camera.main.transform.position = cameraLoc.transform.position;
     }
     void OnCollisionEnter(Collision col)
     {
-        if(col.collider.tag == "Floor") jumpTest = true;
+        if (col.collider.tag == "Floor")
+        {
+            jumpTest = true;
+            isNotInAir = true;
+        }
     }
     void OnCollisionStay(Collision col)
     {
@@ -84,5 +90,9 @@ public class PlayerMovement : MonoBehaviour {
     public void setCommToFalse()
     {
         doCommunicate = false;
+    }
+    public bool IsInAir()
+    {
+        return !isNotInAir;
     }
 }
