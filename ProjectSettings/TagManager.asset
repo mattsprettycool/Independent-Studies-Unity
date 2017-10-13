@@ -67,6 +67,7 @@ TagManager:
   - enemyProjectileSpawn
   - Wall
   - healthBar
+  - cameraLoc
   layers:
   - Default
   - TransparentFX
