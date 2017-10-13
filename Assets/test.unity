@@ -3434,7 +3434,7 @@ Prefab:
         type: 2}
       propertyPath: prefabToCopy
       value: 
-      objectReference: {fileID: 1899666569156304, guid: 6be3c9d151de92341814f66d4f87d900,
+      objectReference: {fileID: 1584502260676704, guid: 66e512e4a276c2545af535b569493131,
         type: 2}
     - target: {fileID: 114889614284873520, guid: 6bf473e028f0f5d45b49e58df16d4551,
         type: 2}
@@ -9449,7 +9449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bobSpeed: 0.2
-  bobIncrement: 0.25
+  bobIncrement: 0.2
 --- !u!1 &1985656514
 GameObject:
   m_ObjectHideFlags: 0
