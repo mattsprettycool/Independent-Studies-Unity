@@ -99,10 +99,11 @@ public class PlayerMovement : MonoBehaviour {
     }
     public bool IsInAir()
     {
-        if (yVals[yValPointer] - yVals[yValPointer-1] > 0 && jumpTest)
-        {
-            return !isNotInAir;
-        }
-        return isNotInAir;
+        //if (yVals[yValPointer] - yVals[yValPointer-1] > 0 && jumpTest)
+        //{
+        //    return !isNotInAir;
+        //}
+        //return isNotInAir;
+        return !isNotInAir;
     }
 }
