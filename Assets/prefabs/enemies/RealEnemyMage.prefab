@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 195439688662205184}
   - component: {fileID: 114081386279993584}
   - component: {fileID: 114318187851099610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RealEnemyMage
   m_TagString: Enemies
   m_Icon: {fileID: 0}

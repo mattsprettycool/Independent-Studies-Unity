@@ -28,7 +28,7 @@ public class HeadBob : MonoBehaviour {
 		}
 		//if (sineWaveSlice != 0 && player.GetComponent<PlayerMovement>().IsInAir()) {
         if (sineWaveSlice != 0 && !player.GetComponent<PlayerMovement>().IsInAir()){
-                float translateVal = sineWaveSlice * bobIncrement;
+                float translateVal = sineWaveSlice * bobIncrement * (Input.GetAxis("Horizontal")+ Input.GetAxis("Vertical"));
 			float totalAxes = Mathf.Abs (Input.GetAxis("Horizontal")) + Mathf.Abs (Input.GetAxis("Vertical"));
 			totalAxes = Mathf.Clamp (totalAxes, 0, 1);
 			translateVal = totalAxes * translateVal;
