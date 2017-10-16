@@ -20,7 +20,7 @@ public class HeadBob : MonoBehaviour {
 			timer = 0;
 		} else {
 			sineWaveSlice = Mathf.Sin (timer);
-            Debug.Log(sineWaveSlice);
+            //Debug.Log(sineWaveSlice);
             timer += bobSpeed;
 			if (timer > Mathf.PI * 2) {
 				timer -= Mathf.PI * 2;
