@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//by Someone
 public class HeadBob : MonoBehaviour {
     float sineWaveSlice, timer, midway = .51f, startPosY;
     GameObject player;

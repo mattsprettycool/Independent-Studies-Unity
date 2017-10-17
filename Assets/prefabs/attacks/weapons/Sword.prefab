@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1627921405145144}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 1.27, y: -0.7, z: 0.889}
-  m_LocalScale: {x: 0.1725152, y: 1.7890953, z: 0.12500003}
+  m_LocalScale: {x: 0.1725152, y: 2.5, z: 0.12500003}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPerHit: 25
   bleedDamage: 0.0125
-  attacking: 0
 --- !u!114 &114616183351791672
 MonoBehaviour:
   m_ObjectHideFlags: 1
