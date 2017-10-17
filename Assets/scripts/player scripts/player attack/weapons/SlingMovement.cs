@@ -17,7 +17,7 @@ public class SlingMovement : MonoBehaviour {
 		}
         if (Input.GetMouseButtonUp(0))
         {
-            transform.rotation = Quaternion.Euler(0,0,0);
+			transform.rotation = new Quaternion (0, 0, 0, 0);
         }
 	}
 }
