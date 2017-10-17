@@ -11,7 +11,6 @@ public class HeadBob : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         startPosY = player.transform.position.y;
-        Debug.Log(player.transform.position.y);
     }
     void Update () {
 		midway = player.transform.position.y + .51f;

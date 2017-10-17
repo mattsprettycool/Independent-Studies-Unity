@@ -81,7 +81,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483982357506648}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   rotX: 0
   rotY: 90
   rotZ: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 07176749b3abc0c45ba2164c6e1630c0, type: 3}
 --- !u!114 &114686930624203806
 MonoBehaviour:
   m_ObjectHideFlags: 1
