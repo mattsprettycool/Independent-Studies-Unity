@@ -15,13 +15,13 @@ public class SlingMovement : MonoBehaviour {
 	void FixedUpdate () {
 		if (Input.GetMouseButton(0))
         {
-            transform.Rotate(0, 0, transform.rotation.z + 15);
+            transform.Rotate(0, 0, transform.localRotation.z + 15);
             timeHeld += Time.deltaTime;
 		}
         if (Input.GetMouseButtonUp(0))
         {
-			transform.rotation = new Quaternion (0, 0, 0, 0);
-            timeHeld = 0;
+			transform.localRotation = Quaternion.Euler (new Vector3 (0, 90, 0));            
+			timeHeld = 0;
         }
 	}
 }

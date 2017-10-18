@@ -11,9 +11,9 @@ public class Bolt : MonoBehaviour {
     void Start()
     {
         timer = 0;
-        timeBeforeDeletion = 7f;
+        timeBeforeDeletion = 7;
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.AddRelativeForce(new Vector3(375f, 0f, 0f));
+        rb.AddRelativeForce(new Vector3(375, 0, 0));
     }
 
     // Update is called once per frame

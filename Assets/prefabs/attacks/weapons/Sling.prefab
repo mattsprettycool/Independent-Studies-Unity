@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d05d839ecb251743b8c3e1064d352e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stone: {fileID: 114708139065432970, guid: 0f3ff0410d7ed44ff95a4dad32c4b12c, type: 2}
+  sling: {fileID: 114873366148694632}
 --- !u!114 &114873366148694632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,3 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbf838ddb6824869885072ec2b7cafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeHeld: 0
