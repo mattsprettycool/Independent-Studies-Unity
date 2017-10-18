@@ -4,7 +4,6 @@ using UnityEngine;
 //by Jai Saka
 public class BoltSpawner : MonoBehaviour {
 	public Bolt bolt;
-	Camera cammy;
 	float timer;
 	bool justSwitched;
 	bool justStarted;
