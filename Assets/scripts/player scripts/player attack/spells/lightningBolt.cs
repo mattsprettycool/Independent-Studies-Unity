@@ -9,6 +9,7 @@ public class lightningBolt : MonoBehaviour {
     int delay = 5;
     RaycastHit rch;
     bool hitSomething = false;
+    bool isShooting = false;
     // Use this for initialization
     void Start () {
         playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
@@ -18,6 +19,7 @@ public class lightningBolt : MonoBehaviour {
 	void FixedUpdate () {
         if (Input.GetKey(KeyCode.Mouse0) && playerMana.currMana >= 5 && Time.timeScale == 1f && delay >= 5)
         {
+            isShooting = false;
             hitSomething = false;
             rch = new RaycastHit();
             RaycastHit hitInfo;
@@ -28,6 +30,7 @@ public class lightningBolt : MonoBehaviour {
                 hitInfo.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
                 rch = hitInfo;
                 hitSomething = true;
+                isShooting = true;
             }
             else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hitInfo, 1000, 1 << 8))
             {
@@ -35,6 +38,7 @@ public class lightningBolt : MonoBehaviour {
                 playerMana.refreshCooldown = true;
                 rch = hitInfo;
                 hitSomething = true;
+                isShooting = true;
             }
             else
             {
@@ -45,6 +49,7 @@ public class lightningBolt : MonoBehaviour {
         }
         else
         {
+            isShooting = false;
             hitSomething = false;
             rch = new RaycastHit();
             RaycastHit hitInfo;
@@ -52,11 +57,13 @@ public class lightningBolt : MonoBehaviour {
             {
                 rch = hitInfo;
                 hitSomething = true;
+                isShooting = true;
             }
             else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hitInfo, 1000, 1 << 8))
             {
                 rch = hitInfo;
                 hitSomething = true;
+                isShooting = true;
             }
             delay++;
         }
@@ -72,5 +79,9 @@ public class lightningBolt : MonoBehaviour {
     public bool HitSomething()
     {
         return hitSomething;
+    }
+    public bool IsShooting()
+    {
+        return isShooting;
     }
 }

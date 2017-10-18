@@ -68,6 +68,8 @@ TagManager:
   - Wall
   - healthBar
   - cameraLoc
+  - lightning
+  - lightningPointer
   layers:
   - Default
   - TransparentFX
