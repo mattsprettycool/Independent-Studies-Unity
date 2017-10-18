@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     float maxVelocity;
     float maxVelSquared;
     public GameObject cameraLoc;
-	//PlayerStamina playerStamina;
+    //PlayerStamina playerStamina;
     bool keyTest;
     public spellPickup sp;
     public HealthPickup hp;
@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour {
     int yValPointer;
     List<float> yVals = new List<float>();
     // Use this for initialization
-    void Start () {
+    void Start() {
         //playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         yValPointer = 0;
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = .5f;
+        speed = .4f;
         maxVelocity = 20;
         maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
@@ -44,27 +44,71 @@ public class PlayerMovement : MonoBehaviour {
         yVals.Add(gameObject.transform.position.y);
         yValPointer++;
         //Added this vvv
-		if (rb.velocity.sqrMagnitude > maxVelSquared)
+        if (rb.velocity.sqrMagnitude > maxVelSquared)
         {
             rb.velocity = rb.velocity.normalized * maxVelocity;
         }
 
         if (jumpTest)
         {
-            rb.AddRelativeForce(new Vector3(speed * Input.GetAxis("Vertical"), 0, speed * Input.GetAxis("Horizontal") * -1),ForceMode.Impulse);
-            
+            int x = 0, z = 0, negX = 0, negZ = 0;
+            if (Input.GetKey(KeyCode.W))
+            {
+                x = 1;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                negX = -1;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                z = 1;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                negZ = -1;
+            }
+            MoveFullSpeed(x + negX, 0, z + negZ);
+
         }
         else
         {
-            rb.AddRelativeForce(new Vector3((speed * Input.GetAxis("Vertical"))/2, 0, (speed * Input.GetAxis("Horizontal") * -1)/2));
+            float x = 0, z = 0, negX = 0, negZ = 0;
+            if (Input.GetKey(KeyCode.W))
+            {
+                x = .5f;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                negX = -.5f;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                z = .5f;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                negZ = -.5f;
+            }
+            MoveFullSpeed(x + negX, 0, z + negZ);
         }
-		if (Input.GetKeyDown(KeyCode.Space)&&jumpTest)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpTest)
         {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
             isNotInAir = false;
         }
         Camera.main.transform.position = cameraLoc.transform.position;
+    }
+    void MoveFullSpeed(float x, float y, float z)
+    {
+        if (x!=0||y!=0||z!=0) {
+            rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
+        }
+        else if(jumpTest)
+        {
+            rb.velocity = new Vector3(0,rb.velocity.y,0);
+        }
     }
     void OnCollisionEnter(Collision col)
     {
@@ -73,10 +117,6 @@ public class PlayerMovement : MonoBehaviour {
             jumpTest = true;
             isNotInAir = true;
         }
-    }
-    void OnCollisionStay(Collision col)
-    {
-        if (col.collider.tag == "Floor") jumpTest = true;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -99,11 +139,6 @@ public class PlayerMovement : MonoBehaviour {
     }
     public bool IsInAir()
     {
-        //if (yVals[yValPointer] - yVals[yValPointer-1] > 0 && jumpTest)
-        //{
-        //    return !isNotInAir;
-        //}
-        //return isNotInAir;
         return !isNotInAir;
     }
 }
