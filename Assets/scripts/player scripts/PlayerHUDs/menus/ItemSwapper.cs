@@ -12,7 +12,7 @@ public class ItemSwapper : MonoBehaviour {
     bool swap;
     // Use this for initialization
     void Start () {
-        iBar = Camera.main.gameObject.GetComponent<ItemBar>();
+        iBar = GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
         swap = false;
         stage = false;

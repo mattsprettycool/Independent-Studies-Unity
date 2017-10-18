@@ -10,7 +10,7 @@ public class slotSelector : MonoBehaviour, IPointerClickHandler
     {
         if (Time.timeScale == 0f&&Input.GetKeyUp(KeyCode.Mouse0))
         {
-            Camera.main.gameObject.GetComponent<ItemSwapper>().AddSlot(gameObject.tag);
+            GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemSwapper>().AddSlot(gameObject.tag);
         }
     }
 }

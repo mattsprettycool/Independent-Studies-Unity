@@ -19,7 +19,7 @@ public class HoverOverSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             }
             else if (gameObject.tag.Contains("h"))
             {
-                Camera.main.gameObject.GetComponent<ItemBar>().RemoveItemAtSpot(gameObject.tag);
+                GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>().RemoveItemAtSpot(gameObject.tag);
             }
         }
     }

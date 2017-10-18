@@ -24,7 +24,7 @@ public class InventoryScreen : MonoBehaviour
         //this makes every single icon clear
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("slot")) obj.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         errors = "";
-        iBar = Camera.main.gameObject.GetComponent<ItemBar>();
+        iBar = GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>();
     }
 
     // Update is called once per frame
