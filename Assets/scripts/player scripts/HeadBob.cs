@@ -27,14 +27,16 @@ public class HeadBob : MonoBehaviour {
 		}
 		//if (sineWaveSlice != 0 && player.GetComponent<PlayerMovement>().IsInAir()) {
         if (sineWaveSlice != 0 && !player.GetComponent<PlayerMovement>().IsInAir()){
-                float translateVal = sineWaveSlice * bobIncrement * (Input.GetAxis("Horizontal")+ Input.GetAxis("Vertical"));
+            float translateVal = sineWaveSlice * bobIncrement ;
 			float totalAxes = Mathf.Abs (Input.GetAxis("Horizontal")) + Mathf.Abs (Input.GetAxis("Vertical"));
 			totalAxes = Mathf.Clamp (totalAxes, 0, 1);
 			translateVal = totalAxes * translateVal;
 			float yVal = midway + translateVal;
-			transform.localPosition = new Vector3 (player.transform.position.x, yVal, player.transform.position.z);
+			transform.localPosition = new Vector3 (Camera.main.transform.position.x, yVal, Camera.main.transform.position.z);
+            transform.rotation = Camera.main.transform.rotation;
 		} else { 
-			transform.localPosition = new Vector3 (player.transform.position.x, midway, player.transform.position.z);
-		}
+			transform.localPosition = new Vector3 (Camera.main.transform.position.x, midway, Camera.main.transform.position.z);
+            transform.rotation = Camera.main.transform.rotation;
+        }
 	}
 }
