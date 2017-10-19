@@ -13,9 +13,9 @@ public class StoneSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        LookAtCenter();
 		if (Input.GetMouseButtonUp(0))
         {
+			LookAtCenter();
             InstantiateStone();
         }
 	}

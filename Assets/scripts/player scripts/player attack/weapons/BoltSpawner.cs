@@ -19,11 +19,11 @@ public class BoltSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
-        LookAtCenter();
         if (Input.GetMouseButtonDown(0) && timer > 1f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
 		{
             justStarted = false;
             timer = 0;
+			LookAtCenter();
 			InstantiateBolt ();
 		}
 	}
