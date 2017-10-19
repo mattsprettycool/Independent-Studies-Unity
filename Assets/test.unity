@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3083,7 +3083,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c9a5a7929d7d3bb409f17ff585a64467,
+      objectReference: {fileID: 21300000, guid: ee697b74c7ef5c74aaa7c36461827d85,
         type: 3}
     - target: {fileID: 4264655261161648, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_LocalScale.y
@@ -3541,7 +3541,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c9a5a7929d7d3bb409f17ff585a64467,
+      objectReference: {fileID: 21300000, guid: ee697b74c7ef5c74aaa7c36461827d85,
         type: 3}
     - target: {fileID: 4264655261161648, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_LocalScale.y
@@ -3702,7 +3702,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c9a5a7929d7d3bb409f17ff585a64467,
+      objectReference: {fileID: 21300000, guid: ee697b74c7ef5c74aaa7c36461827d85,
         type: 3}
     - target: {fileID: 4264655261161648, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_LocalScale.y
@@ -4050,7 +4050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b7402e58197b64ead535199a98e93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTest: 0
+  gameTest: 1
 --- !u!4 &728043469
 Transform:
   m_ObjectHideFlags: 0
@@ -5511,7 +5511,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1138271232
 Transform:
@@ -7687,7 +7687,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c9a5a7929d7d3bb409f17ff585a64467,
+      objectReference: {fileID: 21300000, guid: ee697b74c7ef5c74aaa7c36461827d85,
         type: 3}
     - target: {fileID: 4264655261161648, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
       propertyPath: m_LocalScale.y
