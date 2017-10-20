@@ -9,9 +9,7 @@ public class spellPickup : MonoBehaviour {
     InventoryScreen iScreen;
     // Use this for initialization
     void Start () {
-        gameObject.GetComponent<SpriteRenderer>().sprite = prefabToCopy.GetComponent<attackLibrary>().icon;
-        iBar = Camera.main.GetComponent<ItemBar>();
-        iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
+        Init();
     }
 	
 	// Update is called once per frame
@@ -28,5 +26,16 @@ public class spellPickup : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+    public void SetPrefab(GameObject g)
+    {
+        prefabToCopy = g;
+        Init();
+    }
+    void Init()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = prefabToCopy.GetComponent<attackLibrary>().icon;
+        iBar = Camera.main.GetComponent<ItemBar>();
+        iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
     }
 }

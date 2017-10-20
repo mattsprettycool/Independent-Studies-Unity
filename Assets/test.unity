@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4748,8 +4748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e86a0b9f3ee47db97b6398d9b1e984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobSpeed: 0.2
-  bobIncrement: 0.2
+  bobSpeed: 0.1
+  bobIncrement: 0.1
 --- !u!114 &868287078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5691,7 +5691,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1138271232
 Transform:
