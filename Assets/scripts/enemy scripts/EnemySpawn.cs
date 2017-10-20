@@ -6,7 +6,7 @@ public class EnemySpawn : MonoBehaviour {
     public float enemiesKilled;
 	public GameObject[] enemyList;
     public Transform[] spawnPoints;
-    float timeToSpawn, numberToSpawn, spawnZoneArea;
+    float timeToSpawn, numberToSpawn;
 	int spawnZoneIndex, enemyIndex;
     [SerializeField]
     float timer;
@@ -15,7 +15,6 @@ public class EnemySpawn : MonoBehaviour {
         timer = 0;
 		timeToSpawn = 20;
         SpawnEnemy();
-		spawnZoneArea = 3.75f * 3.75f;
     }
 
     void FixedUpdate()

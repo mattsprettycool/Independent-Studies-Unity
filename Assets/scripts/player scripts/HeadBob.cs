@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 //by Someone
 public class HeadBob : MonoBehaviour {
-    float sineWaveSlice, timer, midway = .51f, startPosY;
+    float sineWaveSlice, timer, midway = .51f;
     GameObject player;
     [SerializeField]
-    float bobSpeed, bobIncrement;
+    float bobSpeed, bobIncrement = 0;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        startPosY = player.transform.position.y;
     }
     void Update()
     {

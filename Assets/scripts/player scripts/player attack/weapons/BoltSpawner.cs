@@ -7,11 +7,9 @@ public class BoltSpawner : MonoBehaviour {
 	float timer;
 	bool justSwitched;
 	bool justStarted;
-	GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
 		timer = 0;
 		justStarted = true;
 	}

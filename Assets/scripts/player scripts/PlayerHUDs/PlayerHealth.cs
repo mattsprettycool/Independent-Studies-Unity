@@ -10,10 +10,8 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthSlider;
     bool damageTaken;
 	string debug;
-    PlayerMovement playerMovement;
 	// Use this for initialization
 	void Start () {
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         startHealth = 100;
         currHealth = startHealth;
 	}
