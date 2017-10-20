@@ -22,13 +22,6 @@ public class PlayerHealth : MonoBehaviour {
 	void FixedUpdate () {
         healthSlider.value = currHealth;
         //Sets movement speed to 0 once health reaches 0, disabling movement
-        if (currHealth == 0)
-        {
-            playerMovement.speed = 0;
-			transform.position = new Vector3 (22, 1.2f, -16);
-			currHealth = startHealth;
-			playerMovement.speed = .5f;
-        }
     }
 
     //To be called upon by other methods, don't bother applying it here
