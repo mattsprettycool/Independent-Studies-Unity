@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65916477492712804}
   - component: {fileID: 114651297986420196}
   - component: {fileID: 54522498962447520}
-  - component: {fileID: 135960534206277562}
   m_Layer: 0
   m_Name: Health Pickup
   m_TagString: statPickups
@@ -82,18 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0183747b9d1f84e49ae9d30794af8ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135960534206277562
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1734347769461600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.100000024
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212075440897144134
 SpriteRenderer:
   m_ObjectHideFlags: 1

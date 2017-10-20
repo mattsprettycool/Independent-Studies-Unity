@@ -127,7 +127,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -145,6 +145,8 @@ MonoBehaviour:
   startHealth: 0
   currHealth: 0
   enemySpawn: {fileID: 0}
+  bleeding: 0
+  bleedDmg: 0
 --- !u!114 &114523477578266684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,9 +160,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPerAttk: 0
   timeBetweenAttk: 0
+  timer: 0
+  turnSpeed: 0
+  inRange: 0
+  enFireBoltSpawn: {fileID: 0}
   enemyFirebolt: {fileID: 1184682058447336, guid: 0033805b8d2fb334281c0445d8513a02,
     type: 2}
-  fireboltSpawn: {fileID: 4831654653231698}
 --- !u!114 &114961055237482058
 MonoBehaviour:
   m_ObjectHideFlags: 1

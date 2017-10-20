@@ -11,7 +11,7 @@ public class StatSpawn : MonoBehaviour {
     public float spawnTime;
     // Use this for initialization
     void Start () {
-        spawnTime = 30;
+        spawnTime = 60;
         timer = 0;
         SpawnStatPickup();
     }
