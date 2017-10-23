@@ -1,0 +1,9 @@
+//Put down whatever you think we need to do in this document
+
+Music - check out "bosca ceoil"
+Textures - weapons, icons, enemies, walls, floor
+Loot
+Movement 3.1
+More enemies
+More Weapons
+More Spells
