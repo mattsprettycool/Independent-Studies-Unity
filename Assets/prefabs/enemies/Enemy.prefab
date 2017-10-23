@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4237366870208906}
   - component: {fileID: 212045454379512624}
   - component: {fileID: 114507759553475096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite (1)
   m_TagString: healthBar
   m_Icon: {fileID: 0}
