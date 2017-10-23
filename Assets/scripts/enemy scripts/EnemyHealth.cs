@@ -28,13 +28,16 @@ public class EnemyHealth : MonoBehaviour {
         {
             enemySpawn.enemiesKilled++;
             isGoingToDie = true;
-            GameObject.Destroy(this.gameObject);
         }
 		if (bleeding) {
 			currHealth -= bleedDmg;
 		}
 	}
-
+    private void LateUpdate()
+    {
+        if(IsDead())
+            GameObject.Destroy(this.gameObject);
+    }
 
     private void OnTriggerEnter(Collider collision)
     {

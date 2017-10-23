@@ -2,8 +2,9 @@
 
 Music - check out "bosca ceoil"
 Textures - weapons, icons, enemies, walls, floor
-Loot
 Movement 3.1
 More enemies
 More Weapons
 More Spells
+Player sticks to wall still
+Jai broke my gravity aoe so now I have to fix it QQ

@@ -25,7 +25,7 @@ public class LootOnDeath : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         if (eh.IsDead())
         {
             DropLoot();
@@ -33,8 +33,11 @@ public class LootOnDeath : MonoBehaviour {
 	}
     void DropLoot()
     {
-        int randy = Random.Range(0, itemsInArray - 1);
-        itemDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);
-        Instantiate(itemDrop);
+        if (Random.Range(1, 10) <= 1)
+        {
+            int randy = Random.Range(0, itemsInArray - 1);
+            itemDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);
+            Instantiate(itemDrop, transform.position, transform.rotation);
+        }
     }
 }
