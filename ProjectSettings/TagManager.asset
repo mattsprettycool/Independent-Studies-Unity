@@ -71,6 +71,7 @@ TagManager:
   - lightning
   - lightningPointer
   - ItemBarHolder
+  - PlayerSpawnTrigger
   layers:
   - Default
   - TransparentFX
