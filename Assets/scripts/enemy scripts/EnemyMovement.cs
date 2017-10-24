@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour {
 	NavMeshAgent agent;
     string bugLog;
 	Quaternion quat;
+    //DestroyGravWell dgw;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -18,7 +19,7 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
+		if(agent.updatePosition)
         try
         {
             agent.SetDestination(player.position);
@@ -27,20 +28,26 @@ public class EnemyMovement : MonoBehaviour {
         {
             bugLog += e;
         }
-        if (!agent.updatePosition) agent.isStopped = true;
+        //if (!agent.updatePosition) agent.isStopped = true;
 	}
-    private void OnCollisionEnter(Collision collision)
-    {
-        try
-        {
-            if (!agent.updatePosition && collision.collider.tag == "Floor")
-            {
-                agent.updatePosition = true;
-                agent.isStopped = false;
-            }
-        }catch(Exception e)
-        {
-            bugLog += e;
-        }
-    }
+   // private void OnCollisionEnter(Collision collision)
+    //{
+       // try
+     //   {
+      //      if (!agent.updatePosition && collision.collider.tag == "Floor")
+       //     {
+        //        agent.updatePosition = true;
+       //         agent.isStopped = false;
+        //    }else if (dgw.IsAboutToDestroy())
+       //     {
+         //       agent.updatePosition = true;
+        //        agent.isStopped = false;
+       //     }
+      //  }catch(Exception e)
+    //    {
+     //       agent.updatePosition = true;
+    //        agent.isStopped = false;
+      //      bugLog += e;
+     //   }
+   // }
 }

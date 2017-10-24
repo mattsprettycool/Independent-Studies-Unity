@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class GravWellAOEEffect : MonoBehaviour {
     float oldY = 0;
+    string debug = "";
     private void OnTriggerStay(Collider col)
     {
         if(col.tag == "Enemies")
@@ -14,8 +15,19 @@ public class GravWellAOEEffect : MonoBehaviour {
                 col.gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
                 oldY = col.gameObject.GetComponent<Transform>().position.y;
             }
+            NavMeshAgent navy = col.gameObject.GetComponent<NavMeshAgent>();
             Transform transPos = col.gameObject.GetComponent<Transform>();
-            col.gameObject.GetComponent<Transform>().position = new Vector3(transPos.position.x, oldY + 5, transPos.position.z);
+            navy.Warp(new Vector3(transPos.position.x, transPos.position.y + 2, transPos.position.z));
+            try
+            {
+                if (gameObject.GetComponent<DestroyGravWell>().IsAboutToDestroy())
+                    col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
+            }
+            catch (System.Exception e)
+            {
+                debug += e;
+                col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
+            }
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -27,8 +39,19 @@ public class GravWellAOEEffect : MonoBehaviour {
                 col.gameObject.GetComponent<NavMeshAgent>().updatePosition = false;
                 oldY = col.gameObject.GetComponent<Transform>().position.y;
             }
+            NavMeshAgent navy = col.gameObject.GetComponent<NavMeshAgent>();
             Transform transPos = col.gameObject.GetComponent<Transform>();
-            col.gameObject.GetComponent<Transform>().position = new Vector3(transPos.position.x, oldY + 10, transPos.position.z);
+            navy.Warp(new Vector3(transPos.position.x, transPos.position.y+2, transPos.position.z));
+            try
+            {
+                if (gameObject.GetComponent<DestroyGravWell>().IsAboutToDestroy())
+                    col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
+            }
+            catch (System.Exception e)
+            {
+                debug += e;
+                col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
+            }
         }
     }
 }
