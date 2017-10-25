@@ -7,4 +7,3 @@ More enemies
 More Weapons
 More Spells
 Player sticks to wall still
-Jai broke my gravity aoe so now I have to fix it QQ

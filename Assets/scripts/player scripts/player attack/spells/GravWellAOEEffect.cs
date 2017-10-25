@@ -17,10 +17,11 @@ public class GravWellAOEEffect : MonoBehaviour {
             }
             NavMeshAgent navy = col.gameObject.GetComponent<NavMeshAgent>();
             Transform transPos = col.gameObject.GetComponent<Transform>();
-            navy.Warp(new Vector3(transPos.position.x, transPos.position.y + 2, transPos.position.z));
+            navy.Warp(new Vector3(transPos.position.x, oldY + 2, transPos.position.z));
             try
             {
-                if (gameObject.GetComponent<DestroyGravWell>().IsAboutToDestroy())
+                
+                if (gameObject.GetComponentInParent<DestroyGravWell>().IsAboutToDestroy())
                     col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
             }
             catch (System.Exception e)
@@ -41,10 +42,10 @@ public class GravWellAOEEffect : MonoBehaviour {
             }
             NavMeshAgent navy = col.gameObject.GetComponent<NavMeshAgent>();
             Transform transPos = col.gameObject.GetComponent<Transform>();
-            navy.Warp(new Vector3(transPos.position.x, transPos.position.y+2, transPos.position.z));
+            navy.Warp(new Vector3(transPos.position.x, oldY + 2, transPos.position.z));
             try
             {
-                if (gameObject.GetComponent<DestroyGravWell>().IsAboutToDestroy())
+                if (gameObject.GetComponentInParent<DestroyGravWell>().IsAboutToDestroy())
                     col.gameObject.GetComponent<NavMeshAgent>().updatePosition = true;
             }
             catch (System.Exception e)
