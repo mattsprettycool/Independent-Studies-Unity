@@ -2,8 +2,8 @@
 
 Music - check out "bosca ceoil"
 Textures - weapons, icons, enemies, walls, floor
-Movement 3.1
 More enemies
 More Weapons
 More Spells
-Player sticks to wall still
+Player can walk through certain walls
+Map
