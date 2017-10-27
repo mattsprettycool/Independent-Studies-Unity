@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
@@ -7,6 +8,7 @@ public class Bolt : MonoBehaviour {
     float timer;
     float timeBeforeDeletion;
     Rigidbody rb;
+	string debug;
     // Use this for initialization
     void Start()
     {
@@ -28,11 +30,20 @@ public class Bolt : MonoBehaviour {
         gameObject.GetComponent<ProjectileDamageLibrary>().travelTime += Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        if (other.tag != "Player" && other.tag != "attacks")
+        if (col.tag != "Player" && col.tag != "attacks")
         {
             GameObject.Destroy(this.gameObject);
         }
+		if (col.tag == "Enemies") {
+			try {
+				col.GetComponent<EnemyHealth> ().bleeding = true;
+				col.GetComponent<EnemyHealth> ().bleedDmg = gameObject.GetComponent<ProjectileDamageLibrary> ().bleedDamage;
+			}
+			catch(Exception e){
+				debug += "\n" + e;
+			}
+		}
     }
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public class ProjectileDamageLibrary : MonoBehaviour {
     public int dmgPerHit;
     public float travelTime;
+	public float bleedDamage;
 }

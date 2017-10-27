@@ -22,12 +22,9 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
-    int yValPointer;
-    List<float> yVals = new List<float>();
     // Use this for initialization
     void Start() {
         //playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
-        yValPointer = 0;
         rb = gameObject.GetComponent<Rigidbody>();
         speed = .4f;
         maxVelocity = 20;
@@ -41,8 +38,6 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        yVals.Add(gameObject.transform.position.y);
-        yValPointer++;
         //Added this vvv
         if (rb.velocity.sqrMagnitude > maxVelSquared)
         {
@@ -102,8 +97,9 @@ public class PlayerMovement : MonoBehaviour {
     }
     void MoveFullSpeed(float x, float y, float z)
     {
-        if (x!=0||y!=0||z!=0) {
-            rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
+        if (x!=0||y!=0||z!=0) 
+		{
+			rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
         }
         else if(jumpTest)
         {
