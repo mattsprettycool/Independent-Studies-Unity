@@ -22,15 +22,17 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
+    //CharacterController cont;
     // Use this for initialization
     void Start() {
         //playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = .4f;
+        speed = .2f;
         maxVelocity = 20;
         maxVelSquared = maxVelocity * maxVelocity;
         jumpTest = false;
         doCommunicate = false;
+        //cont = gameObject.GetComponent<CharacterController>();
         iBar = Camera.main.GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
     }
@@ -49,19 +51,19 @@ public class PlayerMovement : MonoBehaviour {
             int x = 0, z = 0, negX = 0, negZ = 0;
             if (Input.GetKey(KeyCode.W))
             {
-                x = 1;
+                z = 1;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                negX = -1;
+                negZ = -1;
             }
             if (Input.GetKey(KeyCode.A))
             {
-                z = 1;
+                x = 1;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                negZ = -1;
+                negX = -1;
             }
             MoveFullSpeed(x + negX, 0, z + negZ);
 
@@ -71,19 +73,19 @@ public class PlayerMovement : MonoBehaviour {
             float x = 0, z = 0, negX = 0, negZ = 0;
             if (Input.GetKey(KeyCode.W))
             {
-                x = .5f;
+                z = .5f;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                negX = -.5f;
+                negZ = -.5f;
             }
             if (Input.GetKey(KeyCode.A))
             {
-                z = .5f;
+                x = .5f;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                negZ = -.5f;
+                negX = -.5f;
             }
             MoveFullSpeed(x + negX, 0, z + negZ);
         }
@@ -99,7 +101,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (x!=0||y!=0||z!=0) 
 		{
-			rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
+            gameObject.transform.Translate(new Vector3(z * speed, y * speed, x * speed));
+			//rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
         }
         else if(jumpTest)
         {
