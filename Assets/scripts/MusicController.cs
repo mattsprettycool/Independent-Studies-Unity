@@ -4,14 +4,12 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class MusicController : MonoBehaviour {
-	PlayerSpawn pSpawn;
 	public AudioClip[] peaceSongs;
 	public AudioClip[] warSongs;
 	public AudioSource audSource;
 	public AudioMixerSnapshot transistor;
 	// Use this for initialization
 	void Start () {
-		pSpawn = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerSpawn> ();
 	}
 	
 	// Update is called once per frame
