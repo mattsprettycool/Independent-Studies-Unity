@@ -7,7 +7,7 @@ public class MusicController : MonoBehaviour {
 	public AudioClip[] peaceSongs;
 	public AudioClip[] warSongs;
 	public AudioSource audSource;
-	public AudioMixerSnapshot transistor;
+	//public AudioMixerSnapshot transistor;
 	// Use this for initialization
 	void Start () {
 	}
@@ -17,13 +17,13 @@ public class MusicController : MonoBehaviour {
 		if (inArena) {
 			int randy = Random.Range (0, warSongs.Length);
 			audSource.clip = warSongs [randy];
-			transistor.TransitionTo (1);
+			//transistor.TransitionTo (1);
 			audSource.Play ();
 		}
 		if (!inArena) {
 			int randy = Random.Range (0, peaceSongs.Length);
 			audSource.clip = peaceSongs [randy];
-			transistor.TransitionTo (1);
+			//transistor.TransitionTo (1);
 			audSource.Play ();
 		}
 	}
