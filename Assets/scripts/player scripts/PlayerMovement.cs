@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
+    bool startWait = false;
     //CharacterController cont;
     // Use this for initialization
     void Start() {
@@ -91,7 +92,23 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Space) && jumpTest)
         {
-            rb.AddRelativeForce(new Vector3(0, 300, 0));
+            //rb.AddRelativeForce(new Vector3(0, 300, 0));
+            int i = 10;
+            while (false)
+            {
+                bool notWentThrough = true;
+                WaitTime(.01f);
+                while (notWentThrough)
+                {
+                    if (startWait)
+                    {
+                        gameObject.transform.Translate(new Vector3(0, speed * i, 0));
+                        notWentThrough = false;
+                        startWait = false;
+                        i--;
+                    }
+                }
+            }
             jumpTest = false;
             isNotInAir = false;
         }
@@ -106,7 +123,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if(jumpTest)
         {
-            rb.velocity = new Vector3(0,rb.velocity.y,0);
+            //rb.velocity = new Vector3(0,rb.velocity.y,0);
         }
     }
     void OnCollisionEnter(Collision col)
@@ -139,5 +156,11 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsInAir()
     {
         return !isNotInAir;
+    }
+    IEnumerator WaitTime(float seconds)
+    {
+        startWait = false;
+        yield return new WaitForSeconds(seconds);
+        startWait = true;
     }
 }
