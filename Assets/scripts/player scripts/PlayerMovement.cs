@@ -8,10 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     [SerializeField]
     bool jumpTest;
-    float maxVelocity;
-    float maxVelSquared;
     public GameObject cameraLoc;
-    //PlayerStamina playerStamina;
+    PlayerStamina playerStamina;
     bool keyTest;
     public spellPickup sp;
     public HealthPickup hp;
@@ -22,15 +20,12 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
-    bool startWait = false;
     //CharacterController cont;
     // Use this for initialization
     void Start() {
-        //playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
+        playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = .2f;
-        maxVelocity = 20;
-        maxVelSquared = maxVelocity * maxVelocity;
+        speed = .1f;
         jumpTest = false;
         doCommunicate = false;
         //cont = gameObject.GetComponent<CharacterController>();
@@ -41,15 +36,32 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Added this vvv
-        if (rb.velocity.sqrMagnitude > maxVelSquared)
+        float x = 0, z = 0, negX = 0, negZ = 0;
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f)
         {
-            rb.velocity = rb.velocity.normalized * maxVelocity;
+            if (Input.GetKey(KeyCode.W))
+            {
+                z = 2f;
+                playerStamina.currStamina -= .5f;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                negZ = -2f;
+                playerStamina.currStamina -= .5f;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                x = 2f;
+                playerStamina.currStamina -= .5f;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                negX = -2f;
+                playerStamina.currStamina -= .5f;
+            }
+            
         }
-
-        if (jumpTest)
-        {
-            int x = 0, z = 0, negX = 0, negZ = 0;
+        else{
             if (Input.GetKey(KeyCode.W))
             {
                 z = 1;
@@ -66,49 +78,11 @@ public class PlayerMovement : MonoBehaviour {
             {
                 negX = -1;
             }
-            MoveFullSpeed(x + negX, 0, z + negZ);
-
         }
-        else
-        {
-            float x = 0, z = 0, negX = 0, negZ = 0;
-            if (Input.GetKey(KeyCode.W))
-            {
-                z = .5f;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                negZ = -.5f;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                x = .5f;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                negX = -.5f;
-            }
-            MoveFullSpeed(x + negX, 0, z + negZ);
-        }
+        MoveFullSpeed(x + negX, 0, z + negZ);
         if (Input.GetKeyDown(KeyCode.Space) && jumpTest)
         {
-            //rb.AddRelativeForce(new Vector3(0, 300, 0));
-            int i = 10;
-            while (false)
-            {
-                bool notWentThrough = true;
-                WaitTime(.01f);
-                while (notWentThrough)
-                {
-                    if (startWait)
-                    {
-                        gameObject.transform.Translate(new Vector3(0, speed * i, 0));
-                        notWentThrough = false;
-                        startWait = false;
-                        i--;
-                    }
-                }
-            }
+            rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
             isNotInAir = false;
         }
@@ -123,10 +97,10 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if(jumpTest)
         {
-            //rb.velocity = new Vector3(0,rb.velocity.y,0);
+            rb.velocity = new Vector3(0,rb.velocity.y,0);
         }
     }
-    void OnCollisionEnter(Collision col)
+    void OnCollisionStay(Collision col)
     {
         if (col.collider.tag == "Floor")
         {
@@ -156,11 +130,5 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsInAir()
     {
         return !isNotInAir;
-    }
-    IEnumerator WaitTime(float seconds)
-    {
-        startWait = false;
-        yield return new WaitForSeconds(seconds);
-        startWait = true;
     }
 }

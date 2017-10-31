@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.5748169, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1500,8 +1500,6 @@ MonoBehaviour:
   warSongs:
   - {fileID: 8300000, guid: 32bf26310d1179c48a3f756d436417fe, type: 3}
   audSource: {fileID: 1356052422}
-  inCombat: {fileID: 0}
-  inSpawn: {fileID: 0}
 --- !u!1 &271115380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2339,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 404291924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.08401, y: -0.39349723, z: 2.3939028}
+  m_LocalPosition: {x: 37.08401, y: -0.4004972, z: 2.3939028}
   m_LocalScale: {x: 4.7699733, y: -0.05894518, z: 3.1695216}
   m_Children: []
   m_Father: {fileID: 1015772425}
@@ -3036,7 +3034,7 @@ Rigidbody:
   m_Drag: 1000
   m_AngularDrag: 1000
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -3587,7 +3585,7 @@ Rigidbody:
   m_Drag: 1000
   m_AngularDrag: 1000
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -5600,7 +5598,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1138271232
 Transform:
@@ -9498,7 +9496,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 110
   orthographic: 0
@@ -9747,7 +9745,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884743565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.1394, y: -0.51, z: -0.559}
+  m_LocalPosition: {x: 37.1394, y: -0.4004972, z: -0.559}
   m_LocalScale: {x: 4.659141, y: -0.26858115, z: 2.8202372}
   m_Children: []
   m_Father: {fileID: 1015772425}
