@@ -25,10 +25,8 @@ public class PlayerSpawn : MonoBehaviour {
 		playerSpawnTrigger.transform.Rotate (new Vector3 (playerSpawnTrigger.transform.rotation.x, playerSpawnTrigger.transform.rotation.y + 15, playerSpawnTrigger.transform.rotation.z));
 		if (pHealth.currHealth == 0)
 		{
-			pMovement.speed = 0;
 			transform.position = new Vector3 (2, 102, 0);
 			pHealth.currHealth = pHealth.startHealth;
-			pMovement.speed = .5f;
 			inArena = false;
 			musicCont.PlaySong (inArena);
 		}

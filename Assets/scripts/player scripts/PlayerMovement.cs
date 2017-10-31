@@ -131,4 +131,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         return !isNotInAir;
     }
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }
