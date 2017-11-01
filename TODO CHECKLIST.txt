@@ -1,6 +1,5 @@
 //Put down whatever you think we need to do in this document
 
-Music - check out "bosca ceoil"
 Textures - weapons, icons, enemies, walls, floor
 More enemies
 More Weapons

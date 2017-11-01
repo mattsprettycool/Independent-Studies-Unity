@@ -1310,6 +1310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1756472542}
+  levelList:
+  - Level1
+  - Level1
+  - Level1
   arenaIndex: 0
   inArena: 0
 --- !u!54 &244098818

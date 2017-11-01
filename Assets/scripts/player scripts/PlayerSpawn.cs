@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawn : MonoBehaviour {
 	public Transform[] spawnPoints;
+	public string[] levelList;
 	PlayerHealth pHealth;
-	PlayerMovement pMovement;
 	MusicController musicCont;
 	GameObject playerSpawnTrigger;
 	int randy;
+	public int arenaIndex;
 	public bool inArena;
 	// Use this for initialization
 	void Start () {
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
-		pMovement = gameObject.GetComponent<PlayerMovement> ();
 		musicCont = gameObject.GetComponent<MusicController> ();
 		playerSpawnTrigger = GameObject.FindGameObjectWithTag ("PlayerSpawnTrigger");
 		inArena = true;
@@ -33,11 +34,10 @@ public class PlayerSpawn : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		randy = Random.Range (0, spawnPoints.Length);
 		if (other.tag == "PlayerSpawnTrigger") {
-			transform.position = spawnPoints[randy].position;
-			inArena = true;
-			musicCont.PlaySong (inArena);
+			randy = Random.Range (0, spawnPoints.Length);
+			arenaIndex = randy;
+			SceneManager.LoadScene (levelList[arenaIndex]);
 		}
 	}
 }

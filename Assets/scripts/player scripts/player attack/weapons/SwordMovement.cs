@@ -35,9 +35,9 @@ public class SwordMovement : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if (col.tag == "Enemies") {
 			try {
-			col.GetComponent<EnemyHealth> ().TakeDamage (gameObject.GetComponent<AttackDamageLibrary> ().dmgPerHit);
-			col.GetComponent<EnemyHealth> ().bleeding = true;
-			col.GetComponent<EnemyHealth> ().bleedDmg = gameObject.GetComponent<AttackDamageLibrary> ().bleedDamage;
+				col.GetComponent<EnemyHealth> ().TakeDamage (gameObject.GetComponent<AttackDamageLibrary> ().dmgPerHit);
+				col.GetComponent<EnemyHealth> ().bleeding = true;
+				col.GetComponent<EnemyHealth> ().bleedDmg = gameObject.GetComponent<AttackDamageLibrary> ().bleedDamage;
 			}
 			catch(Exception e){
 				debug += "\n" + e;

@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		dmgPerAttk = 10;
-		timeBetweenAttk = 2.5f;
+		timeBetweenAttk = 1f;
 		inRange = false;
 	}
     void FixedUpdate()
