@@ -37,28 +37,10 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         float x = 0, z = 0, negX = 0, negZ = 0;
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.W))
-            {
                 z = 2f;
                 playerStamina.currStamina -= .5f;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                negZ = -2f;
-                playerStamina.currStamina -= .5f;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                x = 2f;
-                playerStamina.currStamina -= .5f;
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                negX = -2f;
-                playerStamina.currStamina -= .5f;
-            }
             
         }
         else{
@@ -86,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
             jumpTest = false;
             isNotInAir = false;
         }
-        Camera.main.transform.position = cameraLoc.transform.position;
+        CameraController();
     }
     void MoveFullSpeed(float x, float y, float z)
     {
@@ -134,5 +116,19 @@ public class PlayerMovement : MonoBehaviour {
     public float GetSpeed()
     {
         return speed;
+    }
+    void CameraController()
+    {
+        CameraMovement cm = gameObject.gameObject.GetComponent<CameraMovement>();
+        if (cm.IsInFirstPerson())
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            Camera.main.transform.position = cameraLoc.transform.position;
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            Camera.main.transform.position = GameObject.FindGameObjectWithTag("3ps").transform.position;
+        }
     }
 }
