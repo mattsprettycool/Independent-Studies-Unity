@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1500,7 +1500,7 @@ MonoBehaviour:
   peaceSongs:
   - {fileID: 8300000, guid: bf9f283c6b88ff74991adf808b0749c4, type: 3}
   warSongs:
-  - {fileID: 8300000, guid: 32bf26310d1179c48a3f756d436417fe, type: 3}
+  - {fileID: 8300000, guid: 3b866344941956845ad0eb5061a2819b, type: 3}
   audSource: {fileID: 1356052422}
 --- !u!1 &271115380
 GameObject:
@@ -5504,7 +5504,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1138271232
 Transform:
