@@ -4,6 +4,6 @@ Textures - weapons, icons, enemies, walls, floor
 More enemies
 More Weapons
 More Spells
-Player can walk through certain walls
 Map
 Player model????
+The player has some collision errors
