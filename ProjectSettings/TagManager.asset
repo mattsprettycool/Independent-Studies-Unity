@@ -73,6 +73,8 @@ TagManager:
   - ItemBarHolder
   - PlayerSpawnTrigger
   - 3ps
+  - 3pspos
+  - camRef
   layers:
   - Default
   - TransparentFX
