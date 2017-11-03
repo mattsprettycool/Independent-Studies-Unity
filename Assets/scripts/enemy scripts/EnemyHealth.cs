@@ -38,21 +38,6 @@ public class EnemyHealth : MonoBehaviour {
         if(IsDead())
             GameObject.Destroy(this.gameObject);
     }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-		if (collision.gameObject.tag == "projectiles")
-        {
-            try
-            {
-                currHealth -= (collision.gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit - collision.gameObject.GetComponent<ProjectileDamageLibrary>().travelTime);
-            }
-            catch (Exception e)
-            {
-                debug += "\n" + e;
-            }
-        }
-    }
 	public void TakeDamage(float dmg){
         if (currHealth - dmg <= 0)
             isGoingToDie = true;

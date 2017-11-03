@@ -38,10 +38,10 @@ GameObject:
   - component: {fileID: 136272176392656454}
   - component: {fileID: 23545340383806746}
   - component: {fileID: 54993198861060946}
-  - component: {fileID: 135086646810740790}
   - component: {fileID: 114961055237482058}
   - component: {fileID: 114334718439305306}
   - component: {fileID: 114523477578266684}
+  - component: {fileID: 135086646810740790}
   - component: {fileID: 195597251785602884}
   m_Layer: 0
   m_Name: EnemyMage

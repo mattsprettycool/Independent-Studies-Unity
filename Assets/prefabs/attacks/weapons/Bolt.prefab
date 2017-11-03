@@ -136,4 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmgPerHit: 50
   travelTime: 0
-  bleedDamage: 0.0625
+  bleedDamage: 0.125

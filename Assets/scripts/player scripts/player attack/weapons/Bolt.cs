@@ -38,6 +38,7 @@ public class Bolt : MonoBehaviour {
         }
 		if (col.tag == "Enemies") {
 			try {
+                col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit);
 				col.GetComponent<EnemyHealth> ().bleeding = true;
 				col.GetComponent<EnemyHealth> ().bleedDmg = gameObject.GetComponent<ProjectileDamageLibrary> ().bleedDamage;
 			}

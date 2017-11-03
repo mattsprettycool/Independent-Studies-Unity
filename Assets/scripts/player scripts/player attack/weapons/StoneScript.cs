@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ public class StoneScript : MonoBehaviour {
     float timer;
     float timeBeforeDeletion;
     Rigidbody rb;
-	// Use this for initialization
-	void Start () {
+    string debug;
+
+    // Use this for initialization
+    void Start () {
         timer = 0;
         timeBeforeDeletion = 10;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -25,11 +28,24 @@ public class StoneScript : MonoBehaviour {
 		gameObject.GetComponent<ProjectileDamageLibrary>().travelTime += Time.deltaTime;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider col)
 	{
-		if (other.tag != "Player" && other.tag != "attacks")
+		if (col.tag != "Player" && col.tag != "attacks")
 		{
 			GameObject.Destroy(this.gameObject);
 		}
-	}
+        if (col.tag == "Enemies")
+        {
+            try
+            {
+                col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit * (1 - (gameObject.GetComponent<ProjectileDamageLibrary>().travelTime * .01f)));
+                col.GetComponent<EnemyHealth>().bleeding = true;
+                col.GetComponent<EnemyHealth>().bleedDmg = gameObject.GetComponent<ProjectileDamageLibrary>().bleedDamage;
+            }
+            catch (Exception e)
+            {
+                debug += "\n" + e;
+            }
+        }
+    }
 }

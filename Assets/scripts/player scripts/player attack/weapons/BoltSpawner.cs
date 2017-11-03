@@ -33,10 +33,10 @@ public class BoltSpawner : MonoBehaviour {
 	private void InstantiateBolt(){
 		var instAttk = Instantiate(bolt);
 		instAttk.transform.parent = gameObject.transform;
-		instAttk.transform.localPosition = new Vector3(0f, 0f, 0f);
+		instAttk.transform.localPosition = new Vector3(0, 0, 0);
 		instAttk.transform.rotation = gameObject.transform.rotation;
 		instAttk.transform.localRotation = Quaternion.Euler(0, -90, 0);
-		instAttk.transform.localPosition = new Vector3(0f, 0f, 0);
+		instAttk.transform.localPosition = new Vector3(0, 0, 0);
 		instAttk.transform.SetParent(null);
 	}
 

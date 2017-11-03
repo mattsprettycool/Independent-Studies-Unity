@@ -5,7 +5,7 @@ using UnityEngine;
 //by Jai Saka
 public class SwordMovement : MonoBehaviour {
 	PlayerStamina playerStamina;
-	bool attacking;
+	public bool attacking;
 	string debug;
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class SwordMovement : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && !attacking && playerStamina.currStamina >= 10 && Time.timeScale == 1f)
         {
 			
-			playerStamina.currStamina -= 10;
+			playerStamina.currStamina -= 5;
 			attacking = true;
             StartCoroutine(SlashAndWait(.5f));
 			attacking = false;

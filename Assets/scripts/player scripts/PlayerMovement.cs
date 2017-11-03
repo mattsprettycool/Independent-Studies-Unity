@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start() {
         playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = .1f;
+        speed = .2f;
         jumpTest = false;
         doCommunicate = false;
         //cont = gameObject.GetComponent<CharacterController>();
