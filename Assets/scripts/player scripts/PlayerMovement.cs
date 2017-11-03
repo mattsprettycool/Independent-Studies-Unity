@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour {
     ItemBar iBar;
     InventoryScreen iScreen;
     bool isNotInAir = true;
+    PlayerOnGround pog;
+    bool canDoubleJump = true;
     //CharacterController cont;
     // Use this for initialization
     void Start() {
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         //cont = gameObject.GetComponent<CharacterController>();
         iBar = Camera.main.GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
+        pog = gameObject.GetComponentInChildren<PlayerOnGround>();
     }
 
     // Update is called once per frame
@@ -62,11 +65,16 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
         MoveFullSpeed(x + negX, 0, z + negZ);
-        if (Input.GetKeyDown(KeyCode.Space) && jumpTest)
+        if (Input.GetKeyDown(KeyCode.Space) && (pog.IsOnGround()||canDoubleJump))
         {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;
             isNotInAir = false;
+            canDoubleJump = false;
+        }
+        if (!canDoubleJump)
+        {
+            canDoubleJump = pog.IsOnGround();
         }
         CameraController();
     }
@@ -77,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
             gameObject.transform.Translate(new Vector3(z * speed, y * speed, x * speed));
 			//rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
         }
-        else if(jumpTest)
+        else if(pog.IsOnGround())
         {
             rb.velocity = new Vector3(0,rb.velocity.y,0);
         }

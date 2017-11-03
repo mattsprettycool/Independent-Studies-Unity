@@ -75,6 +75,7 @@ TagManager:
   - 3ps
   - 3pspos
   - camRef
+  - feet
   layers:
   - Default
   - TransparentFX
