@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //by Matt Braden
 public class firebolt : MonoBehaviour {
     float timer;
     float timeBeforeDeletion;
+	string debug;
     Rigidbody rb;
     // Use this for initialization
     void Start () {
@@ -25,13 +27,26 @@ public class firebolt : MonoBehaviour {
         timer += Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        bool ignoreList = other.tag != "Player" && other.tag != "attacks" && other.name != "ProjectileSpawn" && other.tag != "ignoredByFB";
-        bool destroyList = other.tag == "Enemies" || other.tag == "Floor" || other.tag == "Wall";
+        bool ignoreList = col.tag != "Player" && col.tag != "attacks" && col.name != "ProjectileSpawn" && col.tag != "ignoredByFB";
+        bool destroyList = col.tag == "Enemies" || col.tag == "Floor" || col.tag == "Wall";
         if (ignoreList&&destroyList)
         {
             GameObject.Destroy(gameObject);
         }
+		if (col.tag == "Enemies")
+		{
+			try
+			{
+				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit * (1 - (gameObject.GetComponent<ProjectileDamageLibrary>().travelTime * .01f)));
+				col.GetComponent<EnemyHealth>().bleeding = true;
+				col.GetComponent<EnemyHealth>().bleedDmg = gameObject.GetComponent<ProjectileDamageLibrary>().bleedDamage;
+			}
+			catch (Exception e)
+			{
+				debug += "\n" + e;
+			}
+		}
     }
 }

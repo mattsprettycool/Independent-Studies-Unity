@@ -30,7 +30,7 @@ public class StoneScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider col)
 	{
-		if (col.tag != "Player" && col.tag != "attacks")
+		if (col.tag != "Player" && col.tag != "attacks" && col.tag != "ignoredByFB")
 		{
 			GameObject.Destroy(this.gameObject);
 		}
