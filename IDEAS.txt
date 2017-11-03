@@ -11,3 +11,10 @@ magic turret spell
 flight spell
 Explosive fireball (grenade?)
 M A G I C  gun
+Jump
+	-Less floaty
+	-Locked in direction of movement
+	-Double jump
+Exploding enemy
+Sandbox Mode
+"""Campaign Mode"""
