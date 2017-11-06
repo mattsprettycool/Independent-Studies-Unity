@@ -16,7 +16,11 @@ public class EnemyHealth : MonoBehaviour {
     bool isGoingToDie = false;
 	// Use this for initialization
 	void Start () {
-        startHealth = 100;
+		if (gameObject.name == "EnemyGiant") {
+			startHealth = 200;
+		} else {
+			startHealth = 100;
+		}
         currHealth = startHealth;
         enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
         debug = "";

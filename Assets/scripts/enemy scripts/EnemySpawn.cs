@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
@@ -8,6 +9,7 @@ public class EnemySpawn : MonoBehaviour {
     public Transform[] spawnPoints;
     float timeToSpawn, numberToSpawn;
 	int spawnZoneIndex, enemyIndex;
+	string debug;
     [SerializeField]
     float timer;
 	// Use this for initialization
@@ -39,17 +41,30 @@ public class EnemySpawn : MonoBehaviour {
     void SpawnEnemy () {
         if (numberToSpawn < 1)
         {
-			spawnZoneIndex = Random.Range(0, spawnPoints.Length);
-			enemyIndex = Random.Range(0, enemyList.Length);
-			Instantiate(enemyList[enemyIndex], spawnPoints[spawnZoneIndex].position, spawnPoints[spawnZoneIndex].rotation);
+			spawnZoneIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+			enemyIndex = UnityEngine.Random.Range(0, enemyList.Length);
+			if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
+				Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
+			} else {
+				Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
+			}
         }
         if (numberToSpawn >= 1)
         {
             for(int i = 0; i < numberToSpawn; i++)
             {
-                spawnZoneIndex = Random.Range(0, spawnPoints.Length);
-                enemyIndex = Random.Range(0, enemyList.Length);
-				Instantiate(enemyList[enemyIndex], spawnPoints[spawnZoneIndex].position, spawnPoints[spawnZoneIndex].rotation);
+                spawnZoneIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+                enemyIndex = UnityEngine.Random.Range(0, enemyList.Length);
+				try{
+					if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
+						Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
+					} else {
+						Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
+					}	
+				}
+				catch (Exception e){
+					debug += e;
+				}
             }
         }
 	}
