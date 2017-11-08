@@ -11,7 +11,7 @@ public class ProjectileSword : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(projectileToSpawn, gameObject.transform.position, Camera.main.transform.rotation);
