@@ -12,7 +12,6 @@ public class PlayerOnGround : MonoBehaviour {
     private void OnTriggerStay(Collider collision)
     {
         string tag = collision.tag;
-        Debug.Log(tag);
         if(tag.Equals("Floor")|| tag.Equals("enemy"))
         isOnGround = true;
     }

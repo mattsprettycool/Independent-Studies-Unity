@@ -37,7 +37,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146698713665938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0625, y: 0, z: 0}
   m_LocalScale: {x: 0.0931662, y: 1.2571539, z: 0.057211433}
   m_Children: []
@@ -111,6 +111,7 @@ MonoBehaviour:
   rotY: 90
   rotZ: 0
   icon: {fileID: 21300000, guid: f996df86a78ea19448e9aa12ce401dab, type: 3}
+  IsInThirdPerson: 1
 --- !u!114 &114792761454810828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,3 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a89c812faaf004784fe9397bd7e180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileToSpawn: {fileID: 1876953618711232, guid: fac6fc339c6f8f74e843ff20145ad750,
+    type: 2}

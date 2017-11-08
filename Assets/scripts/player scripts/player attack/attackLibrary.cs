@@ -9,4 +9,6 @@ public class attackLibrary : MonoBehaviour {
     public float rotX, rotY, rotZ;
     [SerializeField]
     public Sprite icon;
+    [SerializeField]
+    public bool IsInThirdPerson;
 }

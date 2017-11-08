@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileSword : MonoBehaviour {
-    //TODO: have 3rd person show when equipted
+    [SerializeField]
+    GameObject projectileToSpawn;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,9 @@ public class ProjectileSword : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Instantiate(projectileToSpawn, gameObject.transform.position, Camera.main.transform.rotation);
+        }
 	}
 }

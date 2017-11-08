@@ -270,6 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgPerHit: 20
+  travelTime: 0
+  bleedDamage: 0
 --- !u!114 &114728478942901004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474f9ad243f90a346af7008ee4cf157b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionToMove: {x: 1, y: 0, z: 0}
 --- !u!135 &135607845468456110
 SphereCollider:
   m_ObjectHideFlags: 1

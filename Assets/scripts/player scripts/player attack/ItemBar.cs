@@ -27,6 +27,7 @@ public class ItemBar : MonoBehaviour {
     public PlayerMovement pM;
     bool updateNeeded;
     public bool commWithIscreen;
+    CameraMovement cm;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -38,6 +39,7 @@ public class ItemBar : MonoBehaviour {
         //gets the playermovement script from the player
         pM = GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
         commWithIscreen = false;
+        cm = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraMovement>();
     }
 	
 	// Update is called once per frame
@@ -233,6 +235,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib0.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib0.rotX, lib0.rotY, lib0.rotZ);
+                cm.SetIsInFirstPerson(!lib0.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -255,6 +258,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib0.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib0.rotX, lib0.rotY, lib0.rotZ);
+                cm.SetIsInFirstPerson(!lib0.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -276,6 +280,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib1.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib1.rotX, lib1.rotY, lib1.rotZ);
+                cm.SetIsInFirstPerson(!lib1.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -297,6 +302,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib2.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib2.rotX, lib2.rotY, lib2.rotZ);
+                cm.SetIsInFirstPerson(!lib2.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -318,6 +324,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib3.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib3.rotX, lib3.rotY, lib3.rotZ);
+                cm.SetIsInFirstPerson(!lib3.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -339,6 +346,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib4.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib4.rotX, lib4.rotY, lib4.rotZ);
+                cm.SetIsInFirstPerson(!lib4.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -360,6 +368,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib5.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib5.rotX, lib5.rotY, lib5.rotZ);
+                cm.SetIsInFirstPerson(!lib5.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -381,6 +390,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib6.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib6.rotX, lib6.rotY, lib6.rotZ);
+                cm.SetIsInFirstPerson(!lib6.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -402,6 +412,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib7.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib7.rotX, lib7.rotY, lib7.rotZ);
+                cm.SetIsInFirstPerson(!lib7.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)
@@ -423,6 +434,7 @@ public class ItemBar : MonoBehaviour {
                 attackInst.transform.localPosition = lib8.pos;
                 attackInst.transform.rotation = gameObject.transform.rotation;
                 attackInst.transform.localRotation = Quaternion.Euler(lib8.rotX, lib8.rotY, lib8.rotZ);
+                cm.SetIsInFirstPerson(!lib8.IsInThirdPerson);
                 if (updateNeeded) updateNeeded = false;
             }
             catch (Exception e)

@@ -26,15 +26,6 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            if (isFirstPerson)
-            {
-                isFirstPerson = false;
-            }
-            else
-                isFirstPerson = true;
-        }
         if (isFirstPerson)
         {
             if (Input.GetKeyDown(KeyCode.C))
@@ -77,5 +68,9 @@ public class CameraMovement : MonoBehaviour {
     public bool IsInFirstPerson()
     {
         return isFirstPerson;
+    }
+    public void SetIsInFirstPerson(bool isInFirstPerson)
+    {
+        isFirstPerson = isInFirstPerson;
     }
 }
