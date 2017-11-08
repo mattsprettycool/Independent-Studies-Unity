@@ -35,7 +35,7 @@ public class BoltSpawner : MonoBehaviour {
 		instAttk.transform.parent = gameObject.transform;
 		instAttk.transform.localPosition = new Vector3(0, 0, 0);
 		instAttk.transform.rotation = gameObject.transform.rotation;
-		instAttk.transform.localRotation = Quaternion.Euler(0, -90, 0);
+		instAttk.transform.localRotation = Quaternion.Euler(0, transform.rotation.y-90, 0);
 		instAttk.transform.localPosition = new Vector3(0, 0, 0);
 		instAttk.transform.SetParent(null);
 	}
@@ -43,7 +43,7 @@ public class BoltSpawner : MonoBehaviour {
 	void LookAtCenter()
 	{
 		RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 8))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 9))
 		{
 			transform.LookAt(hit.point);
 		}

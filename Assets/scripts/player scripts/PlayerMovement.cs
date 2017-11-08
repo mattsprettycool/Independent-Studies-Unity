@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     Rigidbody rb;
     public float speed;
+	public bool stunned;
     [SerializeField]
     bool jumpTest;
     public GameObject cameraLoc;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
         speed = .2f;
         jumpTest = false;
         doCommunicate = false;
+		stunned = false;
         //cont = gameObject.GetComponent<CharacterController>();
         iBar = Camera.main.GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
@@ -40,32 +42,40 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         float x = 0, z = 0, negX = 0, negZ = 0;
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W))
+		if (stunned) {
+			float timer = 0;
+			timer += Time.deltaTime;
+			if (timer > 2) {
+				stunned = false;
+			}
+		}
+
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W) && !stunned)
         {
                 z = 2f;
                 playerStamina.currStamina -= .5f;
             
         }
         else{
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) && !stunned)
             {
                 z = 1;
             }
-            if (Input.GetKey(KeyCode.S))
+			if (Input.GetKey(KeyCode.S) && !stunned)
             {
                 negZ = -1;
             }
-            if (Input.GetKey(KeyCode.A))
+			if (Input.GetKey(KeyCode.A) && !stunned)
             {
                 x = 1;
             }
-            if (Input.GetKey(KeyCode.D))
+			if (Input.GetKey(KeyCode.D) && !stunned)
             {
                 negX = -1;
             }
         }
         MoveFullSpeed(x + negX, 0, z + negZ);
-        if (Input.GetKeyDown(KeyCode.Space) && (pog.IsOnGround()||canDoubleJump))
+        if (Input.GetKeyDown(KeyCode.Space) && (pog.IsOnGround()||canDoubleJump) && !stunned)
         {
             rb.AddRelativeForce(new Vector3(0, 300, 0));
             jumpTest = false;

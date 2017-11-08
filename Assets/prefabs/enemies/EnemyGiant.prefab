@@ -25,13 +25,13 @@ GameObject:
   - component: {fileID: 54535440408067684}
   - component: {fileID: 114681975623033376}
   - component: {fileID: 114169612701608674}
-  - component: {fileID: 114800180919517190}
   - component: {fileID: 195222866624637018}
   - component: {fileID: 135208518038405530}
   - component: {fileID: 114231620508825264}
   - component: {fileID: 114825383737721226}
   - component: {fileID: 114725559407795206}
   - component: {fileID: 114426938336138226}
+  - component: {fileID: 114713479699965688}
   m_Layer: 9
   m_Name: EnemyGiant
   m_TagString: Enemies
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1278d640f24a8441591b2fe6b0f65c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfKillsNeededToSpawn: 20
+  numKillsToSpawn: 20
 --- !u!114 &114681975623033376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +242,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!114 &114713479699965688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083770696761092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbef6993816d141d7ba783006133c251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgPerAttk: 0
+  timeBetweenAttk: 0
 --- !u!114 &114725559407795206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,19 +268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: {fileID: 1788053675155434, guid: 6d959e5a43e7d53488d09641ab2a65ce, type: 2}
   itemDrop: {fileID: 1937210168023398, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
---- !u!114 &114800180919517190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083770696761092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1303a43e0fd5043f4a8f349699859c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmgPerAttk: 0
-  timeBetweenAttk: 0
 --- !u!114 &114825383737721226
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -33,11 +33,11 @@ public class StoneSpawner : MonoBehaviour {
     void LookAtCenter()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 8))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 9))
         {
             transform.LookAt(hit.point);
         }
-		else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 9))
+		else if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1000, out hit, 1000, 1 << 8))
 		{
 			transform.LookAt(hit.point);
 		}

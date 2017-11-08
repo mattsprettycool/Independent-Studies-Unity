@@ -12,18 +12,16 @@ public class EnemyHealth : MonoBehaviour {
     public EnemySpawn enemySpawn;
 	public bool bleeding;
 	public float bleedDmg;
-    string debug;
     bool isGoingToDie = false;
 	// Use this for initialization
 	void Start () {
-		if (gameObject.name == "EnemyGiant") {
+		if (gameObject.name == "EnemyGiant" || gameObject.name == "EnemyGiant(Clone)") {
 			startHealth = 200;
 		} else {
 			startHealth = 100;
 		}
         currHealth = startHealth;
         enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
-        debug = "";
 	}
 	
 	// Update is called once per frame
