@@ -8,10 +8,12 @@ public class PlayerHealth : MonoBehaviour {
     public float startHealth;
     public float currHealth;
     public Slider healthSlider;
+	public PlayerOnGround pog;
     bool damageTaken;
 	string debug;
 	// Use this for initialization
 	void Start () {
+		pog = gameObject.GetComponentInChildren<PlayerOnGround> ();
         startHealth = 100;
         currHealth = startHealth;
 	}
@@ -19,7 +21,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         healthSlider.value = currHealth;
-        //Sets movement speed to 0 once health reaches 0, disabling movement
+		ApplyFallDamage (TimeInAir ());
     }
 
     //To be called upon by other methods, don't bother applying it here
@@ -40,6 +42,19 @@ public class PlayerHealth : MonoBehaviour {
 			{
 				debug += "\n" + e;
 			}
+		}
+	}
+	public float TimeInAir (){
+		if (!pog.IsOnGround()) {
+			float timer = 0;
+			while (!pog.IsOnGround()) {
+				timer += Time.deltaTime;
+			}return timer;
+		}return 0;
+	}
+	void ApplyFallDamage (float timeInAir){
+		if (timeInAir > 2) {
+			currHealth -= timeInAir * 5;
 		}
 	}
 }

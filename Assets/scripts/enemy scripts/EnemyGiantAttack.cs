@@ -28,18 +28,18 @@ public class EnemyGiantAttack : MonoBehaviour {
 		if (inRange && timer > timeBetweenAttk)
 		{
 			timer = 0;
-			int randy = Random.Range (0, 2);
+			int randy = Random.Range (0, 3);
 			Debug.Log (randy);
 			switch (randy) {
 			case 0:
 				playerHealth.TakeDamage (dmgPerAttk);
 				break;
 			case 1:
-				plyrMov.stunned = true;
+				plyrMov.StunPlayer (2);
 				playerHealth.TakeDamage (dmgPerAttk / 2);
 				break;
 			case 2:
-				plyrRB.AddRelativeForce (0, 500, 0);
+				plyrRB.AddRelativeForce (0, 2000, 0);
 				playerHealth.TakeDamage (dmgPerAttk);
 				break;
 			default:

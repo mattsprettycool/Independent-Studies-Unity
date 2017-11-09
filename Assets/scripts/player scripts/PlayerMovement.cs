@@ -42,13 +42,6 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         float x = 0, z = 0, negX = 0, negZ = 0;
-		if (stunned) {
-			float timer = 0;
-			timer += Time.deltaTime;
-			if (timer > 2) {
-				stunned = false;
-			}
-		}
 
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W) && !stunned)
         {
@@ -149,4 +142,9 @@ public class PlayerMovement : MonoBehaviour {
             Camera.main.transform.position = GameObject.FindGameObjectWithTag("3ps").transform.position;
         }
     }
+	public IEnumerator StunPlayer (float timeToStun){
+		stunned = true;
+		yield return new WaitForSeconds (timeToStun);
+		stunned = false;
+	}
 }
