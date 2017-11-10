@@ -45,12 +45,10 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 	public float TimeInAir (){
+		float timer = 0;
 		if (!pog.IsOnGround()) {
-			float timer = 0;
-			while (!pog.IsOnGround()) {
-				timer += Time.deltaTime;
-			}return timer;
-		}return 0;
+			timer += Time.deltaTime;
+		}return timer;
 	}
 	void ApplyFallDamage (float timeInAir){
 		if (timeInAir > 2) {
