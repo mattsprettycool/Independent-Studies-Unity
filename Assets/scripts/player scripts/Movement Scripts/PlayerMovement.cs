@@ -79,6 +79,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             canDoubleJump = pog.IsOnGround();
         }
+        if (stunned)
+        {
+            if (!canDoubleJump)
+            {
+                stunned = false;
+            } 
+        }
         CameraController();
     }
     void MoveFullSpeed(float x, float y, float z)
@@ -142,9 +149,4 @@ public class PlayerMovement : MonoBehaviour {
             Camera.main.transform.position = GameObject.FindGameObjectWithTag("3ps").transform.position;
         }
     }
-	public IEnumerator StunPlayer (float timeToStun){
-		stunned = true;
-		yield return new WaitForSeconds (timeToStun);
-		stunned = false;
-	}
 }

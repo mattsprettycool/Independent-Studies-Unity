@@ -35,7 +35,7 @@ public class EnemyGiantAttack : MonoBehaviour {
 				playerHealth.TakeDamage (dmgPerAttk);
 				break;
 			case 1:
-				plyrMov.StunPlayer (2);
+                plyrMov.stunned = true;
 				playerHealth.TakeDamage (dmgPerAttk / 2);
 				break;
 			case 2:

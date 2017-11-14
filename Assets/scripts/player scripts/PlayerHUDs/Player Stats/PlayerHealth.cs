@@ -8,7 +8,8 @@ public class PlayerHealth : MonoBehaviour {
     public float startHealth;
     public float currHealth;
     public Slider healthSlider;
-	public PlayerOnGround pog;
+	PlayerOnGround pog;
+    PlayerMovement pMvmnt;
     bool damageTaken;
 	string debug;
 	// Use this for initialization
@@ -21,7 +22,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         healthSlider.value = currHealth;
-		ApplyFallDamage (TimeInAir ());
+		StunPlayerAfterAirtime (TimeInAir ());
     }
 
     //To be called upon by other methods, don't bother applying it here
@@ -46,13 +47,13 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	public float TimeInAir (){
 		float timer = 0;
-		if (!pog.IsOnGround()) {
+		if (pog.IsOnGround().Equals(false)) {
 			timer += Time.deltaTime;
 		}return timer;
 	}
-	void ApplyFallDamage (float timeInAir){
+	void StunPlayerAfterAirtime (float timeInAir){
 		if (timeInAir > 2) {
-			currHealth -= timeInAir * 5;
+            pMvmnt.stunned = true;
 		}
 	}
 }
