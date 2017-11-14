@@ -23,6 +23,10 @@ public class PlayerHealth : MonoBehaviour {
 	void FixedUpdate () {
         healthSlider.value = currHealth;
 		StunPlayerAfterAirtime (TimeInAir ());
+		//added below for debuggin purposes
+		if (Input.GetKey(KeyCode.K)) {
+			currHealth = 0;
+		}
     }
 
     //To be called upon by other methods, don't bother applying it here

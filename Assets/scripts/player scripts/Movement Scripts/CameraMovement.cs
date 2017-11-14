@@ -33,6 +33,9 @@ public class CameraMovement : MonoBehaviour {
                 //Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
+			if (Input.GetKeyDown (KeyCode.V)) {
+				Cursor.lockState = CursorLockMode.None;
+			}
             if (Input.mousePresent)
             {
                 newrotX += Input.GetAxis("Mouse X") * sensitivity;

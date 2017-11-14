@@ -36,7 +36,8 @@ public class PlayerSpawn : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "PlayerSpawnTrigger") {
 			randy = Random.Range (0, spawnPoints.Length);
-			arenaIndex = randy;
+			arenaIndex = Random.Range (0, levelList.Length);
+			Debug.Log ("Loading: " + levelList [arenaIndex]);
 			SceneManager.LoadScene (levelList[arenaIndex]);
 		}
 	}
