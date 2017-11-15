@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerSpawn : MonoBehaviour {
+    [SerializeField]
 	public Transform[] spawnPoints;
 	public string[] levelList;
+    string currLevel;
 	PlayerHealth pHealth;
 	MusicController musicCont;
 	GameObject playerSpawnTrigger;
+    KillManager killMngr;
 	int randy;
 	public int arenaIndex;
 	public bool inArena;
@@ -18,6 +21,7 @@ public class PlayerSpawn : MonoBehaviour {
 		musicCont = gameObject.GetComponent<MusicController> ();
 		playerSpawnTrigger = GameObject.FindGameObjectWithTag ("PlayerSpawnTrigger");
 		inArena = true;
+        currLevel = SceneManager.GetActiveScene().name;
 		musicCont.PlaySong (inArena);
 	}
 	
@@ -38,7 +42,12 @@ public class PlayerSpawn : MonoBehaviour {
 			randy = Random.Range (0, spawnPoints.Length);
 			arenaIndex = Random.Range (0, levelList.Length);
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
+            currLevel = levelList[arenaIndex];
 			SceneManager.LoadScene (levelList[arenaIndex]);
 		}
 	}
+    public string GetCurrentScene()
+    {
+        return currLevel;
+    }
 }

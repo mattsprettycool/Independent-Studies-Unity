@@ -42,7 +42,10 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate()
     {
         float x = 0, z = 0, negX = 0, negZ = 0;
-
+        if (stunned)
+        {
+            stunned = false;
+        }
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W) && !stunned)
         {
                 z = 2f;
@@ -78,13 +81,6 @@ public class PlayerMovement : MonoBehaviour {
         if (!canDoubleJump)
         {
             canDoubleJump = pog.IsOnGround();
-        }
-        if (stunned)
-        {
-            if (!canDoubleJump)
-            {
-                stunned = false;
-            } 
         }
         CameraController();
     }

@@ -28,7 +28,6 @@ public class EnemyHealth : MonoBehaviour {
 	void FixedUpdate () {
         if (currHealth <= 0)
         {
-            enemySpawn.enemiesKilled++;
             isGoingToDie = true;
         }
 		if (bleeding) {
@@ -37,8 +36,11 @@ public class EnemyHealth : MonoBehaviour {
 	}
     private void LateUpdate()
     {
-        if(IsDead())
+        if (IsDead())
+        {
+            enemySpawn.enemiesKilled++;
             GameObject.Destroy(this.gameObject);
+        }
     }
 	public void TakeDamage(float dmg){
         if (currHealth - dmg <= 0)
