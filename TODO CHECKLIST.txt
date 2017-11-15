@@ -1,4 +1,4 @@
-//Put down whatever you think we need to do in this document
+//PRE-ALPHA CHECKLIST
 
 Textures - weapons, icons, enemies, walls, floor
 More enemies
@@ -7,3 +7,12 @@ More Spells
 Map
 Player model????
 The player has some collision errors
+
+Gameplay Ideas
+--------------------
+Linear arena progression.
+Player permadeath, have to restart from the beginning.
+	Players can choose a starting kit to enhance their experience based on how far they got.
+Mini-objectives in each map to give the player a boost for the next arena, like exclusive spells and weapons.
+Different sorts of armor that protect against different sorts of damage.
+Stat points that one can spend on increasing their attack, speed, etc.
