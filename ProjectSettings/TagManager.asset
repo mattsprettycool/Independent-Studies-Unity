@@ -76,6 +76,7 @@ TagManager:
   - 3pspos
   - camRef
   - feet
+  - killcounter
   layers:
   - Default
   - TransparentFX

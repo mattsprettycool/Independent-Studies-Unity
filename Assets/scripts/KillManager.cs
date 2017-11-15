@@ -12,14 +12,19 @@ public class KillManager : MonoBehaviour {
         enSpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
         pSpawn = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawn>();
         killsNeeded = 20;
+		if (pSpawn.GetCurrentScene ().Equals ("Level1")) {
+			killsNeeded = 20;
+		}
         if (pSpawn.GetCurrentScene().Equals("Level2"))
         {
             killsNeeded = 40;
         }
 	}
-	
 	// Update is called once per frame
 	void Update () {
-        gameObject.GetComponent<Text>().text = "Kills: " + enSpawn.enemiesKilled + "    Kills Needed: " + (killsNeeded - enSpawn.enemiesKilled);
+		gameObject.GetComponent<Text> ().text = "Kills: " + enSpawn.GetEnemiesKilled () + "    Kills Needed: " + (killsNeeded - enSpawn.GetEnemiesKilled ());
+	}
+	public float GetKillsNeeded(){
+		return killsNeeded;
 	}
 }

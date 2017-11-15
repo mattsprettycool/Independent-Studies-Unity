@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
 public class EnemySpawn : MonoBehaviour {
-    public float enemiesKilled;
+    float enemiesKilled;
 	public GameObject[] enemyList;
     public Transform[] spawnPoints;
     float timeToSpawn, numberToSpawn;
@@ -36,6 +36,9 @@ public class EnemySpawn : MonoBehaviour {
             SpawnEnemy();
             timer = 0;
         }
+		if (Input.GetKeyDown(KeyCode.P)){
+			enemiesKilled++;
+		}
     }
 
     void SpawnEnemy () {
@@ -67,5 +70,11 @@ public class EnemySpawn : MonoBehaviour {
 				}
             }
         }
+	}
+	public float GetEnemiesKilled(){
+		return enemiesKilled;
+	}
+	public void IncreaseKillCount(){
+		enemiesKilled++;
 	}
 }

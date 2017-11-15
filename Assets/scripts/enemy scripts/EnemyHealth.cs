@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour {
     {
         if (IsDead())
         {
-            enemySpawn.enemiesKilled++;
+			enemySpawn.IncreaseKillCount ();
             GameObject.Destroy(this.gameObject);
         }
     }
