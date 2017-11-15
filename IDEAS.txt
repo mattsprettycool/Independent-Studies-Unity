@@ -17,3 +17,7 @@ Jump
 Exploding enemy
 Sandbox Mode
 """Campaign Mode"""
+Mini-objectives in each map to give the player a boost for the next arena, like exclusive spells and weapons.
+Different sorts of armor that protect against different sorts of damage.
+Stat points that one can spend on increasing their attack, speed, etc.
+Earn more loadouts as a metagame

@@ -6,13 +6,12 @@ More Weapons
 More Spells
 Map
 Player model????
-The player has some collision errors
 
-Gameplay Ideas
---------------------
+WHAT NEEDS TO GET DONE FOR A PLAYABLE PRE-ALPHA:
+
 Linear arena progression.
 Player permadeath, have to restart from the beginning.
-	Players can choose a starting kit to enhance their experience based on how far they got.
-Mini-objectives in each map to give the player a boost for the next arena, like exclusive spells and weapons.
-Different sorts of armor that protect against different sorts of damage.
-Stat points that one can spend on increasing their attack, speed, etc.
+Players can choose a starting kit to enhance their experience based on how far they got.
+We need an arena map (I think it should have a base roman-esque arena barier with variation on the terrain through levels)
+Fix collision errors (including the player sticking to walls)
+We need a main menu with the appropriate stuff on it (i.e. game start screen with loadout picker)
