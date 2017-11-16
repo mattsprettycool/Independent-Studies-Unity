@@ -37,7 +37,7 @@ public class EnemySpawn : MonoBehaviour {
             timer = 0;
         }
 		if (Input.GetKeyDown(KeyCode.P)){
-			enemiesKilled++;
+			IncreaseKillCount ();
 		}
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1607,6 +1607,8 @@ MonoBehaviour:
   - Level1
   - Level1
   - Level1
+  playerSpawnTrigger: {fileID: 420212264}
+  killMngr: {fileID: 1166057454}
   arenaIndex: 0
   inArena: 0
 --- !u!54 &244098818
@@ -2784,7 +2786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b95705aa6659f40b2946c3e330cf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesKilled: 0
   enemyList:
   - {fileID: 1681981488741150, guid: 0b5b59dec494a441e9ffa92848001062, type: 2}
   - {fileID: 1267122811933580, guid: 5e8930de821ec194093e79332cc7eaf5, type: 2}
@@ -6295,6 +6296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18daef5ee9e9a51418bee8ce69dd3dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pSpawn: {fileID: 244098817}
 --- !u!114 &1166057455
 MonoBehaviour:
   m_ObjectHideFlags: 0

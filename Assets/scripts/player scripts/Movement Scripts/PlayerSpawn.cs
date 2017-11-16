@@ -10,8 +10,8 @@ public class PlayerSpawn : MonoBehaviour {
     string currLevel;
 	PlayerHealth pHealth;
 	MusicController musicCont;
-	GameObject playerSpawnTrigger;
-    KillManager killMngr;
+	public GameObject playerSpawnTrigger;
+    public KillManager killMngr;
 	EnemySpawn enSpawn;
 	int randy;
 	public int arenaIndex;
@@ -19,10 +19,8 @@ public class PlayerSpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn> ();
-		killMngr = GameObject.FindGameObjectWithTag ("killcounter").GetComponent<KillManager> ();
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
 		musicCont = gameObject.GetComponent<MusicController> ();
-		playerSpawnTrigger = GameObject.FindGameObjectWithTag ("PlayerSpawnTrigger");
 		inArena = true;
 		arenaIndex = 0;
 		currLevel = levelList [arenaIndex];
@@ -32,7 +30,7 @@ public class PlayerSpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		playerSpawnTrigger.transform.Rotate (new Vector3 (playerSpawnTrigger.transform.rotation.x, playerSpawnTrigger.transform.rotation.y + 15, playerSpawnTrigger.transform.rotation.z));
-		if (pHealth.currHealth <= 0 || enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())
+		if (pHealth.currHealth <= 0 || enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded () && inArena)
 		{
 			transform.position = new Vector3 (2, 102, 0);
 			pHealth.currHealth = pHealth.startHealth;
@@ -47,19 +45,18 @@ public class PlayerSpawn : MonoBehaviour {
 			arenaIndex++;
 			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
-			currLevel = levelList [arenaIndex];
 			SceneManager.LoadScene (levelList [arenaIndex]);
 		}
 		if (other.tag == "PlayerSpawnTrigger" && !(enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())){
 			Debug.Log ("Did not meet parameters");
+			arenaIndex = 0;
 			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [0]);
-			currLevel = levelList [0];
 			SceneManager.LoadScene (levelList [0]);
 		}
 	}
     public string GetCurrentScene()
     {
-        return currLevel;
+		return levelList [arenaIndex];
     }
 }
