@@ -15,9 +15,9 @@ public class HealthPickup : MonoBehaviour {
         gameObject.transform.LookAt(Camera.main.transform);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
             if (playerHealth.currHealth < 100)

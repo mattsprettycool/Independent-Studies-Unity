@@ -7,13 +7,15 @@ public class firebolt : MonoBehaviour {
     float timer;
     float timeBeforeDeletion;
 	string debug;
+    public GameObject explosion;
+    bool hitSomething;
     Rigidbody rb;
     [SerializeField]
     Vector3 directionToMove;
     // Use this for initialization
     void Start () {
         timer = 0;
-        timeBeforeDeletion = 5.5f;
+        timeBeforeDeletion = 5f;
         rb = gameObject.GetComponent<Rigidbody>();
         if(directionToMove.x > 0)
         {
@@ -47,20 +49,26 @@ public class firebolt : MonoBehaviour {
         bool destroyList = col.tag == "Enemies" || col.tag == "Floor" || col.tag == "Wall";
         if (ignoreList&&destroyList)
         {
-            GameObject.Destroy(gameObject);
+            var attkInst = Instantiate(explosion);
+            attkInst.transform.parent = gameObject.transform;
+            attkInst.transform.localPosition = new Vector3(0f, 0f, 0f);
+            attkInst.transform.SetParent(null);
+            GameObject.Destroy(this.gameObject);
         }
 		if (col.tag == "Enemies")
 		{
 			try
 			{
 				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit * (1 - (gameObject.GetComponent<ProjectileDamageLibrary>().travelTime * .01f)));
-				col.GetComponent<EnemyHealth>().bleeding = true;
-				col.GetComponent<EnemyHealth>().bleedDmg = gameObject.GetComponent<ProjectileDamageLibrary>().bleedDamage;
 			}
 			catch (Exception e)
 			{
 				debug += "\n" + e;
 			}
 		}
+    }
+    public bool GetHit ()
+    {
+        return hitSomething;
     }
 }

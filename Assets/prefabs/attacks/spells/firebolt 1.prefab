@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474f9ad243f90a346af7008ee4cf157b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1534346055650074, guid: 5a67d7139b3f1cc40a6fe2b46c402bfc, type: 2}
   directionToMove: {x: 1, y: 0, z: 0}
 --- !u!135 &135607845468456110
 SphereCollider:
@@ -307,7 +308,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -3569,7 +3570,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -6831,7 +6832,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
