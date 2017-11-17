@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a639e2431ac7be742a44ba5141fd759d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadoutName: Debug Loadout
   hotbar:
   - {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215, type: 2}
   - {fileID: 1899666569156304, guid: 6be3c9d151de92341814f66d4f87d900, type: 2}

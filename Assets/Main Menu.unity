@@ -943,6 +943,7 @@ GameObject:
   - component: {fileID: 1102229951}
   - component: {fileID: 1102229950}
   - component: {fileID: 1102229949}
+  - component: {fileID: 1102229952}
   m_Layer: 5
   m_Name: Loadouts
   m_TagString: Untagged
@@ -1053,6 +1054,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1102229947}
+--- !u!114 &1102229952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102229947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552dfc05f3cd54a44a2f7c9b8a6ce08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadouts:
+  - {fileID: 1074577374397310, guid: cb4ecdd70dd02504a9fd6b01bfe7bae2, type: 2}
+  - {fileID: 1452109405597676, guid: ce8572bc8dc8fcc49976eb83dc1c0979, type: 2}
 --- !u!1 &1104077997
 GameObject:
   m_ObjectHideFlags: 0
