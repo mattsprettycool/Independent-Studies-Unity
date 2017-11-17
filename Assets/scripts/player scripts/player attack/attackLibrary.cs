@@ -11,4 +11,6 @@ public class attackLibrary : MonoBehaviour {
     public Sprite icon;
     [SerializeField]
     public bool IsInThirdPerson;
+    [SerializeField]
+    public string UUID;
 }

@@ -112,6 +112,7 @@ MonoBehaviour:
   rotZ: 0
   icon: {fileID: 21300000, guid: f996df86a78ea19448e9aa12ce401dab, type: 3}
   IsInThirdPerson: 1
+  UUID: jhr695ygf637g
 --- !u!114 &114792761454810828
 MonoBehaviour:
   m_ObjectHideFlags: 1
