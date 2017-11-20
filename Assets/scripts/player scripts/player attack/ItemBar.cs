@@ -625,4 +625,9 @@ public class ItemBar : MonoBehaviour {
         }
         return null;
     }
+    public GameObject[] GetHotbarArray()
+    {
+        GameObject[] myArray = {attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8};
+        return myArray;
+    }
 }

@@ -16,14 +16,14 @@ public class DropdownLoadouts : MonoBehaviour {
         gameObject.GetComponent<Dropdown>().AddOptions(loadoutNames);
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Dropdown myDropdown = gameObject.GetComponent<Dropdown>();
-        SetLoadout(myDropdown.value);
-	}
-    void SetLoadout(int index)
+    public GameObject GetLoadout()
     {
-        //use the current loadout prefab
+        foreach(GameObject obj in loadouts)
+        {
+            Debug.Log(gameObject.GetComponent<Dropdown>().value);
+            if (obj.GetComponent<Loadout>().GetName().Equals(loadouts[gameObject.GetComponent<Dropdown>().value].GetComponent<Loadout>().GetName()))
+                return obj;
+        }
+        return null;
     }
 }

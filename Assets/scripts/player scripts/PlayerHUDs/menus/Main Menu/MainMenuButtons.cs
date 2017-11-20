@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour {
     public string sceneToLoad;
+    [SerializeField]
+    GameObject currentLoadout, newLoadout, dropdownMenu;
     public void EndGame()
     {
         Application.Quit();
@@ -12,6 +14,9 @@ public class MainMenuButtons : MonoBehaviour {
     }
     public void LoadScene()
     {
+        newLoadout = dropdownMenu.GetComponent<DropdownLoadouts>().GetLoadout();
+        currentLoadout.GetComponent<Loadout>().SetHotbar(newLoadout.GetComponent<Loadout>());
+        currentLoadout.GetComponent<Loadout>().SetInventory(newLoadout.GetComponent<Loadout>());
         SceneManager.LoadScene(sceneToLoad);
     }
 }
