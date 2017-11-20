@@ -12,10 +12,12 @@ public class PlayerHealth : MonoBehaviour {
     PlayerMovement pMvmnt;
     bool damageTaken;
 	string debug;
+	PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
+		pStats = gameObject.GetComponent<PlayerStats> ();
 		pog = gameObject.GetComponentInChildren<PlayerOnGround> ();
-        startHealth = 100;
+		startHealth = pStats.baseHealth;
         currHealth = startHealth;
 	}
 	

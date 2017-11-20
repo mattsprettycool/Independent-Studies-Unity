@@ -7,9 +7,11 @@ public class PlayerStamina : MonoBehaviour {
 	public float startStamina;
 	public float currStamina;
 	public Slider staminaSlider;
+	PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
-		startStamina = 100;
+		pStats = gameObject.GetComponent<PlayerStats> ();
+		startStamina = pStats.baseStamina;
 		currStamina = startStamina;
 	}
 	
@@ -20,7 +22,7 @@ public class PlayerStamina : MonoBehaviour {
 
 		if (currStamina < startStamina)
         {
-			currStamina += .05f;
+			currStamina += .1f;
 		}
 	}
 }

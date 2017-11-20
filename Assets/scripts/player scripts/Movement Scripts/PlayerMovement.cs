@@ -23,12 +23,14 @@ public class PlayerMovement : MonoBehaviour {
     bool isNotInAir = true;
     PlayerOnGround pog;
     bool canDoubleJump = true;
+	PlayerStats pStats;
     //CharacterController cont;
     // Use this for initialization
     void Start() {
         playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-        speed = .2f;
+		pStats = gameObject.GetComponent<PlayerStats> ();
+		speed = pStats.baseMovementSpeed;
         jumpTest = false;
         doCommunicate = false;
 		stunned = false;
@@ -118,6 +120,9 @@ public class PlayerMovement : MonoBehaviour {
             doCommunicate = true;
             recentPickUp = sp.prefabToCopy;
         }
+		if (other.name == "JumpCube" || other.name == "JumpCube(clone)") {
+			rb.AddRelativeForce (0, 1500, 0);
+		}
     }
     public void setCommToFalse()
     {

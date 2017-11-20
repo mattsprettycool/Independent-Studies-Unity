@@ -10,6 +10,7 @@ public class PlayerSpawn : MonoBehaviour {
     string currLevel;
 	PlayerHealth pHealth;
 	MusicController musicCont;
+	PlayerStats pStats;
 	public GameObject playerSpawnTrigger;
     public KillManager killMngr;
 	EnemySpawn enSpawn;
@@ -18,6 +19,7 @@ public class PlayerSpawn : MonoBehaviour {
 	public bool inArena;
 	// Use this for initialization
 	void Start () {
+		pStats = gameObject.GetComponent<PlayerStats> ();
 		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn> ();
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
 		musicCont = gameObject.GetComponent<MusicController> ();
