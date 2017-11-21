@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1966,6 +1966,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 279432644}
+--- !u!1001 &295245401
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 147.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 355.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591827792532686, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114217133146396498, guid: 055973e4d844a0947999aacfc28eb66a,
+        type: 2}
+      propertyPath: hotbar
+      value: 
+      objectReference: {fileID: 868287075}
+    - target: {fileID: 114217133146396498, guid: 055973e4d844a0947999aacfc28eb66a,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1978193593}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 055973e4d844a0947999aacfc28eb66a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &295683410
 GameObject:
   m_ObjectHideFlags: 0

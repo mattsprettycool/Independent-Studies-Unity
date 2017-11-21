@@ -25,8 +25,16 @@ public class Loadout : MonoBehaviour {
     {
         hotbar = currentHotbar.GetHotbar();
     }
+    public void SetHotbar(GameObject[] currentHotbar)
+    {
+        hotbar = currentHotbar;
+    }
     public void SetInventory(Loadout currentInventory)
     {
         inventory = currentInventory.GetInventory();
+    }
+    public void SetInventory(GameObject[] currentInventory)
+    {
+        inventory = currentInventory;
     }
 }

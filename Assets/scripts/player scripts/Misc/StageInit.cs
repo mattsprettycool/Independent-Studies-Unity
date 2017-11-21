@@ -30,6 +30,7 @@ public class StageInit : MonoBehaviour {
     }
     private void Update()
     {
-        //myLoadout.SetHotbar(myHotbar.GetHotbarArray());
+        myLoadout.SetHotbar(myHotbar.GetHotbarArray());
+        myLoadout.SetInventory(myInventory.GetInventoryArray());
     }
 }

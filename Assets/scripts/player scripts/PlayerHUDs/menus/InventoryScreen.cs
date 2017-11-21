@@ -142,4 +142,8 @@ public class InventoryScreen : MonoBehaviour
         }
         return null;
     }
+    public GameObject[] GetInventoryArray()
+    {
+        return itemArray;
+    }
 }
