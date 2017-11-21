@@ -9,8 +9,10 @@ public class PlayerSpawn : MonoBehaviour {
 	public string[] levelList;
     string currLevel;
 	PlayerHealth pHealth;
+	PlayerStamina pStam;
+	PlayerMana pMana;
+	PlayerMovement pMove;
 	MusicController musicCont;
-	PlayerStats pStats;
 	public GameObject playerSpawnTrigger;
     public KillManager killMngr;
 	EnemySpawn enSpawn;
@@ -19,7 +21,9 @@ public class PlayerSpawn : MonoBehaviour {
 	public bool inArena;
 	// Use this for initialization
 	void Start () {
-		pStats = gameObject.GetComponent<PlayerStats> ();
+		pHealth = gameObject.GetComponent<PlayerHealth> ();
+		pStam = gameObject.GetComponent<PlayerStamina> ();
+		pMana = gameObject.GetComponent<PlayerMana> ();
 		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn> ();
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
 		musicCont = gameObject.GetComponent<MusicController> ();
@@ -44,6 +48,7 @@ public class PlayerSpawn : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "PlayerSpawnTrigger" && enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ()) {
 			Debug.Log ("Met parameters");
+			SaveStats ();
 			arenaIndex++;
 			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
@@ -51,6 +56,7 @@ public class PlayerSpawn : MonoBehaviour {
 		}
 		if (other.tag == "PlayerSpawnTrigger" && !(enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())){
 			Debug.Log ("Did not meet parameters");
+			SaveStats ();
 			arenaIndex = 0;
 			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [0]);
@@ -61,4 +67,11 @@ public class PlayerSpawn : MonoBehaviour {
     {
 		return levelList [arenaIndex];
     }
+	public void SaveStats()
+	{
+		PlayerPrefs.SetFloat ("health", pHealth.startHealth);
+		PlayerPrefs.SetFloat ("stamina", pStam.startStamina);
+		PlayerPrefs.SetFloat ("mana", pMana.startMana);
+		PlayerPrefs.SetFloat ("speed", pMove.GetSpeed ());
+	}
 }

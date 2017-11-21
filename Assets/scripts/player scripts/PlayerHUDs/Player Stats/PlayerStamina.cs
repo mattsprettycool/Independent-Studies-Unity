@@ -7,12 +7,15 @@ public class PlayerStamina : MonoBehaviour {
 	public float startStamina;
 	public float currStamina;
 	public Slider staminaSlider;
-	PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
-		pStats = gameObject.GetComponent<PlayerStats> ();
-		startStamina = pStats.baseStamina;
-		currStamina = startStamina;
+		if (PlayerPrefs.GetFloat ("stamina") != null) {
+			startStamina = PlayerPrefs.GetFloat ("stamina");
+			currStamina = startStamina;
+		} else {
+			startStamina = 100;
+			currStamina = startStamina;
+		}
 	}
 	
 	// Update is called once per frame

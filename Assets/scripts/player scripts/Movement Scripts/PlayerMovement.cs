@@ -23,14 +23,12 @@ public class PlayerMovement : MonoBehaviour {
     bool isNotInAir = true;
     PlayerOnGround pog;
     bool canDoubleJump = true;
-	PlayerStats pStats;
     //CharacterController cont;
     // Use this for initialization
     void Start() {
         playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
         rb = gameObject.GetComponent<Rigidbody>();
-		pStats = gameObject.GetComponent<PlayerStats> ();
-		speed = pStats.baseMovementSpeed;
+		speed = .2f;
         jumpTest = false;
         doCommunicate = false;
 		stunned = false;

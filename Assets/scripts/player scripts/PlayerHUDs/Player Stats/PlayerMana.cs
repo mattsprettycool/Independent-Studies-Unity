@@ -9,12 +9,15 @@ public class PlayerMana : MonoBehaviour {
     public Slider manaSlider;
     public bool refreshCooldown;
     public float cooldown;
-	PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
-		pStats = gameObject.GetComponent<PlayerStats> ();
-		startMana = pStats.baseMana;
-        currMana = startMana;
+		if (PlayerPrefs.GetFloat ("mana") != null) {
+			startMana = PlayerPrefs.GetFloat ("mana");
+			currMana = startMana;
+		} else {
+			startMana = 100;
+			currMana = startMana;
+		}
         refreshCooldown = false;
         cooldown = 0;
 	}

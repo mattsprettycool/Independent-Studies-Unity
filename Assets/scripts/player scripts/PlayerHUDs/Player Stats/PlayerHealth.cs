@@ -12,13 +12,16 @@ public class PlayerHealth : MonoBehaviour {
     PlayerMovement pMvmnt;
     bool damageTaken;
 	string debug;
-	PlayerStats pStats;
 	// Use this for initialization
 	void Start () {
-		pStats = gameObject.GetComponent<PlayerStats> ();
 		pog = gameObject.GetComponentInChildren<PlayerOnGround> ();
-		startHealth = pStats.baseHealth;
-        currHealth = startHealth;
+		if (PlayerPrefs.GetFloat ("health") != null) {
+			startHealth = PlayerPrefs.GetFloat ("health");
+			currHealth = startHealth;
+		} else {
+			startHealth = 100;
+			currHealth = startHealth;
+		}
 	}
 	
 	// Update is called once per frame
