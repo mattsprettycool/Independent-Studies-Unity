@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4275359708979714}
   - component: {fileID: 198767047539283040}
   - component: {fileID: 199924520702666224}
+  - component: {fileID: 114956447039598212}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4823891699407108}
   - component: {fileID: 198985744195291986}
   - component: {fileID: 199509811106698184}
+  - component: {fileID: 114686566461095604}
   m_Layer: 0
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -76,6 +78,7 @@ GameObject:
   - component: {fileID: 4057719356371282}
   - component: {fileID: 198283269136919080}
   - component: {fileID: 199146271586027204}
+  - component: {fileID: 114462132241668612}
   m_Layer: 0
   m_Name: Particle System (2)
   m_TagString: Untagged
@@ -272,6 +275,28 @@ MonoBehaviour:
   dmgPerHit: 20
   travelTime: 0
   bleedDamage: 0
+--- !u!114 &114462132241668612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694416160187244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d91ad53b760b14dbc7da1c4b3e8352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114686566461095604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181206464460636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d91ad53b760b14dbc7da1c4b3e8352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114728478942901004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,6 +310,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1534346055650074, guid: 5a67d7139b3f1cc40a6fe2b46c402bfc, type: 2}
   directionToMove: {x: 1, y: 0, z: 0}
+--- !u!114 &114956447039598212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119409039358730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d91ad53b760b14dbc7da1c4b3e8352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135607845468456110
 SphereCollider:
   m_ObjectHideFlags: 1
