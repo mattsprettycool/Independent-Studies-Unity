@@ -16,7 +16,6 @@ public class PlayerSpawn : MonoBehaviour {
 	public GameObject playerSpawnTrigger;
     public KillManager killMngr;
 	EnemySpawn enSpawn;
-	int randy;
 	public int arenaIndex;
 	public bool inArena;
 	// Use this for initialization
@@ -48,17 +47,17 @@ public class PlayerSpawn : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "PlayerSpawnTrigger" && enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ()) {
 			Debug.Log ("Met parameters");
+			Debug.Log ("Saving Stats");
 			SaveStats ();
 			arenaIndex++;
-			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
 			SceneManager.LoadScene (levelList [arenaIndex]);
 		}
 		if (other.tag == "PlayerSpawnTrigger" && !(enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())){
 			Debug.Log ("Did not meet parameters");
+			Debug.Log ("Saving Stats");
 			SaveStats ();
 			arenaIndex = 0;
-			randy = Random.Range (0, spawnPoints.Length);
 			Debug.Log ("Loading: " + levelList [0]);
 			SceneManager.LoadScene (levelList [0]);
 		}

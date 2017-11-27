@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour {
 	string debug;
 	// Use this for initialization
 	void Start () {
+		pMvmnt = gameObject.GetComponent<PlayerMovement> ();
 		pog = gameObject.GetComponentInChildren<PlayerOnGround> ();
 		if (PlayerPrefs.GetFloat ("health") != 0) {
 			startHealth = PlayerPrefs.GetFloat ("health");
