@@ -9,7 +9,7 @@ public class PlayerStamina : MonoBehaviour {
 	public Slider staminaSlider;
 	// Use this for initialization
 	void Start () {
-		if (PlayerPrefs.GetFloat ("stamina") != null) {
+		if (PlayerPrefs.GetFloat ("stamina") != 0) {
 			startStamina = PlayerPrefs.GetFloat ("stamina");
 			currStamina = startStamina;
 		} else {

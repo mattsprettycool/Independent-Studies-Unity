@@ -11,7 +11,7 @@ public class PlayerMana : MonoBehaviour {
     public float cooldown;
 	// Use this for initialization
 	void Start () {
-		if (PlayerPrefs.GetFloat ("mana") != null) {
+		if (PlayerPrefs.GetFloat ("mana") != 0) {
 			startMana = PlayerPrefs.GetFloat ("mana");
 			currMana = startMana;
 		} else {
