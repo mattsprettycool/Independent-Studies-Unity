@@ -28,6 +28,7 @@ public class ItemBar : MonoBehaviour {
     bool updateNeeded;
     public bool commWithIscreen;
     CameraMovement cm;
+    int pleaseDontLag = 30;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -44,32 +45,40 @@ public class ItemBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        updateAttacks();
         changeAttacks();
-        setAttacks();
-        setHotbarSelect();
-        //tries to add an item to the hotbar
-        if (pM.doCommunicate&&!this.IsFull())
+        if (pleaseDontLag <= 0)
         {
-            this.AddItem(pM.recentPickUp);
-            pM.setCommToFalse();
-            updateNeeded = true;
+            //int pointerTemp = pointer;
+            updateAttacks();
+            setAttacks();
+            setHotbarSelect();
+            //if(pointer != pointerTemp){ }
+            //tries to add an item to the hotbar
+            if (pM.doCommunicate && !this.IsFull())
+            {
+                this.AddItem(pM.recentPickUp);
+                pM.setCommToFalse();
+                updateNeeded = true;
+            }
+            else if (pM.doCommunicate)
+            {
+                commWithIscreen = true;
+                pM.setCommToFalse();
+                updateNeeded = true;
+            }
+            if (justSwitched)
+            {
+                switchTimer += Time.deltaTime;
+                if (switchTimer > 5)
+                {
+                    justSwitched = false;
+                    switchTimer = 0;
+                }
+            }
+            pleaseDontLag = 30;
         }
-        else if(pM.doCommunicate)
-        {
-            commWithIscreen = true;
-            pM.setCommToFalse();
-            updateNeeded = true;
-        }
-		if (justSwitched) 
-		{
-			switchTimer += Time.deltaTime;
-			if (switchTimer > 5) 
-			{
-				justSwitched = false;
-				switchTimer = 0;
-			}
-		}
+        else
+            pleaseDontLag--;
     }
     /*Author - Matt Braden
      * sets the hotbar you are selecting based on the pointer value
