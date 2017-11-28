@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	public float TimeInAir (){
 		float timer = 0;
-		if (pog.IsOnGround().Equals(false)) {
+		if (pog.IsOnGround() == false) {
 			timer += Time.deltaTime;
 		}return timer;
 	}
