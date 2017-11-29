@@ -41,31 +41,36 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.DrawRay(transform.position, transform.forward);
+        bool pressW = Input.GetKey(KeyCode.W) && CanW();
+        bool pressA = Input.GetKey(KeyCode.A) && CanA();
+        bool pressS = Input.GetKey(KeyCode.S) && CanS();
+        bool pressD = Input.GetKey(KeyCode.D) && CanD();
         float x = 0, z = 0, negX = 0, negZ = 0;
         if (stunned)
         {
             stunned = false;
         }
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& Input.GetKey(KeyCode.W) && !stunned)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && playerStamina.currStamina >=.5f&& pressW && !stunned)
         {
                 z = 2f;
                 playerStamina.currStamina -= .5f;
             
         }
         else{
-            if (Input.GetKey(KeyCode.W) && !stunned)
+            if (pressW && !stunned)
             {
                 z = 1;
             }
-			if (Input.GetKey(KeyCode.S) && !stunned)
+			if (pressS && !stunned)
             {
                 negZ = -1;
             }
-			if (Input.GetKey(KeyCode.A) && !stunned)
+			if (pressA && !stunned)
             {
                 x = 1;
             }
-			if (Input.GetKey(KeyCode.D) && !stunned)
+			if (pressD && !stunned)
             {
                 negX = -1;
             }
@@ -147,5 +152,62 @@ public class PlayerMovement : MonoBehaviour {
             gameObject.GetComponent<MeshRenderer>().enabled = true;
             Camera.main.transform.position = GameObject.FindGameObjectWithTag("3ps").transform.position;
         }
+    }
+    bool CanW()
+    {
+        RayW();
+        return true;
+    }
+    bool CanA()
+    {
+        return true;
+    }
+    bool CanS()
+    {
+        return true;
+    }
+    bool CanD()
+    {
+        return true;
+    }
+
+    bool RayW()
+    {
+        RaycastHit hitinfo;
+        
+        if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hitinfo, 20, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                Debug.Log(":)");
+        }
+        return false;
+    }
+    bool RayWD()
+    {
+        return false;
+    }
+    bool RayD()
+    {
+        return false;
+    }
+    bool RaySD()
+    {
+        return false;
+    }
+    bool RayS()
+    {
+        return false;
+    }
+    bool RayAS()
+    {
+        return false;
+    }
+    bool RayA()
+    {
+        return false;
+    }
+    bool RayAW()
+    {
+        return false;
     }
 }

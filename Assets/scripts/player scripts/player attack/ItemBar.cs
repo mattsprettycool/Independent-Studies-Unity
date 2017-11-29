@@ -75,7 +75,7 @@ public class ItemBar : MonoBehaviour {
                     switchTimer = 0;
                 }
             }
-            pleaseDontLag = 30;
+            pleaseDontLag = 10;
         }
         else
             pleaseDontLag--;
