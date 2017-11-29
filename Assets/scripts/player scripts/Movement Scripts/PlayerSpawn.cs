@@ -46,7 +46,6 @@ public class PlayerSpawn : MonoBehaviour {
 		if (inArena) {
 			timer += Time.deltaTime;
 		}
-		playerSpawnTrigger.transform.Rotate (new Vector3 (playerSpawnTrigger.transform.rotation.x, playerSpawnTrigger.transform.rotation.y + 15, playerSpawnTrigger.transform.rotation.z));
 		if (pHealth.currHealth <= 0 || enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded () && inArena)
 		{
 			transform.position = new Vector3 (2, 102, 0);
