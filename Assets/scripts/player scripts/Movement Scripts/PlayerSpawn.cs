@@ -98,11 +98,15 @@ public class PlayerSpawn : MonoBehaviour {
 		PlayerPrefs.SetFloat ("mana", pMana.startMana);
 		PlayerPrefs.SetFloat ("speed", pMove.GetSpeed ());
 		PlayerPrefs.SetInt ("points", statPointsToSpend);
+		PlayerPrefs.Save ();
 	}
 	public bool GetArenaState(){
 		return inArena;
 	}
 	public int GetPointsAvailable(){
 		return statPointsToSpend;
+	}
+	void OnApplicationQuit(){
+		PlayerPrefs.DeleteAll ();
 	}
 }
