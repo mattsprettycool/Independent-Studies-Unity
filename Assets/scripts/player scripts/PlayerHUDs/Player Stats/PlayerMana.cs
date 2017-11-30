@@ -9,6 +9,7 @@ public class PlayerMana : MonoBehaviour {
     public Slider manaSlider;
     public bool refreshCooldown;
     public float cooldown;
+	public float cooldownReduction;
 	// Use this for initialization
 	void Start () {
 		if (PlayerPrefs.GetFloat ("mana") != 0) {
@@ -20,6 +21,7 @@ public class PlayerMana : MonoBehaviour {
 		}
         refreshCooldown = false;
         cooldown = 0;
+		cooldownReduction = 0;
 	}
 	
 	// Update is called once per frame
@@ -27,7 +29,8 @@ public class PlayerMana : MonoBehaviour {
         manaSlider.value = currMana;
         if (refreshCooldown)
         {
-            cooldown = 10f;
+			cooldown = 10f - (cooldownReduction*.5f);
+			Debug.Log (cooldown);
             refreshCooldown = false;
         }
         if (currMana < startMana && cooldown <= 0)
@@ -39,4 +42,8 @@ public class PlayerMana : MonoBehaviour {
         if (currMana > 100) currMana = 100;
         if (cooldown < 0) cooldown = 0;
     }
+
+	public void ReduceManaCooldown(){
+		cooldownReduction++;
+	}
 }
