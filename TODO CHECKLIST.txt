@@ -1,15 +1,18 @@
 //PRE-ALPHA CHECKLIST
+C - Completed
+WIP - Do I really have to explain?
+NS - Not started
 
-Textures - weapons, icons, enemies, walls, floor
-More enemies
-More Weapons
-More Spells
-Map
-Player model????
+Textures - weapons, icons, enemies, walls, floor -- WIP
+More enemies -- WIP
+More Weapons -- WIP
+More Spells -- WIP
+Map -- NS
+Player model???? -- NS
 
 WHAT NEEDS TO GET DONE FOR A PLAYABLE PRE-ALPHA:
 
-Linear arena progression.
-Player permadeath, have to restart from the beginning.
-We need an arena map (I think it should have a base roman-esque arena barier with variation on the terrain through levels)
-Fix collision errors (including the player sticking to walls)
+Linear arena progression -- C
+Player permadeath, have to restart from the beginning. -- WIP [J]
+We need an arena map (I think it should have a base roman-esque arena barier with variation on the terrain through levels) -- NS 
+Fix collision errors (including the player sticking to walls) -- WIP [M]

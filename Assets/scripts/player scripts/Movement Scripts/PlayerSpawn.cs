@@ -72,7 +72,7 @@ public class PlayerSpawn : MonoBehaviour {
 		if (other.tag == "PlayerSpawnTrigger" && enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ()) {
 			Debug.Log ("Met parameters");
 			Debug.Log ("Saving Stats");
-			SaveStats ();
+			SaveStats (pHealth.startHealth, pStam.startStamina, pMana.startMana, pMove.GetSpeed(), statPointsToSpend);
 			arenaIndex++;
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
 			SceneManager.LoadScene (levelList [arenaIndex]);
@@ -80,7 +80,7 @@ public class PlayerSpawn : MonoBehaviour {
 		if (other.tag == "PlayerSpawnTrigger" && !(enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())){
 			Debug.Log ("Did not meet parameters");
 			Debug.Log ("Saving Stats");
-			SaveStats ();
+			SaveStats (100, 100, 100, .2f, 0);
 			arenaIndex = 0;
 			Debug.Log ("Loading: " + levelList [0]);
 			SceneManager.LoadScene (levelList [0]);
@@ -90,13 +90,13 @@ public class PlayerSpawn : MonoBehaviour {
     {
 		return levelList [arenaIndex];
     }
-	public void SaveStats()
+	public void SaveStats(float health, float stamina, float mana, float movementSpeed, int statPoints)
 	{
-		PlayerPrefs.SetFloat ("health", pHealth.startHealth);
-		PlayerPrefs.SetFloat ("stamina", pStam.startStamina);
-		PlayerPrefs.SetFloat ("mana", pMana.startMana);
-		PlayerPrefs.SetFloat ("speed", pMove.GetSpeed ());
-		PlayerPrefs.SetInt ("points", statPointsToSpend);
+		PlayerPrefs.SetFloat ("health", health);
+		PlayerPrefs.SetFloat ("stamina", stamina);
+		PlayerPrefs.SetFloat ("mana", mana);
+		PlayerPrefs.SetFloat ("speed", movementSpeed);
+		PlayerPrefs.SetInt ("points", statPoints);
 		PlayerPrefs.Save ();
 	}
 	public bool GetArenaState(){
