@@ -13,6 +13,6 @@ Player model???? -- NS
 WHAT NEEDS TO GET DONE FOR A PLAYABLE PRE-ALPHA:
 
 Linear arena progression -- C
-Player permadeath, have to restart from the beginning. -- WIP [J]
+Player permadeath, have to restart from the beginning. -- C
 We need an arena map (I think it should have a base roman-esque arena barier with variation on the terrain through levels) -- NS 
 Fix collision errors (including the player sticking to walls) -- WIP [M]
