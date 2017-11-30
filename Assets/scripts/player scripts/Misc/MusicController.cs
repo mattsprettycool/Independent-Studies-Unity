@@ -18,13 +18,13 @@ public class MusicController : MonoBehaviour {
 			int randy = Random.Range (0, warSongs.Length);
 			audSource.clip = warSongs [randy];
 			//transistor.TransitionTo (1);
-			audSource.Play ();
+			//audSource.Play ();
 		}
 		if (!inArena) {
 			int randy = Random.Range (0, peaceSongs.Length);
 			audSource.clip = peaceSongs [randy];
 			//transistor.TransitionTo (1);
-			audSource.Play ();
+			//audSource.Play ();
 		}
 	}
 }

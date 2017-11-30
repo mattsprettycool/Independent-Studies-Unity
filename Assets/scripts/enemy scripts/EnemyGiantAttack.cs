@@ -29,7 +29,7 @@ public class EnemyGiantAttack : MonoBehaviour {
 		{
 			timer = 0;
 			int randy = Random.Range (0, 3);
-			Debug.Log (randy);
+			//Debug.Log (randy);
 			switch (randy) {
 			case 0:
 				playerHealth.TakeDamage (dmgPerAttk);

@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, transform.forward);
+        //Debug.DrawRay(transform.position, (transform.right+transform.forward)/2);
         bool pressW = Input.GetKey(KeyCode.W) && CanW();
         bool pressA = Input.GetKey(KeyCode.A) && CanA();
         bool pressS = Input.GetKey(KeyCode.S) && CanS();
@@ -155,59 +155,107 @@ public class PlayerMovement : MonoBehaviour {
     }
     bool CanW()
     {
-        RayW();
-        return true;
+        return RayW()&&RayWD()&&RayAW();
     }
     bool CanA()
     {
-        return true;
+        return RayA()&&RayAS()&&RayAW();
     }
     bool CanS()
     {
-        return true;
+        return RayS()&&RayAS()&&RaySD();
     }
     bool CanD()
     {
-        return true;
+        return RayD()&&RaySD()&&RayWD();
     }
 
     bool RayW()
     {
         RaycastHit hitinfo;
         
-        if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hitinfo, 20, 1 << 8))
+        if(Physics.Raycast(gameObject.transform.position, gameObject.transform.right, out hitinfo, .75f, 1 << 8))
         {
             if (hitinfo.collider.tag.Equals("Wall"))
-                Debug.Log(":)");
+                return false;
         }
-        return false;
+        return true;
     }
     bool RayWD()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, (gameObject.transform.right-transform.forward)/2, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RayD()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, -gameObject.transform.forward, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RaySD()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, (-gameObject.transform.right-transform.forward)/2, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RayS()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, -gameObject.transform.right, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RayAS()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, (gameObject.transform.forward-transform.right), out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RayA()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
     bool RayAW()
     {
-        return false;
+        RaycastHit hitinfo;
+
+        if (Physics.Raycast(gameObject.transform.position, (gameObject.transform.forward+transform.right)/2, out hitinfo, .75f, 1 << 8))
+        {
+            if (hitinfo.collider.tag.Equals("Wall"))
+                return false;
+        }
+        return true;
     }
 }
