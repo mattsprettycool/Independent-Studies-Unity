@@ -17,8 +17,12 @@ public class EnemyHealth : MonoBehaviour {
 	void Start () {
 		if (gameObject.name == "EnemyGiant" || gameObject.name == "EnemyGiant(Clone)") {
 			startHealth = 200;
-		} else {
+		}
+		if (gameObject.name == "Enemy" || gameObject.name == "Enemy(Clone)") {
 			startHealth = 100;
+		}
+		if (gameObject.name == "RealEnemyMage" || gameObject.name == "RealEnemyMage(Clone)") {
+			startHealth = 50;
 		}
         currHealth = startHealth;
         enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
@@ -39,7 +43,8 @@ public class EnemyHealth : MonoBehaviour {
         if (IsDead())
         {
 			enemySpawn.IncreaseKillCount ();
-            GameObject.Destroy(this.gameObject);
+			enemySpawn.DecreaseEnemiesInArena ();
+			GameObject.Destroy(this.gameObject);
         }
     }
 	public void TakeDamage(float dmg){

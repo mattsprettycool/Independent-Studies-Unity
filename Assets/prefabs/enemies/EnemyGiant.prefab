@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numKillsToSpawn: 20
+  limitOnType: 5
 --- !u!114 &114681975623033376
 MonoBehaviour:
   m_ObjectHideFlags: 1

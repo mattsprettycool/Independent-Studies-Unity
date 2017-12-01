@@ -303,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1278d640f24a8441591b2fe6b0f65c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfKillsNeededToSpawn: 10
+  numKillsToSpawn: 0
+  limitOnType: 10
 --- !u!114 &114177222610825226
 MonoBehaviour:
   m_ObjectHideFlags: 1
