@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cb798fff9d3484989dad83a355fb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level2
+  sceneToLoad: Level1
   currentLoadout: {fileID: 1651856942875116, guid: f5660ae917bd47240b1689fd07c11222,
     type: 2}
   newLoadout: {fileID: 0}

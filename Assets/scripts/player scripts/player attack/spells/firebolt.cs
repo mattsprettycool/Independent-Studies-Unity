@@ -8,7 +8,7 @@ public class firebolt : MonoBehaviour {
     float timeBeforeDeletion;
 	string debug;
     public GameObject explosion;
-    bool hitSomething;
+    //bool hitSomething;
     Rigidbody rb;
     [SerializeField]
     Vector3 directionToMove;
@@ -67,8 +67,8 @@ public class firebolt : MonoBehaviour {
 			}
 		}
     }
-    public bool GetHit ()
-    {
-        return hitSomething;
-    }
+    //public bool GetHit ()
+    //{
+        //return hitSomething;
+    //}
 }

@@ -7,7 +7,7 @@ public class PlayerSpawn : MonoBehaviour {
     [SerializeField]
 	public Transform[] spawnPoints;
 	public string[] levelList;
-    string currLevel;
+    //string currLevel;
 	PlayerHealth pHealth;
 	PlayerStamina pStam;
 	PlayerMana pMana;
@@ -36,9 +36,9 @@ public class PlayerSpawn : MonoBehaviour {
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
 		musicCont = gameObject.GetComponent<MusicController> ();
 		inArena = true;
-		arenaIndex = 0;
-		currLevel = levelList [arenaIndex];
-		musicCont.PlaySong (inArena);
+		//arenaIndex = 0;
+		//currlevel = levelList [arenaIndex];
+		//musicCont.PlaySong (inArena);
 	}
 	
 	// Update is called once per frame
@@ -52,7 +52,7 @@ public class PlayerSpawn : MonoBehaviour {
 			pHealth.currHealth = pHealth.startHealth;
 			inArena = false;
 			statPointsToSpend += 1 + (int)((timer / 60) / 2);
-			musicCont.PlaySong (inArena);
+			//musicCont.PlaySong (inArena);
 		}
 	}
 

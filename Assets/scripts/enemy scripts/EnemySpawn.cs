@@ -26,10 +26,10 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			enemyLimit = 20;
 		}
-		Debug.Log (enemyLimit);
+		//Debug.Log (enemyLimit);
         SpawnEnemy();
 		IncreaseEnemiesInArena();
-		Debug.Log (enemiesInArena);
+		//Debug.Log (enemiesInArena);
     }
 
     void FixedUpdate()
@@ -62,11 +62,11 @@ public class EnemySpawn : MonoBehaviour {
 			if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
 				Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
 				IncreaseEnemiesInArena();
-				Debug.Log (enemiesInArena);
+				//Debug.Log (enemiesInArena);
 			} else {
 				Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
 				IncreaseEnemiesInArena();
-				Debug.Log (enemiesInArena);
+				//Debug.Log (enemiesInArena);
 			}
         }
         if (numberToSpawn >= 1)
@@ -79,11 +79,11 @@ public class EnemySpawn : MonoBehaviour {
 					if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
 						Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
 						IncreaseEnemiesInArena();
-						Debug.Log (enemiesInArena);
+						//Debug.Log (enemiesInArena);
 					} else {
 						Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
 						IncreaseEnemiesInArena();
-						Debug.Log (enemiesInArena);
+						//Debug.Log (enemiesInArena);
 					}	
 				}
 				catch (Exception e){

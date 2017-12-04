@@ -9,14 +9,8 @@ EditorBuildSettings:
     path: Assets/Main Menu.unity
     guid: c5af868eda8498c4fbb66a108cffae7e
   - enabled: 1
-    path: Assets/Level1.unity
-    guid: d823f3ad31279428686af3cfbc12a174
-  - enabled: 1
     path: Assets/Level2.unity
     guid: c9aa55efdfb324a9caadf785c4c50b78
   - enabled: 1
-    path: Assets/MattsTest.unity
-    guid: 33eb724f0bde24f42b9e61904e5834ca
-  - enabled: 1
-    path: Assets/test.unity
-    guid: 6122f6484bc134f459a65afbf3ec9a65
+    path: Assets/Level1.unity
+    guid: a170f908295c94e479015deafc9ab1aa
