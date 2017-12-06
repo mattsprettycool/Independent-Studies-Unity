@@ -10,11 +10,13 @@ public class EnemyHealth : MonoBehaviour {
     public float currHealth;
     float timer;
     public EnemySpawn enemySpawn;
+    PlayerSpawn pSpawn;
 	public bool bleeding;
 	public float bleedDmg;
     bool isGoingToDie = false;
 	// Use this for initialization
 	void Start () {
+        pSpawn = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawn>();
 		if (gameObject.name == "EnemyGiant" || gameObject.name == "EnemyGiant(Clone)") {
 			startHealth = 200;
 		}
@@ -37,6 +39,10 @@ public class EnemyHealth : MonoBehaviour {
 		if (bleeding) {
 			currHealth -= bleedDmg;
 		}
+        if (pSpawn.GetArenaState() == false)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
 	}
     private void LateUpdate()
     {

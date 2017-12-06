@@ -106,6 +106,10 @@ public class PlayerSpawn : MonoBehaviour {
 	public int GetPointsAvailable(){
 		return statPointsToSpend;
 	}
+    public bool GetPlayerInArena()
+    {
+        return inArena;
+    }
 	void OnApplicationQuit(){
 		PlayerPrefs.DeleteAll ();
 	}
