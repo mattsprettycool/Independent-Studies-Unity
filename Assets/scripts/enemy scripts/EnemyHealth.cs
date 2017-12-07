@@ -48,8 +48,9 @@ public class EnemyHealth : MonoBehaviour {
     {
         if (IsDead())
         {
-			enemySpawn.IncreaseKillCount ();
-			enemySpawn.DecreaseEnemiesInArena ();
+			enemySpawn.enemiesKilled++;
+			enemySpawn.enemiesInArena--;
+			Debug.Log ("Enemies in Arena: " + enemySpawn.enemiesInArena);
 			GameObject.Destroy(this.gameObject);
         }
     }

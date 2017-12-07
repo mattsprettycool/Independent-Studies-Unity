@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 //by Jai Saka
 public class EnemySpawn : MonoBehaviour {
-	int enemiesInArena, enemyLimit;
-    float enemiesKilled;
+	public int enemiesInArena;
+	int enemyLimit;
+    public float enemiesKilled;
 	public GameObject[] enemyList;
     public Transform[] spawnPoints;
     float timeToSpawn, numberToSpawn;
@@ -18,7 +19,7 @@ public class EnemySpawn : MonoBehaviour {
 	void Start () {
         timer = 0;
 		timeToSpawn = 20;
-		if (SceneManager.GetActiveScene().name == "Level") 
+		if (SceneManager.GetActiveScene().name == "Level1") 
 		{
 			enemyLimit = 10;
 		}
@@ -26,9 +27,9 @@ public class EnemySpawn : MonoBehaviour {
 		{
 			enemyLimit = 20;
 		}
-		//Debug.Log (enemyLimit);
+		Debug.Log ("Enemy Limit is: "+enemyLimit);
         SpawnEnemy();
-		IncreaseEnemiesInArena();
+		enemiesInArena++;
 		//Debug.Log (enemiesInArena);
     }
 
@@ -47,10 +48,11 @@ public class EnemySpawn : MonoBehaviour {
 		if (timer > timeToSpawn && enemiesInArena < enemyLimit)
         {
             SpawnEnemy();
+			//Debug.Log ("Spawning Enemy!");
             timer = 0;
         }
 		if (Input.GetKeyDown(KeyCode.P)){
-			IncreaseKillCount ();
+			enemiesKilled++;
 		}
     }
 
@@ -61,12 +63,12 @@ public class EnemySpawn : MonoBehaviour {
 			enemyIndex = UnityEngine.Random.Range(0, enemyList.Length);
 			if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
 				Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
-				IncreaseEnemiesInArena();
-				//Debug.Log (enemiesInArena);
+				enemiesInArena++;
+				Debug.Log ("Enemies in Arena: "+enemiesInArena);
 			} else {
 				Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
-				IncreaseEnemiesInArena();
-				//Debug.Log (enemiesInArena);
+				enemiesInArena++;
+				Debug.Log ("Enemies in Arena: "+enemiesInArena); 
 			}
         }
         if (numberToSpawn >= 1)
@@ -78,12 +80,12 @@ public class EnemySpawn : MonoBehaviour {
 				try{
 					if (enemyList [enemyIndex].GetComponent<EnemyLibrary> ().numKillsToSpawn > enemiesKilled) {
 						Instantiate (enemyList [0], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
-						IncreaseEnemiesInArena();
-						//Debug.Log (enemiesInArena);
+						enemiesInArena++;
+						Debug.Log ("Enemies in Arena: "+enemiesInArena);
 					} else {
 						Instantiate (enemyList [enemyIndex], spawnPoints [spawnZoneIndex].position, spawnPoints [spawnZoneIndex].rotation);
-						IncreaseEnemiesInArena();
-						//Debug.Log (enemiesInArena);
+						enemiesInArena++;
+						Debug.Log ("Enemies in Arena: "+enemiesInArena);
 					}	
 				}
 				catch (Exception e){
@@ -94,14 +96,5 @@ public class EnemySpawn : MonoBehaviour {
 	}
 	public float GetEnemiesKilled(){
 		return enemiesKilled;
-	}
-	public void IncreaseKillCount(){
-		enemiesKilled++;
-	}
-	public void IncreaseEnemiesInArena(){
-		enemiesInArena++;
-	}
-	public void DecreaseEnemiesInArena(){
-		enemiesInArena--;
 	}
 }

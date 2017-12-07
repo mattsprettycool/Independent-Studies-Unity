@@ -62,7 +62,7 @@ public class PlayerSpawn : MonoBehaviour {
 			statPointsToSpend -= 1;
 		}
 		if (other.name == "ManaUp" && statPointsToSpend > 0) {
-			pMana.ReduceManaCooldown ();
+			pMana.cooldownReduction++;
 			statPointsToSpend -= 1;
 		}
 		if (other.name == "StaminaUp" && statPointsToSpend > 0) {

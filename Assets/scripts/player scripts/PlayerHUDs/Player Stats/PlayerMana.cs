@@ -30,7 +30,7 @@ public class PlayerMana : MonoBehaviour {
         if (refreshCooldown)
         {
 			cooldown = 10f - (cooldownReduction*.5f);
-			Debug.Log (cooldown);
+			Debug.Log ("Mana cool down is now: "+cooldown);
             refreshCooldown = false;
         }
         if (currMana < startMana && cooldown <= 0)
@@ -42,8 +42,4 @@ public class PlayerMana : MonoBehaviour {
         if (currMana > 100) currMana = 100;
         if (cooldown < 0) cooldown = 0;
     }
-
-	public void ReduceManaCooldown(){
-		cooldownReduction++;
-	}
 }
