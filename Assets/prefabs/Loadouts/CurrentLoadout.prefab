@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadoutName: DO NOT USE
   hotbar:
-  - {fileID: 0}
+  - {fileID: 1602409371675568, guid: 9893e0b0a4d394040aca025ba3e99ccd, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
