@@ -6,9 +6,10 @@ public class EnemyMageAttack : MonoBehaviour {
 	[SerializeField]
 	public int dmgPerAttk;
 	public float timeBetweenAttk;
-	public float timer, turnSpeed;
+	public float timer, turnSpeed, thrallTimer, timeToSpawnThrall;
 	public bool inRange;
 	GameObject player;
+	public GameObject thrall;
     public Transform enFireBoltSpawn;
 	public GameObject enemyFirebolt;
 	// Use this for initialization
@@ -16,6 +17,8 @@ public class EnemyMageAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		dmgPerAttk = 5;
 		timeBetweenAttk = 2;
+		thrallTimer = 0;
+		timeToSpawnThrall = 30;
 		inRange = false;
 		turnSpeed = 10;
 	}
@@ -26,13 +29,16 @@ public class EnemyMageAttack : MonoBehaviour {
 		Vector3 dir = (player.gameObject.transform.position - transform.position).normalized;
 		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z)), Time.deltaTime * turnSpeed);
         timer += Time.deltaTime;
-
+		thrallTimer += Time.deltaTime;
         if (timer >= timeBetweenAttk && inRange)
         {
             Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
             timer = 0;
-            
         }
+		/*if (thrallTimer >= timeToSpawnThrall) {
+			Instantiate (thrall);
+		}
+		*/
     }
 
 	public void SetInRange(bool boo1){

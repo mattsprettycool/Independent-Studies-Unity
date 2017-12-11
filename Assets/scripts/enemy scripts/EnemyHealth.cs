@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour {
     bool isGoingToDie = false;
 	// Use this for initialization
 	void Start () {
+		enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
         pSpawn = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawn>();
 		if (gameObject.name == "EnemyGiant" || gameObject.name == "EnemyGiant(Clone)") {
 			startHealth = 200;
@@ -31,7 +32,6 @@ public class EnemyHealth : MonoBehaviour {
 			enemySpawn.enemiesInArena++;
 		}
         currHealth = startHealth;
-        enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
 	}
 	
 	// Update is called once per frame

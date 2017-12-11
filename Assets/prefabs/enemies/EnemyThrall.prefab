@@ -59,13 +59,13 @@ GameObject:
   - component: {fileID: 54757771556053052}
   - component: {fileID: 114392330503059406}
   - component: {fileID: 114509845602293192}
-  - component: {fileID: 114796157905733098}
   - component: {fileID: 195820017397666898}
   - component: {fileID: 135452795276872574}
   - component: {fileID: 114142912931948486}
   - component: {fileID: 114416131858195118}
   - component: {fileID: 114389547501351532}
   - component: {fileID: 114319068496967172}
+  - component: {fileID: 114743267282281854}
   m_Layer: 9
   m_Name: EnemyThrall
   m_TagString: Enemies
@@ -256,7 +256,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   bleeding: 0
   bleedDmg: 0
---- !u!114 &114796157905733098
+--- !u!114 &114743267282281854
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -264,11 +264,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1945680092946760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1303a43e0fd5043f4a8f349699859c00, type: 3}
+  m_Script: {fileID: 11500000, guid: 54eab6387e24149c5b7b5a1a0765ec0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgPerAttk: 0
-  timeBetweenAttk: 0
+  enemyExplosion: {fileID: 1392282533232888, guid: ed0eebbad3eaa4913b6dead7f2a87e61,
+    type: 2}
 --- !u!114 &114922742644772048
 MonoBehaviour:
   m_ObjectHideFlags: 1

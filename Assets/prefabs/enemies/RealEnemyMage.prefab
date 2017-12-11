@@ -341,7 +341,10 @@ MonoBehaviour:
   timeBetweenAttk: 0
   timer: 0
   turnSpeed: 0
+  thrallTimer: 0
+  timeToSpawnThrall: 0
   inRange: 0
+  thrall: {fileID: 1945680092946760, guid: 79766e32182484823b751e94fb4c1e20, type: 2}
   enFireBoltSpawn: {fileID: 4873349306489534}
   enemyFirebolt: {fileID: 1882695500480908, guid: ad629cdeb7f0947138ac850857cb4bdd,
     type: 2}
