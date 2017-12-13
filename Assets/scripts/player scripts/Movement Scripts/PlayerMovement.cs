@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (x!=0||y!=0||z!=0) 
 		{
-            gameObject.transform.Translate(new Vector3(z * speed, y * speed, x * speed));
+            gameObject.transform.Translate(new Vector3(z * speed, y * speed * .25f, x * speed));
 			//rb.AddRelativeForce(new Vector3(speed * x, y, speed * z), ForceMode.Impulse);
         }
         else if(pog.IsOnGround())
