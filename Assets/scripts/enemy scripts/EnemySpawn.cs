@@ -97,4 +97,10 @@ public class EnemySpawn : MonoBehaviour {
 	public float GetEnemiesKilled(){
 		return enemiesKilled;
 	}
+	public int GetEnemiesInArena(){
+		return enemiesInArena;
+	}
+	public int GetEnemyLimit(){
+		return enemyLimit;
+	}
 }

@@ -12,8 +12,10 @@ public class EnemyMageAttack : MonoBehaviour {
 	public GameObject thrall;
     public Transform enFireBoltSpawn;
 	public GameObject enemyFirebolt;
+	EnemySpawn enSpawn;
 	// Use this for initialization
 	void Start () {
+		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		dmgPerAttk = 5;
 		timeBetweenAttk = 2;
@@ -35,10 +37,10 @@ public class EnemyMageAttack : MonoBehaviour {
             Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
             timer = 0;
         }
-		/*if (thrallTimer >= timeToSpawnThrall) {
+		if (thrallTimer >= timeToSpawnThrall && enSpawn.GetEnemiesInArena() < enSpawn.GetEnemyLimit()) {
 			Instantiate (thrall);
+			thrallTimer = 0;
 		}
-		*/
     }
 
 	public void SetInRange(bool boo1){
