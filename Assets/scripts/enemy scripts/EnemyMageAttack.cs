@@ -38,7 +38,7 @@ public class EnemyMageAttack : MonoBehaviour {
             timer = 0;
         }
 		if (thrallTimer >= timeToSpawnThrall && enSpawn.GetEnemiesInArena() < enSpawn.GetEnemyLimit()) {
-			Instantiate (thrall);
+			Instantiate (thrall, transform.position, transform.rotation);
 			thrallTimer = 0;
 		}
     }
