@@ -230,7 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numKillsToSpawn: 20
-  limitOnType: 5
 --- !u!114 &114681975623033376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +314,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
