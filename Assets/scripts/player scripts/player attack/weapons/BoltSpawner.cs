@@ -16,7 +16,7 @@ public class BoltSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		justSwitched = Camera.main.GetComponent<ItemBar> ().justSwitched;
+		justSwitched = GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar> ().justSwitched;
         if (Input.GetMouseButtonDown(0) && timer > 1f || Input.GetMouseButtonDown(0) && justStarted && Time.timeScale == 1f && !justSwitched)
 		{
             justStarted = false;
