@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae026633a3606f45ba05c0c762bd8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 1, y: 0, z: 0.5}
+  pos: {x: 1, y: -0.25, z: 0.5}
   rotX: 0
-  rotY: 0
+  rotY: -90
   rotZ: 0
   icon: {fileID: 21300000, guid: f304b632d971c1143a4bc9724373a2cc, type: 3}
   IsInThirdPerson: 0
