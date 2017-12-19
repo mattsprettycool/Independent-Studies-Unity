@@ -10,8 +10,10 @@ public class PlayerMana : MonoBehaviour {
     public bool refreshCooldown;
     public float cooldown;
 	public float cooldownReduction;
+	bool decreasing;
 	// Use this for initialization
 	void Start () {
+		decreasing = false;
 		if (PlayerPrefs.GetFloat ("mana") != 0) {
 			startMana = PlayerPrefs.GetFloat ("mana");
 			currMana = startMana;
@@ -22,6 +24,7 @@ public class PlayerMana : MonoBehaviour {
         refreshCooldown = false;
         cooldown = 0;
 		cooldownReduction = 0;
+		StartCoroutine (DecreaseMana ());
 	}
 	
 	// Update is called once per frame
@@ -42,4 +45,18 @@ public class PlayerMana : MonoBehaviour {
         if (currMana > 100) currMana = 100;
         if (cooldown < 0) cooldown = 0;
     }
+
+	public IEnumerator DecreaseMana(){
+		while (true) {
+			if (decreasing) {
+				currMana -= 1;
+				yield return new WaitForSeconds (.5f);
+			}
+			yield return null;
+		}
+	}
+
+	public void InitiateDecrease(bool yesNo){
+		decreasing = true;
+	}
 }

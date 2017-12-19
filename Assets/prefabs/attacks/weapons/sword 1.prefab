@@ -167,4 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgPerHit: 25
-  bleedDamage: 2.5
+  bleedDamage: 0.25

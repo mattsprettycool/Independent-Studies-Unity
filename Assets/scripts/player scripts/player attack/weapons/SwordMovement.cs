@@ -5,12 +5,18 @@ using UnityEngine;
 //by Jai Saka
 public class SwordMovement : MonoBehaviour {
 	PlayerStamina playerStamina;
+	PlayerMana pMana;
+	AttackDamageLibrary adl;
+	ItemBar itmBar;
 	public bool attacking;
 	string debug;
 	// Use this for initialization
 	void Start () {
 		attacking = false;
 		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
+		pMana = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMana> ();
+		adl = gameObject.GetComponent<AttackDamageLibrary> ();
+		itmBar = GameObject.FindGameObjectWithTag ("ItemBarHolder").GetComponent<ItemBar>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +29,11 @@ public class SwordMovement : MonoBehaviour {
             StartCoroutine(SlashAndWait(.5f));
 			attacking = false;
         }
+		/*if (Input.GetKeyDown(KeyCode.F) && itmBar.GetHotbarArray() && pMana.currMana > 0){
+			adl.SetDamage (20);
+			adl.SetBleedDamage (.5f);
+			pMana.InitiateDecrease(true);
+		}*/
     }
 
     IEnumerator SlashAndWait(float seconds)
