@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlayerStamina : MonoBehaviour {
 	public float startStamina;
 	public float currStamina;
+	float staminaDrain;
+	bool draining;
 	public Slider staminaSlider;
 	// Use this for initialization
 	void Start () {
@@ -16,16 +18,27 @@ public class PlayerStamina : MonoBehaviour {
 			startStamina = 100;
 			currStamina = startStamina;
 		}
+		staminaDrain = 0;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		staminaSlider.value = currStamina;
-
-		if (currStamina < startStamina)
+		if (draining) {
+			currStamina -= staminaDrain;
+		}
+		if (currStamina < startStamina && !draining)
         {
 			currStamina += .1f;
 		}
+		if (currStamina < 0) {
+			currStamina = 0;
+		}
+	}
+
+	public void SetStaminaDrain(bool isDraining, float stamDrain){
+		draining = isDraining;
+		staminaDrain = stamDrain;
 	}
 }
