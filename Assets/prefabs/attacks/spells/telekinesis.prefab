@@ -109,5 +109,5 @@ MonoBehaviour:
   rotY: 0
   rotZ: 0
   icon: {fileID: 21300000, guid: b31d5402d1466ff4ab2f791fc3d89f8f, type: 3}
-  IsInThirdPerson: 0
+  IsInThirdPerson: 1
   UUID: ugug87gf75d467855

@@ -5,36 +5,46 @@ using UnityEngine.AI;
 
 public class Telekinesis : MonoBehaviour {
     Transform currentlySelectedEnemy;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    PlayerMana playerMana;
+    // Use this for initialization
+    void Start () {
+        playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 10 && Time.timeScale == 1f)
         {
-            currentlySelectedEnemy = GetNearestEnemy(100).transform;
-            currentlySelectedEnemy.GetComponent<NavMeshAgent>().velocity = Vector3.Normalize(transform.position)*100;
+            playerMana.currMana -= 10;
+            playerMana.refreshCooldown = true;
+            foreach (GameObject obj in GetAllNearEnemies(25))
+            {
+                Vector3 pushDir = Camera.main.transform.position - obj.transform.position;
+                obj.GetComponent<NavMeshAgent>().velocity = -Vector3.Normalize(pushDir)*20;
+            }
         }
     }
 
-    GameObject GetNearestEnemy(float maxDistance)
+    GameObject[] GetAllNearEnemies(float maxDist)
     {
-        GameObject nearestObj = null;
-        float closestEnemy = float.MaxValue;
-        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
+        LinkedList<GameObject> linkGame = new LinkedList<GameObject>();
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         {
-            Debug.Log(GetDistance(transform.position.x, transform.position.z, obj.transform.position.x, obj.transform.position.z));
-            if ((GetDistance(transform.position.x, transform.position.z, obj.transform.position.x, obj.transform.position.z) < closestEnemy) && (GetDistance(transform.position.x, transform.position.z, obj.transform.position.x, obj.transform.position.z) <= maxDistance))
-                nearestObj = obj;
+            if ((GetDistance(transform.position.x, transform.position.z, obj.transform.position.x, obj.transform.position.z) <= maxDist))
+                linkGame.AddLast(obj);
         }
-        
-        return nearestObj;
+        GameObject[] gameArr = new GameObject[linkGame.Count];
+        int i = 0;
+        foreach(GameObject obj in linkGame)
+        {
+            gameArr[i] = obj;
+            i++;
+        }
+        return gameArr;
     }
 
     float GetDistance(float myX, float myZ, float theirX, float theirZ)
     {
-        return Mathf.Sqrt(Mathf.Pow((myX+theirX),2)+ Mathf.Pow((myZ + theirZ), 2));
+        return Mathf.Sqrt(Mathf.Pow((myX-theirX),2)+ Mathf.Pow((myZ - theirZ), 2));
     }
 }
