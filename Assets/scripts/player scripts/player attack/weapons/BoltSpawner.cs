@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
 public class BoltSpawner : MonoBehaviour {
+	//FIX THIS SHIT LATER
 	public Bolt bolt;
 	float timer;
 	bool justSwitched;

@@ -24,6 +24,7 @@ public class PlayerStamina : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		staminaSlider.maxValue = startStamina;
 		staminaSlider.value = currStamina;
 		if (draining) {
 			currStamina -= staminaDrain;

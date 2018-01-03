@@ -51,7 +51,7 @@ public class PlayerSpawn : MonoBehaviour {
 			transform.position = new Vector3 (2, 102, 0);
 			pHealth.currHealth = pHealth.startHealth;
 			inArena = false;
-			statPointsToSpend += 1 + (int)((timer / 60) / 2);
+			statPointsToSpend += 1 + (int)(1.1 - (timer/1000));
 			//musicCont.PlaySong (inArena);
 		}
 	}

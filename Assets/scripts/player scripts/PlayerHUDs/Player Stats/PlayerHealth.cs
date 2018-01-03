@@ -27,8 +27,9 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		healthSlider.maxValue = startHealth;
         healthSlider.value = currHealth;
-		StunPlayerAfterAirtime (TimeInAir ());
+		//StunPlayerAfterAirtime (TimeInAir ());
 		//added below for debuggin purposes
 		if (Input.GetKey(KeyCode.K)) {
 			currHealth = 0;
@@ -55,7 +56,7 @@ public class PlayerHealth : MonoBehaviour {
 			}
 		}
 	}
-	public float TimeInAir (){
+	/*public float TimeInAir (){
 		float timer = 0;
 		if (pog.IsOnGround() == false) {
 			timer += Time.deltaTime;
@@ -65,5 +66,5 @@ public class PlayerHealth : MonoBehaviour {
 		if (timeInAir > 2) {
             pMvmnt.stunned = true;
 		}
-	}
+	}*/
 }
