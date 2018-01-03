@@ -8,6 +8,8 @@ public class LootOnDeath : MonoBehaviour {
     GameObject drops, itemDrop;
     int itemsInArray = 0;
     attackLibrary[] attacks;
+    [SerializeField, Range(.01f, 1)]
+    float probRatioForLoot = .1f;
 	// Use this for initialization
 	void Start () {
         int i = 0;
@@ -33,7 +35,7 @@ public class LootOnDeath : MonoBehaviour {
 	}
     void DropLoot()
     {
-        if (Random.Range(1, 10) <= 1)
+        if (Random.Range(1, probRatioForLoot*100) <= 1)
         {
             int randy = Random.Range(0, itemsInArray - 1);
             itemDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);

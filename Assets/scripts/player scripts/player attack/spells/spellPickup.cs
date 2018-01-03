@@ -35,7 +35,7 @@ public class spellPickup : MonoBehaviour {
     void Init()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = prefabToCopy.GetComponent<attackLibrary>().icon;
-        iBar = Camera.main.GetComponent<ItemBar>();
+        iBar = GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
     }
 }

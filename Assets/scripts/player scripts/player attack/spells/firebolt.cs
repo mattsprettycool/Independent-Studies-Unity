@@ -49,10 +49,13 @@ public class firebolt : MonoBehaviour {
         bool destroyList = col.tag == "Enemies" || col.tag == "Floor" || col.tag == "Wall";
         if (ignoreList&&destroyList)
         {
-            var attkInst = Instantiate(explosion);
-            attkInst.transform.parent = gameObject.transform;
-            attkInst.transform.localPosition = new Vector3(0f, 0f, 0f);
-            attkInst.transform.SetParent(null);
+            if (explosion != null)
+            {
+                var attkInst = Instantiate(explosion);
+                attkInst.transform.parent = gameObject.transform;
+                attkInst.transform.localPosition = new Vector3(0f, 0f, 0f);
+                attkInst.transform.SetParent(null);
+            }
             GameObject.Destroy(this.gameObject);
         }
 		if (col.tag == "Enemies")

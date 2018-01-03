@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 4289336109195102}
   - component: {fileID: 212936313562328394}
   - component: {fileID: 114208022057729164}
+  - component: {fileID: 114490129785924864}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -91,7 +92,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1938183295996598
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -113,11 +114,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938183295996598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1340001, z: 0.067}
-  m_LocalScale: {x: 0.9, y: 0.14999999, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.066999435}
+  m_LocalScale: {x: 0.9, y: 0.59999996, z: 1}
   m_Children: []
-  m_Father: {fileID: 4424319838761954}
-  m_RootOrder: 3
+  m_Father: {fileID: 4289336109195102}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4289336109195102
 Transform:
@@ -128,7 +129,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.1340001, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4280572259555030}
   m_Father: {fileID: 4424319838761954}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -145,7 +147,6 @@ Transform:
   - {fileID: 4478397080052510}
   - {fileID: 4873349306489534}
   - {fileID: 4289336109195102}
-  - {fileID: 4280572259555030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -376,6 +377,17 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   bleeding: 0
   bleedDmg: 0
+--- !u!114 &114490129785924864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354087302436058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e26c7aad051cc44a8dbe165831cde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114504656084122258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,13 +401,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: {fileID: 1788053675155434, guid: 6d959e5a43e7d53488d09641ab2a65ce, type: 2}
   itemDrop: {fileID: 1937210168023398, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
+  probRatioForLoot: 0.1
 --- !u!114 &114948389718869398
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938183295996598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ce60af2a90ef814f9eeadad2e3f8396, type: 3}
   m_Name: 

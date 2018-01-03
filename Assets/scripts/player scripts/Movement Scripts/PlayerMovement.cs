@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         doCommunicate = false;
 		stunned = false;
         //cont = gameObject.GetComponent<CharacterController>();
-        iBar = Camera.main.GetComponent<ItemBar>();
+        iBar = GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>();
         iScreen = GameObject.FindGameObjectWithTag("UI").GetComponent<InventoryScreen>();
         pog = gameObject.GetComponentInChildren<PlayerOnGround>();
     }

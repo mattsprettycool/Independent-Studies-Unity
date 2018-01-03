@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1011365157422464
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4888428379086742}
   - component: {fileID: 212315054529080238}
   - component: {fileID: 114118145481797070}
+  - component: {fileID: 114458671805468884}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -80,11 +81,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011365157422464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0.034}
-  m_LocalScale: {x: 0.9, y: 0.15, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.034000397}
+  m_LocalScale: {x: 0.9, y: 0.6, z: 1}
   m_Children: []
-  m_Father: {fileID: 4432172637004266}
-  m_RootOrder: 1
+  m_Father: {fileID: 4888428379086742}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4432172637004266
 Transform:
@@ -97,7 +98,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4888428379086742}
-  - {fileID: 4237366870208906}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,7 +110,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 0.25, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4237366870208906}
   m_Father: {fileID: 4432172637004266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,13 +245,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+--- !u!114 &114458671805468884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478700399505184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e26c7aad051cc44a8dbe165831cde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114507759553475096
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011365157422464}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ce60af2a90ef814f9eeadad2e3f8396, type: 3}
   m_Name: 
@@ -266,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1278d640f24a8441591b2fe6b0f65c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfKillsNeededToSpawn: 0
+  numKillsToSpawn: 0
 --- !u!114 &114763443115913480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: {fileID: 1788053675155434, guid: 6d959e5a43e7d53488d09641ab2a65ce, type: 2}
   itemDrop: {fileID: 1937210168023398, guid: 6bf473e028f0f5d45b49e58df16d4551, type: 2}
+  probRatioForLoot: 0.1
 --- !u!135 &135696577089232306
 SphereCollider:
   m_ObjectHideFlags: 1

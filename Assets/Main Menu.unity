@@ -1072,6 +1072,7 @@ MonoBehaviour:
   loadouts:
   - {fileID: 1074577374397310, guid: cb4ecdd70dd02504a9fd6b01bfe7bae2, type: 2}
   - {fileID: 1452109405597676, guid: ce8572bc8dc8fcc49976eb83dc1c0979, type: 2}
+  - {fileID: 1445212446441574, guid: 2f57990d044ba4a4f849d3f82b3207ae, type: 2}
 --- !u!1 &1104077997
 GameObject:
   m_ObjectHideFlags: 0
