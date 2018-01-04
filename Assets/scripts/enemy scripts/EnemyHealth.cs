@@ -67,6 +67,10 @@ public class EnemyHealth : MonoBehaviour {
     {
         return currHealth;
     }
+    public float GetBaseHealth()
+    {
+        return startHealth;
+    }
     public bool IsDead()
     {
         if (isGoingToDie) return true;

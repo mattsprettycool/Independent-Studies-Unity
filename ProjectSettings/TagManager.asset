@@ -78,6 +78,7 @@ TagManager:
   - feet
   - killcounter
   - tloc
+  - ehealthback
   layers:
   - Default
   - TransparentFX
