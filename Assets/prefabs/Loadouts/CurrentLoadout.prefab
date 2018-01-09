@@ -54,7 +54,7 @@ MonoBehaviour:
   loadoutName: DO NOT USE
   hotbar:
   - {fileID: 1602409371675568, guid: 9893e0b0a4d394040aca025ba3e99ccd, type: 2}
-  - {fileID: 0}
+  - {fileID: 1187167705634434, guid: 387fc3b5b7a9d7041b918370a4dc99c7, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        agent.isStopped = false;
 		if(agent.updatePosition)
         try
         {
