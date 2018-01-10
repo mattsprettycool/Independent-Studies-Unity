@@ -9,6 +9,7 @@ public class SwordMovement : MonoBehaviour {
 	AttackDamageLibrary adl;
 	ItemBar itmBar;
 	public bool attacking;
+	bool blocking;
 	string debug;
 	public int pressedR;
 	// Use this for initialization
@@ -28,6 +29,17 @@ public class SwordMovement : MonoBehaviour {
 			playerStamina.currStamina -= 5;
             StartCoroutine(SlashAndWait(.5f));
         }
+		if (Input.GetMouseButton (1) && !attacking && playerStamina.currStamina > 0) {
+			playerStamina.SetStaminaDrain (true, .1f);
+			blocking = true;
+			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
+
+		}
+		if (Input.GetMouseButtonUp (1)) {
+			playerStamina.SetStaminaDrain (false, 0f);
+			blocking = false;
+			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));
+		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			pressedR++;
 			if (pressedR % 2 == 1 && playerStamina.currStamina > 0) {
