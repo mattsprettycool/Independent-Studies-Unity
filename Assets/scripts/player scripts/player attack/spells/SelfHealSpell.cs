@@ -7,7 +7,7 @@ public class SelfHealSpell : MonoBehaviour {
     PlayerHealth playerHealth;
     float curTime = 0;
     [SerializeField]
-    float timeToWait = 2;
+    float timeToWait = 100;
     // Use this for initialization
     void Start () {
         playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
@@ -30,9 +30,12 @@ public class SelfHealSpell : MonoBehaviour {
             }
             else
             {
-                playerMana.currMana -= 1;
+                playerMana.currMana -= 5;
                 playerMana.refreshCooldown = true;
-                //if(playerHealth.currHealth <= playerHealth.)
+                if(playerHealth.currHealth < playerHealth.startHealth)
+                {
+                    playerHealth.currHealth += 1;
+                }
                 curTime = timeToWait;
             }
         }

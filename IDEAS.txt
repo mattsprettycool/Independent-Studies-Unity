@@ -11,6 +11,8 @@ magic turret spell
 flight spell
 Explosive fireball (grenade?)
 M A G I C  gun
+Turn big???
+
 Jump
 	-Less floaty
 	-Locked in direction of movement
