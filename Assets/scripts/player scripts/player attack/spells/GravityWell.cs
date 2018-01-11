@@ -9,23 +9,23 @@ public class GravityWell : MonoBehaviour
     public GameObject gravAOE;
     [SerializeField]
     public GameObject fakeGravAOE;
-    PlayerMana playerMana;
+    SpellManager spellManager;
     // Use this for initialization
     void Start()
     {
-        playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
+        spellManager = gameObject.GetComponent<SpellManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 100 && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && spellManager.HasManaNumber() && Time.timeScale == 1f)
         {
             RaycastHit hitInfo;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward*1000, out hitInfo, 1000, 1 << 8))
             {
-                playerMana.currMana -= 100;
-                playerMana.refreshCooldown = true;
+                spellManager.LoseMana();
+                spellManager.SetManaCooldown();
                 var attackInst = Instantiate(gravAOE);
                 attackInst.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.266f, hitInfo.point.z);
                 attackInst.transform.rotation = hitInfo.transform.rotation;
@@ -34,7 +34,7 @@ public class GravityWell : MonoBehaviour
         else
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward*1000, out hitInfo, 1000, 1<<8)&&playerMana.currMana >=100)
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward*1000, out hitInfo, 1000, 1<<8)&& spellManager.HasManaNumber())
             {
                 if (hitInfo.collider.tag == "Floor")
                 {

@@ -5,19 +5,19 @@ using UnityEngine;
 public class fireball : MonoBehaviour {
     [SerializeField]
     public GameObject firebolt;
-    PlayerMana playerMana;
+    SpellManager spellManager;
 	// Use this for initialization
 	void Start () {
-        playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
+        spellManager = gameObject.GetComponent<SpellManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 25 && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && spellManager.HasManaNumber() && Time.timeScale == 1f)
         {
-            playerMana.currMana -= 25;
-            playerMana.refreshCooldown = true;
+            spellManager.LoseMana();
+            spellManager.SetManaCooldown();
             var attackInst = Instantiate(firebolt);
             attackInst.transform.parent = gameObject.transform;
             attackInst.transform.localPosition = new Vector3(0f, 0f, 0f);
