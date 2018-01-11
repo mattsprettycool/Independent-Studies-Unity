@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4984669946142504}
   - component: {fileID: 114081008759164982}
   - component: {fileID: 114992729312734190}
+  - component: {fileID: 114804456901712794}
   m_Layer: 0
   m_Name: fireAOE 1
   m_TagString: attacks
@@ -59,6 +60,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 37f99e193a2618045a7b65f889610736, type: 3}
   IsInThirdPerson: 1
   UUID: NY7y97f0yms89aw
+--- !u!114 &114804456901712794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281442890535024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c3a5bfa029841bee9e95824379ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultManaCooldown: 25
+  defaultSpellCooldown: 0
+  defaultManaCost: 100
 --- !u!114 &114992729312734190
 MonoBehaviour:
   m_ObjectHideFlags: 1
