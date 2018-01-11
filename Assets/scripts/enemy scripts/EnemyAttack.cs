@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour {
     void FixedUpdate()
     {
         timer += Time.deltaTime;
-        if (inRange && timer > timeBetweenAttk)
+		if (inRange && timer > timeBetweenAttk && !playerHealth.GetBlocking())
         {
             timer = 0;
             playerHealth.TakeDamage(dmgPerAttk);

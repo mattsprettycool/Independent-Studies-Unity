@@ -6,10 +6,10 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour {
 	PlayerStamina playerStamina;
 	PlayerMana pMana;
+	PlayerHealth pHealth;
 	AttackDamageLibrary adl;
 	ItemBar itmBar;
 	public bool attacking;
-	bool blocking;
 	string debug;
 	public int pressedR;
 	// Use this for initialization
@@ -17,6 +17,7 @@ public class SwordMovement : MonoBehaviour {
 		attacking = false;
 		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
 		pMana = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMana> ();
+		pHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
 		adl = gameObject.GetComponent<AttackDamageLibrary> ();
 		itmBar = GameObject.FindGameObjectWithTag ("ItemBarHolder").GetComponent<ItemBar>();
 		pressedR = 0;
@@ -31,13 +32,13 @@ public class SwordMovement : MonoBehaviour {
         }
 		if (Input.GetMouseButton (1) && !attacking && playerStamina.currStamina > 0) {
 			playerStamina.SetStaminaDrain (true, .1f);
-			blocking = true;
+			pHealth.SetBlocking (true);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
 
 		}
 		if (Input.GetMouseButtonUp (1)) {
 			playerStamina.SetStaminaDrain (false, 0f);
-			blocking = false;
+			pHealth.SetBlocking (false);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {

@@ -10,10 +10,12 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthSlider;
 	PlayerOnGround pog;
     PlayerMovement pMvmnt;
-    bool damageTaken;
+    bool damageTaken, canBeHurt, weaponBlocking;
 	string debug;
 	// Use this for initialization
 	void Start () {
+		canBeHurt = true;
+		weaponBlocking = false;
 		pMvmnt = gameObject.GetComponent<PlayerMovement> ();
 		pog = gameObject.GetComponentInChildren<PlayerOnGround> ();
 		if (PlayerPrefs.GetFloat ("health") != 0) {
@@ -55,6 +57,26 @@ public class PlayerHealth : MonoBehaviour {
 				debug += "\n" + e;
 			}
 		}
+	}
+
+	public void SetHurtable (bool val)
+	{
+		canBeHurt = val;
+	}
+
+	public bool GetHurtable ()
+	{
+		return canBeHurt;
+	}
+
+	public void SetBlocking (bool val)
+	{
+		weaponBlocking = val;
+	}
+
+	public bool GetBlocking ()
+	{
+		return weaponBlocking;
 	}
 	/*public float TimeInAir (){
 		float timer = 0;
