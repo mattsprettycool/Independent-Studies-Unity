@@ -5,18 +5,18 @@ using UnityEngine.AI;
 
 public class Telekinesis : MonoBehaviour {
     Transform currentlySelectedEnemy;
-    PlayerMana playerMana;
+    SpellManager spellManager;
     // Use this for initialization
     void Start () {
-        playerMana = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMana>();
+        spellManager = gameObject.GetComponent<SpellManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && playerMana.currMana >= 10 && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && spellManager.HasManaNumber() && Time.timeScale == 1f)
         {
-            playerMana.currMana -= 10;
-            playerMana.refreshCooldown = true;
+            spellManager.LoseMana();
+            spellManager.SetManaCooldown();
             foreach (GameObject obj in GetAllNearEnemies(25))
             {
                 Vector3 pushDir = Camera.main.transform.position - obj.transform.position;

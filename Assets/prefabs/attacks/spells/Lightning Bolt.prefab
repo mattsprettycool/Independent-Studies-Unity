@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4466839008282362}
   - component: {fileID: 114086625639919450}
   - component: {fileID: 114458663617471180}
+  - component: {fileID: 114946782116649630}
   m_Layer: 0
   m_Name: Lightning Bolt
   m_TagString: attacks
@@ -196,3 +197,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &114946782116649630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1584502260676704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c3a5bfa029841bee9e95824379ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultManaCooldown: 10
+  defaultSpellCooldown: 0
+  defaultManaCost: 5

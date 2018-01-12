@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23445099214708048}
   - component: {fileID: 114792761454810828}
   - component: {fileID: 114234964606059300}
+  - component: {fileID: 114438893910442218}
   m_Layer: 11
   m_Name: ProjectileSword
   m_TagString: attacks
@@ -113,6 +114,20 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f996df86a78ea19448e9aa12ce401dab, type: 3}
   IsInThirdPerson: 1
   UUID: jhr695ygf637g
+--- !u!114 &114438893910442218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146698713665938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c3a5bfa029841bee9e95824379ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultManaCooldown: 0
+  defaultSpellCooldown: 0
+  defaultManaCost: 0
 --- !u!114 &114792761454810828
 MonoBehaviour:
   m_ObjectHideFlags: 1

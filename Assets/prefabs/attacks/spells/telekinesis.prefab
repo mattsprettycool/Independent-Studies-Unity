@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4159326685490896}
   - component: {fileID: 114668837867469444}
   - component: {fileID: 114275345365523120}
+  - component: {fileID: 114622654678031190}
   m_Layer: 0
   m_Name: telekinesis
   m_TagString: attacks
@@ -93,6 +94,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7b17c16e95eea4b882704aec40e2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114622654678031190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602409371675568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610c3a5bfa029841bee9e95824379ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultManaCooldown: 25
+  defaultSpellCooldown: 0
+  defaultManaCost: 50
 --- !u!114 &114668837867469444
 MonoBehaviour:
   m_ObjectHideFlags: 1
