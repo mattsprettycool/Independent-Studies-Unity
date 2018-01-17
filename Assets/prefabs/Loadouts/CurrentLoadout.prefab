@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215, type: 2}
   - {fileID: 1281442890535024, guid: 1da724d633e248649a8a9cada1d38a7c, type: 2}
   - {fileID: 1584502260676704, guid: 66e512e4a276c2545af535b569493131, type: 2}
-  - {fileID: 0}
+  - {fileID: 1523272048093446, guid: 5bff7b9f945b849099f29aa502685550, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   inventory:
