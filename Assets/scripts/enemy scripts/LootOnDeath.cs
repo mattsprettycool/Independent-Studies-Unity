@@ -14,14 +14,14 @@ public class LootOnDeath : MonoBehaviour {
 	void Start () {
         int i = 0;
         eh = gameObject.GetComponent<EnemyHealth>();
-        foreach (attackLibrary obj in drops.GetComponentsInChildren<attackLibrary>())
+        foreach (GameObject obj in drops.GetComponent<ItemsInLootPool>().GetDroppableArray())
         {
             itemsInArray++;
         }
         attacks = new attackLibrary[itemsInArray];
-        foreach (attackLibrary obj in drops.GetComponentsInChildren<attackLibrary>())
+        foreach (GameObject obj in drops.GetComponent<ItemsInLootPool>().GetDroppableArray())
         {
-            attacks[i] = obj;
+            attacks[i] = obj.GetComponent<attackLibrary>();
             i++;
         }
     }

@@ -12,8 +12,10 @@ public class firebolt : MonoBehaviour {
     Rigidbody rb;
     [SerializeField]
     Vector3 directionToMove;
+    ArtificialTimeManager realTime;
     // Use this for initialization
     void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timer = 0;
         timeBeforeDeletion = 5f;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -35,19 +37,21 @@ public class firebolt : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        
-        if (timer >= timeBeforeDeletion)
+        if (realTime.IsTimeOn())
         {
-            GameObject.Destroy(gameObject);
+            if (timer >= timeBeforeDeletion)
+            {
+                GameObject.Destroy(gameObject);
+            }
+            timer += Time.deltaTime;
         }
-        timer += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider col)
     {
         bool ignoreList = col.tag != "Player" && col.tag != "attacks" && col.name != "ProjectileSpawn" && col.tag != "ignoredByFB";
         bool destroyList = col.tag == "Enemies" || col.tag == "Floor" || col.tag == "Wall";
-        if (ignoreList&&destroyList)
+        if (ignoreList&&destroyList&& realTime.IsTimeOn())
         {
             if (explosion != null)
             {
@@ -58,7 +62,7 @@ public class firebolt : MonoBehaviour {
             }
             GameObject.Destroy(this.gameObject);
         }
-		if (col.tag == "Enemies")
+		if (col.tag == "Enemies"&& realTime.IsTimeOn())
 		{
 			try
 			{

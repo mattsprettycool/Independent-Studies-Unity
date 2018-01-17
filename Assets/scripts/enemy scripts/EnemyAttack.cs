@@ -9,8 +9,10 @@ public class EnemyAttack : MonoBehaviour {
 	bool inRange;
 	GameObject player;
 	PlayerHealth playerHealth;
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timer = 0;
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
@@ -20,21 +22,24 @@ public class EnemyAttack : MonoBehaviour {
 	}
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
-		if (inRange && timer > timeBetweenAttk && !playerHealth.GetBlocking())
+        if (realTime.IsTimeOn())
         {
-            timer = 0;
-            playerHealth.TakeDamage(dmgPerAttk);
+            timer += Time.deltaTime;
+            if (inRange && timer > timeBetweenAttk && !playerHealth.GetBlocking())
+            {
+                timer = 0;
+                playerHealth.TakeDamage(dmgPerAttk);
+            }
         }
     }
     void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player"&&realTime.IsTimeOn()) {
             inRange = true;
 		}
 	}
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player"&&realTime.IsTimeOn())
         {
             inRange = false;
         }

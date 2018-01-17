@@ -13,9 +13,11 @@ public class EnemyMageAttack : MonoBehaviour {
     public Transform enFireBoltSpawn;
 	public GameObject enemyFirebolt;
 	EnemySpawn enSpawn;
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
-		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn>();
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+        enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		dmgPerAttk = 5;
 		timeBetweenAttk = 2;
@@ -28,19 +30,23 @@ public class EnemyMageAttack : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-		Vector3 dir = (player.gameObject.transform.position - transform.position).normalized;
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z)), Time.deltaTime * turnSpeed);
-        timer += Time.deltaTime;
-		thrallTimer += Time.deltaTime;
-        if (timer >= timeBetweenAttk && inRange)
+        if (realTime.IsTimeOn())
         {
-            Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
-            timer = 0;
+            Vector3 dir = (player.gameObject.transform.position - transform.position).normalized;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z)), Time.deltaTime * turnSpeed);
+            timer += Time.deltaTime;
+            thrallTimer += Time.deltaTime;
+            if (timer >= timeBetweenAttk && inRange)
+            {
+                Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
+                timer = 0;
+            }
+            if (thrallTimer >= timeToSpawnThrall && enSpawn.GetEnemiesInArena() < enSpawn.GetEnemyLimit())
+            {
+                Instantiate(thrall, transform.position, transform.rotation);
+                thrallTimer = 0;
+            }
         }
-		if (thrallTimer >= timeToSpawnThrall && enSpawn.GetEnemiesInArena() < enSpawn.GetEnemyLimit()) {
-			Instantiate (thrall, transform.position, transform.rotation);
-			thrallTimer = 0;
-		}
     }
 
 	public void SetInRange(bool boo1){

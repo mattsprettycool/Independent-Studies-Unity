@@ -11,9 +11,11 @@ public class EnemyGiantAttack : MonoBehaviour {
 	PlayerHealth playerHealth;
 	PlayerMovement plyrMov;
 	Rigidbody plyrRB;
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
-		timer = 0;
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+        timer = 0;
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		plyrMov = player.GetComponent<PlayerMovement> ();
@@ -24,28 +26,32 @@ public class EnemyGiantAttack : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		timer += Time.deltaTime;
-		if (inRange && timer > timeBetweenAttk)
-		{
-			timer = 0;
-			int randy = Random.Range (0, 3);
-			//Debug.Log (randy);
-			switch (randy) {
-			case 0:
-				playerHealth.TakeDamage (dmgPerAttk);
-				break;
-			case 1:
-                plyrMov.stunned = true;
-				playerHealth.TakeDamage (dmgPerAttk / 2);
-				break;
-			case 2:
-				plyrRB.AddRelativeForce (0, 2000, 0);
-				playerHealth.TakeDamage (dmgPerAttk);
-				break;
-			default:
-				break;
-			}
-		}
+        if (realTime.IsTimeOn())
+        {
+            timer += Time.deltaTime;
+            if (inRange && timer > timeBetweenAttk)
+            {
+                timer = 0;
+                int randy = Random.Range(0, 3);
+                //Debug.Log (randy);
+                switch (randy)
+                {
+                    case 0:
+                        playerHealth.TakeDamage(dmgPerAttk);
+                        break;
+                    case 1:
+                        plyrMov.stunned = true;
+                        playerHealth.TakeDamage(dmgPerAttk / 2);
+                        break;
+                    case 2:
+                        plyrRB.AddRelativeForce(0, 2000, 0);
+                        playerHealth.TakeDamage(dmgPerAttk);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 	}
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player") {

@@ -6,6 +6,7 @@ public class fireball : MonoBehaviour {
     [SerializeField]
     public GameObject firebolt;
     SpellManager spellManager;
+    
 	// Use this for initialization
 	void Start () {
         spellManager = gameObject.GetComponent<SpellManager>();

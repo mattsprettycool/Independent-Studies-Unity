@@ -6,19 +6,17 @@ public class EnemyThrallAttack : MonoBehaviour {
 	public GameObject enemyExplosion;
 	GameObject player;
 	EnemySpawn enSpawn;
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+        player = GameObject.FindGameObjectWithTag ("Player");
 		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player"&&realTime.IsTimeOn()) {
 			var attackInst = Instantiate (enemyExplosion);
 			attackInst.transform.parent = gameObject.transform;
 			attackInst.transform.localPosition = new Vector3 (0, 0, 0);

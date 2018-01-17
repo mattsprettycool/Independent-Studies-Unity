@@ -1,7 +1,6 @@
 //Put down any ideas in this document
 Time Spell
 Forcefield
-An interesting healing spell????
 A summon spell
 Life steal spell
 Spell sword spell
@@ -12,6 +11,7 @@ flight spell
 Explosive fireball (grenade?)
 M A G I C  gun
 Turn big???
+Wish Spell
 
 Jump
 	-Less floaty

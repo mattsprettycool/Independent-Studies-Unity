@@ -6,12 +6,14 @@ using System;
 //by Jai Saka
 public class EnemyMovement : MonoBehaviour {
 	public Transform player;
+    ArtificialTimeManager realTime;
 	NavMeshAgent agent;
     string bugLog;
 	Quaternion quat;
     //DestroyGravWell dgw;
 	// Use this for initialization
 	void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		agent = gameObject.GetComponent<NavMeshAgent> ();
         bugLog = "";
@@ -19,18 +21,29 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        agent.isStopped = false;
-		if(agent.updatePosition)
-        try
+        if (!realTime.IsTimeOn())
         {
-            agent.SetDestination(player.position);
+            agent.isStopped = true;
+            agent.updatePosition = false;
         }
-        catch (Exception e)
+        else
         {
-            bugLog += e;
+            agent.isStopped = false;
+            agent.updatePosition = true;
+        }
+        if (agent.updatePosition && realTime.IsTimeOn())
+        {
+            try
+            {
+                agent.SetDestination(player.position);
+            }
+            catch (Exception e)
+            {
+                bugLog += e;
+            }
         }
         //if (!agent.updatePosition) agent.isStopped = true;
-	}
+    }
    // private void OnCollisionEnter(Collision collision)
     //{
        // try
