@@ -11,9 +11,13 @@ public class SwordMovement : MonoBehaviour {
 	ItemBar itmBar;
 	public bool attacking;
 	string debug;
+	bool canBlock;
+	float blockResetTimer;
 	public int pressedR;
 	// Use this for initialization
 	void Start () {
+		blockResetTimer = 0;
+		canBlock = true;
 		attacking = false;
 		playerStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
 		pMana = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMana> ();
@@ -30,15 +34,18 @@ public class SwordMovement : MonoBehaviour {
 			playerStamina.currStamina -= 5;
             StartCoroutine(SlashAndWait(.5f));
         }
-		if (Input.GetMouseButton (1) && !attacking && playerStamina.currStamina > 0) {
+		if (Input.GetMouseButton (1) && !attacking && playerStamina.currStamina > 0 && canBlock) {
 			playerStamina.SetStaminaDrain (true, .1f);
 			pHealth.SetBlocking (true);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
 
 		}
-		if (Input.GetMouseButtonUp (1)) {
+		if (Input.GetMouseButtonUp (1) || playerStamina.currStamina <= 0) {
 			playerStamina.SetStaminaDrain (false, 0f);
 			pHealth.SetBlocking (false);
+			if (playerStamina.currStamina <= 0) {
+				canBlock = false;
+			}
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
@@ -52,6 +59,12 @@ public class SwordMovement : MonoBehaviour {
 				playerStamina.SetStaminaDrain (false, 0f);
 				adl.SetDamage (25);
 				adl.SetBleedDamage (.5f);
+			}
+		}
+		if (canBlock = false) {
+			blockResetTimer += Time.deltaTime;
+			if (blockResetTimer > 1) {
+				canBlock = true;
 			}
 		}
 		/*if (Input.GetKeyDown(KeyCode.F) && itmBar.GetHotbarArray() && pMana.currMana > 0){
