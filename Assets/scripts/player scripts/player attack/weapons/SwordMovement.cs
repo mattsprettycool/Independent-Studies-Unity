@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //by Jai Saka
 public class SwordMovement : MonoBehaviour {
+	[SerializeField] 
 	PlayerStamina playerStamina;
 	PlayerMana pMana;
 	PlayerHealth pHealth;
@@ -11,8 +12,9 @@ public class SwordMovement : MonoBehaviour {
 	ItemBar itmBar;
 	public bool attacking;
 	string debug;
-	bool canBlock;
+	public bool canBlock;
 	float blockResetTimer;
+	bool resetting;
 	public int pressedR;
 	// Use this for initialization
 	void Start () {
@@ -34,18 +36,14 @@ public class SwordMovement : MonoBehaviour {
 			playerStamina.currStamina -= 5;
             StartCoroutine(SlashAndWait(.5f));
         }
-		if (Input.GetMouseButton (1) && !attacking && playerStamina.currStamina > 0 && canBlock) {
+		if (Input.GetMouseButton (1) && canBlock) {
 			playerStamina.SetStaminaDrain (true, .1f);
-			pHealth.SetBlocking (true);
+			pHealth.SetBlocking (canBlock);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
-
 		}
-		if (Input.GetMouseButtonUp (1) || playerStamina.currStamina <= 0) {
+		if (Input.GetMouseButtonUp (1) || !canBlock) {
 			playerStamina.SetStaminaDrain (false, 0f);
-			pHealth.SetBlocking (false);
-			if (playerStamina.currStamina <= 0) {
-				canBlock = false;
-			}
+			pHealth.SetBlocking (canBlock);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
@@ -62,11 +60,20 @@ public class SwordMovement : MonoBehaviour {
 			}
 		}
 		if (canBlock = false) {
+			resetting = true;
 			blockResetTimer += Time.deltaTime;
 			if (blockResetTimer > 1) {
 				canBlock = true;
+				blockResetTimer = 0;
+				resetting = false;
 			}
 		}
+		if (!attacking && playerStamina.currStamina > 0 && !resetting) {
+			canBlock = true;
+		} else {
+			canBlock = false;
+		}
+
 		/*if (Input.GetKeyDown(KeyCode.F) && itmBar.GetHotbarArray() && pMana.currMana > 0){
 			adl.SetDamage (20);
 			adl.SetBleedDamage (.5f);
