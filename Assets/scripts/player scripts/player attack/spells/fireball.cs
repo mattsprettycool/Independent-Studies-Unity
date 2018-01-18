@@ -6,15 +6,20 @@ public class fireball : MonoBehaviour {
     [SerializeField]
     public GameObject firebolt;
     SpellManager spellManager;
-    
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         spellManager = gameObject.GetComponent<SpellManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+           realTime.SetTime(!realTime.IsTimeOn());
+            Debug.Log("!!!THIS COMMAND IS FOR DEBUGGING PURPOSES!!!");
+        }
         if (Input.GetKeyDown(KeyCode.Mouse0) && spellManager.HasManaNumber() && Time.timeScale == 1f)
         {
             spellManager.LoseMana();

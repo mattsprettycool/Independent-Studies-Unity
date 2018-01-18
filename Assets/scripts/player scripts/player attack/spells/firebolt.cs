@@ -5,6 +5,7 @@ using UnityEngine;
 //by Matt Braden
 public class firebolt : MonoBehaviour {
     float timer;
+    Vector3 storedVel;
     float timeBeforeDeletion;
 	string debug;
     public GameObject explosion;
@@ -17,7 +18,7 @@ public class firebolt : MonoBehaviour {
     void Start () {
         realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timer = 0;
-        timeBeforeDeletion = 5f;
+        timeBeforeDeletion = 1000f;
         rb = gameObject.GetComponent<Rigidbody>();
         if(directionToMove.x > 0)
         {
@@ -39,11 +40,21 @@ public class firebolt : MonoBehaviour {
     {
         if (realTime.IsTimeOn())
         {
+            if(rb.velocity == Vector3.zero)
+            {
+                rb.velocity = storedVel;
+            }
             if (timer >= timeBeforeDeletion)
             {
                 GameObject.Destroy(gameObject);
             }
             timer += Time.deltaTime;
+        }
+        else
+        {
+            if(rb.velocity!=Vector3.zero)
+                storedVel = rb.velocity;
+            rb.velocity = Vector3.zero;
         }
     }
 

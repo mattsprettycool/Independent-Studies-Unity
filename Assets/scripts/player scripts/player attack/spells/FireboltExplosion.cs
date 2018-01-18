@@ -5,23 +5,28 @@ using UnityEngine;
 public class FireboltExplosion : MonoBehaviour {
 	PlayerHealth pHealth;
 	float timer;
+    ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
 		timer = 0;
 		pHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth>();
         gameObject.GetComponent<ParticleSystem>().Play();
     }
 	void FixedUpdate()
 	{
-		timer += Time.deltaTime;
-		if (timer > gameObject.GetComponent<ParticleSystem> ().main.duration) 
-		{
-			GameObject.Destroy (gameObject);
-		}
+        if (realTime.IsTimeOn())
+        {
+            timer += Time.deltaTime;
+            if (timer > 1000)
+            {
+                GameObject.Destroy(gameObject);
+            }
+        }
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player" && gameObject.name == "EnemyExplosion(Clone)") 
+		if (other.tag == "Player" && gameObject.name == "EnemyExplosion(Clone)" && realTime.IsTimeOn()) 
 		{
 			pHealth.TakeDamage (25);
 		}
