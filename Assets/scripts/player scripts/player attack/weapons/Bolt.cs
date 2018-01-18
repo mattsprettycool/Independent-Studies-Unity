@@ -9,9 +9,12 @@ public class Bolt : MonoBehaviour {
     float timeBeforeDeletion;
     Rigidbody rb;
 	string debug;
+    ArtificialTimeManager realTime;
+    Vector3 currentVel;
     // Use this for initialization
     void Start()
     {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timer = 0;
         timeBeforeDeletion = 7;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -21,13 +24,23 @@ public class Bolt : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (timer >= timeBeforeDeletion)
+        if (realTime.IsTimeOn())
         {
-            GameObject.Destroy(this.gameObject);
+            if (rb.velocity == Vector3.zero)
+                rb.velocity = currentVel;
+            if (timer >= timeBeforeDeletion)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
+            timer += Time.deltaTime;
+            gameObject.GetComponent<ProjectileDamageLibrary>().travelTime += Time.deltaTime;
         }
-        timer += Time.deltaTime;
-        gameObject.GetComponent<ProjectileDamageLibrary>().travelTime += Time.deltaTime;
+        else
+        {
+            if (rb.velocity != Vector3.zero)
+                currentVel = rb.velocity;
+            rb.velocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter(Collider col)
