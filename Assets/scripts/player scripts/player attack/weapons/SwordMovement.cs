@@ -31,22 +31,22 @@ public class SwordMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0) && !attacking && playerStamina.currStamina >= 5 && Time.timeScale == 1f)
+		if (Input.GetMouseButtonDown(0) && !attacking && playerStamina.currStamina >= 5 && Time.timeScale == 1f && !playerStamina.GetActionLocked())
         {
 			playerStamina.currStamina -= 5;
             StartCoroutine(SlashAndWait(.5f));
         }
-		if (Input.GetMouseButton (1) && canBlock) {
+		if (Input.GetMouseButton (1) && canBlock && !playerStamina.GetActionLocked()) {
 			playerStamina.SetStaminaDrain (true, .1f);
-			pHealth.SetBlocking (canBlock);
+			pHealth.SetBlocking (true);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
 		}
 		if (Input.GetMouseButtonUp (1) || !canBlock) {
 			playerStamina.SetStaminaDrain (false, 0f);
-			pHealth.SetBlocking (canBlock);
+			pHealth.SetBlocking (false);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));
 		}
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R) && !playerStamina.GetActionLocked()) {
 			pressedR++;
 			if (pressedR % 2 == 1 && playerStamina.currStamina > 0) {
 				playerStamina.SetStaminaDrain (true, .5f);
@@ -59,21 +59,6 @@ public class SwordMovement : MonoBehaviour {
 				adl.SetBleedDamage (.5f);
 			}
 		}
-		if (canBlock = false) {
-			resetting = true;
-			blockResetTimer += Time.deltaTime;
-			if (blockResetTimer > 1) {
-				canBlock = true;
-				blockResetTimer = 0;
-				resetting = false;
-			}
-		}
-		if (!attacking && playerStamina.currStamina > 0 && !resetting) {
-			canBlock = true;
-		} else {
-			canBlock = false;
-		}
-
 		/*if (Input.GetKeyDown(KeyCode.F) && itmBar.GetHotbarArray() && pMana.currMana > 0){
 			adl.SetDamage (20);
 			adl.SetBleedDamage (.5f);

@@ -8,6 +8,7 @@ public class PlayerStamina : MonoBehaviour {
 	public float currStamina;
 	float staminaDrain;
 	bool draining;
+	public bool actionLocked;
 	public Slider staminaSlider;
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,8 @@ public class PlayerStamina : MonoBehaviour {
 			currStamina = startStamina;
 		}
 		staminaDrain = 0;
+		StartCoroutine (ResetActionLocked ());
+		actionLocked = false;
 	}
 	
 	// Update is called once per frame
@@ -35,11 +38,28 @@ public class PlayerStamina : MonoBehaviour {
 		}
 		if (currStamina < 0) {
 			currStamina = 0;
+			actionLocked = true;
 		}
 	}
 
 	public void SetStaminaDrain(bool isDraining, float stamDrain){
 		draining = isDraining;
 		staminaDrain = stamDrain;
+	}
+
+	IEnumerator ResetActionLocked () {
+		while (true) {
+			if (actionLocked = true) {
+				yield return new WaitForSeconds (2);
+				Debug.Log ("Unlocking!");
+				actionLocked = false;
+			} else {
+				yield return null;
+			}
+		}
+	}
+
+	public bool GetActionLocked(){
+		return actionLocked;
 	}
 }
