@@ -28,7 +28,7 @@ public class ItemBar : MonoBehaviour {
     bool updateNeeded;
     public bool commWithIscreen;
     CameraMovement cm;
-    int pleaseDontLag = 30;
+    int pleaseDontLag = 5;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -75,7 +75,7 @@ public class ItemBar : MonoBehaviour {
                     switchTimer = 0;
                 }
             }
-            pleaseDontLag = 10;
+            pleaseDontLag = 5;
         }
         else
             pleaseDontLag--;

@@ -6,7 +6,6 @@ public class TimeStopSpell : MonoBehaviour {
     ArtificialTimeManager realTime;
     bool timeOn;
     SpellManager spellMan;
-    float timeForSpell = 100, currTime = 0;
     [SerializeField]
     GameObject timeDrop;
 	// Use this for initialization
@@ -24,18 +23,5 @@ public class TimeStopSpell : MonoBehaviour {
             i.transform.position = gameObject.transform.position;
             i.transform.rotation = gameObject.transform.rotation;
         }
-        if (!timeOn)
-        {
-            if (currTime < timeForSpell)
-            {
-                currTime++;
-            }
-            else
-            {
-                timeOn = true;
-                currTime = 0;
-            }
-        }
-        realTime.SetTime(timeOn);
 	}
 }
