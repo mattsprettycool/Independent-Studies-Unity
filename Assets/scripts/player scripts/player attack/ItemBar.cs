@@ -46,6 +46,7 @@ public class ItemBar : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         changeAttacks();
+        //UpdateCurrentItem();
         if (pleaseDontLag <= 0)
         {
             //int pointerTemp = pointer;
@@ -638,5 +639,50 @@ public class ItemBar : MonoBehaviour {
     {
         GameObject[] myArray = {attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8};
         return myArray;
+    }
+    public void UpdateCurrentItem()
+    {
+        GameObject currentAttack = null;
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+            if (obj.GetComponent<attackLibrary>() != null)
+            {
+                currentAttack = obj;
+                Debug.Log("yee");
+            }
+        if(pointer == 0)
+        {
+            attack0 = currentAttack;
+        }else if(pointer == 1)
+        {
+            attack1 = currentAttack;
+        }
+        else if (pointer == 2)
+        {
+            attack2 = currentAttack;
+        }
+        else if (pointer == 3)
+        {
+            attack3 = currentAttack;
+        }
+        else if (pointer == 4)
+        {
+            attack4 = currentAttack;
+        }
+        else if (pointer == 5)
+        {
+            attack5 = currentAttack;
+        }
+        else if (pointer == 6)
+        {
+            attack6 = currentAttack;
+        }
+        else if (pointer == 7)
+        {
+            attack7 = currentAttack;
+        }
+        else if (pointer == 8)
+        {
+            attack8 = currentAttack;
+        }
     }
 }

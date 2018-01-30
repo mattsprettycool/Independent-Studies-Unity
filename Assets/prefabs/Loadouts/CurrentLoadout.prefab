@@ -53,14 +53,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadoutName: DO NOT USE
   hotbar:
-  - {fileID: 1602409371675568, guid: 9893e0b0a4d394040aca025ba3e99ccd, type: 2}
-  - {fileID: 1187167705634434, guid: 387fc3b5b7a9d7041b918370a4dc99c7, type: 2}
-  - {fileID: 1967480421387664, guid: 08d6c76d5ae051b459adb3144e1b3250, type: 2}
-  - {fileID: 1946937044302072, guid: 59aa059295215d8459515aa4f6fea215, type: 2}
-  - {fileID: 1281442890535024, guid: 1da724d633e248649a8a9cada1d38a7c, type: 2}
-  - {fileID: 1584502260676704, guid: 66e512e4a276c2545af535b569493131, type: 2}
   - {fileID: 1925948075323934, guid: 24d0588ce2195e749b9e92b9e92ed5a0, type: 2}
-  - {fileID: 1523272048093446, guid: 5bff7b9f945b849099f29aa502685550, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   inventory:
   - {fileID: 0}

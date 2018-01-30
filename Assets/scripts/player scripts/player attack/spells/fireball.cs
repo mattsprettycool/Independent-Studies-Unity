@@ -15,11 +15,6 @@ public class fireball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-           realTime.SetTime(!realTime.IsTimeOn());
-            Debug.Log("!!!THIS COMMAND IS FOR DEBUGGING PURPOSES!!!");
-        }
         if (Input.GetKeyDown(KeyCode.Mouse0) && spellManager.HasManaNumber() && Time.timeScale == 1f)
         {
             spellManager.LoseMana();
