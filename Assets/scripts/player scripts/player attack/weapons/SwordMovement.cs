@@ -41,7 +41,7 @@ public class SwordMovement : MonoBehaviour {
 			pHealth.SetBlocking (true);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, 90));
 		}
-		if (Input.GetMouseButtonUp (1) || !canBlock) {
+		if (Input.GetMouseButtonUp (1) || !canBlock || playerStamina.GetActionLocked()) {
 			playerStamina.SetStaminaDrain (false, 0f);
 			pHealth.SetBlocking (false);
 			transform.localRotation = Quaternion.Euler (new Vector3 (0, -90, 0));

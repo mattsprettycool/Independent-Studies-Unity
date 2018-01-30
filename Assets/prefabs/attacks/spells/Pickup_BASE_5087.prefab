@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114889614284873520}
   - component: {fileID: 65396806237376954}
   m_Layer: 0
-  m_Name: Pickup
+  m_Name: Pickup_BASE_5087
   m_TagString: loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -49,7 +49,7 @@ public class PlayerStamina : MonoBehaviour {
 
 	IEnumerator ResetActionLocked () {
 		while (true) {
-			if (actionLocked = true) {
+			if (actionLocked) {
 				yield return new WaitForSeconds (2);
 				Debug.Log ("Unlocking!");
 				actionLocked = false;
