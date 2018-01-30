@@ -48,10 +48,12 @@ public class PlayerSpawn : MonoBehaviour {
 		}
 		if (pHealth.currHealth <= 0 || enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded () && inArena)
 		{
-			transform.position = new Vector3 (2, 102, 0);
+			transform.position = GameObject.Find ("PlayerSpawnLoc").gameObject.transform.position;
 			pHealth.currHealth = pHealth.startHealth;
 			inArena = false;
-			statPointsToSpend += 1 + (int)(1.1 - (timer/1000));
+			if (!pHealth.DeadOrAlive ()) {
+				statPointsToSpend += 1 + (int)(1.1 - (timer/1000));
+			}
 			//musicCont.PlaySong (inArena);
 		}
 	}

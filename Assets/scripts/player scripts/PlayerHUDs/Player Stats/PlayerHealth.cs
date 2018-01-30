@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour {
     public float startHealth;
     public float currHealth;
     public Slider healthSlider;
+	bool dead;
 	PlayerOnGround pog;
     PlayerMovement pMvmnt;
     bool damageTaken, canBeHurt, weaponBlocking;
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 			startHealth = 100;
 			currHealth = startHealth;
 		}
+		dead = false;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +37,9 @@ public class PlayerHealth : MonoBehaviour {
 		//added below for debuggin purposes
 		if (Input.GetKey(KeyCode.K)) {
 			currHealth = 0;
+		}
+		if (currHealth <= 0) {
+			dead = true;
 		}
     }
 
@@ -89,4 +94,7 @@ public class PlayerHealth : MonoBehaviour {
             pMvmnt.stunned = true;
 		}
 	}*/
+	public bool DeadOrAlive () {
+		return dead;
+	}
 }
