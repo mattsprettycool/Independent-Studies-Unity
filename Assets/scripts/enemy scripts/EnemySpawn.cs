@@ -13,6 +13,7 @@ public class EnemySpawn : MonoBehaviour {
     float timeToSpawn, numberToSpawn;
 	int spawnZoneIndex, enemyIndex;
 	string debug;
+	bool canSpawn;
     [SerializeField]
     float timer;
 	// Use this for initialization
@@ -28,8 +29,8 @@ public class EnemySpawn : MonoBehaviour {
 			enemyLimit = 20;
 		}
 		//Debug.Log ("Enemy Limit is: "+enemyLimit);
+		canSpawn = true;
         SpawnEnemy();
-		enemiesInArena++;
 		//Debug.Log (enemiesInArena);
     }
 
@@ -45,7 +46,7 @@ public class EnemySpawn : MonoBehaviour {
 		if (timeToSpawn < 7.5f) {
 			timeToSpawn = 7.5f;
 		}
-		if (timer > timeToSpawn && enemiesInArena < enemyLimit)
+		if (timer > timeToSpawn && enemiesInArena < enemyLimit && canSpawn)
         {
             SpawnEnemy();
 			//Debug.Log ("Spawning Enemy!");
@@ -53,6 +54,9 @@ public class EnemySpawn : MonoBehaviour {
         }
 		if (Input.GetKeyDown(KeyCode.P)){
 			enemiesKilled++;
+		}
+		if (enemiesKilled == enemyLimit - 1) {
+			canSpawn = false;
 		}
     }
 
