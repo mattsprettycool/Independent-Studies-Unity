@@ -29,6 +29,7 @@ public class ItemBar : MonoBehaviour {
     public bool commWithIscreen;
     CameraMovement cm;
     int pleaseDontLag = 5;
+    int prevPoint = 0;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -46,7 +47,6 @@ public class ItemBar : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         changeAttacks();
-        //UpdateCurrentItem();
         if (pleaseDontLag <= 0)
         {
             //int pointerTemp = pointer;
@@ -200,15 +200,51 @@ public class ItemBar : MonoBehaviour {
      */ 
     void changeAttacks()
     {
-        if (Input.GetKey(KeyCode.Alpha1)) pointer = 0;
-        if (Input.GetKey(KeyCode.Alpha2)) pointer = 1;
-        if (Input.GetKey(KeyCode.Alpha3)) pointer = 2;
-        if (Input.GetKey(KeyCode.Alpha4)) pointer = 3;
-        if (Input.GetKey(KeyCode.Alpha5)) pointer = 4;
-        if (Input.GetKey(KeyCode.Alpha6)) pointer = 5;
-        if (Input.GetKey(KeyCode.Alpha7)) pointer = 6;
-        if (Input.GetKey(KeyCode.Alpha8)) pointer = 7;
-        if (Input.GetKey(KeyCode.Alpha9)) pointer = 8;
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            prevPoint = pointer;
+            pointer = 0;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            pointer = 1;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            pointer = 2;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha4)) {
+            pointer = 3;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            pointer = 4;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            pointer = 5;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            pointer = 6;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha8))
+        {
+            pointer = 7;
+        }
+            
+        if (Input.GetKey(KeyCode.Alpha9))
+        {
+            pointer = 8;
+        }
+            
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (pointer < 8)
@@ -640,47 +676,50 @@ public class ItemBar : MonoBehaviour {
         GameObject[] myArray = {attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8};
         return myArray;
     }
-    public void UpdateCurrentItem()
+    public void UpdateCurrentItem(int curPoint)
     {
         GameObject currentAttack = null;
-        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+        {
+            Debug.Log(obj.name);
             if (obj.GetComponent<attackLibrary>() != null)
             {
                 currentAttack = obj;
                 Debug.Log("yee");
             }
-        if(pointer == 0)
+        }
+        if(curPoint == 0 && currentAttack!=null && attack0 != null)
         {
             attack0 = currentAttack;
-        }else if(pointer == 1)
+        }else if(curPoint == 1 && currentAttack != null && attack1 != null)
         {
             attack1 = currentAttack;
         }
-        else if (pointer == 2)
+        else if (curPoint == 2 && currentAttack != null && attack2 != null)
         {
             attack2 = currentAttack;
         }
-        else if (pointer == 3)
+        else if (curPoint == 3 && currentAttack != null && attack3 != null)
         {
             attack3 = currentAttack;
         }
-        else if (pointer == 4)
+        else if (curPoint == 4 && currentAttack != null && attack4 != null)
         {
             attack4 = currentAttack;
         }
-        else if (pointer == 5)
+        else if (curPoint == 5 && currentAttack != null && attack5 != null)
         {
             attack5 = currentAttack;
         }
-        else if (pointer == 6)
+        else if (curPoint == 6 && currentAttack != null && attack6 != null)
         {
             attack6 = currentAttack;
         }
-        else if (pointer == 7)
+        else if (curPoint == 7 && currentAttack != null && attack7 != null)
         {
             attack7 = currentAttack;
         }
-        else if (pointer == 8)
+        else if (curPoint == 8 && currentAttack != null && attack8 != null)
         {
             attack8 = currentAttack;
         }

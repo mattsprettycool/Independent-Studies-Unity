@@ -8,6 +8,7 @@ public class TimeStopSpell : MonoBehaviour {
     SpellManager spellMan;
     [SerializeField]
     GameObject timeDrop;
+    int timeAlive = 0;
 	// Use this for initialization
 	void Start () {
         spellMan = gameObject.GetComponent<SpellManager>();
@@ -17,6 +18,8 @@ public class TimeStopSpell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        //Debug.Log(timeAlive);
+        //timeAlive++;
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             var i = Instantiate(timeDrop);
