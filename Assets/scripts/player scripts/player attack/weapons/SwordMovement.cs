@@ -68,6 +68,10 @@ public class SwordMovement : MonoBehaviour {
 			pMana.InitiateDecrease (false);
 		}*/
     }
+	void OnDestroy (){
+		playerStamina.SetStaminaDrain (false, 0f);
+		pHealth.SetBlocking (false);
+	}
 
     IEnumerator SlashAndWait(float seconds)
     {
