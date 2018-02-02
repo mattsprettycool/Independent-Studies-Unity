@@ -10242,6 +10242,7 @@ GameObject:
   - component: {fileID: 1779231520}
   - component: {fileID: 1779231519}
   - component: {fileID: 1779231531}
+  - component: {fileID: 1779231532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10461,6 +10462,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeIsGoingForward: 1
+--- !u!114 &1779231532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779231518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb27c57b3fce444c824b9dc1880b7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDmgBonus: 0
+  spellDmgBonus: 0
 --- !u!1 &1783421659
 GameObject:
   m_ObjectHideFlags: 0

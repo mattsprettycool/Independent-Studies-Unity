@@ -13,6 +13,7 @@ public class PlayerSpawn : MonoBehaviour {
 	PlayerMana pMana;
 	PlayerMovement pMove;
 	MusicController musicCont;
+	BonusesLibrary bl;
 	public GameObject playerSpawnTrigger;
     public KillManager killMngr;
 	EnemySpawn enSpawn;
@@ -31,6 +32,7 @@ public class PlayerSpawn : MonoBehaviour {
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
 		pStam = gameObject.GetComponent<PlayerStamina> ();
 		pMana = gameObject.GetComponent<PlayerMana> ();
+		bl = gameObject.GetComponent<BonusesLibrary> ();
 		pMove = gameObject.GetComponent<PlayerMovement> ();
 		enSpawn = GameObject.FindGameObjectWithTag ("enemymanager").GetComponent<EnemySpawn> ();
 		pHealth = gameObject.GetComponent<PlayerHealth> ();
@@ -74,7 +76,7 @@ public class PlayerSpawn : MonoBehaviour {
 		if (other.tag == "PlayerSpawnTrigger" && enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ()) {
 			Debug.Log ("Met parameters");
 			Debug.Log ("Saving Stats");
-			SaveStats (pHealth.startHealth, pStam.startStamina, pMana.startMana, pMana.cooldownReduction, pMove.GetSpeed(), statPointsToSpend);
+			SaveStats (pHealth.startHealth, pStam.startStamina, pMana.startMana, bl.spellDmgBonus,pMana.cooldownReduction, bl.meleeDmgBonus, pMove.GetSpeed(), statPointsToSpend);
 			arenaIndex++;
 			Debug.Log ("Loading: " + levelList [arenaIndex]);
 			SceneManager.LoadScene (levelList [arenaIndex]);
@@ -82,7 +84,7 @@ public class PlayerSpawn : MonoBehaviour {
 		if (other.tag == "PlayerSpawnTrigger" && !(enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ())){
 			Debug.Log ("Did not meet parameters");
 			Debug.Log ("Saving Stats");
-			SaveStats (100, 100, 100, 0, .2f, 0);
+			SaveStats (100, 100, 100, 0, 0, 0, .2f, 0);
 			arenaIndex = 0;
 			Debug.Log ("Loading: " + levelList [0]);
 			SceneManager.LoadScene (levelList [0]);
@@ -92,12 +94,14 @@ public class PlayerSpawn : MonoBehaviour {
     {
 		return levelList [arenaIndex];
     }
-	public void SaveStats(float health, float stamina, float mana, float manaCooldownReduction, float movementSpeed, int statPoints)
+	public void SaveStats(float health, float stamina, float mana, int magicDmgBonus, float manaCooldownReduction, int meleeDmgBonus, float movementSpeed, int statPoints)
 	{
 		PlayerPrefs.SetFloat ("health", health);
 		PlayerPrefs.SetFloat ("stamina", stamina);
 		PlayerPrefs.SetFloat ("mana", mana);
+		PlayerPrefs.SetInt ("spellBonus", magicDmgBonus);
 		PlayerPrefs.SetFloat ("manaCooldownReduction", manaCooldownReduction);
+		PlayerPrefs.SetInt ("meleeBonus", meleeDmgBonus);
 		PlayerPrefs.SetFloat ("speed", movementSpeed);
 		PlayerPrefs.SetInt ("points", statPoints);
 		PlayerPrefs.Save ();
