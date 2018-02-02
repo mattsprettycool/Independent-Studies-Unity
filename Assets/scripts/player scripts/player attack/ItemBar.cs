@@ -208,40 +208,48 @@ public class ItemBar : MonoBehaviour {
             
         if (Input.GetKey(KeyCode.Alpha2))
         {
+            prevPoint = pointer;
             pointer = 1;
         }
             
         if (Input.GetKey(KeyCode.Alpha3))
         {
+            prevPoint = pointer;
             pointer = 2;
         }
             
         if (Input.GetKey(KeyCode.Alpha4)) {
+            prevPoint = pointer;
             pointer = 3;
         }
             
         if (Input.GetKey(KeyCode.Alpha5))
         {
+            prevPoint = pointer;
             pointer = 4;
         }
             
         if (Input.GetKey(KeyCode.Alpha6))
         {
+            prevPoint = pointer;
             pointer = 5;
         }
             
         if (Input.GetKey(KeyCode.Alpha7))
         {
+            prevPoint = pointer;
             pointer = 6;
         }
             
         if (Input.GetKey(KeyCode.Alpha8))
         {
+            prevPoint = pointer;
             pointer = 7;
         }
             
         if (Input.GetKey(KeyCode.Alpha9))
         {
+            prevPoint = pointer;
             pointer = 8;
         }
             
@@ -249,19 +257,29 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer < 8)
             {
+                prevPoint = pointer;
                 pointer++;
             }
             else
+            {
+                prevPoint = pointer;
                 pointer = 0;
+            }
+                
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (pointer > 0)
             {
+                prevPoint = pointer;
                 pointer--;
             }
             else
+            {
+                prevPoint = pointer;
                 pointer = 8;
+            }
+                
         }
     }
     /* Author - Matt Braden
@@ -273,7 +291,7 @@ public class ItemBar : MonoBehaviour {
         if (justStarted)
         {
             //destroys all objects with the attack tag, which is found above ^
-            foreach(GameObject obj in attacks) Destroy(obj);
+            foreach (GameObject obj in attacks) Destroy(obj);
             try{
                 //creates a variable of the prefab, and then uses attacklibrary variables in them to set the positions
                 var attackInst = Instantiate(attack0);
@@ -293,7 +311,8 @@ public class ItemBar : MonoBehaviour {
         }
         if((pointer == 0 && currentPoint != 0 && !justStarted)|| (currentPoint == 0 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -315,7 +334,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 1 && currentPoint != 1 && !justStarted)|| (currentPoint == 1 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -337,7 +357,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 2 && currentPoint != 2 && !justStarted)|| (currentPoint == 2 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -359,7 +380,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 3 && currentPoint != 3 && !justStarted)|| (currentPoint == 3 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -381,7 +403,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 4 && currentPoint != 4 && !justStarted)|| (currentPoint == 4 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -403,7 +426,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 5 && currentPoint != 5 && !justStarted)|| (currentPoint == 5 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -425,7 +449,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 6 && currentPoint != 6 && !justStarted)|| (currentPoint == 6 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -447,7 +472,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 7 && currentPoint != 7 && !justStarted)|| (currentPoint == 7 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
@@ -469,7 +495,8 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 8 && currentPoint != 8 && !justStarted)||(currentPoint == 8 && updateNeeded))
         {
-			justSwitched = true;
+            UpdateCurrentItem(prevPoint);
+            justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
             foreach (GameObject obj in attacks) Destroy(obj);
