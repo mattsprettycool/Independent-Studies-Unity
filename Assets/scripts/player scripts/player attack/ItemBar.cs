@@ -200,56 +200,92 @@ public class ItemBar : MonoBehaviour {
      */ 
     void changeAttacks()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 0;
         }
             
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 1;
         }
             
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 2;
         }
             
-        if (Input.GetKey(KeyCode.Alpha4)) {
-            prevPoint = pointer;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 3;
         }
             
-        if (Input.GetKey(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 4;
         }
             
-        if (Input.GetKey(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 5;
         }
             
-        if (Input.GetKey(KeyCode.Alpha7))
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 6;
         }
             
-        if (Input.GetKey(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 7;
         }
             
-        if (Input.GetKey(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            prevPoint = pointer;
+            if (pointer != prevPoint)
+            {
+                prevPoint = pointer;
+                UpdateCurrentItem(prevPoint);
+            }
             pointer = 8;
         }
             
@@ -257,12 +293,20 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer < 8)
             {
-                prevPoint = pointer;
+                if (pointer != prevPoint)
+                {
+                    prevPoint = pointer;
+                    UpdateCurrentItem(prevPoint);
+                }
                 pointer++;
             }
             else
             {
-                prevPoint = pointer;
+                if (pointer != prevPoint)
+                {
+                    prevPoint = pointer;
+                    UpdateCurrentItem(prevPoint);
+                }
                 pointer = 0;
             }
                 
@@ -271,12 +315,20 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer > 0)
             {
-                prevPoint = pointer;
+                if (pointer != prevPoint)
+                {
+                    prevPoint = pointer;
+                    UpdateCurrentItem(prevPoint);
+                }
                 pointer--;
             }
             else
             {
-                prevPoint = pointer;
+                if (pointer != prevPoint)
+                {
+                    prevPoint = pointer;
+                    UpdateCurrentItem(prevPoint);
+                }
                 pointer = 8;
             }
                 
@@ -311,7 +363,6 @@ public class ItemBar : MonoBehaviour {
         }
         if((pointer == 0 && currentPoint != 0 && !justStarted)|| (currentPoint == 0 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
@@ -334,7 +385,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 1 && currentPoint != 1 && !justStarted)|| (currentPoint == 1 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             foreach (GameObject obj in attacks) Destroy(obj);
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
@@ -357,7 +407,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 2 && currentPoint != 2 && !justStarted)|| (currentPoint == 2 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -380,7 +429,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 3 && currentPoint != 3 && !justStarted)|| (currentPoint == 3 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -403,7 +451,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 4 && currentPoint != 4 && !justStarted)|| (currentPoint == 4 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -426,7 +473,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 5 && currentPoint != 5 && !justStarted)|| (currentPoint == 5 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -449,7 +495,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 6 && currentPoint != 6 && !justStarted)|| (currentPoint == 6 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -472,7 +517,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 7 && currentPoint != 7 && !justStarted)|| (currentPoint == 7 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -495,7 +539,6 @@ public class ItemBar : MonoBehaviour {
         }
         if ((pointer == 8 && currentPoint != 8 && !justStarted)||(currentPoint == 8 && updateNeeded))
         {
-            UpdateCurrentItem(prevPoint);
             justSwitched = true;
             GameObject[] objs = GameObject.FindGameObjectsWithTag("attackPreview");
             foreach (GameObject obj in objs) Destroy(obj);
@@ -705,6 +748,7 @@ public class ItemBar : MonoBehaviour {
     }
     public void UpdateCurrentItem(int curPoint)
     {
+        Debug.Log("ye "+prevPoint);
         GameObject currentAttack = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
         {
@@ -712,43 +756,49 @@ public class ItemBar : MonoBehaviour {
             if (obj.GetComponent<attackLibrary>() != null)
             {
                 currentAttack = obj;
-                Debug.Log("yee");
             }
         }
-        if(curPoint == 0 && currentAttack!=null && attack0 != null)
+        try
         {
-            attack0 = currentAttack;
-        }else if(curPoint == 1 && currentAttack != null && attack1 != null)
+            if (curPoint == 0 && currentAttack != null && attack0 != null)
+            {
+                attack0 = currentAttack;
+            }
+            else if (curPoint == 1 && currentAttack != null && attack1 != null)
+            {
+                attack1 = currentAttack;
+            }
+            else if (curPoint == 2 && currentAttack != null && attack2 != null)
+            {
+                attack2 = currentAttack;
+            }
+            else if (curPoint == 3 && currentAttack != null && attack3 != null)
+            {
+                attack3 = currentAttack;
+            }
+            else if (curPoint == 4 && currentAttack != null && attack4 != null)
+            {
+                attack4 = currentAttack;
+            }
+            else if (curPoint == 5 && currentAttack != null && attack5 != null)
+            {
+                attack5 = currentAttack;
+            }
+            else if (curPoint == 6 && currentAttack != null && attack6 != null)
+            {
+                attack6 = currentAttack;
+            }
+            else if (curPoint == 7 && currentAttack != null && attack7 != null)
+            {
+                attack7 = currentAttack;
+            }
+            else if (curPoint == 8 && currentAttack != null && attack8 != null)
+            {
+                attack8 = currentAttack;
+            }
+        }catch(Exception e)
         {
-            attack1 = currentAttack;
-        }
-        else if (curPoint == 2 && currentAttack != null && attack2 != null)
-        {
-            attack2 = currentAttack;
-        }
-        else if (curPoint == 3 && currentAttack != null && attack3 != null)
-        {
-            attack3 = currentAttack;
-        }
-        else if (curPoint == 4 && currentAttack != null && attack4 != null)
-        {
-            attack4 = currentAttack;
-        }
-        else if (curPoint == 5 && currentAttack != null && attack5 != null)
-        {
-            attack5 = currentAttack;
-        }
-        else if (curPoint == 6 && currentAttack != null && attack6 != null)
-        {
-            attack6 = currentAttack;
-        }
-        else if (curPoint == 7 && currentAttack != null && attack7 != null)
-        {
-            attack7 = currentAttack;
-        }
-        else if (curPoint == 8 && currentAttack != null && attack8 != null)
-        {
-            attack8 = currentAttack;
+            debugger += e;
         }
     }
 }
