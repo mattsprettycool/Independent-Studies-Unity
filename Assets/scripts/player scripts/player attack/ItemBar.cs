@@ -204,8 +204,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 0;
         }
@@ -214,8 +214,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 1;
         }
@@ -224,8 +224,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 2;
         }
@@ -233,8 +233,8 @@ public class ItemBar : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha4)) {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 3;
         }
@@ -243,8 +243,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 4;
         }
@@ -253,8 +253,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 5;
         }
@@ -263,8 +263,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 6;
         }
@@ -273,8 +273,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 7;
         }
@@ -283,8 +283,8 @@ public class ItemBar : MonoBehaviour {
         {
             if (pointer != prevPoint)
             {
-                prevPoint = pointer;
                 UpdateCurrentItem(prevPoint);
+                prevPoint = pointer;
             }
             pointer = 8;
         }
@@ -295,8 +295,8 @@ public class ItemBar : MonoBehaviour {
             {
                 if (pointer != prevPoint)
                 {
-                    prevPoint = pointer;
                     UpdateCurrentItem(prevPoint);
+                    prevPoint = pointer;
                 }
                 pointer++;
             }
@@ -304,8 +304,8 @@ public class ItemBar : MonoBehaviour {
             {
                 if (pointer != prevPoint)
                 {
-                    prevPoint = pointer;
                     UpdateCurrentItem(prevPoint);
+                    prevPoint = pointer;
                 }
                 pointer = 0;
             }
@@ -317,8 +317,8 @@ public class ItemBar : MonoBehaviour {
             {
                 if (pointer != prevPoint)
                 {
-                    prevPoint = pointer;
                     UpdateCurrentItem(prevPoint);
+                    prevPoint = pointer;
                 }
                 pointer--;
             }
@@ -326,8 +326,8 @@ public class ItemBar : MonoBehaviour {
             {
                 if (pointer != prevPoint)
                 {
-                    prevPoint = pointer;
                     UpdateCurrentItem(prevPoint);
+                    prevPoint = pointer;
                 }
                 pointer = 8;
             }
@@ -748,11 +748,9 @@ public class ItemBar : MonoBehaviour {
     }
     public void UpdateCurrentItem(int curPoint)
     {
-        Debug.Log("ye "+prevPoint);
         GameObject currentAttack = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
         {
-            Debug.Log(obj.name);
             if (obj.GetComponent<attackLibrary>() != null)
             {
                 currentAttack = obj;
