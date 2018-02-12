@@ -753,7 +753,7 @@ public class ItemBar : MonoBehaviour {
         {
             if (obj.GetComponent<attackLibrary>() != null)
             {
-                Debug.Log(obj.name);
+                //Debug.Log(obj.name);
                 currentAttack = obj;
             }
         }
@@ -763,40 +763,74 @@ public class ItemBar : MonoBehaviour {
             {
                 foreach (MonoBehaviour obj in attack0.GetComponents<MonoBehaviour>())
                 {
-                    //attack0.GetComponent(obj.GetType()) = currentAttack.GetComponent(obj.GetType());
+                    Debug.Log(obj.GetType());
+                    var myComp = attack0.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
                 }
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
-                attack1 = currentAttack;
+                foreach (MonoBehaviour obj in attack1.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack1.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
-                attack2 = currentAttack;
+                foreach (MonoBehaviour obj in attack2.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack2.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 3 && currentAttack != null && attack3 != null)
             {
-                attack3 = currentAttack;
+                foreach (MonoBehaviour obj in attack3.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack3.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 4 && currentAttack != null && attack4 != null)
             {
-                attack4 = currentAttack;
+                foreach (MonoBehaviour obj in attack4.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack4.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 5 && currentAttack != null && attack5 != null)
             {
-                attack5 = currentAttack;
+                foreach (MonoBehaviour obj in attack5.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack5.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 6 && currentAttack != null && attack6 != null)
             {
-                attack6 = currentAttack;
+                foreach (MonoBehaviour obj in attack6.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack6.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 7 && currentAttack != null && attack7 != null)
             {
-                attack7 = currentAttack;
+                foreach (MonoBehaviour obj in attack7.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack7.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
             else if (curPoint == 8 && currentAttack != null && attack8 != null)
             {
-                attack8 = currentAttack;
+                foreach (MonoBehaviour obj in attack8.GetComponents<MonoBehaviour>())
+                {
+                    var myComp = attack8.GetComponent(obj.GetType());
+                    myComp = currentAttack.GetComponent(obj.GetType());
+                }
             }
         }catch(Exception e)
         {
