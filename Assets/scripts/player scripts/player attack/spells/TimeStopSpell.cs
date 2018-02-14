@@ -18,8 +18,9 @@ public class TimeStopSpell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //Debug.Log(timeAlive);
+        Debug.Log(timeAlive);
         timeAlive++;
+        gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, timeAlive);
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             var i = Instantiate(timeDrop);

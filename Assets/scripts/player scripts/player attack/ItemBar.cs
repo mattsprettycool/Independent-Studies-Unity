@@ -748,89 +748,51 @@ public class ItemBar : MonoBehaviour {
     }
     public void UpdateCurrentItem(int curPoint)
     {
-        GameObject currentAttack = null;
+        attackLibrary currentAttack = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
         {
             if (obj.GetComponent<attackLibrary>() != null)
             {
-                //Debug.Log(obj.name);
-                currentAttack = obj;
+                currentAttack = obj.GetComponent<attackLibrary>();
             }
         }
         try
         {
             if (curPoint == 0 && currentAttack != null && attack0 != null)
             {
-                foreach (MonoBehaviour obj in attack0.GetComponents<MonoBehaviour>())
-                {
-                    Debug.Log(obj.GetType());
-                    var myComp = attack0.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack0.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
-                foreach (MonoBehaviour obj in attack1.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack1.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack1.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
-                foreach (MonoBehaviour obj in attack2.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack2.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack2.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 3 && currentAttack != null && attack3 != null)
             {
-                foreach (MonoBehaviour obj in attack3.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack3.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack3.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 4 && currentAttack != null && attack4 != null)
             {
-                foreach (MonoBehaviour obj in attack4.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack4.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack4.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 5 && currentAttack != null && attack5 != null)
             {
-                foreach (MonoBehaviour obj in attack5.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack5.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack5.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 6 && currentAttack != null && attack6 != null)
             {
-                foreach (MonoBehaviour obj in attack6.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack6.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack6.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 7 && currentAttack != null && attack7 != null)
             {
-                foreach (MonoBehaviour obj in attack7.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack7.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack7.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
             else if (curPoint == 8 && currentAttack != null && attack8 != null)
             {
-                foreach (MonoBehaviour obj in attack8.GetComponents<MonoBehaviour>())
-                {
-                    var myComp = attack8.GetComponent(obj.GetType());
-                    myComp = currentAttack.GetComponent(obj.GetType());
-                }
+                attack8.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
             }
         }catch(Exception e)
         {

@@ -13,4 +13,18 @@ public class attackLibrary : MonoBehaviour {
     public bool IsInThirdPerson;
     [SerializeField]
     public string UUID;
+    public float[] savedValues = new float[10];
+
+    public float[] GetSavedValues()
+    {
+        return savedValues;
+    }
+    public void SetSavedValues(float[] newValues)
+    {
+        savedValues = newValues;
+    }
+    public void SetSavedValuesAtSpot(int spot ,float newValue)
+    {
+        savedValues[spot] = newValue;
+    }
 }
