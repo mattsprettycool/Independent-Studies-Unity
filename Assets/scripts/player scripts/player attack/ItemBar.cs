@@ -20,6 +20,7 @@ public class ItemBar : MonoBehaviour {
     [SerializeField]
     public int pointer;
     int currentPoint;
+    int virtualPointer = 0;
 	float switchTimer;
 	public bool justSwitched;
     bool justStarted;
@@ -30,6 +31,7 @@ public class ItemBar : MonoBehaviour {
     CameraMovement cm;
     int pleaseDontLag = 5;
     int prevPoint = -1;
+    float[,] savedValuesArr;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -42,13 +44,15 @@ public class ItemBar : MonoBehaviour {
         pM = GameObject.FindGameObjectWithTag("Player").GetComponent(typeof(PlayerMovement)) as PlayerMovement;
         commWithIscreen = false;
         cm = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraMovement>();
+        savedValuesArr = new float[8, 10];
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        changeAttacks();
+        UpdatePointer();
         if (pleaseDontLag <= 0)
         {
+            changeAttacks();
             //int pointerTemp = pointer;
             updateAttacks();
             setAttacks();
@@ -200,138 +204,83 @@ public class ItemBar : MonoBehaviour {
      */ 
     void changeAttacks()
     {
+        if (pointer != virtualPointer)
+        {
+            UpdatePrevItem(pointer);
+            pointer = virtualPointer;
+            UpdateCurrentItem(pointer);
+        }
+    }
+    void UpdatePointer()
+    {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 0;
+            virtualPointer = 0;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 1;
+            virtualPointer = 1;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 2;
+            virtualPointer = 2;
         }
-            
-        if (Input.GetKeyDown(KeyCode.Alpha4)) {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 3;
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            virtualPointer = 3;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 4;
+            virtualPointer = 4;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 5;
+            virtualPointer = 5;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 6;
+            virtualPointer = 6;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 7;
+            virtualPointer = 7;
         }
-            
+
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            if (pointer != prevPoint)
-            {
-                prevPoint = pointer;
-                UpdateCurrentItem(prevPoint);
-            }
-            pointer = 8;
+            virtualPointer = 8;
         }
-            
+
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (pointer < 8)
             {
-                if (pointer != prevPoint)
-                {
-                    prevPoint = pointer;
-                    UpdateCurrentItem(prevPoint);
-                }
-                pointer++;
+                virtualPointer++;
             }
             else
             {
-                if (pointer != prevPoint)
-                {
-                    prevPoint = pointer;
-                    UpdateCurrentItem(prevPoint);
-                }
-                pointer = 0;
+                virtualPointer = 0;
             }
-                
+
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (pointer > 0)
             {
-                if (pointer != prevPoint)
-                {
-                    prevPoint = pointer;
-                    UpdateCurrentItem(prevPoint);
-                }
-                pointer--;
+                virtualPointer--;
             }
             else
             {
-                if (pointer != prevPoint)
-                {
-                    prevPoint = pointer;
-                    UpdateCurrentItem(prevPoint);
-                }
-                pointer = 8;
+                virtualPointer = 8;
             }
-                
+
         }
     }
     /* Author - Matt Braden
@@ -746,6 +695,87 @@ public class ItemBar : MonoBehaviour {
         GameObject[] myArray = {attack0, attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8};
         return myArray;
     }
+    public void UpdatePrevItem(int curPoint)
+    {
+        attackLibrary currentAttack = null;
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+        {
+            if (obj.GetComponent<attackLibrary>() != null)
+            {
+                currentAttack = obj.GetComponent<attackLibrary>();
+            }
+        }
+        try
+        {
+            if (curPoint == 0 && currentAttack != null && attack0 != null)
+            {
+                for(int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 0] = attack0.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 1 && currentAttack != null && attack1 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 1] = attack1.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 2 && currentAttack != null && attack2 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 2] = attack2.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 3 && currentAttack != null && attack3 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 3] = attack3.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 4 && currentAttack != null && attack4 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 4] = attack4.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 5 && currentAttack != null && attack5 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 5] = attack5.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 6 && currentAttack != null && attack6 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 6] = attack6.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 7 && currentAttack != null && attack7 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 7] = attack7.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+            else if (curPoint == 8 && currentAttack != null && attack8 != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    savedValuesArr[i, 8] = attack8.GetComponent<attackLibrary>().GetSavedValues()[i];
+                }
+            }
+        }catch(Exception e)
+        {
+            debugger += e;
+        }
+    }
+
     public void UpdateCurrentItem(int curPoint)
     {
         attackLibrary currentAttack = null;
@@ -760,41 +790,69 @@ public class ItemBar : MonoBehaviour {
         {
             if (curPoint == 0 && currentAttack != null && attack0 != null)
             {
-                attack0.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack0.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 0];
+                }
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
-                attack1.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack1.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 1];
+                }
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
-                attack2.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack2.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 2];
+                }
             }
             else if (curPoint == 3 && currentAttack != null && attack3 != null)
             {
-                attack3.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack3.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 3];
+                }
             }
             else if (curPoint == 4 && currentAttack != null && attack4 != null)
             {
-                attack4.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack4.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 4];
+                }
             }
             else if (curPoint == 5 && currentAttack != null && attack5 != null)
             {
-                attack5.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack5.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 5];
+                }
             }
             else if (curPoint == 6 && currentAttack != null && attack6 != null)
             {
-                attack6.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack6.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 6];
+                }
             }
             else if (curPoint == 7 && currentAttack != null && attack7 != null)
             {
-                attack7.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack7.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 7];
+                }
             }
             else if (curPoint == 8 && currentAttack != null && attack8 != null)
             {
-                attack8.GetComponent<attackLibrary>().SetSavedValues(currentAttack.GetSavedValues());
+                for (int i = 0; i < 10; i++)
+                {
+                    attack8.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 8];
+                }
             }
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
             debugger += e;
         }

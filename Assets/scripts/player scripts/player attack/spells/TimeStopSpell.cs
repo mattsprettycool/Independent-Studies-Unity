@@ -14,6 +14,7 @@ public class TimeStopSpell : MonoBehaviour {
         spellMan = gameObject.GetComponent<SpellManager>();
         realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timeOn = realTime.IsTimeOn();
+        timeAlive = (int)gameObject.GetComponent<attackLibrary>().GetSavedValues()[0];
 	}
 	
 	// Update is called once per frame
