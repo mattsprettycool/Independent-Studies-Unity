@@ -711,63 +711,63 @@ public class ItemBar : MonoBehaviour {
             {
                 for(int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 0] = attack0.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 0] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 1] = attack1.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 1] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 2] = attack2.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 2] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 3 && currentAttack != null && attack3 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 3] = attack3.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 3] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 4 && currentAttack != null && attack4 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 4] = attack4.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 4] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 5 && currentAttack != null && attack5 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 5] = attack5.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 5] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 6 && currentAttack != null && attack6 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 6] = attack6.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 6] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 7 && currentAttack != null && attack7 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 7] = attack7.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 7] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
             else if (curPoint == 8 && currentAttack != null && attack8 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    savedValuesArr[i, 8] = attack8.GetComponent<attackLibrary>().GetSavedValues()[i];
+                    savedValuesArr[i, 8] = currentAttack.GetComponent<attackLibrary>().GetSavedValues()[i];
                 }
             }
         }catch(Exception e)
@@ -792,63 +792,63 @@ public class ItemBar : MonoBehaviour {
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack0.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 0];
+                    attack0.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 0]);
                 }
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack1.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 1];
+                    attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 1]);
                 }
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack2.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 2];
+                    attack2.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 2]);
                 }
             }
             else if (curPoint == 3 && currentAttack != null && attack3 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack3.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 3];
+                    attack3.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 3]);
                 }
             }
             else if (curPoint == 4 && currentAttack != null && attack4 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack4.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 4];
+                    attack4.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 4]);
                 }
             }
             else if (curPoint == 5 && currentAttack != null && attack5 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack5.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 5];
+                    attack5.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 5]);
                 }
             }
             else if (curPoint == 6 && currentAttack != null && attack6 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack6.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 6];
+                    attack6.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 6]);
                 }
             }
             else if (curPoint == 7 && currentAttack != null && attack7 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack7.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 7];
+                    attack7.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 7]);
                 }
             }
             else if (curPoint == 8 && currentAttack != null && attack8 != null)
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    attack8.GetComponent<attackLibrary>().GetSavedValues()[i] = savedValuesArr[i, 8];
+                    attack8.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 8]);
                 }
             }
         }
