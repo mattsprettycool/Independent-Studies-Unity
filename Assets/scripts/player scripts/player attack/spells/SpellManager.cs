@@ -62,6 +62,16 @@ public class SpellManager : MonoBehaviour {
         return isOffCooldown;
     }
     /// <summary>
+    /// Gets the ratio of cooldown to default cooldown from 0 - 1
+    /// </summary>
+    /// <returns>a float from 0 to 1 based on the ratio of current cooldown to the default cooldown</returns>
+    public float GetCooldownRatio()
+    {
+        if (currCooldownTime > defaultSpellCooldown)
+            return 1;
+        return (currCooldownTime/defaultSpellCooldown);
+    }
+    /// <summary>
     /// removes the default mana cost from the mana pool
     /// </summary>
     public void LoseMana()

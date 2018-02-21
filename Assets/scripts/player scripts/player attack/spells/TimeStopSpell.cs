@@ -19,13 +19,19 @@ public class TimeStopSpell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        timeAlive++;
-        gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, timeAlive);
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0)&&spellMan.IsOffCooldown())
         {
+            spellMan.SetSpellCooldown();
             var i = Instantiate(timeDrop);
             i.transform.position = gameObject.transform.position;
             i.transform.rotation = gameObject.transform.rotation;
         }
-	}
+        if (spellMan.IsOffCooldown())
+        {
+            gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, 1);
+        }
+        else
+            gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, 0);
+        gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(1, spellMan.GetCooldownRatio());
+    }
 }

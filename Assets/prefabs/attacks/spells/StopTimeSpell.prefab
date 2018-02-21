@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDrop: {fileID: 1342603998488556, guid: cf47da1a9d6ad50488b54d9f4b04490d, type: 2}
+  timeAlive: 0
 --- !u!114 &114936192018473794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultManaCooldown: 0
-  defaultSpellCooldown: 0
+  defaultSpellCooldown: 1000
   defaultManaCost: 0
 --- !u!114 &114977851259030580
 MonoBehaviour:
@@ -86,3 +87,16 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0f161341951fd8f4f9be385012908f8c, type: 3}
   IsInThirdPerson: 0
   UUID: 
+  savedValues:
+  - 0
+  - 0.929
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  hasCooldownAtSpot: 1
+  cooldownSpot: 1

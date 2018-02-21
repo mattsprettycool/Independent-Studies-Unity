@@ -14,7 +14,10 @@ public class attackLibrary : MonoBehaviour {
     [SerializeField]
     public string UUID;
     public float[] savedValues = new float[10];
-
+    [SerializeField]
+    public bool hasCooldownAtSpot = false;
+    [SerializeField]
+    public int cooldownSpot = 0;
     public float[] GetSavedValues()
     {
         return savedValues;

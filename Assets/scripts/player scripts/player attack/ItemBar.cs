@@ -52,6 +52,7 @@ public class ItemBar : MonoBehaviour {
         UpdatePointer();
         if (pleaseDontLag <= 0)
         {
+            UpdateCooldownIcons();
             changeAttacks();
             //int pointerTemp = pointer;
             updateAttacks();
@@ -111,7 +112,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib0 = attack0.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().overrideSprite = lib0.icon;
-
+            
         }
         catch (Exception e)
         {
@@ -123,6 +124,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib1 = attack1.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().overrideSprite = lib1.icon;
+            
         }
         catch (Exception e)
         {
@@ -133,6 +135,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib2 = attack2.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().overrideSprite = lib2.icon;
+            
         }
         catch (Exception e)
         {
@@ -142,6 +145,7 @@ public class ItemBar : MonoBehaviour {
         try {
             lib3 = attack3.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().overrideSprite = lib3.icon;
+            
         }
         catch(Exception e)
         {
@@ -152,6 +156,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib4 = attack4.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().overrideSprite = lib4.icon;
+            
         }
         catch (Exception e)
         {
@@ -162,6 +167,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib5 = attack5.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().overrideSprite = lib5.icon;
+            
         }
         catch (Exception e)
         {
@@ -172,6 +178,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib6 = attack6.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().overrideSprite = lib6.icon;
+            
         }
         catch (Exception e)
         {
@@ -182,6 +189,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib7 = attack7.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().overrideSprite = lib7.icon;
+            
         }
         catch (Exception e)
         {
@@ -192,6 +200,7 @@ public class ItemBar : MonoBehaviour {
         {
             lib8 = attack8.GetComponent(typeof(attackLibrary)) as attackLibrary;
             GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().overrideSprite = lib8.icon;
+            
         }
         catch (Exception e)
         {
@@ -853,6 +862,63 @@ public class ItemBar : MonoBehaviour {
             }
         }
         catch (Exception e)
+        {
+            debugger += e;
+        }
+    }
+    void UpdateCooldown(int hotBarSpot)
+    {
+        attackLibrary currentAttack = null;
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+        {
+            if (obj.GetComponent<attackLibrary>() != null)
+            {
+                currentAttack = obj.GetComponent<attackLibrary>();
+            }
+        }
+        if (hotBarSpot == 0)
+        {
+            GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }else if (hotBarSpot == 1)
+        {
+            GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 2)
+        {
+            GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 3)
+        {
+            GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 4)
+        {
+            GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 5)
+        {
+            GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 6)
+        {
+            GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 7)
+        {
+            GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+        else if (hotBarSpot == 8)
+        {
+            GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+        }
+    }
+    void UpdateCooldownIcons()
+    {
+        try
+        {
+            UpdateCooldown(currentPoint);
+        }
+        catch(Exception e)
         {
             debugger += e;
         }
