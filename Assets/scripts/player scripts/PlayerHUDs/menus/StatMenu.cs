@@ -25,6 +25,15 @@ public class StatMenu : MonoBehaviour {
 				i.enabled = false;
 			}
 		}
+		if (active) {
+			gameObject.GetComponent<Image> ().enabled = true;
+			foreach (Text t in gameObject.GetComponentsInChildren<Text>()) {
+				t.enabled = true;
+			}
+			foreach (Image i in gameObject.GetComponentsInChildren<Image>()) {
+				i.enabled = true;
+			}
+		}
 		if (Input.GetKeyDown (KeyCode.Tab) && !pSpawn.inArena) {
 			active = true;
 		}
