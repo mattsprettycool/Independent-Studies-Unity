@@ -32,6 +32,7 @@ public class ItemBar : MonoBehaviour {
     int pleaseDontLag = 5;
     int prevPoint = -1;
     float[,] savedValuesArr;
+    float[] cooldownArr;
 	// Use this for initialization
 	void Start () {
         updateAttacks();
@@ -45,6 +46,7 @@ public class ItemBar : MonoBehaviour {
         commWithIscreen = false;
         cm = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraMovement>();
         savedValuesArr = new float[8, 10];
+        cooldownArr = new float[8];
     }
 	
 	// Update is called once per frame
@@ -716,6 +718,7 @@ public class ItemBar : MonoBehaviour {
         }
         try
         {
+            savedValuesArr[currentAttack.cooldownSpot, curPoint] = cooldownArr[curPoint];
             if (curPoint == 0 && currentAttack != null && attack0 != null)
             {
                 for(int i = 0; i < 10; i++)
@@ -793,10 +796,13 @@ public class ItemBar : MonoBehaviour {
             if (obj.GetComponent<attackLibrary>() != null)
             {
                 currentAttack = obj.GetComponent<attackLibrary>();
+                currentAttack.SetSavedValuesAtSpot(currentAttack.cooldownSpot, cooldownArr[curPoint]);
             }
         }
+
         try
         {
+            savedValuesArr[currentAttack.cooldownSpot, curPoint] = cooldownArr[curPoint];
             if (curPoint == 0 && currentAttack != null && attack0 != null)
             {
                 for (int i = 0; i < 10; i++)
@@ -869,54 +875,62 @@ public class ItemBar : MonoBehaviour {
     void UpdateCooldown(int hotBarSpot)
     {
         attackLibrary currentAttack = null;
+        float cooldownVal = 0;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
         {
-            if (obj.GetComponent<attackLibrary>() != null)
+            if (obj.GetComponent<attackLibrary>() != null && hotBarSpot==currentPoint)
             {
                 currentAttack = obj.GetComponent<attackLibrary>();
+                cooldownVal = currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+                cooldownArr[hotBarSpot] = cooldownVal;
+            }
+            else
+            {
+                cooldownVal = cooldownArr[hotBarSpot];
             }
         }
         if (hotBarSpot == 0)
         {
-            GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }else if (hotBarSpot == 1)
         {
-            GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h1").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 2)
         {
-            GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h2").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 3)
         {
-            GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h3").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 4)
         {
-            GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h4").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 5)
         {
-            GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h5").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 6)
         {
-            GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h6").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 7)
         {
-            GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h7").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
         else if (hotBarSpot == 8)
         {
-            GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().fillAmount = 1 - currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
+            GameObject.FindGameObjectWithTag("h8").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }
     }
     void UpdateCooldownIcons()
     {
         try
         {
-            UpdateCooldown(currentPoint);
+            for(int i = 0; i < 9; i++)
+                UpdateCooldown(i);
         }
         catch(Exception e)
         {
