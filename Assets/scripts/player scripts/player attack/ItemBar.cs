@@ -872,13 +872,13 @@ public class ItemBar : MonoBehaviour {
             debugger += e;
         }
     }
-    void UpdateCooldown(int hotBarSpot)
+    void UpdateCooldown(int hotBarSpot, bool isInScene)
     {
         attackLibrary currentAttack = null;
         float cooldownVal = 0;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
         {
-            if (obj.GetComponent<attackLibrary>() != null && hotBarSpot==currentPoint)
+            if (obj.GetComponent<attackLibrary>() != null && isInScene)
             {
                 currentAttack = obj.GetComponent<attackLibrary>();
                 cooldownVal = currentAttack.GetSavedValues()[currentAttack.cooldownSpot];
@@ -891,6 +891,7 @@ public class ItemBar : MonoBehaviour {
         }
         if (hotBarSpot == 0)
         {
+            Debug.Log(cooldownVal);
             GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }else if (hotBarSpot == 1)
         {
@@ -929,8 +930,10 @@ public class ItemBar : MonoBehaviour {
     {
         try
         {
-            for(int i = 0; i < 9; i++)
-                UpdateCooldown(i);
+            for (int i = 0; i < 9; i++)
+            {
+                UpdateCooldown(i, i==currentPoint);
+            }
         }
         catch(Exception e)
         {
