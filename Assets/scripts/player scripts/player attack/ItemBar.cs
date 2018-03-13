@@ -891,7 +891,6 @@ public class ItemBar : MonoBehaviour {
         }
         if (hotBarSpot == 0)
         {
-            Debug.Log(cooldownVal);
             GameObject.FindGameObjectWithTag("h0").GetComponent<Image>().fillAmount = 1 - cooldownVal;
         }else if (hotBarSpot == 1)
         {
