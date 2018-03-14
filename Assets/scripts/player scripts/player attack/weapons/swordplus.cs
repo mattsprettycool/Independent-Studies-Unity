@@ -17,11 +17,16 @@ public class swordplus : MonoBehaviour {
         }
 	}
     void AttackAllInRange()
-    {//hey so when I get back why don't you make it so if the ray from the player to the enemy is positve x then yee
+    {
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         {
-            if (GetDistance(transform.position, obj.transform.position) <= 4)
-                obj.GetComponent<EnemyHealth>().TakeDamage(10);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, obj.transform.position, out hit))
+            {
+                if (GetDistance(transform.position, obj.transform.position) <= 4 && (hit.transform.position.x / Mathf.Abs(hit.transform.position.x)) == (Camera.main.transform.position.x / Mathf.Abs(Camera.main.transform.position.x))) {
+                    obj.GetComponent<EnemyHealth>().TakeDamage(10);
+                }
+            }
         }
     }
     float GetDistance(Vector3 x, Vector3 y)
