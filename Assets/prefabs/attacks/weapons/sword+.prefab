@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114035015562660510}
   - component: {fileID: 114903441062664790}
   - component: {fileID: 114458299426044090}
+  - component: {fileID: 95312465569188198}
   m_Layer: 5
   m_Name: sword+
   m_TagString: attacks
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 4160821357531414}
   - component: {fileID: 33596722336945046}
   - component: {fileID: 23656264658516814}
+  - component: {fileID: 95577934082597666}
   m_Layer: 5
   m_Name: default
   m_TagString: Untagged
@@ -125,6 +127,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 12, z: 1}
   m_Center: {x: 0, y: 9, z: 0}
+--- !u!95 &95312465569188198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481864484210940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6e87be4c8e84b44ba5eb1b40ff67c87, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95577934082597666
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870255416262162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82c248a1c6ae54748add1f8201668815, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114035015562660510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae026633a3606f45ba05c0c762bd8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 1, y: -0.25, z: 0.5}
+  pos: {x: 1.714, y: -1.068, z: 1.164}
   rotX: 0
   rotY: -90
   rotZ: 0

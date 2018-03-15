@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class swordplus : MonoBehaviour {
-
+    Animator anim;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +14,7 @@ public class swordplus : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             AttackAllInRange();
+            anim.Play("SwordAnim1");
         }
 	}
     void AttackAllInRange()
@@ -21,9 +22,9 @@ public class swordplus : MonoBehaviour {
         foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, obj.transform.position, out hit))
+            if (Physics.Raycast(Camera.main.transform.position, obj.transform.position, out hit))
             {
-                if (GetDistance(transform.position, obj.transform.position) <= 4 && (hit.transform.position.x / Mathf.Abs(hit.transform.position.x)) == (Camera.main.transform.position.x / Mathf.Abs(Camera.main.transform.position.x))) {
+                if (GetDistance(transform.position, obj.transform.position) <= 5 && (hit.normal.x/ Mathf.Abs(hit.normal.x)) == (Camera.main.transform.rotation.x / Mathf.Abs(Camera.main.transform.rotation.x))) {
                     obj.GetComponent<EnemyHealth>().TakeDamage(10);
                 }
             }
