@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class swordplus : MonoBehaviour {
     Animator anim;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void Start()
+    {
+        anim = gameObject.GetComponentInChildren<Animator>();
+    }
+    void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             AttackAllInRange();
