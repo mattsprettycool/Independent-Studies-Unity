@@ -9,10 +9,13 @@ public class swordplus : MonoBehaviour {
         anim = gameObject.GetComponentInChildren<Animator>();
     }
     void Update () {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            AttackAllInRange();
-            anim.Play("SwordAnim1");
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("swingsword"))
+            {
+                AttackAllInRange();
+                anim.Play("SwordSwing1");
+            }
         }
 	}
     void AttackAllInRange()
@@ -22,8 +25,8 @@ public class swordplus : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, obj.transform.position, out hit))
             {
-                if (GetDistance(transform.position, obj.transform.position) <= 5 && (hit.normal.x/ Mathf.Abs(hit.normal.x)) == (Camera.main.transform.rotation.x / Mathf.Abs(Camera.main.transform.rotation.x))) {
-                    obj.GetComponent<EnemyHealth>().TakeDamage(10);
+                if (GetDistance(transform.position, obj.transform.position) <= 8 && (hit.normal.x/ Mathf.Abs(hit.normal.x)) == (Camera.main.transform.rotation.x / Mathf.Abs(Camera.main.transform.rotation.x))) {
+                    obj.GetComponent<EnemyHealth>().TakeDamage(25);
                 }
             }
         }
