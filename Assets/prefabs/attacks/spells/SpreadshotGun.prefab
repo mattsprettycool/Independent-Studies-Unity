@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114788088370150056}
   m_Layer: 0
   m_Name: SpreadshotGun
-  m_TagString: Untagged
+  m_TagString: attacks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   rotX: 0
   rotY: 0
   rotZ: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0f285b784be854d42bbbdc5348bca570, type: 3}
   IsInThirdPerson: 0
   UUID: dkjnasd12uiwdwj
   savedValues:

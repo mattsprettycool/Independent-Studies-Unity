@@ -82,7 +82,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1253251580121432}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -158,6 +158,19 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f304b632d971c1143a4bc9724373a2cc, type: 3}
   IsInThirdPerson: 0
   UUID: fa12y0nnuw27y2
+  savedValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  hasCooldownAtSpot: 0
+  cooldownSpot: 0
 --- !u!114 &114989013495304016
 MonoBehaviour:
   m_ObjectHideFlags: 1
