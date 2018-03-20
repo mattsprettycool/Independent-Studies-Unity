@@ -22,7 +22,7 @@ public class ItemSwapper : MonoBehaviour {
 	void Update () {
         //DEBUG CODE
         GameObject g1 = null, g2 = null;
-        if (swap)
+        if (swap&& !GameObject.FindGameObjectWithTag("ItemBarHolder").GetComponent<ItemBar>().IsOnCooldown())
         {
             if (spot1.Contains("h")) g1 = iBar.GetItemAtSpot(spot1);
             if (spot1.Contains("i")) g1 = iScreen.GetItemAtSpot(spot1);

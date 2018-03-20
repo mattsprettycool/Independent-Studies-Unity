@@ -799,12 +799,12 @@ public class ItemBar : MonoBehaviour {
                 currentAttack.SetSavedValuesAtSpot(currentAttack.cooldownSpot, cooldownArr[curPoint]);
             }
         }
-
         try
         {
             savedValuesArr[currentAttack.cooldownSpot, curPoint] = cooldownArr[curPoint];
             if (curPoint == 0 && currentAttack != null && attack0 != null)
             {
+                attack0.GetComponent<attackLibrary>().SetSavedValuesAtSpot(currentAttack.cooldownSpot, cooldownArr[curPoint]);
                 for (int i = 0; i < 10; i++)
                 {
                     attack0.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 0]);
@@ -812,10 +812,15 @@ public class ItemBar : MonoBehaviour {
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
+                Debug.Log(cooldownArr[curPoint]);
+                attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(currentAttack.cooldownSpot, cooldownArr[curPoint]);
+                Debug.Log(attack1.GetComponent<attackLibrary>().GetSavedValues()[currentAttack.cooldownSpot]);
                 for (int i = 0; i < 10; i++)
                 {
-                    attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 1]);
+                    if(i!= currentAttack.cooldownSpot)
+                    attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[1, i]);//WORK HERE
                 }
+                Debug.Log("yee");
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
@@ -938,5 +943,24 @@ public class ItemBar : MonoBehaviour {
         {
             debugger += e;
         }
+    }
+    public bool IsOnCooldown()
+    {
+        for(int i = 0; i < cooldownArr.Length; i++)
+        {
+            if (cooldownArr[i] < 1&& cooldownArr[i] != 0)
+                return true;
+        }
+        float cooldownVal = 0;
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("attacks"))
+        {
+            if (obj.GetComponent<attackLibrary>() != null)
+            {
+                cooldownVal = obj.GetComponent<attackLibrary>().GetSavedValues()[obj.GetComponent<attackLibrary>().cooldownSpot];
+            }
+        }
+        if (cooldownVal < 1 && cooldownVal != 0)
+            return true;
+        return false;
     }
 }

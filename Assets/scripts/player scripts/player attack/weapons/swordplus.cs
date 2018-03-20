@@ -25,7 +25,7 @@ public class swordplus : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, obj.transform.position, out hit))
             {
-                if (GetDistance(transform.position, obj.transform.position) <= 8 && (hit.normal.x/ Mathf.Abs(hit.normal.x)) == (Camera.main.transform.rotation.x / Mathf.Abs(Camera.main.transform.rotation.x))) {
+                if (GetDistance(transform.position, obj.transform.position) <= 5 && (hit.normal.x/ Mathf.Abs(hit.normal.x)) == (Camera.main.transform.rotation.x / Mathf.Abs(Camera.main.transform.rotation.x))) {
                     obj.GetComponent<EnemyHealth>().TakeDamage(25);
                 }
             }
