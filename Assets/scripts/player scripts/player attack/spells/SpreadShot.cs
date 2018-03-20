@@ -14,15 +14,16 @@ public class SpreadShot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Mouse0)) {
-			size += .005f;
+			size += .05f;
 		}
 		if (Input.GetKeyUp (KeyCode.Mouse0) && spm.HasManaNumber () && Time.timeScale == 1f) {
 			for (int i = 0; i < 12; i++){
 				GameObject proj = Instantiate (projectile, gameObject.transform);
-				proj.GetComponent<Transform> ().transform.localScale = new Vector3 (.01f * size, .01f * size, .01f * size);
-				proj.GetComponent<Transform> ().Rotate (Random.Range (0, 15), Random.Range (0, 20), 0);
+				proj.GetComponent<Transform> ().transform.localScale = new Vector3 (.1f + (size/10), .1f + (size/10), .1f + (size/10));
+				proj.GetComponent<Transform> ().localPosition = new Vector3 (0, 0, 0);
+				proj.GetComponent<Transform> ().Rotate (Random.Range (-10, 10), Random.Range (-15, 15), 0);
 				proj.GetComponent<Transform> ().SetParent (null);
-			}spm.LoseMana ();
+			}spm.LoseMana (); size = 0;
 		}
 	}
 }
