@@ -8,8 +8,9 @@ public class SpreadShotBulletScript : MonoBehaviour {
 	ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Rigidbody> ().AddRelativeForce (0, 1000, 0);
+		gameObject.GetComponent<Rigidbody> ().AddRelativeForce (0, 0, 1000);
 		realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+		GameObject.Destroy (this.gameObject, gameObject.GetComponent<ProjectileDamageLibrary> ().travelTime);
 	}
 	
 	// Update is called once per frame
@@ -25,7 +26,8 @@ public class SpreadShotBulletScript : MonoBehaviour {
 		{
 			try
 			{
-				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit);
+				Debug.Log("Dealing " + (gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit + gameObject.transform.localScale.x) + " damage.");
+				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit + gameObject.transform.localScale.x);
 			}
 			catch (Exception e)
 			{
