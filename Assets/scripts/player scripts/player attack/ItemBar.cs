@@ -30,7 +30,6 @@ public class ItemBar : MonoBehaviour {
     public bool commWithIscreen;
     CameraMovement cm;
     int pleaseDontLag = 5;
-    int prevPoint = -1;
     float[,] savedValuesArr;
     float[] cooldownArr;
 	// Use this for initialization
@@ -812,15 +811,12 @@ public class ItemBar : MonoBehaviour {
             }
             else if (curPoint == 1 && currentAttack != null && attack1 != null)
             {
-                Debug.Log(cooldownArr[curPoint]);
                 attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(currentAttack.cooldownSpot, cooldownArr[curPoint]);
-                Debug.Log(attack1.GetComponent<attackLibrary>().GetSavedValues()[currentAttack.cooldownSpot]);
                 for (int i = 0; i < 10; i++)
                 {
                     if(i!= currentAttack.cooldownSpot)
-                    attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[1, i]);//WORK HERE
+                    attack1.GetComponent<attackLibrary>().SetSavedValuesAtSpot(i, savedValuesArr[i, 1]);
                 }
-                Debug.Log("yee");
             }
             else if (curPoint == 2 && currentAttack != null && attack2 != null)
             {
@@ -893,6 +889,7 @@ public class ItemBar : MonoBehaviour {
             {
                 cooldownVal = cooldownArr[hotBarSpot];
             }
+            Debug.Log(attack0.GetComponent<attackLibrary>().GetSavedValues()[attack0.GetComponent<attackLibrary>().cooldownSpot] + " Index: " + cooldownArr[0]);
         }
         if (hotBarSpot == 0)
         {

@@ -6,10 +6,10 @@ public class fireball : MonoBehaviour {
     [SerializeField]
     public GameObject firebolt;
     SpellManager spellManager;
-    ArtificialTimeManager realTime;
+    //ArtificialTimeManager realTime;
 	// Use this for initialization
 	void Start () {
-        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+        //realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         spellManager = gameObject.GetComponent<SpellManager>();
 	}
 	
