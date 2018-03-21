@@ -34,8 +34,13 @@ public class StatMenu : MonoBehaviour {
 				i.enabled = true;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.Tab) && !pSpawn.inArena) {
-			active = true;
-		}
+	}
+
+	public void SetActive (bool tf){
+		active = tf;
+	}
+
+	public bool GetActive () {
+		return active;
 	}
 }
