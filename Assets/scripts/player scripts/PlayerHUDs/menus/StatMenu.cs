@@ -18,6 +18,7 @@ public class StatMenu : MonoBehaviour {
 	void Update () {
 		if (!active) {
 			gameObject.GetComponent<Image> ().enabled = false;
+			Cursor.lockState = CursorLockMode.Locked;
 			foreach (Text t in gameObject.GetComponentsInChildren<Text>()) {
 				t.enabled = false;
 			}
@@ -27,6 +28,7 @@ public class StatMenu : MonoBehaviour {
 		}
 		if (active) {
 			gameObject.GetComponent<Image> ().enabled = true;
+			Cursor.lockState = CursorLockMode.None;
 			foreach (Text t in gameObject.GetComponentsInChildren<Text>()) {
 				t.enabled = true;
 			}
@@ -34,8 +36,13 @@ public class StatMenu : MonoBehaviour {
 				i.enabled = true;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.Tab) && !pSpawn.inArena) {
-			active = true;
-		}
+	}
+
+	public void SetActive (bool tf){
+		active = tf;
+	}
+
+	public bool GetActive () {
+		return active;
 	}
 }

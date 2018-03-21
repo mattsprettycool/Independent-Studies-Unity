@@ -80,6 +80,7 @@ TagManager:
   - tloc
   - ehealthback
   - TimeStop
+  - StatMenu
   layers:
   - Default
   - TransparentFX
