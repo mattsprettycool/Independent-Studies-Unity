@@ -5,12 +5,37 @@ using System;
 
 public class SpreadShotBulletScript : MonoBehaviour {
 	string debug;
+	float timer;
+	Vector3 storedVel;
 	ArtificialTimeManager realTime;
+	Rigidbody rb;
 	// Use this for initialization
 	void Start () {
-		gameObject.GetComponent<Rigidbody> ().AddRelativeForce (0, 0, 1000);
+		timer = 0;
+		rb = gameObject.GetComponent<Rigidbody> ();
+		rb.AddRelativeForce (0, 0, 1000);
 		realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
-		GameObject.Destroy (this.gameObject, gameObject.GetComponent<ProjectileDamageLibrary> ().travelTime);
+	}
+	void FixedUpdate ()
+	{
+		if (realTime.IsTimeOn())
+		{
+			if(rb.velocity == Vector3.zero)
+			{
+				rb.velocity = storedVel;
+			}
+			if (timer >= gameObject.GetComponent<ProjectileDamageLibrary> ().travelTime)
+			{
+				GameObject.Destroy(gameObject);
+			}
+			timer += Time.deltaTime;
+		}
+		else
+		{
+			if(rb.velocity!=Vector3.zero)
+				storedVel = rb.velocity;
+			rb.velocity = Vector3.zero;
+		}
 	}
 	
 	// Update is called once per frame
