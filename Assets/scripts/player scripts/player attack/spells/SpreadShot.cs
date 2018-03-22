@@ -21,9 +21,9 @@ public class SpreadShot : MonoBehaviour {
 				GameObject proj = Instantiate (projectile, gameObject.transform);
 				proj.GetComponent<Transform> ().transform.localScale = new Vector3 (.1f + (size/10), .1f + (size/10), .1f + (size/10));
 				proj.GetComponent<Transform> ().localPosition = new Vector3 (0, 0, 0);
-				proj.GetComponent<Transform> ().Rotate (Random.Range (-10, 10), Random.Range (-15, 15), 0);
+				proj.GetComponent<Transform> ().Rotate (Random.Range (-7.5f, 7.5f), Random.Range (-7.5f, 7.5f), 0);
 				proj.GetComponent<Transform> ().SetParent (null);
-			}spm.LoseMana (); size = 0;
+			}spm.LoseMana (); spm.SetManaCooldown(); size = 0;
 		}
 	}
 }
