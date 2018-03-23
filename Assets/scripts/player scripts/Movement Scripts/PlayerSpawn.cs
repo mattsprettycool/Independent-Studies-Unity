@@ -61,18 +61,6 @@ public class PlayerSpawn : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.name == "HealthUp" && statPointsToSpend > 0) {
-			pHealth.startHealth += 10;
-			statPointsToSpend -= 1;
-		}
-		if (other.name == "ManaUp" && statPointsToSpend > 0) {
-			pMana.cooldownReduction++;
-			statPointsToSpend -= 1;
-		}
-		if (other.name == "StaminaUp" && statPointsToSpend > 0) {
-			pStam.startStamina += 10;
-			statPointsToSpend -= 1;
-		}
 		if (other.tag == "PlayerSpawnTrigger" && enSpawn.GetEnemiesKilled () >= killMngr.GetKillsNeeded ()) {
 			Debug.Log ("Met parameters");
 			Debug.Log ("Saving Stats");
@@ -116,6 +104,12 @@ public class PlayerSpawn : MonoBehaviour {
     {
         return inArena;
     }
+	public void SpendPoint(){
+		statPointsToSpend--;
+	}
+	public int GetPoints(){
+		return statPointsToSpend;
+	}
 	void OnApplicationQuit(){
 		PlayerPrefs.DeleteAll ();
 	}

@@ -21,4 +21,11 @@ public class BonusesLibrary : MonoBehaviour {
 	public void SetMagicBonus(int amount){
 		spellDmgBonus = amount;
 	}
+	public void AddToMeleeBonusBy(int amount){
+		meleeDmgBonus += amount;
+	}
+
+	public void AddToMagicBonusBy(int amount){
+		spellDmgBonus += amount;
+	}
 }

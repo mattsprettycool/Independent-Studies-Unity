@@ -25,6 +25,9 @@ public class StatMenu : MonoBehaviour {
 			foreach (Image i in gameObject.GetComponentsInChildren<Image>()) {
 				i.enabled = false;
 			}
+			foreach (Button b in gameObject.GetComponentsInChildren<Button>()) {
+				b.enabled = false;
+			}
 		}
 		if (active) {
 			gameObject.GetComponent<Image> ().enabled = true;
@@ -34,6 +37,9 @@ public class StatMenu : MonoBehaviour {
 			}
 			foreach (Image i in gameObject.GetComponentsInChildren<Image>()) {
 				i.enabled = true;
+			}
+			foreach (Button b in gameObject.GetComponentsInChildren<Button>()) {
+				b.enabled = true;
 			}
 		}
 	}

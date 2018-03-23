@@ -889,7 +889,7 @@ public class ItemBar : MonoBehaviour {
             {
                 cooldownVal = cooldownArr[hotBarSpot];
             }
-            Debug.Log(attack0.GetComponent<attackLibrary>().GetSavedValues()[attack0.GetComponent<attackLibrary>().cooldownSpot] + " Index: " + cooldownArr[0]);
+            //Debug.Log(attack0.GetComponent<attackLibrary>().GetSavedValues()[attack0.GetComponent<attackLibrary>().cooldownSpot] + " Index: " + cooldownArr[0]);
         }
         if (hotBarSpot == 0)
         {

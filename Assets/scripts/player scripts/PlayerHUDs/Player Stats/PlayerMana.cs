@@ -36,7 +36,7 @@ public class PlayerMana : MonoBehaviour {
         manaSlider.value = currMana;
         if (refreshCooldown)
         {
-            cooldown = 10f - (cooldownReduction * .5f);
+			cooldown = 10f - cooldownReduction;
             refreshCooldown = false;
         }
         if (currMana < maxMana && cooldown <= 0)
@@ -75,5 +75,8 @@ public class PlayerMana : MonoBehaviour {
     //WHAT IS THIS JAI
 	public void InitiateDecrease(bool yesNo){
 		decreasing = true;
+	}
+	public void AddToCoolDownReduction (float amount){
+		cooldownReduction += amount;
 	}
 }
