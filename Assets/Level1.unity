@@ -583,6 +583,8 @@ GameObject:
   - component: {fileID: 104898681}
   - component: {fileID: 104898680}
   - component: {fileID: 104898679}
+  - component: {fileID: 104898682}
+  - component: {fileID: 104898683}
   m_Layer: 5
   m_Name: MeleeAttackDamageButton
   m_TagString: Untagged
@@ -648,23 +650,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1272719274}
+        m_MethodName: IncreaseMeleeBonus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -705,6 +696,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104898677}
+--- !u!114 &104898682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104898677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b332ae697094f8ea52cc622c2e6fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &104898683
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104898677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &110841057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Stamina
 --- !u!222 &270662885
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2189,6 +2203,8 @@ GameObject:
   - component: {fileID: 325166495}
   - component: {fileID: 325166494}
   - component: {fileID: 325166493}
+  - component: {fileID: 325166496}
+  - component: {fileID: 325166497}
   m_Layer: 5
   m_Name: StaminaButton
   m_TagString: Untagged
@@ -2254,12 +2270,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1272719274}
+        m_MethodName: IncreaseStamina
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2300,6 +2316,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 325166491}
+--- !u!114 &325166496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325166491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b332ae697094f8ea52cc622c2e6fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &325166497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325166491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &331748756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,7 +4005,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Melee Bonus
 --- !u!222 &554330697
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6185,7 +6224,7 @@ GameObject:
   - component: {fileID: 874829988}
   m_Layer: 5
   m_Name: HoverOverText
-  m_TagString: Untagged
+  m_TagString: HoverOverText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6574,7 +6613,7 @@ GameObject:
   - component: {fileID: 892655163}
   m_Layer: 5
   m_Name: HoverOverImage
-  m_TagString: Untagged
+  m_TagString: HoverOverImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6641,6 +6680,8 @@ GameObject:
   - component: {fileID: 916741157}
   - component: {fileID: 916741156}
   - component: {fileID: 916741155}
+  - component: {fileID: 916741158}
+  - component: {fileID: 916741159}
   m_Layer: 5
   m_Name: MagicAttackDamageButton
   m_TagString: Untagged
@@ -6706,12 +6747,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1272719274}
+        m_MethodName: IncreaseMagicBonus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6752,6 +6793,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916741153}
+--- !u!114 &916741158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916741153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b332ae697094f8ea52cc622c2e6fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &916741159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 916741153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &945414549
 GameObject:
   m_ObjectHideFlags: 0
@@ -8752,6 +8816,8 @@ GameObject:
   - component: {fileID: 1257067881}
   - component: {fileID: 1257067880}
   - component: {fileID: 1257067879}
+  - component: {fileID: 1257067882}
+  - component: {fileID: 1257067883}
   m_Layer: 5
   m_Name: HealthButton
   m_TagString: Untagged
@@ -8863,6 +8929,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1257067877}
+--- !u!114 &1257067882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257067877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b332ae697094f8ea52cc622c2e6fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1257067883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1257067877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1270031625
 GameObject:
   m_ObjectHideFlags: 0
@@ -10476,7 +10565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Mana Cooldown
 --- !u!222 &1632351726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10745,7 +10834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Health
 --- !u!222 &1659484995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12067,6 +12156,8 @@ GameObject:
   - component: {fileID: 1973074107}
   - component: {fileID: 1973074106}
   - component: {fileID: 1973074105}
+  - component: {fileID: 1973074108}
+  - component: {fileID: 1973074109}
   m_Layer: 5
   m_Name: ManaCoolDownButton
   m_TagString: Untagged
@@ -12132,12 +12223,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1272719274}
+        m_MethodName: DecreaseManaCoolDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12178,6 +12269,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1973074103}
+--- !u!114 &1973074108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973074103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b332ae697094f8ea52cc622c2e6fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1973074109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973074103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1983524634
 GameObject:
   m_ObjectHideFlags: 0
@@ -12918,7 +13032,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Magic Bonus
 --- !u!222 &2123040005
 CanvasRenderer:
   m_ObjectHideFlags: 0

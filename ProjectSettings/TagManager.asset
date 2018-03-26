@@ -81,6 +81,8 @@ TagManager:
   - ehealthback
   - TimeStop
   - StatMenu
+  - HoverOverText
+  - HoverOverImage
   layers:
   - Default
   - TransparentFX

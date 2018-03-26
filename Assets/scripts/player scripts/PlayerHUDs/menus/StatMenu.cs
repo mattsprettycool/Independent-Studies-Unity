@@ -5,18 +5,16 @@ using UnityEngine.UI;
 
 public class StatMenu : MonoBehaviour {
 	bool active;
-	bool canBeUsed;
 	PlayerSpawn pSpawn;
 	// Use this for initialization
 	void Start () {
 		active = false;
-		canBeUsed = false;
 		pSpawn = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerSpawn> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!active) {
+		if (!active && Time.timeScale != 0) {
 			gameObject.GetComponent<Image> ().enabled = false;
 			Cursor.lockState = CursorLockMode.Locked;
 			foreach (Text t in gameObject.GetComponentsInChildren<Text>()) {
@@ -29,7 +27,7 @@ public class StatMenu : MonoBehaviour {
 				b.enabled = false;
 			}
 		}
-		if (active) {
+		if (active && Time.timeScale != 0) {
 			gameObject.GetComponent<Image> ().enabled = true;
 			Cursor.lockState = CursorLockMode.None;
 			foreach (Text t in gameObject.GetComponentsInChildren<Text>()) {
