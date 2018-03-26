@@ -30,6 +30,7 @@ public class GravityWell : MonoBehaviour
                 attackInst.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y + 1.266f, hitInfo.point.z);
                 attackInst.transform.rotation = hitInfo.transform.rotation;
             }
+
         }
         else
         {
@@ -68,5 +69,12 @@ public class GravityWell : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("attackPreview"));
             }
         }
+        if (spellManager.IsOffCooldown())
+        {
+            gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, 1);
+        }
+        else
+            gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, 0);
+        gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(1, spellManager.GetCooldownRatio());
     }
 }

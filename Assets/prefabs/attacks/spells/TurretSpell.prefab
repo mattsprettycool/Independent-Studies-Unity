@@ -71,8 +71,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  hasCooldownAtSpot: 0
-  cooldownSpot: 0
+  hasCooldownAtSpot: 1
+  cooldownSpot: 1
 --- !u!114 &114110532417123444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,9 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f610c3a5bfa029841bee9e95824379ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultManaCooldown: 0
-  defaultSpellCooldown: 0
-  defaultManaCost: 0
+  defaultManaCooldown: 10
+  defaultSpellCooldown: 500
+  defaultManaCost: 100
 --- !u!114 &114358177389962530
 MonoBehaviour:
   m_ObjectHideFlags: 1

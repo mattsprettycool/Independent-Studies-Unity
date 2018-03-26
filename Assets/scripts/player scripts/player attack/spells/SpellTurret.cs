@@ -9,6 +9,8 @@ public class SpellTurret : MonoBehaviour {
     float curTime = 0;
     [SerializeField]
     GameObject projectile;
+    [SerializeField]
+    float timeUntilDeath = 100;
     private void Start()
     {
         curTime = timeUntilStart;
@@ -23,12 +25,23 @@ public class SpellTurret : MonoBehaviour {
         {
             ShootEnemy();
         }
+        if (timeUntilDeath > 0)
+        {
+            timeUntilDeath--;
+        }
+        else
+            Destroy(gameObject);
     }
     void ShootEnemy()
     {
-        var proj = Instantiate(projectile);
-        proj.transform.position = GameObject.FindGameObjectWithTag("Enemies").GetComponent<Transform>().position;
-        AddCooldown(250);
+        GameObject foundEnemy = GameObject.FindGameObjectWithTag("Enemies");
+        if (foundEnemy != null)
+        {
+            var proj = Instantiate(projectile);
+            proj.transform.position = new Vector3(transform.position.x, transform.position.y+ 1.733f, transform.position.z);
+            proj.transform.LookAt(foundEnemy.transform);
+            AddCooldown(25);
+        }
     }
     void AddCooldown(float x)
     {

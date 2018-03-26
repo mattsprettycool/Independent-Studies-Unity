@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilStart: 150
   projectile: {fileID: 1038374725269716, guid: 129faaaf145bbd045a6d521909d7af21, type: 2}
+  timeUntilDeath: 1000
 --- !u!198 &198901086797837190
 ParticleSystem:
   m_ObjectHideFlags: 1
