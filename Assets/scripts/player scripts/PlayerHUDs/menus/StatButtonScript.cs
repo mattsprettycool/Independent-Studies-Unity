@@ -52,26 +52,4 @@ public class StatButtonScript : MonoBehaviour {
 		}
 		Debug.Log ("Clicked Magic Bonus");
 	}
-	void OnMouseOver(){
-		if (gameObject.name == "HealthButton") {
-			Debug.Log ("Hovercraft");
-			GameObject.FindGameObjectWithTag ("HoverOverText").GetComponent<Text> ().text = "Health";
-		}
-		if (gameObject.name == "StaminaButton") {
-			Debug.Log ("Hovercraft");
-			GameObject.FindGameObjectWithTag ("HoverOverText").GetComponent<Text> ().text = "Stamina";
-		}
-		if (gameObject.name == "ManaCoolDownButton") {
-			Debug.Log ("Hovercraft");
-			GameObject.FindGameObjectWithTag ("HoverOverText").GetComponent<Text> ().text = "Mana Cooldown";
-		}
-		if (gameObject.name == "MagicAttackBonusButton") {
-			Debug.Log ("Hovercraft");
-			GameObject.FindGameObjectWithTag ("HoverOverText").GetComponent<Text> ().text = "Magic Attack Bonus";
-		}
-		if (gameObject.name == "MeleeAttackBonusButton") {
-			Debug.Log ("Hovercraft");
-			GameObject.FindGameObjectWithTag ("HoverOverText").GetComponent<Text> ().text = "Melee Attack Bonus";
-		}
-	}
 }
