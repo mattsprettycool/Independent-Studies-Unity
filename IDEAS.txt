@@ -1,14 +1,10 @@
 //Put down any ideas in this document
 Forcefield
-A summon spell
 Life steal spell
 Spell shield spell???
 Meteor summon spell
-magic turret spell
 flight spell
 Explosive fireball (grenade?)
-M A G I C  gun
-Turn big???
 Wish Spell
 
 Jump
