@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class SpreadShot : MonoBehaviour {
 	SpellManager spm;
+	PlayerMana pMana;
 	public GameObject projectile;
 	float size;
 	// Use this for initialization
 	void Start () {
 		spm = gameObject.GetComponent<SpellManager> ();
+		pMana = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMana> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Mouse0)) {
 			size += .05f;
+			pMana.currMana -= 1f;
+			spm.SetManaCooldown();
 		}
 		if (Input.GetKeyUp (KeyCode.Mouse0) && spm.HasManaNumber () && Time.timeScale == 1f) {
 			for (int i = 0; i < 12; i++){

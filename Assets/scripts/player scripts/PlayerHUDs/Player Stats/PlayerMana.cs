@@ -66,15 +66,15 @@ public class PlayerMana : MonoBehaviour {
 	public IEnumerator DecreaseMana(){
 		while (true) {
 			if (decreasing) {
-				currMana -= 1;
+				currMana -= .5f;
 				yield return new WaitForSeconds (.5f);
 			}
 			yield return null;
 		}
 	}
     //WHAT IS THIS JAI
-	public void InitiateDecrease(bool yesNo){
-		decreasing = true;
+	public void SetDecrease(bool trueFalse){
+		decreasing = trueFalse;
 	}
 	public void AddToCoolDownReduction (float amount){
 		cooldownReduction += amount;
