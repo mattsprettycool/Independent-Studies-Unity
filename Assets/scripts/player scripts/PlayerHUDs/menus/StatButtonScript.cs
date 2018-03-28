@@ -9,12 +9,15 @@ public class StatButtonScript : MonoBehaviour {
 	PlayerStamina pStamina;
 	PlayerSpawn pSpawn;
 	BonusesLibrary bLib;
+	Text meaningless;
+	Button buttn;
 	// Use this for initialization
 	void Start(){
 		pHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
 		pMana = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMana> ();
 		pStamina = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStamina> ();
 		pSpawn = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerSpawn> ();
+		meaningless = gameObject.GetComponentInChildren <Text> ();
 		bLib = GameObject.FindGameObjectWithTag("Player").GetComponent<BonusesLibrary>();
 	}
 	public void IncreaseHealth(){
