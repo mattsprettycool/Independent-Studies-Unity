@@ -71,7 +71,7 @@ MonoBehaviour:
   rotX: 0
   rotY: 0
   rotZ: 0
-  icon: {fileID: 21300000, guid: 0f285b784be854d42bbbdc5348bca570, type: 3}
+  icon: {fileID: 21300000, guid: c95c3a2158c3a4f22993dcabac00bd10, type: 3}
   IsInThirdPerson: 0
   UUID: dkjnasd12uiwdwj
   savedValues:
