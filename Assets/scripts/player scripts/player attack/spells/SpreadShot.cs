@@ -15,7 +15,7 @@ public class SpreadShot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Mouse0)) {
+		if (Input.GetKey (KeyCode.Mouse0) & pMana.currMana > 25) {
 			size += .05f;
 			pMana.currMana -= 1f;
 			spm.SetManaCooldown();
