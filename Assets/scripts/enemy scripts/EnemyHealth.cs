@@ -14,9 +14,12 @@ public class EnemyHealth : MonoBehaviour {
 	public bool bleeding;
 	public float bleedDmg;
     bool isGoingToDie = false;
-	// Use this for initialization
-	void Start () {
-		enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
+    ArtificialTimeManager realTime;
+    float timeDamage = 0;
+    // Use this for initialization
+    void Start () {
+        realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
+        enemySpawn = GameObject.FindGameObjectWithTag("enemymanager").GetComponent<EnemySpawn>();
         pSpawn = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawn>();
 		if (gameObject.name == "EnemyGiant" || gameObject.name == "EnemyGiant(Clone)") {
 			startHealth = 200;
@@ -36,12 +39,17 @@ public class EnemyHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (realTime.IsTimeOn())
+        {
+            currHealth -= timeDamage;
+            timeDamage = 0;
+        }
         if (currHealth <= 0)
         {
             isGoingToDie = true;
         }
 		if (bleeding) {
-			currHealth -= bleedDmg;
+			TakeDamage(bleedDmg);
 		}
         if (pSpawn.GetArenaState() == false)
         {
@@ -59,9 +67,16 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 	public void TakeDamage(float dmg){
-        if (currHealth - dmg <= 0)
-            isGoingToDie = true;
-        currHealth -= dmg;
+        if (realTime.IsTimeOn())
+        {
+            if (currHealth - dmg <= 0)
+                isGoingToDie = true;
+            currHealth -= dmg;
+        }
+        else
+        {
+            timeDamage += dmg;
+        }
 	}
     public float GetHealth()
     {
