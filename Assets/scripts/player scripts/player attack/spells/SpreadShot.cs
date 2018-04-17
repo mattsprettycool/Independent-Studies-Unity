@@ -15,19 +15,21 @@ public class SpreadShot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (pMana.currMana > 25 & Input.GetKey (KeyCode.Mouse0)) {
-			size += .05f;
-			pMana.currMana -= 1f;
-			spm.SetManaCooldown();
-		}
-		if ((Input.GetKeyUp (KeyCode.Mouse0) && spm.HasManaNumber () && Time.timeScale == 1f) || (pMana.currMana == 25 && pMana.currMana > 0 && Input.GetKey(KeyCode.Mouse0))) {
+		if (Input.GetKeyDown (KeyCode.Mouse0) && spm.HasManaNumber () && Time.timeScale == 1f && spm.IsOffCooldown()) {
 			for (int i = 0; i < 12; i++){
 				GameObject proj = Instantiate (projectile, gameObject.transform);
-				proj.GetComponent<Transform> ().transform.localScale = new Vector3 (.1f + (size/10), .1f + (size/10), .1f + (size/10));
+				proj.GetComponent<Transform> ().transform.localScale = new Vector3 (.1f, .1f, .1f);
 				proj.GetComponent<Transform> ().localPosition = new Vector3 (0, 0, 0);
 				proj.GetComponent<Transform> ().Rotate (Random.Range (-7.5f, 7.5f), Random.Range (-7.5f, 7.5f), 0);
 				proj.GetComponent<Transform> ().SetParent (null);
 			}spm.LoseMana (); spm.SetManaCooldown(); size = 0;
 		}
+		if (spm.IsOffCooldown())
+		{
+			gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(1, 1);
+		}
+		else
+			gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(1, 0);
+		gameObject.GetComponent<attackLibrary>().SetSavedValuesAtSpot(0, spm.GetCooldownRatio());
 	}
 }

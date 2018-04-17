@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultManaCooldown: 5
-  defaultSpellCooldown: 1
+  defaultSpellCooldown: 120
   defaultManaCost: 25
 --- !u!114 &114788088370150056
 MonoBehaviour:
@@ -85,7 +85,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  hasCooldownAtSpot: 0
+  hasCooldownAtSpot: 1
   cooldownSpot: 0
 --- !u!114 &114923112861792818
 MonoBehaviour:
