@@ -14,30 +14,24 @@ public class EnemySpawn : MonoBehaviour {
 	int spawnZoneIndex, enemyIndex;
 	string debug;
 	bool canSpawn;
+	ArtificialTimeManager realTime;
     [SerializeField]
     float timer;
 	// Use this for initialization
 	void Start () {
         timer = 0;
 		timeToSpawn = 20;
-		if (SceneManager.GetActiveScene().name == "Level1") 
-		{
-			enemyLimit = 10;
-		}
-		if (SceneManager.GetActiveScene().name == "Level2")
-		{
-			enemyLimit = 20;
-		}
 		//Debug.Log ("Enemy Limit is: "+enemyLimit);
 		canSpawn = true;
         SpawnEnemy();
+		realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
 		//Debug.Log (enemiesInArena);
     }
 
     void FixedUpdate()
     {
 		timer += Time.deltaTime;
-		timeToSpawn -= (.001f * enemiesKilled);
+		timeToSpawn -= (.0005f * enemiesKilled);
         numberToSpawn = enemiesKilled * .125f;
         if(numberToSpawn > 3)
         {
@@ -46,10 +40,10 @@ public class EnemySpawn : MonoBehaviour {
 		if (timeToSpawn < 7.5f) {
 			timeToSpawn = 7.5f;
 		}
-		if (timer > timeToSpawn && enemiesInArena < enemyLimit && canSpawn)
+		if (timer > timeToSpawn && canSpawn && realTime.IsTimeOn())
         {
             SpawnEnemy();
-			//Debug.Log ("Spawning Enemy!");
+			Debug.Log ("Spawning Enemy!");
             timer = 0;
         }
 		if (Input.GetKeyDown(KeyCode.P)){
