@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6971447d38a94234b908886f93e7d1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgPerHit: 15
+  dmgPerHit: 2
   travelTime: 10
   bleedDamage: 0
 --- !u!114 &114903391473714142
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
   directionToMove: {x: 0, y: 0, z: 1}
+  isHoming: 1
+  speedMult: 5
 --- !u!136 &136930600916616356
 CapsuleCollider:
   m_ObjectHideFlags: 1

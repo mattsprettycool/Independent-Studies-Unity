@@ -14,6 +14,10 @@ public class firebolt : MonoBehaviour {
     [SerializeField]
     Vector3 directionToMove;
     ArtificialTimeManager realTime;
+    [SerializeField]
+    bool isHoming = false;
+    [SerializeField]
+    float speedMult = 1;
     // Use this for initialization
     void Start () {
         realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
@@ -22,16 +26,16 @@ public class firebolt : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody>();
         if(directionToMove.x > 0)
         {
-            rb.AddRelativeForce(new Vector3(1000f, 0f, 0f));
+            rb.AddRelativeForce(new Vector3(1000f*speedMult, 0f, 0f));
         }else if (directionToMove.y > 0)
         {
-            rb.AddRelativeForce(new Vector3(0f, 1000f, 0f));
+            rb.AddRelativeForce(new Vector3(0f, 1000f*speedMult, 0f));
         }
         else if (directionToMove.z > 0)
         {
-            rb.AddRelativeForce(new Vector3(0f, 0f, 1000f));
+            rb.AddRelativeForce(new Vector3(0f, 0f, 1000f*speedMult));
         }
-
+        
 
     }
 	
@@ -55,6 +59,10 @@ public class firebolt : MonoBehaviour {
             if(rb.velocity!=Vector3.zero)
                 storedVel = rb.velocity;
             rb.velocity = Vector3.zero;
+        }
+        if (isHoming)
+        {
+            gameObject.transform.LookAt(GameObject.FindGameObjectWithTag("Enemies").gameObject.transform);
         }
     }
 

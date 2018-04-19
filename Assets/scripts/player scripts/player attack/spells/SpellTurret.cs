@@ -40,7 +40,7 @@ public class SpellTurret : MonoBehaviour {
             var proj = Instantiate(projectile);
             proj.transform.position = new Vector3(transform.position.x, transform.position.y+ 1.733f, transform.position.z);
             proj.transform.LookAt(foundEnemy.transform);
-            AddCooldown(25);
+            AddCooldown(5);
         }
     }
     void AddCooldown(float x)
