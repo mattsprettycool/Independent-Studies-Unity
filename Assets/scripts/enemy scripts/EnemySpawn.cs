@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 //by Jai Saka
 public class EnemySpawn : MonoBehaviour {
+	ArtificialTimeManager realTime;
 	public int enemiesInArena;
-	int enemyLimit;
     public float enemiesKilled;
 	public GameObject[] enemyList;
     public Transform[] spawnPoints;
@@ -19,15 +19,8 @@ public class EnemySpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         timer = 0;
-		timeToSpawn = 20;
-		if (SceneManager.GetActiveScene().name == "Level1") 
-		{
-			enemyLimit = 10;
-		}
-		if (SceneManager.GetActiveScene().name == "Level2")
-		{
-			enemyLimit = 20;
-		}
+		timeToSpawn = 15;
+		realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
 		//Debug.Log ("Enemy Limit is: "+enemyLimit);
 		canSpawn = true;
         SpawnEnemy();
@@ -37,7 +30,7 @@ public class EnemySpawn : MonoBehaviour {
     void FixedUpdate()
     {
 		timer += Time.deltaTime;
-		timeToSpawn -= (.001f * enemiesKilled);
+		timeToSpawn -= (.0005f * enemiesKilled);
         numberToSpawn = enemiesKilled * .125f;
         if(numberToSpawn > 3)
         {
@@ -46,17 +39,14 @@ public class EnemySpawn : MonoBehaviour {
 		if (timeToSpawn < 7.5f) {
 			timeToSpawn = 7.5f;
 		}
-		if (timer > timeToSpawn && enemiesInArena < enemyLimit && canSpawn)
+		if (timer > timeToSpawn && canSpawn && realTime.IsTimeOn())
         {
             SpawnEnemy();
-			//Debug.Log ("Spawning Enemy!");
+			Debug.Log ("Spawning Enemy!");
             timer = 0;
         }
 		if (Input.GetKeyDown(KeyCode.P)){
 			enemiesKilled++;
-		}
-		if (enemiesKilled == enemyLimit - 1) {
-			canSpawn = false;
 		}
     }
 
@@ -103,8 +93,5 @@ public class EnemySpawn : MonoBehaviour {
 	}
 	public int GetEnemiesInArena(){
 		return enemiesInArena;
-	}
-	public int GetEnemyLimit(){
-		return enemyLimit;
 	}
 }

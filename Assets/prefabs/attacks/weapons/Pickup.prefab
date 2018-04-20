@@ -65,7 +65,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237af7912c941f4439f2fbc0807466a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   prefabToCopy: {fileID: 1967480421387664, guid: 08d6c76d5ae051b459adb3144e1b3250,
+=======
+  prefabToCopy: {fileID: 1481864484210940, guid: fdd77480cc78ba34e85e5f0a6aa5fda4,
+>>>>>>> 314fcdfd04aab672b47263cb93d93cb84a0e934a
     type: 2}
 --- !u!212 &212912741419170054
 SpriteRenderer:
@@ -99,7 +103,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 6cb702f322a267a448ece223bd5e3aa1, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: d907a5104d641544aab9c794035696a9, type: 3}
+>>>>>>> 314fcdfd04aab672b47263cb93d93cb84a0e934a
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

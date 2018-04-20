@@ -22,7 +22,7 @@ public class EnemyMageAttack : MonoBehaviour {
 		dmgPerAttk = 5;
 		timeBetweenAttk = 2;
 		thrallTimer = 0;
-		timeToSpawnThrall = 30;
+		timeToSpawnThrall = 60;
 		inRange = false;
 		turnSpeed = 10;
 	}
@@ -41,7 +41,7 @@ public class EnemyMageAttack : MonoBehaviour {
                 Instantiate(enemyFirebolt, enFireBoltSpawn.position, enFireBoltSpawn.rotation);
                 timer = 0;
             }
-            if (thrallTimer >= timeToSpawnThrall && enSpawn.GetEnemiesInArena() < enSpawn.GetEnemyLimit())
+            if (thrallTimer >= timeToSpawnThrall)
             {
                 Instantiate(thrall, transform.position, transform.rotation);
                 thrallTimer = 0;
