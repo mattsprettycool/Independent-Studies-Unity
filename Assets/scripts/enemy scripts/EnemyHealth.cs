@@ -30,6 +30,9 @@ public class EnemyHealth : MonoBehaviour {
 		if (gameObject.name == "RealEnemyMage" || gameObject.name == "RealEnemyMage(Clone)") {
 			startHealth = 50;
 		}
+		if (gameObject.name == "EnemyHealer" || gameObject.name == "EnemyHealer(Clone)") {
+			startHealth = 50;
+		}
 		if (gameObject.name == "EnemyThrall" || gameObject.name == "EnemyThrall(Clone)") {
 			startHealth = 25;
 			enemySpawn.enemiesInArena++;

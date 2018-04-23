@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops: {fileID: 1788053675155434, guid: 6d959e5a43e7d53488d09641ab2a65ce, type: 2}
-  itemDrop: {fileID: 1171690214843334, guid: 56f9d1e541c5bc946ada97878f71d5b8, type: 2}
+  itemDrop: {fileID: 1937210168023398, guid: 46e1130e4521d47098c337fccdcc5a61, type: 2}
   probRatioForLoot: 0.01
 --- !u!114 &114825383737721226
 MonoBehaviour:
