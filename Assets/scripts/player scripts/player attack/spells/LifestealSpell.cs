@@ -29,7 +29,7 @@ public class LifestealSpell : MonoBehaviour {
         {
             spm.LoseMana();
             spm.SetManaCooldown();
-            GameObject enemy = GameObject.FindGameObjectWithTag("Enemies");
+            GameObject enemy = FindEnemyInRange(10);
             lr.SetPosition(1, new Vector3(enemy.transform.position.x - player.transform.position.x, enemy.transform.position.y - player.transform.position.y, enemy.transform.position.z - player.transform.position.z));
             if (isPercentBased)
             {
@@ -47,5 +47,9 @@ public class LifestealSpell : MonoBehaviour {
             }
         }else
             lr.SetPosition(1, new Vector3(0, 0, 0));
+    }
+    GameObject FindEnemyInRange(int range)
+    {
+        return GameObject.FindGameObjectWithTag("Enemies");
     }
 }
