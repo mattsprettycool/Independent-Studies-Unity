@@ -22,11 +22,13 @@ public class swordplus : MonoBehaviour {
 	}
     void AttackAllInRange()
     {
-        Ray rangeRay = new Ray(new Vector3(Camera.main.transform.position.x, 0, Camera.main.transform.position.z), new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z));
-        Debug.Log(rangeRay.GetPoint(range));
+        Ray rangeRay = new Ray(RemoveY(Camera.main.transform.position), RemoveY(Camera.main.transform.forward));
+        //Debug.DrawRay(RemoveY(Camera.main.transform.position), RemoveY(Camera.main.transform.forward), Color.blue, 10000000);
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         {
-            //make ray to enemy UVU
+            Ray enemyRay = new Ray(RemoveY(Camera.main.transform.position), RemoveY(GetRelativeVector(Camera.main.transform.position, obj.transform.position)));
+            //Debug.DrawRay(RemoveY(Camera.main.transform.position), RemoveY(GetRelativeVector(Camera.main.transform.position, obj.transform.position)), Color.red, 10000000);
+            //Next thing I need to do is get the ray to register if it is close - or maybe start with the angle stuff because it is easier
         }
         //foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         //{
@@ -45,5 +47,13 @@ public class swordplus : MonoBehaviour {
     float GetDistance(Vector3 x, Vector3 y)
     {
         return Mathf.Sqrt(Mathf.Pow(y.x - x.x, 2) + Mathf.Pow(y.z - x.z, 2));
+    }
+    Vector3 RemoveY(Vector3 myVector)
+    {
+        return new Vector3(myVector.x, 0, myVector.z);
+    }
+    Vector3 GetRelativeVector(Vector3 newOrigin, Vector3 otherPoint)
+    {
+        return new Vector3(otherPoint.x - newOrigin.x, otherPoint.y - newOrigin.y, otherPoint.z - newOrigin.z);
     }
 }
