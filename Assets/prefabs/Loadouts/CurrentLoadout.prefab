@@ -55,7 +55,7 @@ MonoBehaviour:
   hotbar:
   - {fileID: 1925948075323934, guid: 24d0588ce2195e749b9e92b9e92ed5a0, type: 2}
   - {fileID: 1481864484210940, guid: fdd77480cc78ba34e85e5f0a6aa5fda4, type: 2}
-  - {fileID: 1281442890535024, guid: 1da724d633e248649a8a9cada1d38a7c, type: 2}
+  - {fileID: 1523272048093446, guid: 5bff7b9f945b849099f29aa502685550, type: 2}
   - {fileID: 1584502260676704, guid: 66e512e4a276c2545af535b569493131, type: 2}
   - {fileID: 1429793064149806, guid: 3761428cb6bd94a4f8ad3dd9e0c137b1, type: 2}
   - {fileID: 1467581345197298, guid: 7a760be0bdc5548d6a8f96952f5a1039, type: 2}
