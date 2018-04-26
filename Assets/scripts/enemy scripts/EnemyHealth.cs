@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour {
     PlayerSpawn pSpawn;
 	public bool bleeding;
 	public float bleedDmg;
+	public GameObject threeDText;
     bool isGoingToDie = false;
     ArtificialTimeManager realTime;
     float timeDamage = 0;
@@ -75,6 +76,14 @@ public class EnemyHealth : MonoBehaviour {
             if (currHealth - dmg <= 0)
                 isGoingToDie = true;
             currHealth -= dmg;
+			threeDText.GetComponent<TextMesh> ().text = ""+dmg;
+			if (dmg > 0 && dmg <= 10) {
+				threeDText.GetComponent<TextMesh> ().color = Color.blue;
+			}
+			if (dmg > 10  && dmg <= 25) {
+				threeDText.GetComponent<TextMesh> ().color = Color.magenta;
+			}
+			GameObject.Instantiate (threeDText, gameObject.transform.position, gameObject.transform.rotation);
         }
         else
         {

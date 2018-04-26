@@ -377,6 +377,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   bleeding: 0
   bleedDmg: 0
+  threeDText: {fileID: 1537566687867324, guid: d93ab1beb86404e15968f630d6370ef3, type: 2}
 --- !u!114 &114490129785924864
 MonoBehaviour:
   m_ObjectHideFlags: 1
