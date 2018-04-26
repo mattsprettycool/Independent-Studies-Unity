@@ -10,13 +10,19 @@ public class EnemyAttack : MonoBehaviour {
 	GameObject player;
 	PlayerHealth playerHealth;
     ArtificialTimeManager realTime;
+    float range = 3;
+    bool startAttack = false;
+    bool isAttacking = false;
+    float defChargeTime = 5;
+    float chargeTime = 0;
+    bool inMyRange = false;
 	// Use this for initialization
 	void Start () {
         realTime = GameObject.FindGameObjectWithTag("Player").GetComponent<ArtificialTimeManager>();
         timer = 0;
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
-		dmgPerAttk = 1;
+		dmgPerAttk = 5;
 		timeBetweenAttk = .1f;
 		inRange = false;
 	}
@@ -24,11 +30,39 @@ public class EnemyAttack : MonoBehaviour {
     {
         if (realTime.IsTimeOn())
         {
-            timer += Time.deltaTime;
-            if (inRange && timer > timeBetweenAttk && !playerHealth.GetBlocking())
+            //timer += Time.deltaTime;
+            //if (inRange && timer > timeBetweenAttk && !playerHealth.GetBlocking())
+            //{
+                //timer = 0;
+                //playerHealth.TakeDamage(dmgPerAttk);
+            //}
+            RaycastHit hit;
+            if (Physics.Raycast(gameObject.transform.position, GetRelativeVector(gameObject.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position), out hit, range))
             {
-                timer = 0;
-                playerHealth.TakeDamage(dmgPerAttk);
+                if (hit.collider.tag.Equals("Player") && !startAttack && !isAttacking)
+                {
+                    startAttack = true;
+                    inMyRange = true;
+                }
+            }
+            else
+                inMyRange = false;
+            if (startAttack)
+            {
+                gameObject.GetComponent<EnemyMovement>().SetStopped(true);
+                chargeTime = defChargeTime;
+                isAttacking = true;
+                startAttack = false;
+            }
+            if (isAttacking && chargeTime > 0)
+            {
+                chargeTime -= .1f;
+            }else if (isAttacking)
+            {
+                if(inMyRange)
+                    playerHealth.TakeDamage(dmgPerAttk);
+                isAttacking = false;
+                gameObject.GetComponent<EnemyMovement>().SetStopped(false);
             }
         }
     }
@@ -43,5 +77,9 @@ public class EnemyAttack : MonoBehaviour {
         {
             inRange = false;
         }
+    }
+    Vector3 GetRelativeVector(Vector3 newOrigin, Vector3 otherPoint)
+    {
+        return new Vector3(otherPoint.x - newOrigin.x, otherPoint.y - newOrigin.y, otherPoint.z - newOrigin.z);
     }
 }

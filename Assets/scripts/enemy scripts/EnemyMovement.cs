@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour {
 	NavMeshAgent agent;
     string bugLog;
 	Quaternion quat;
+    bool isStoppedExternally = false;
     //DestroyGravWell dgw;
 	// Use this for initialization
 	void Start () {
@@ -28,8 +29,16 @@ public class EnemyMovement : MonoBehaviour {
         }
         else
         {
-            agent.isStopped = false;
-            agent.updatePosition = true;
+            if (!isStoppedExternally)
+            {
+                agent.isStopped = false;
+                agent.updatePosition = true;
+            }
+            else
+            {
+                agent.isStopped = true;
+                agent.updatePosition = false;
+            }
         }
         if (agent.updatePosition && realTime.IsTimeOn())
         {
@@ -44,24 +53,8 @@ public class EnemyMovement : MonoBehaviour {
         }
         //if (!agent.updatePosition) agent.isStopped = true;
     }
-   // private void OnCollisionEnter(Collision collision)
-    //{
-       // try
-     //   {
-      //      if (!agent.updatePosition && collision.collider.tag == "Floor")
-       //     {
-        //        agent.updatePosition = true;
-       //         agent.isStopped = false;
-        //    }else if (dgw.IsAboutToDestroy())
-       //     {
-         //       agent.updatePosition = true;
-        //        agent.isStopped = false;
-       //     }
-      //  }catch(Exception e)
-    //    {
-     //       agent.updatePosition = true;
-    //        agent.isStopped = false;
-      //      bugLog += e;
-     //   }
-   // }
+    public void SetStopped(bool b)
+    {
+        isStoppedExternally = b;
+    }
 }

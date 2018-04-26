@@ -6,7 +6,7 @@ public class swordplus : MonoBehaviour {
     Animator anim;
     PlayerStamina playerStamina;
     int maxAngle = 10;
-    float range = 5;
+    float range = 3;
     int damage = 10;
     private void Start()
     {
@@ -27,7 +27,7 @@ public class swordplus : MonoBehaviour {
     void AttackAllInRange()
     {
         Ray rangeRay = new Ray(RemoveY(Camera.main.transform.position), RemoveY(Camera.main.transform.forward));
-        Debug.DrawRay(RemoveY(Camera.main.transform.position), RemoveY(Camera.main.transform.forward), Color.blue, 10000000);
+        //Debug.DrawRay(RemoveY(Camera.main.transform.position), RemoveY(Camera.main.transform.forward), Color.blue, 10000000);
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Enemies"))
         {
             Ray enemyRay = new Ray(RemoveY(Camera.main.transform.position), RemoveY(GetRelativeVector(Camera.main.transform.position, obj.transform.position)));
