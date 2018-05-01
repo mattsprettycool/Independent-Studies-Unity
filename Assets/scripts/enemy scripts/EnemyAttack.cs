@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour {
     float range = 3;
     bool startAttack = false;
     bool isAttacking = false;
-    float defChargeTime = 5;
+    float defChargeTime = 2;
     float chargeTime = 0;
     bool inMyRange = false;
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour {
         timer = 0;
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
-		dmgPerAttk = 5;
+		dmgPerAttk = 2;
 		timeBetweenAttk = .1f;
 		inRange = false;
 	}

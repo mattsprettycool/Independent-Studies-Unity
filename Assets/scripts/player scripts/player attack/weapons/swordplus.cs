@@ -7,7 +7,7 @@ public class swordplus : MonoBehaviour {
     PlayerStamina playerStamina;
     int maxAngle = 10;
     float range = 3;
-    int damage = 10;
+    int damage = 25;
     private void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -20,7 +20,7 @@ public class swordplus : MonoBehaviour {
             {
                 playerStamina.currStamina -= 5;
                 AttackAllInRange();
-                anim.Play("SwordSwing1");
+                anim.Play("SwordSwing2");
             }
         }
 	}
