@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour {
             isGoingToDie = true;
         }
 		if (bleeding) {
-			TakeDamage(bleedDmg);
+			currHealth -= bleedDmg;
 		}
         if (pSpawn.GetArenaState() == false)
         {
@@ -83,7 +83,7 @@ public class EnemyHealth : MonoBehaviour {
 			if (dmg > 10  && dmg <= 25) {
 				threeDText.GetComponent<TextMesh> ().color = Color.magenta;
 			}
-			GameObject.Instantiate (threeDText, gameObject.transform.position, gameObject.transform.rotation);
+			GameObject.Instantiate (threeDText, gameObject.transform.position, new Quaternion(0,0,0,0));
         }
         else
         {
