@@ -51,8 +51,7 @@ public class SpreadShotBulletScript : MonoBehaviour {
 		{
 			try
 			{
-				Debug.Log("Dealing " + (gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit + gameObject.transform.localScale.x) + " damage.");
-				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit + gameObject.transform.localScale.x);
+				col.GetComponent<EnemyHealth>().TakeDamage(gameObject.GetComponent<ProjectileDamageLibrary>().dmgPerHit);
 			}
 			catch (Exception e)
 			{

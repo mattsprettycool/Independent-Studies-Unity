@@ -76,19 +76,19 @@ public class EnemyHealth : MonoBehaviour {
             if (currHealth - dmg <= 0)
                 isGoingToDie = true;
             currHealth -= dmg;
-			threeDText.GetComponent<TextMesh> ().text = ""+dmg;
-			if (dmg > 0 && dmg <= 10) {
-				threeDText.GetComponent<TextMesh> ().color = Color.blue;
-			}
-			if (dmg > 10  && dmg <= 25) {
-				threeDText.GetComponent<TextMesh> ().color = Color.magenta;
-			}
-			GameObject.Instantiate (threeDText, gameObject.transform.position, new Quaternion(0,0,0,0));
         }
         else
         {
             timeDamage += dmg;
         }
+		threeDText.GetComponent<TextMesh> ().text = ""+dmg;
+		if (dmg > 0 && dmg <= 10) {
+			threeDText.GetComponent<TextMesh> ().color = Color.cyan;
+		}
+		if (dmg > 10  && dmg <= 25) {
+			threeDText.GetComponent<TextMesh> ().color = Color.magenta;
+		}
+		GameObject.Instantiate (threeDText, gameObject.transform.position, new Quaternion(0,0,0,0));
 	}
     public float GetHealth()
     {
