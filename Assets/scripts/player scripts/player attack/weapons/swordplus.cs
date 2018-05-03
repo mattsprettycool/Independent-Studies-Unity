@@ -8,6 +8,8 @@ public class swordplus : MonoBehaviour {
     int maxAngle = 10;
     float range = 3;
     int damage = 25;
+    [SerializeField]
+    GameObject swordProj;
     private void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -21,6 +23,10 @@ public class swordplus : MonoBehaviour {
                 playerStamina.currStamina -= 5;
                 AttackAllInRange();
                 anim.Play("SwordSwing2");
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currHealth >= 100)
+                {
+                    Instantiate(swordProj, gameObject.transform.position, Camera.main.transform.rotation);
+                }
             }
         }
 	}

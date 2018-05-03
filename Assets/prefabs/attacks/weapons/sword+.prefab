@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d79d1ae4745dc43927c2c0cd996ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordProj: {fileID: 1633208155585202, guid: 04a361ced1421e148b7ecabebae40866, type: 2}
 --- !u!114 &114903441062664790
 MonoBehaviour:
   m_ObjectHideFlags: 1
