@@ -38,8 +38,9 @@ public class LootOnDeath : MonoBehaviour {
         if (Random.Range(1, probRatioForLoot*100) <= 1)
         {
             int randy = Random.Range(0, itemsInArray - 1);
-            itemDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);
-            Instantiate(itemDrop, transform.position, transform.rotation);
+            //itemDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);
+            var myDrop = Instantiate(itemDrop, transform.position, transform.rotation);
+            myDrop.GetComponent<spellPickup>().SetPrefab(attacks[randy].gameObject);
         }
     }
 }

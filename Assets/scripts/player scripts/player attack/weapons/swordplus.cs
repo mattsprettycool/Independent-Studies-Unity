@@ -18,14 +18,20 @@ public class swordplus : MonoBehaviour {
     void Update () {
         if (Input.GetMouseButton(0))
         {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("swingsword")&&playerStamina.currStamina>0)
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("SwordSwing2")&&playerStamina.currStamina>0)
             {
                 playerStamina.currStamina -= 5;
                 AttackAllInRange();
                 anim.Play("SwordSwing2");
                 if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currHealth >= 100)
-                {
-                    Instantiate(swordProj, gameObject.transform.position, Camera.main.transform.rotation);
+                {//make the projectile spawn at the right angle each time
+                    var attackInst = Instantiate(swordProj);
+                    attackInst.transform.parent = gameObject.transform;
+                    attackInst.transform.localPosition = new Vector3(0f, 0f, 0f);
+                    attackInst.transform.rotation = gameObject.transform.rotation;
+                    attackInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                    attackInst.transform.localPosition = new Vector3(0f, 0f, .75f);
+                    attackInst.transform.SetParent(null);
                 }
             }
         }

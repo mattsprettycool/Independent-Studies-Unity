@@ -24,34 +24,40 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (!realTime.IsTimeOn())
+        try
         {
-            //stopLoc = gameObject.transform.position;
-            agent.isStopped = true;
-            agent.updatePosition = false;
-            //justRestarted = true;
-            agent.enabled = false;
-        }
-        else
-        {
-            if (!isStoppedExternally)
+            if (!realTime.IsTimeOn())
             {
-                agent.enabled = true;
                 //stopLoc = gameObject.transform.position;
-                agent.isStopped = false;
-                agent.updatePosition = true;
+                agent.isStopped = true;
+                agent.updatePosition = false;
                 //justRestarted = true;
+                agent.enabled = false;
             }
             else
             {
-                //if (justRestarted)
-                //{
-                //  gameObject.transform.position = stopLoc;
-                //}
-                agent.isStopped = true;
-                agent.updatePosition = false;
-                agent.enabled = false;
+                if (!isStoppedExternally)
+                {
+                    agent.enabled = true;
+                    //stopLoc = gameObject.transform.position;
+                    agent.isStopped = false;
+                    agent.updatePosition = true;
+                    //justRestarted = true;
+                }
+                else
+                {
+                    //if (justRestarted)
+                    //{
+                    //  gameObject.transform.position = stopLoc;
+                    //}
+                    agent.isStopped = true;
+                    agent.updatePosition = false;
+                    agent.enabled = false;
+                }
             }
+        }catch(Exception e)
+        {
+            bugLog += e;
         }
         if (agent.updatePosition && realTime.IsTimeOn())
         {
