@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114089949616739180}
   m_Layer: 0
   m_Name: PortalGun
-  m_TagString: Untagged
+  m_TagString: attacks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,9 +71,9 @@ MonoBehaviour:
   rotX: 0
   rotY: 0
   rotZ: 0
-  icon: {fileID: 0}
-  IsInThirdPerson: 0
-  UUID: 
+  icon: {fileID: 21300000, guid: f1e9e366e1a684ad98e30e9a3dbe192a, type: 3}
+  IsInThirdPerson: 1
+  UUID: 127i3ysadjk
   savedValues:
   - 0
   - 0
