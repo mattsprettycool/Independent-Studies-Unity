@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 135457255370695630}
   - component: {fileID: 54694436402048436}
   - component: {fileID: 114741028814643376}
+  - component: {fileID: 114813704653345820}
   m_Layer: 0
   m_Name: SwordProjectile
   m_TagString: projectiles
@@ -103,10 +104,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
   delayedStart: 1
-  delayBy: 3
+  delayBy: 0.5
   directionToMove: {x: 1, y: 0, z: 0}
   isHoming: 0
   speedMult: 2
+--- !u!114 &114813704653345820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1633208155585202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6971447d38a94234b908886f93e7d1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgPerHit: 15
+  travelTime: 0
+  bleedDamage: 0
 --- !u!135 &135457255370695630
 SphereCollider:
   m_ObjectHideFlags: 1

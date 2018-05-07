@@ -25,10 +25,11 @@ public class swordplus : MonoBehaviour {
                 anim.Play("SwordSwing2");
                 if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currHealth >= 100)
                 {//make the projectile spawn at the right angle each time
+                    GameObject ibarHolder = GameObject.FindGameObjectWithTag("ItemBarHolder");
                     var attackInst = Instantiate(swordProj);
-                    attackInst.transform.parent = gameObject.transform;
-                    attackInst.transform.localPosition = new Vector3(0f, 0f, 0f);
-                    attackInst.transform.rotation = gameObject.transform.rotation;
+                    attackInst.transform.parent = ibarHolder.transform;
+                    attackInst.transform.localPosition = gameObject.transform.localPosition;
+                    attackInst.transform.rotation = ibarHolder.transform.rotation;
                     attackInst.transform.localRotation = Quaternion.Euler(0, -90, 0);
                     attackInst.transform.localPosition = new Vector3(0f, 0f, .75f);
                     attackInst.transform.SetParent(null);
